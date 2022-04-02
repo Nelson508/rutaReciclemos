@@ -1,0 +1,41 @@
+.tarjeta1{
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    width: 15rem;
+    box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+}
+.tarjeta2{
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    width: 15rem;
+    box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta3{
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    width: 15rem;
+}
+
+.contenedor{
+    max-width: 1330px;
+
+}
+
+.titulo{
+    font-size: 3.25rem;
+    margin-bottom: 2rem;
+    color: #8cc63f
+}
+
+.texto{
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+  }
