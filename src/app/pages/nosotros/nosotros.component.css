@@ -1,27 +1,37 @@
+.tarjeta{
+   padding-top: 5rem;
+   padding-bottom: 3rem;
+}
+
 .tarjeta1{
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 1rem;
     border-radius: 10px;
-    width: 15rem;
+    width: 13rem;
     box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
 }
+
 .tarjeta2{
     margin-right: auto;
     margin-left: auto;
+    margin-bottom:  1rem;
     border-radius: 10px;
-    width: 15rem;
+    width: 13rem;
     box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.1);
 }
 
 .tarjeta3{
     margin-right: auto;
     margin-left: auto;
+    margin-bottom:  1rem;
     border-radius: 10px;
-    width: 15rem;
+    width: 13rem;
 }
 
 .contenedor{
     max-width: 1330px;
+   /*  margin-left: .5rem; */
 
 }
 
@@ -31,11 +41,40 @@
     color: #8cc63f
 }
 
-.texto{
+.texto1{
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: white;
+}
+
+.texto2{
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
 }
 
-a {
+a{
     text-decoration: none;
-  }
+}
+
+.boton1{
+    font-weight: 800;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
+.boton2{
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.boton3{
+    font-size: 0.9rem;
+}
+
+.cabecera {
+	padding-top: 8rem;
+	padding-bottom: 18.1em;
+	background: url("../../../assets/images/Imagen2.jpg") center center no-repeat;
+	background-size: cover;
+	text-align: center;
+}
