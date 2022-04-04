@@ -1,0 +1,30 @@
+.BotellasPET{
+    padding-top: 6em;
+    margin-bottom: 2em;
+    /* background-color: #580491 ; */
+    background-color: rgba(84, 3, 150, 0.096); 
+}
+
+
+
+.EnvasesPEAD{
+  padding-top: 3em;
+  margin-bottom: 2em;  
+}
+
+.EnvasesPEBD{
+  padding-top: 5em;
+  background-color: rgba(84, 3, 150, 0.096);   
+}
+
+.CartonyPapel{
+  padding-top: 5em;  
+}
+
+
+.LatasyMetales{
+    background-color: rgba(84, 3, 150, 0.096);
+  padding-top: 5em;
+  padding-bottom: 2em;  
+  
+}
