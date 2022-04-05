@@ -28,3 +28,61 @@
   padding-bottom: 2em;  
   
 }
+
+
+
+.footer{
+  background-color: black;
+  padding-bottom: 5%;
+  color: white;
+}
+
+.plain{
+  list-style-type: none;
+  padding-left: 0;
+  color: white;
+  
+  
+}
+
+.ul{
+  list-style: disc;
+  padding-left: 2em;
+}
+
+
+.hacheRef{
+  text-decoration: none; 
+  color: white;
+  padding-top: 5%;
+  padding-bottom: 1 rem;
+}
+
+
+
+/*LATAS Y METALES TRANSICIION*/
+.textieFront{
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+  
+}
+
+.textieFront:hover{
+  transform: rotateY(180deg);
+
+}
+
+.cara {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.cara.detras {
+  transform: rotateY(180deg);
+}
+
+/*LATAS Y METALES TRANSICIION*/
+
+.eyes:hover{
+  color: rgb(100, 64, 228);
+}
