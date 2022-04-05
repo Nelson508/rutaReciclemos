@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./informacion.component.css']
 })
 export class InformacionComponent implements OnInit {
-
+  
+  eyes = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeEyes()
+  {
+    var aux = this.eyes;
+    this.eyes = !aux;
   }
 
 }
