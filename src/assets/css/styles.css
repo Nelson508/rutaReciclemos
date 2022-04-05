@@ -309,31 +309,31 @@ a:hover {
 /**********************/
 /*     Navigation     */
 /**********************/
-.navbar {
+/* .navbar {
 	background-color: #fcfafb;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
 	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
-}
+} */
 
-.navbar .navbar-brand {
+/* .navbar .navbar-brand {
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
-}
+} */
 
-.navbar .logo-image img {
+/* .navbar .logo-image img {
     width: 126px;
 	height: 32px;
-}
+} */
 
-.navbar .logo-text {
+/* .navbar .logo-text {
 	color: #223150;
 	font-weight: 700;
 	font-size: 1.875rem;
 	line-height: 1rem;
 	text-decoration: none;
-}
+} */
 
 .offcanvas-collapse {
 	position: fixed;
@@ -341,11 +341,12 @@ a:hover {
 	bottom: 0;
 	left: 100%;
 	width: 100%;
+    margin-left: 40%;
 	padding-right: 1rem;
 	padding-left: 1rem;
 	overflow-y: auto;
 	visibility: hidden;
-	background-color: #fcfafb;
+	background-color: #5c10c093;
 	transition: visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
 	transition: transform .3s ease-in-out, visibility .3s ease-in-out;
 	transition: transform .3s ease-in-out, visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
@@ -357,10 +358,10 @@ a:hover {
 	transform: translateX(-100%);
 }
 
-.navbar .navbar-nav {
+/* .navbar .navbar-nav {
 	margin-top: 0.75rem;
 	margin-bottom: 0.5rem;
-}
+} */
 
 .navbar .nav-item .nav-link {
 	padding-top: 0.625rem;
@@ -373,7 +374,7 @@ a:hover {
 .navbar .nav-item.dropdown.show .nav-link,
 .navbar .nav-item .nav-link:hover,
 .navbar .nav-item .nav-link.active {
-	color: #0092ff;
+	color: #05bd67;
 }
 
 /* Dropdown Menu */
@@ -394,6 +395,7 @@ a:hover {
 .navbar .dropdown-menu {
 	margin-top: 0.25rem;
 	margin-bottom: 0.25rem;
+	
 	border: none;
 	background-color: #fcfafb;
 }
@@ -410,7 +412,7 @@ a:hover {
 
 .navbar .dropdown-item:hover {
 	background-color: #fcfafb;
-	color: #0092ff;
+	color: #05bd67;
 }
 
 .navbar .dropdown-divider {
@@ -423,7 +425,7 @@ a:hover {
 /* end of dropdown menu */
 
 .navbar .navbar-toggler {
-	padding: 0;
+	padding: 2rem;
 	border: none;
 	font-size: 1.25rem;
 }
