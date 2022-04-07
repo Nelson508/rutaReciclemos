@@ -2,7 +2,14 @@
     padding-top: 6em;
     margin-bottom: 2em;
     /* background-color: #580491 ; */
-    background-color: rgba(84, 3, 150, 0.096); 
+    background-color: rgba(84, 3, 150, 0.096);
+    /* background-size: cover; */
+    /* width: 93vw;
+    height: 100vh;  */
+}
+
+.vody{
+  background-color: rgba(84, 3, 150, 0.096);
 }
 
 
@@ -31,10 +38,12 @@
 
 /* INICIO FOOOOTER*/
 
-.footer{
+.footere{
   background-color: black;
   padding-bottom: 5%;
   color: white;
+  
+  
 }
 
 .plain{
@@ -46,8 +55,8 @@
 }
 
 .ul{
-  list-style: disc;
-  padding-left: 2em;
+  list-style: disc; 
+   padding-left: 2em;
 }
 
 
@@ -86,3 +95,4 @@
 .eyes:hover{
   color: rgb(100, 64, 228);
 }
+
