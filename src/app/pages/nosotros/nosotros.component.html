@@ -69,7 +69,7 @@
     </div> 
   </header> 
 
-  <div class="container tarjeta">
+  <div class="container tarjetas">
 
     <div class="row">
         <div class="text-center col-lg-12">
@@ -80,70 +80,47 @@
     <div class="row g-0">
 
             <!-- Botellas PET -->
-            <div class="card tarjeta1">
-                <div class="cara hide">
-                    <img src="assets/images/img/PET.jpg" class="card-img-top imagen">
-                    <div class="card-body text-center">
-                      <h6 class="card-title material">Botellas PET</h6>
-                      <a href="/informacion#BotellasPET" class="btn btn-primary boton1">Más información</a>
-                    </div>
-                </div>
-
-                <div class="cara detras hide2 text-center">
-                    <h6 class="card-title material textoAtras" style="color: white;">En Ruta Reciclemos trabajamos con los siguiente residuos</h6>
-                    <img src="assets/images/img/PET.jpg" class="card-img-top fondo">
-                    <div class="card-body text-center">
-                        <h6 class="card-title material" style="color: white;">Botellas PET</h6>
-                        <a href="#" class="btn btn-primary boton1">Más información</a>
-                    </div>
+            <div class="card tarjetaResiduo fondoPET">
+                <img src="assets/images/img/PET.jpg" class="card-img-top imagen">
+                <div class="card-body text-center carta">
+                    <h6 class="card-title" style="color: white;">Botellas PET</h6>
+                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
             <!-- Envases PEAD -->
-            <div class="card tarjeta2">
-
-                <div class="cara hide">
-                    <img src="assets/images/img/PEAD.jpg" class="card-img-top imagen">
-                    <div class="card-body text-center">
-                        <h6 class="card-title material">Envases PEAD</h6>
-                        <a href="/informacion#EnvasesPEAD" class="btn btn-primary boton2">Más información</a>
-                    </div>
-                </div>
-
-                <div class="cara detras hide2 text-center">
-                    <h6 class="card-title material textoAtras">En Ruta Reciclemos trabajamos con los siguiente residuos</h6>
-                    <img src="assets/images/img/PEAD.jpg" class="card-img-top fondo">
-                    <div class="card-body text-center">
-                        <h6 class="card-title material">Botellas PEAD</h6>
-                        <a href="/informacion#EnvasesPEAD" class="btn btn-primary boton2">Más información</a>
-                    </div>
+            <div class="card tarjetaResiduo fondoPEAD">
+                <img src="assets/images/img/PEAD.jpg" class="card-img-top imagen">
+                <div class="card-body text-center carta">
+                    <h6 class="card-title" style="color: white;">Envases PEAD</h6>
+                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
             <!-- Envases PEBD -->
-            <div class="card tarjeta3">
-                <img src="assets/images/PEBD.svg" class="card-img-top icono">
-                <div class="card-body text-center">
-                  <h6 class="card-title material">Envases PEBD</h6>
-                  <a href="/informacion#EnvasesPEBD" class="btn btn-primary boton3">Más información</a>
+            <div class="card tarjetaResiduo fondoPEBD">
+                <img src="assets/images/PEBD.svg" class="card-img-top imagen">
+                <div class="card-body text-center carta">
+                  <h6 class="card-title"  style="color: white;">Envases PEBD</h6>
+                  <a href="/informacion#EnvasesPEBD" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
             <!--Cartón y papel -->
-            <div class="card tarjeta4">
+            <div class="card tarjetaResiduo fondoCarton">
                 <img src="assets/images/img/carton.jpg" class="card-img-top imagen">
-                <div class="card-body text-center">
-                  <h6 class="card-title material">Cartón y papel </h6>
-                  <a href="/informacion#CartonyPapel" class="btn btn-primary boton4">Más información</a>
+                <div class="card-body text-center carta">
+                  <h6 class="card-title" style="color: white;">Cartón y papel</h6>
+                  <a href="/informacion#CartonyPapel" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
             <!-- Latas de aluminio -->
-            <div class="card tarjeta5">
-                <img src="assets/images/img/latas.jpg" class="card-img-top imagen5">
-                <div class="card-body text-center carta5">
-                    <h6 class="card-title material5" style="color: white;">Latas de aluminio</h6>
-                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton5">Más información</a>
+            <div class="card tarjetaResiduo fondoLatas">
+                <img src="assets/images/img/latas.jpg" class="card-img-top imagen">
+                <div class="card-body text-center carta">
+                    <h6 class="card-title" style="color: white;">Latas de aluminio</h6>
+                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
     </div>
@@ -205,150 +182,12 @@
 
   </div>
   
-  <!-- <div id="services" class="cards-1 bg-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Explore our services</h2>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                
-              
-                <div class="card">
-                    <div class="card-icon">
-                        <span class="fas fa-headphones-alt"></span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Analyse your product</h5>
-                        <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc elementum</p>
-                        <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <div class="card-icon red">
-                        <span class="far fa-clipboard"></span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Evaluate opportunities</h5>
-                        <p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc placerat justo sem</p>
-                        <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-                    </div>
-                </div>
-              
-                <div class="card">
-                    <div class="card-icon green">
-                        <span class="far fa-comments"></span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Find the influencers</h5>
-                        <p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque sodales verum</p>
-                        <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-                    </div>
-                </div>
-                
-  
-            </div>
-        </div>
-    </div>
-  </div> 
-  
-  <div class="cards-2 bg-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="h2-heading">Customer testimonials</h2>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-  
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Roe Smith</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor red-to-blue"></div>
-                </div>
-              
-  
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Sam Bloom</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor blue-to-purple"></div>
-                </div>
-              
-  
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Bill McKenzie</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor purple-to-green"></div>
-                </div>
-              
-                
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Vanya Dropper</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor red-to-blue"></div>
-                </div>
-              
-  
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Lefty Brown</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor blue-to-purple"></div>
-                </div>
-              
-  
-                
-                <div class="card">
-                    <img class="quotes" src="assets/images/quotes.svg" alt="alternative" />
-                    <div class="card-body">
-                        <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
-                        <div class="testimonial-author">Susane Blake</div>
-                        <div class="occupation">General Manager, Presentop</div>
-                    </div>
-                    <div class="gradient-floor purple-to-green"></div>
-                </div>
-              
-  
-            </div> 
-        </div>
-    </div> 
-  </div>  -->
-  
-  
   <button id="myBtn">
     <img src="assets/images/up-arrow.png" alt="alternative" />
   </button>
 
   <!-- Footer-->
-  <footer class="footer" >
+  <footer class="footere" >
 
 
     <!-- <div class="container px-5">
