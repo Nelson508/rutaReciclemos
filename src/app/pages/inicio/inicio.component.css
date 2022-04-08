@@ -1,3 +1,50 @@
+.bloque{
+  /* margin-right: auto;
+  margin-left: auto; */
+  display: flex;
+  align-items: center;
+}
+
+
+.tarjeta{
+  width: 20rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.titulo{
+  font-size: 3.25rem;
+  margin-bottom: 2rem;
+  color: #8cc63f
+}
+
+.texto1{
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  color: #8cc63f;
+}
+
+/* .fondo{
+  padding-top: 8rem;
+  padding-bottom: 24em;
+  background: url("../../../assets/images/Fondo3.jpg") center center repeat;
+  background-size: 200px 100px;
+  text-align: center;
+  opacity: 0.5;
+} */
+
+.fondoTemporal{
+  padding-top: 8rem;
+  padding-bottom: 24em;
+  background: url("../../../assets/images/header-background.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+
+
 /* INICIO FOOOOTER*/
 
 .footere{
