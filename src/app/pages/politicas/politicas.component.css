@@ -1,0 +1,42 @@
+
+/* INICIO FOOOOTER*/
+
+.footere{
+    background-color: black;
+    padding-bottom: 5%;
+    color: white;
+    
+    
+  }
+  
+  .plain{
+    list-style-type: none;
+    padding-left: 0;
+    color: white;
+    
+    
+  }
+  
+  .ul{
+    list-style: disc; 
+     padding-left: 2em;
+  }
+  
+  
+  .hacheRef{
+    text-decoration: none; 
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 1 rem;
+  }
+  
+  /* FIN FOOOOTER*/
+
+
+  .tarjeta{
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    width: 70%;
+ }
+ 
+  
