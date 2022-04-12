@@ -245,3 +245,97 @@ a{
 	color: #0092ff;
 	text-decoration: none;
 } */
+
+/*INICIO CSS PARA SECCION LEY REP*/
+.LeyRep{
+    margin-top: 2rem;
+
+  }
+
+  .muchoTexto{
+      text-align: justify;
+      padding-top: 1em;
+      padding-left: 6%;
+      padding-right: 6%;
+  }
+
+  .muchoTexto2{
+    text-align: justify;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-bottom: 3%;
+}
+
+.itemsREP{
+    text-align: center;
+    color: #000;
+    padding-top: 1em;
+}
+
+.comoFunciona {
+	padding-top: 2rem;
+	padding-bottom: 10%;
+	/* background: url("../../../assets/images/REP/esquema.jpg") center center no-repeat;
+	background-size: cover; */
+	text-align: center;
+    /* width: auto;
+    height: auto;
+    object-fit: cover; */
+    width: 100%;
+    height: 100% ;
+    margin-bottom: 10%;
+}
+
+.tituloREP{
+    /* font-size: 3.25rem; */
+    
+    color: #8cc63f
+}
+
+.comoFuncionaImg{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* padding-bottom: 10%; */
+
+}
+
+
+
+
+  /*FIN CSS PARA SECCION LEY REP*/
+
+
+
+  /*  INICIO CSS PARA SECCION ECONOMIA CIRCULAR*/
+.EconomiaCircular{
+    /* padding-top: 2rem;
+	padding-bottom: 1em;
+    /* width: 100%;
+    height: 100% ;    */
+    background-color: #0ba7731c;
+    padding-bottom: 3em;
+}
+
+.tituloCircular{
+    padding-top: 3rem;
+    font-size: 3.25rem;
+    margin-bottom: 1rem;
+    color: #8cc63f;
+    text-align: center;
+}
+
+.muchoTextoCircular{
+    text-align: justify;
+    /* padding-top: 1em; */
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.escasez{
+    font-style: oblique;
+    color: #000;
+}
+
+
+ /*   FIN CSS PARA SECCION ECONOMIA CIRCULAR*/

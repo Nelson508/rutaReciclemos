@@ -69,28 +69,7 @@
 
 /* FIN FOOOOTER*/
 
-/*LATAS Y METALES TRANSICIION*/
-.textieFront{
-  transform-style: preserve-3d;
-  transition: all 0.5s linear;
-  
-}
 
-.textieFront:hover{
-  transform: rotateY(180deg);
-
-}
-
-.cara {
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.cara.detras {
-  transform: rotateY(180deg);
-}
-
-/*LATAS Y METALES TRANSICIION*/
 
 .eyes:hover{
   color: rgb(100, 64, 228);
