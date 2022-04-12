@@ -8,7 +8,8 @@
 /**********************/
 
 .fondoPET{
-    background: url("../../../assets/images/img/PET.jpg") center center no-repeat;
+   /*  background: url("../../../assets/images/img/PET.jpg") center center no-repeat; */
+   background: linear-gradient( rgb(230, 208, 11), rgba(230, 208, 11) ) center center no-repeat;
 }
 
 .fondoPET:hover{
@@ -142,6 +143,7 @@
 .texto2{
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
+    text-align: justify;
 }
 
 a{

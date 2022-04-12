@@ -6,12 +6,54 @@
 }
 
 
-.tarjeta{
+.tarjetaPET{
   width: 20rem; 
   margin-top: 2rem;
   margin-bottom: 2rem;
+  border-radius: 60px;
   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
 }
+
+.tarjetaPEAD{
+  width: 20rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.centrado{
+  /* margin-right: auto;
+  margin-left: auto; */
+  display: flex;
+  align-items: center;
+}
+
+
+.tarjetaPEBD{
+  width: 20rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 60px 10px 10px 60px;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.tarjetaCarton{
+  width: 20rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px 60px 60px 10px;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.tarjetaLatas{
+  width: 20rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 60px;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+}
+
 
 .titulo{
   font-size: 3.25rem;
@@ -24,6 +66,10 @@
   margin-bottom: 1.25rem;
   text-align: justify;
   color: #8cc63f;
+}
+
+.imagenCarton{
+  border-radius: 10px 0px 0px 10px;
 }
 
 /* .fondo{
@@ -41,6 +87,24 @@
   background: url("../../../assets/images/header-background.jpg") center center no-repeat;
   background-size: cover;
   text-align: center;
+}
+
+.card-body {
+	padding: 0rem;
+}
+
+h1{
+  margin: 0rem;
+  padding: 0rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+p{
+  display: flex;
+  align-items: center;
+  margin: 0rem;
+  padding: 0rem;
 }
 
 
