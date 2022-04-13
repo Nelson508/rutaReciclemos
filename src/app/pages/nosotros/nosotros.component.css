@@ -211,6 +211,17 @@ a{
     padding-right: 1rem;
 }
 
+.cabecera2 {
+	/* padding-top: 8rem;
+	padding-bottom: 15.1em; */
+    /* width: 100%;
+    height: 100%; */
+    padding-top: 1rem;
+	background: url("../../../assets/images/fondoPlanta1.jpg") center center no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
 /* INICIO FOOOOTER*/
 
 .footere{
@@ -275,8 +286,9 @@ a{
 	text-decoration: none;
 } */
 
-/*INICIO CSS PARA SECCION LEY REP*/
-.LeyRep{
+ 
+  /*INICIO CSS PARA SECCION LEY REP*/
+  .LeyRep{
     margin-top: 2rem;
 
   }
@@ -302,11 +314,11 @@ a{
 }
 
 .comoFunciona {
-	padding-top: 2rem;
-	padding-bottom: 10%;
-	/* background: url("../../../assets/images/REP/esquema.jpg") center center no-repeat;
-	background-size: cover; */
-	text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 10%;
+    /* background: url("../../../assets/images/REP/esquema.jpg") center center no-repeat;
+    background-size: cover; */
+    text-align: center;
     /* width: auto;
     height: auto;
     object-fit: cover; */
@@ -318,7 +330,7 @@ a{
 .tituloREP{
     /* font-size: 3.25rem; */
     
-    color: #8cc63f
+    color: #223150;
 }
 
 .comoFuncionaImg{
@@ -330,17 +342,6 @@ a{
 }
 
 
-.cabecera2 {
-	/* padding-top: 8rem;
-	padding-bottom: 15.1em; */
-    /* width: 100%;
-    height: 100%; */
-    padding-top: 1rem;
-	background: url("../../../assets/images/fondoPlanta1.jpg") center center no-repeat;
-	background-size: cover;
-	text-align: center;
-}
-
 
 
   /*FIN CSS PARA SECCION LEY REP*/
@@ -350,7 +351,7 @@ a{
   /*  INICIO CSS PARA SECCION ECONOMIA CIRCULAR*/
 .EconomiaCircular{
     /* padding-top: 2rem;
-	padding-bottom: 1em;
+    padding-bottom: 1em;
     /* width: 100%;
     height: 100% ;    */
     background-color: #0ba7731c;
@@ -361,7 +362,7 @@ a{
     padding-top: 3rem;
     font-size: 3.25rem;
     margin-bottom: 1rem;
-    color: #8cc63f;
+    color: #223150;
     text-align: center;
 }
 
