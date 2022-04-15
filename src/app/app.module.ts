@@ -7,6 +7,9 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { InformacionComponent } from './pages/informacion/informacion.component';
 import { PoliticasComponent } from './pages/politicas/politicas.component';
+import { ModalComponent } from './pages/modal/modal.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -14,13 +17,19 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
     NosotrosComponent,
     InicioComponent,
     InformacionComponent,
-    PoliticasComponent
+    PoliticasComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
+
+    
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -123,3 +123,20 @@ p{
   }
   
   /* FIN FOOOOTER*/
+
+
+  /*INICIO CSS PARA TRAZABILIDAD*/
+  .Trazabilidad{
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  .trazabilidadBG{
+    background-color: #0ba7731c;
+    box-shadow: 0 0 2em rgba(30, 30, 31, 0.932);
+    border-radius: 2%;
+  }
+  
+  
+  
+    /*FIN CSS PARA TRAZABILIDAD*/
