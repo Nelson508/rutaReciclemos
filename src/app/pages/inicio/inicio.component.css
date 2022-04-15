@@ -23,6 +23,14 @@
   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
 }
 
+
+.textTarjeta{
+  display: flex;
+  align-items: center;
+  margin: 0rem;
+  padding: 0rem;
+}
+
 .centrado{
   /* margin-right: auto;
   margin-left: auto; */
@@ -39,17 +47,15 @@
   margin-bottom: 2rem;
   color: #8cc63f */
 }
-
+/* 
 .texto1{
   font-size: 2.25rem;
   margin-bottom: 1.25rem;
-  text-align: justify;
-  color: #8cc63f;
 }
-
+ */
 .cabecera {
 	padding-top: 8rem;
-	padding-bottom: 4em;
+	padding-bottom: 2em;
 	background-color: #0ba7731c;
 	background-size: cover;
 	text-align: center;
@@ -67,6 +73,22 @@
 	padding: 0rem;
 }
 
+.boton{
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+}
+
+.contenedor{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
 /* .numeros {
 	margin: 0rem;
   padding: 0rem;
@@ -83,13 +105,13 @@ h1{
 } */
 
 
-p{
+/* p{
   display: flex;
   align-items: center;
   margin: 0rem;
   padding: 0rem;
 }
-
+ */
 
 /* INICIO FOOOOTER*/
 
