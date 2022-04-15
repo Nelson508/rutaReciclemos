@@ -1,6 +1,6 @@
 .BotellasPET{
     padding-top: 4em;
-    margin-bottom: 2em;
+    padding-bottom: 2em;
     /* background-color: #580491 ; */
     background-color: rgba(84, 3, 150, 0.096);
     /* background-size: cover; */
@@ -21,16 +21,18 @@
 
 .EnvasesPEBD{
   padding-top: 5em;
-  background-color: rgba(84, 3, 150, 0.096);   
+  background-color: rgba(84, 3, 150, 0.096); 
+  padding-bottom: 2em;  
 }
 
 .CartonyPapel{
-  padding-top: 5em;  
+  padding-top: 5em;
+  padding-bottom: 2em;  
 }
 
 
 .LatasyMetales{
-    background-color: rgba(84, 3, 150, 0.096);
+  background-color: rgba(84, 3, 150, 0.096);
   padding-top: 5em;
   padding-bottom: 2em;  
   
@@ -76,8 +78,8 @@
 }
 
 .flecha{
-  /* width: 70%;
-  height: 70%; */
+  width: 70%;
+  height: 70%;
   /* margin-left: -10%;
   margin-right:-10% ; */
 
@@ -85,5 +87,12 @@
 
 .GaleriaInfo{
   padding-top: 8%;
+  padding-bottom: 3%;
+}
+
+.UnitGaleria:hover{
+  transform: scale(1.1);
+  /* background-color: rgba(107, 106, 104, 0.178); */
+  filter: grayscale(70%);
 }
 

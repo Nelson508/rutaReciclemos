@@ -326,29 +326,24 @@ a{
 }
 
 .comoFunciona {
-    padding-top: 2rem;
-    padding-bottom: 10%;
-    /* background: url("../../../assets/images/REP/esquema.jpg") center center no-repeat;
-    background-size: cover; */
+   
     text-align: center;
-    /* width: auto;
-    height: auto;
-    object-fit: cover; */
-    width: 100%;
-    height: 100% ;
-    margin-bottom: 10%;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    background-color: #0ba7731c
 }
 
 .tituloREP{
     /* font-size: 3.25rem; */
     
     color: #223150;
+    font-size: xx-large;
 }
 
 .comoFuncionaImg{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+    object-fit: contain;
+    /* width: auto;
+    height: 50%; */
     /* padding-bottom: 10%; */
 
 }
@@ -392,3 +387,4 @@ a{
 
 
  /*   FIN CSS PARA SECCION ECONOMIA CIRCULAR*/
+
