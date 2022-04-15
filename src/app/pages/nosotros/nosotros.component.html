@@ -78,9 +78,21 @@
   <!-- ¿Cómo lo hacemos? -->
   <div class="container" style="margin-top: 4rem;">
     <div class="row">
-        <div class="text-center col-lg-8">
-            <h1 class="titulo">¿Cómo lo hacemos?</h1>
-            <p class="texto2 contenedor">Al descargar la aplicación Ruta Reciclemos y programar un retiro de residuos reciclables nuestra plataforma de gestión genera una ruta de recolección de residuos mejorando la eficiencia de la recolección de estos. Una vez retirado los residuos son pesado reenviando la información del pesaje y de la ubicación a nuestra plataforma de gestión. En nuestra plataforma de gestión contamos con la información en línea del pesaje, ubicación y reciclamiento de los residuos, en resumen, contamos con toda la trazabilidad del residuo que nos entregas hasta su reciclaje.</p>
+        <div class="col-lg-8">
+            <div class="text-center">
+                <h1 class="titulo">¿Cómo lo hacemos?</h1>
+                <p class="texto2 contenedor">Al descargar la aplicación Ruta Reciclemos y programar un retiro de residuos reciclables nuestra plataforma de gestión genera una ruta de recolección de residuos mejorando la eficiencia de la recolección de estos. Una vez retirado los residuos son pesado reenviando la información del pesaje y de la ubicación a nuestra plataforma de gestión. En nuestra plataforma de gestión contamos con la información en línea del pesaje, ubicación y reciclamiento de los residuos, en resumen, contamos con toda la trazabilidad del residuo que nos entregas hasta su reciclaje.</p>
+            </div>
+            <div class="row contenedor">
+                <h4>Beneficios de nuestro servicio</h4>
+                <ul style="padding-left: 2rem;">
+                    <li><small>Fomentamos y acercamos el reciclaje a nuestro usuarios.</small></li>
+                    <li><small>Monitoreo de camión recolector en línea por la aplicación.</small></li>
+                    <li><small>Puntos limpios habilitados como puntos de recolección.</small></li>
+                    <li><small>Detectamos hábitos y comportamientos.</small></li>
+                    <li><small>Reportes, Índices y tendencias detalladas.</small></li>
+                </ul>
+            </div>
         </div>
         <div class="text-center col-lg-4">
             <img src="assets/images/Mockup.png" class="img-fluid">
@@ -105,7 +117,7 @@
                 <img src="assets/images/PET.svg" class="card-img-top icono">
                 <div class="card-body text-center carta">
                     <h6 class="card-title" style="color: white;">Plástico: Botellas PET</h6>
-                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton">Más información</a>
+                    <a href="/informacion#BotellasPET" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
@@ -114,7 +126,7 @@
                 <img src="assets/images/PEAD.svg" class="card-img-top icono">
                 <div class="card-body text-center carta">
                     <h6 class="card-title" style="color: white;">Plástico: Envases PEAD</h6>
-                    <a href="/informacion#LatasyMetales" class="btn btn-primary boton">Más información</a>
+                    <a href="/informacion#EnvasesPEAD" class="btn btn-primary boton">Más información</a>
                 </div>
             </div>
 
@@ -159,28 +171,29 @@
             <h1 class="titulo">Nuestro Propósito</h1>
         </div>
     </div>
-    <div class="row" style="margin-top: 1rem;">
-        <div class="col-lg-4">
-            <div class="text-center contenedorImg">
+    <div class="row" style="margin-top: 1rem; justify-content: center;">
+        <div class="row col-lg-4 d-flex align-items-baseline"> <!-- d-flex align-items-baseline -->
+            <div class="text-center prop"> <!-- contenedorImg -->
                <img src="assets/images/Imagen2.jpg" class="img-fluid sombra">
             </div>
-            <div class="text-center contenedor" style="padding-top: 3.5rem;">
+            <div class="text-center prop order-lg-last order-first"> <!-- contenedor style="padding-top: 3.5rem;" -->
                 <p class="texto3">Nuestro propósito es reducir el material reciclable dispuesto en rellenos sanitarios o mal dispuesto e ingresarlo en la economía circular.</p>
             </div>     
         </div>
-        <div class="col-lg-4">
-            <div class="text-center">
-                <p class="texto3" style="margin-bottom: 2rem; padding-left: 1rem; padding-right: 1rem;">Nuestro propósito va de la mano con los Objetivo de Desarrollo Sostenible. Especialmente con el Objetivo 12 que busca garantizar modalidades de consumo y producción sostenibles y como meta (12.5) de aquí a 2030, reducir considerablemente la generación de desechos mediante actividades de prevención, reducción, reciclado y reutilización.</p>
+        <div class="row col-lg-4 d-flex align-items-baseline">
+            <div class="text-center prop">
+                <p class="texto3">Nuestro propósito va de la mano con los Objetivo de Desarrollo Sostenible. Especialmente con el Objetivo 12 que busca garantizar modalidades de consumo y producción sostenibles y como meta (12.5) de aquí a 2030, reducir considerablemente la generación de desechos mediante actividades de prevención, reducción, reciclado y reutilización.</p>
+              <!--   style="margin-bottom: 2rem; padding-left: 1rem; padding-right: 1rem;" -->
             </div>
-            <div class="text-center" style="padding-left: 3rem; padding-right: 3rem;">
-                <img src="assets/images/Imagen.jpg" class="img-fluid sombra">
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="text-center contenedorImg">
+            <div class="text-center prop"> <!-- style="padding-left: 3rem; padding-right: 3rem;" -->
                 <img src="assets/images/img/Medioambiente-portada.jpg" class="img-fluid sombra">
             </div>
-            <div class="text-center contenedor" style="padding-top: 4.5rem;">
+        </div>
+        <div class="row col-lg-4 d-flex align-items-baseline">
+            <div class="text-center prop"> <!-- contenedorImg -->
+                <img src="assets/images/Imagen.jpg" class="img-fluid sombra">
+            </div>
+            <div class="text-center prop order-lg-last order-first"><!-- contenedor style="padding-top: 4.5rem;" -->
                 <p class="texto3">En relación con este objetivo logramos aportar a otros objetivos de desarrollo sostenible tales como (11) Ciudades y comunidades sostenible (13) Acción por el Clima (14) Vida Submarina.  </p> 
             </div>
         </div>
@@ -192,18 +205,24 @@
 
 
   <!-- Nuestro Desafío --> 
-  <div class="cabecera2">
-      <div class="container" style="margin-top: 4rem;">
+  <div class="cabecera2" style="margin-top: 4rem;">
+      <div class="container">
         <div class="row">
-            <div class="text-center col-lg-6">
+            <div class="text-center col-lg-12">
                 <h1 class="titulo">Nuestro Desafío</h1>
             </div>
         </div>
         <div class="row">
-            <div class="text-center col-lg-6 contenedor">
-                <p class="texto2" style="color: white;">El desafío que nos propusimos fue crear conciencia en los ciudadanos y ayudarles a identificar los materiales reciclables que pueden servir como materia prima para nuevos procesos productivos y darle valor a un recurso que se veía perdido. 
-                    Intentaremos acercar los centros de acopio/puntos limpios para potenciar las campañas de reciclaje locales y fortalecer modelos de economía circular hacia un modelo de desarrollo sustentable con concientización ambiental.
-                </p>
+            <div class="col-lg-6">
+                <div class="text-center textoDesafio">
+                    <p class="texto2" style="color: white;">El desafío que nos propusimos fue crear conciencia en los ciudadanos y ayudarles a identificar los materiales reciclables que pueden servir como materia prima para nuevos procesos productivos y darle valor a un recurso que se veía perdido.</p>
+                </div>
+            </div>
+
+            <div class="offset-lg-6 col-lg-6">
+                <div class="text-center textoDesafio">
+                    <p class="texto2" style="color: white;">Intentaremos acercar los centros de acopio/puntos limpios para potenciar las campañas de reciclaje locales y fortalecer modelos de economía circular hacia un modelo de desarrollo sustentable con concientización ambiental.</p>
+                </div>
             </div>
         </div>
       </div>
