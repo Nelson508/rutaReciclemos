@@ -7,8 +7,11 @@
 }
 
 .imagen{
-  /* width: 10rem; */
-  height: 20rem;
+  transform:scale(1.5);
+}
+
+.imagen2:hover{
+  transform:scale(1.5);
 }
 
 .tarjeta{
@@ -28,9 +31,13 @@
 }
 
 .titulo{
-  font-size: 3.25rem;
+  margin: 0rem;
+  padding: 0rem;
+  display: flex;
+  justify-content: flex-end;
+  /* font-size: 3.25rem;
   margin-bottom: 2rem;
-  color: #8cc63f
+  color: #8cc63f */
 }
 
 .texto1{
@@ -40,22 +47,21 @@
   color: #8cc63f;
 }
 
-/* .fondo{
-  padding-top: 8rem;
-  padding-bottom: 24em;
-  background: url("../../../assets/images/Fondo3.jpg") center center repeat;
-  background-size: 200px 100px;
-  text-align: center;
-  opacity: 0.5;
-} */
+.cabecera {
+	padding-top: 8rem;
+	padding-bottom: 4em;
+	background-color: #0ba7731c;
+	background-size: cover;
+	text-align: center;
+}
 
-.fondoTemporal{
+/* .fondoTemporal{
   padding-top: 8rem;
   padding-bottom: 24em;
   background: url("../../../assets/images/header-background.jpg") center center no-repeat;
   background-size: cover;
   text-align: center;
-}
+} */
 
 .card-body {
 	padding: 0rem;
@@ -68,13 +74,13 @@
   justify-content: flex-end;
   align-items: center;
 } */
-
+/* 
 h1{
   margin: 0rem;
   padding: 0rem;
   display: flex;
   justify-content: flex-end;
-}
+} */
 
 
 p{
@@ -83,7 +89,6 @@ p{
   margin: 0rem;
   padding: 0rem;
 }
-
 
 
 /* INICIO FOOOOTER*/
