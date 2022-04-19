@@ -160,6 +160,38 @@ h1{
     /* border: 1px solid; */
     padding-bottom: 4rem;
   }
+
+  .trazabilidadIMG{
+    border: 1px solid;
+    background-color:#3fe3ac0c;
+    border-radius: 5%;
+    margin-top: 3rem;
+    margin-right: 5%;
+    box-shadow: 0 0 1em rgba(199, 63, 138, 0.342);
+  }
+
+  .TrazabilidadTexto{
+    padding-top: 4%;
+    font-family:  sans-serif;
+    color: #000;
+    text-align: justify;
+  }
+  .reutilización{
+    color: green;
+    font-weight: bolder;
+  }
+
+  /* .try33{
+    border: 1px solid;
+    background-color:white;
+    border-radius: 4%;
+    margin-top: 3rem; 
+    margin-right: 5%;
+    box-shadow: 0 0 1em rgba(199, 63, 138, 0.342);
+    padding-left: 3%;
+    padding-right: 3%;
+
+  } */
   
   
   

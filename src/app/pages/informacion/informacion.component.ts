@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ModalComponent } from '../modal/modal.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -18,19 +17,19 @@ export class InformacionComponent implements OnInit {
   eyes = false;
   galeria = [
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-     titulo: 'Reciclando pinturas',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 1'
+     titulo: 'Ruta Reciclemos lanza App a Play Store.',
+    descripcion: 'Se lograron más de 1.000 descargas en la primera semana.'
     },
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-2.jpg',
-     titulo: 'Frutas ',
+     titulo: 'Ruta Reciclemos amplía su zona de recolección junto con su horario.',
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 2'
     },
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-3.jpg',
-     titulo: 'Ocupando las manos',
+     titulo: '5 entretenidas formas de reutilizar tus botellas plasticas.',
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 3'
     },
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-4.jpg',
-     titulo: 'Jugo de manzana',
+     titulo: '¿Por qué es importante lavar bien nuestros envases ?',
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 4'
     },
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-5.jpg',
@@ -38,7 +37,7 @@ export class InformacionComponent implements OnInit {
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 5'
     },
     {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-6.jpg',
-     titulo: 'Platanitos',
+     titulo: 'Encuentran polimero cancerigeno en platano',
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 6'
     }
   ]  //fin galera
@@ -60,7 +59,7 @@ export class InformacionComponent implements OnInit {
   //   this.dialogRef.open(ModalComponent);
   // }
   open(content:any) {
-    this.modalService.open(content,{ size: 'md' }).result.then((result) => {
+    this.modalService.open(content,{ size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
