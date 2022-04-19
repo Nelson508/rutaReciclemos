@@ -191,6 +191,27 @@ a{
 	text-align: center;
 }
 
+
+.fondoTemporal{
+    padding-top: 0rem;
+    padding-bottom: 5em;
+    background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
+    background-color: #0ba7731c;
+    background-size: cover;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .fondoTemporal{
+        padding-top: 0rem;
+        padding-bottom: 15em;
+        background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
+        background-color: #0ba7731c;
+        background-size: cover;
+        text-align: center;
+    }
+}
+
 .sombra {
 	box-shadow: 0em 0em 2em rgba(30, 30, 31, 0.4);
     /* box-shadow: 0 5px 18px #c3c3c3; */
@@ -275,13 +296,13 @@ a{
 
 
   /* Borrar este codigo */
-.fondoTemporal{
+/* .fondoTemporal{
     padding-top: 8rem;
 	padding-bottom: 24em;
 	background: url("../../../assets/images/header-background.jpg") center center no-repeat;
 	background-size: cover;
 	text-align: center;
-}
+} */
 
 /* .animacion {
 	display: inline-block;
