@@ -6,6 +6,7 @@
     /* background-size: cover; */
     /* width: 93vw;
     height: 100vh;  */
+
 }
 
 .vody{
@@ -94,5 +95,9 @@
   transform: scale(1.1);
   /* background-color: rgba(107, 106, 104, 0.178); */
   filter: grayscale(70%);
+}
+
+.textoInformacion{
+  font-family:  sans-serif;
 }
 
