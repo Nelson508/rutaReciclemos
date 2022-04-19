@@ -154,9 +154,11 @@ h1{
   }
   
   .trazabilidadBG{
-    background-color: #0ba7731c;
-    box-shadow: 0 0 2em rgba(30, 30, 31, 0.932);
-    border-radius: 2%;
+    background-color: #7842a51c;
+    box-shadow: 0 0 1em rgba(199, 63, 138, 0.342);
+    border-radius: 1.5%;
+    /* border: 1px solid; */
+    padding-bottom: 4rem;
   }
   
   

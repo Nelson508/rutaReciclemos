@@ -77,7 +77,7 @@
                 <div class="px-3" style="padding-bottom: 4%;">
                     <h2 class="display-4 text-center">Botellas PET</h2>
                     <h3>Polietileno tereftalato</h3>
-                    <p style="text-align: justify;"> Este tipo de plástico corresponde a botellas desechables para bebidas, bandejas de torta, contenedores de fruta (envases clamshell). Al reciclarlo se convierte en fibras para relleno de sacos de dormir, alfombras, cuerdas y almohadas, zunchos.
+                    <p style="text-align: justify;" class="textoInformacion"> Este tipo de plástico corresponde a botellas desechables para bebidas, bandejas de torta, contenedores de fruta (envases clamshell). Al reciclarlo se convierte en fibras para relleno de sacos de dormir, alfombras, cuerdas y almohadas, zunchos.
                     </p>
                 </div>
                 <div >
@@ -108,7 +108,7 @@
                 <div class="px-3" style="padding-bottom: 4%;">
                     <h2 class="display-4 text-center">Envases PEAD</h2>
                     <h3>Polietileno de alta densidad</h3>
-                    <p style="text-align: justify;">Se utiliza en envases de detergente, champús, bidones, envases de leche etc. Al reciclarlo se convierte en maceteros, contenedores de basura y botellas de detergente.</p>
+                    <p class="textoInformacion" style="text-align: justify;">Se utiliza en envases de detergente, champús, bidones, envases de leche etc. Al reciclarlo se convierte en maceteros, contenedores de basura y botellas de detergente.</p>
                 </div>
                 <div >
                     <div class="row px-5">
@@ -152,7 +152,7 @@
                 <div class="px-3" style="padding-bottom: 4%;">
                     <h2 class="display-4 text-center">Envases PEBD </h2>
                     <h3>Polietileno de baja densidad</h3>
-                    <p style="text-align: justify;">Se fabrica principalmente bolsas y plástico para envolver. Luego de ser recicladas se convierten en bolsas de supermercado nuevamente.
+                    <p class="textoInformacion" style="text-align: justify;">Se fabrica principalmente bolsas y plástico para envolver. Luego de ser recicladas se convierten en bolsas de supermercado nuevamente.
                     </p>
                 </div>
                 <div >
@@ -181,7 +181,7 @@
             <div class="col-lg-6" style="padding-bottom: 1%;">
                 <div >
                     <h2 class="display-4 text-center">Cartón y papel</h2>
-                    <p style="text-align: justify;">Todos los tipos de papeles están compuestos principalmente de celulosa y agua. Al reciclarlo se busca recuperar el mayor porcentaje de celulosa para fabricar otros productos. Dada la gran variedad de tipos de este residuo, se debe tener cautela al separarlos, teniendo especial cuidado de que no estén contaminados con restos de comida, materia orgánica o cinta adhesiva.</p>
+                    <p class="textoInformacion" style="text-align: justify;">Todos los tipos de papeles están compuestos principalmente de celulosa y agua. Al reciclarlo se busca recuperar el mayor porcentaje de celulosa para fabricar otros productos. Dada la gran variedad de tipos de este residuo, se debe tener cautela al separarlos, teniendo especial cuidado de que no estén contaminados con restos de comida, materia orgánica o cinta adhesiva.</p>
                 </div>
                 <div >
                     <div class="row ">
@@ -221,8 +221,8 @@
             <div class="col-lg-6 order-lg-1">
                 <h2 class="display-4 text-center">Latas y metales</h2>
                 
-                <p *ngIf="!eyes" style="text-align: justify;">Esta fracción de residuos se pueden recuperar infinitas veces y en un 100%. De esta forma reciclar metales como aluminio, cobre, acero, entre otros, resulta un proceso bastante simple en comparación al proceso que significa extraerlos a partir de su origen, proceso que genera un alto impacto en el medio ambiente y consume grandes cantidades de energía.</p>
-                <p *ngIf="eyes" style="text-align: justify;" >Para hacer efectivo el reciclaje, debes tener suma atención e identificar a qué tipo de metal corresponde, ya que hay tipos de metales que no pueden ser reciclados como tarros de pinturas o productos tóxicos, latas de aerosol, etc. Que están contaminados o bien tienen residuos que impiden su procesamiento.</p>
+                <p *ngIf="!eyes" class="textoInformacion" style="text-align: justify;">Esta fracción de residuos se pueden recuperar infinitas veces y en un 100%. De esta forma reciclar metales como aluminio, cobre, acero, entre otros, resulta un proceso bastante simple en comparación al proceso que significa extraerlos a partir de su origen, proceso que genera un alto impacto en el medio ambiente y consume grandes cantidades de energía.</p>
+                <p *ngIf="eyes" class="textoInformacion" style="text-align: justify;" >Para hacer efectivo el reciclaje, debes tener suma atención e identificar a qué tipo de metal corresponde, ya que hay tipos de metales que no pueden ser reciclados como tarros de pinturas o productos tóxicos, latas de aerosol, etc. Que están contaminados o bien tienen residuos que impiden su procesamiento.</p>
                 <div style="text-align: center;">
                 <button class="eyes btn" (click)="changeEyes()"><i class="fa-solid fa-eye fa-2x"></i></button>
                </div>
