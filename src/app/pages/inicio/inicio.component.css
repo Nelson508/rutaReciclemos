@@ -61,6 +61,26 @@
 	text-align: center;
 }
 
+.fondoTemporal{
+  padding-top: 0rem;
+  padding-bottom: 5rem;
+  background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .fondoTemporal{
+    padding-top: 0rem;
+    padding-bottom: 15rem;
+    background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
+    background-size: cover;
+    text-align: center;
+  }
+
+}
+
+
 /* .fondoTemporal{
   padding-top: 8rem;
   padding-bottom: 24em;
@@ -77,6 +97,50 @@
   font-weight: 800;
   font-size: 0.9rem;
   line-height: 1.5rem;
+  font-family:  sans-serif;
+  /* color: #5c0099; */
+  /* color: #3d0066; */
+  color: white;
+  background-color: #8cc63f;
+  border: #8cc63f;
+  transition: all .5 linear;
+}
+
+.boton:hover{
+ /*  background: linear-gradient(0.25turn,#8cc63f, #6db116 ); */
+  background: linear-gradient(0.25turn,#8cc63f, #63ad03 );
+ /*  color: white; */
+  /* box-shadow: 0em 0em 2em rgba(30, 30, 31, 0.4); */
+  box-shadow: 0em 0em 2em rgba(140, 198, 63, 1);
+  /* box-shadow: 0em 0em 2em rgba(92, 0, 153, 1); */
+  /* box-shadow: 0em 0em 2em rgba(61, 0, 102, 1); */
+  /* color: #3d0066; */
+  
+}
+
+.boton2{
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  font-family:  sans-serif;
+  /* color: #5c0099; */
+  /* color: #3d0066; */
+  color: white;
+  background-color: #3d0066;
+  border: #8cc63f;
+  transition: all .5 linear;
+}
+
+.boton2:hover{
+ /*  background: linear-gradient(0.25turn,#8cc63f, #6db116 ); */
+  background: linear-gradient(0.25turn,#5c0099, #3d0066 );
+ /*  color: white; */
+  /* box-shadow: 0em 0em 2em rgba(30, 30, 31, 0.4); */
+  box-shadow: 0em 0em 2em rgba(61, 0, 102, 1);
+  /* box-shadow: 0em 0em 2em rgba(92, 0, 153, 1); */
+  /* box-shadow: 0em 0em 2em rgba(61, 0, 102, 1); */
+  /* color: #3d0066; */
+  
 }
 
 a{
