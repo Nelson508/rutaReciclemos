@@ -7,8 +7,10 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { InformacionComponent } from './pages/informacion/informacion.component';
 import { PoliticasComponent } from './pages/politicas/politicas.component';
-import { ModalComponent } from './pages/modal/modal.component';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './pages/footer/footer.component';
+import { MenuComponent } from './pages/menu/menu.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     InicioComponent,
     InformacionComponent,
     PoliticasComponent,
-    ModalComponent
+    FooterComponent,
+    MenuComponent,
+ 
   ],
   imports: [
     BrowserModule,
