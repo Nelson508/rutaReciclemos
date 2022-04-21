@@ -357,7 +357,7 @@ a{
    
     text-align: center;
     padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
     background-color: #0ba7731c
 }
 
@@ -419,3 +419,12 @@ a{
 
  /*   FIN CSS PARA SECCION ECONOMIA CIRCULAR*/
 
+
+ /*INICIO CSS PARA EQUIPO*/
+ .Equipo{
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+ }
+
+ /*FIN CSS PARA EQUIPO*/

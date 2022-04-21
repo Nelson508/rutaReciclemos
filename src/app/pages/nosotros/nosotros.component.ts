@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NosotrosComponent implements OnInit {
 
+  Nosotros = 'active';
+
   constructor() { }
 
   ngOnInit(): void {
