@@ -13,6 +13,10 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     `]
 })
 export class InformacionComponent implements OnInit {
+  //Información útil que explico porque soy muy amable
+  //Se envia la variable Informacion a menu al comienzo del HTML y de esta manera se activa 
+  //la letra verde ya que el menu es componente que se renderiza 
+  Informacion = 'active';
   
   eyes = false;
   galeria = [
