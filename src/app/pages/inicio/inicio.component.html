@@ -1,4 +1,4 @@
-<app-menu ></app-menu>
+<app-menu></app-menu>
   
   <header class="cabecera">
     <div class="container">
@@ -28,10 +28,10 @@
               <h2 class="text-center">Cantidad de desechos gestionados gracias a Ruta Reciclemos</h2>
             </div>
         </div>
-        <div class="row g-0">
+        <div class="row g-0" style="display: flex; justify-content: center;">
 
           <div class="col-lg-6 bloque">
-            <div class="card tarjeta offset-1 offset-lg-4">
+            <div class="card tarjeta offset-1 offset-lg-5">
               <div class="row g-0">
                 <div class="col-4">
                   <img src="assets/images/img/PET.jpg" class="img-fluid rounded-circle imagen">
@@ -48,7 +48,7 @@
           </div> 
             
           <div class="col-lg-6 bloque">
-            <div class="card tarjeta offset-1 offset-sm-0">
+            <div class="card tarjeta offset-1 offset-sm-1">
               <div class="row g-0">
                 <div class="col-4">
                   <img src="assets/images/img/PEAD.jpg" class="img-fluid rounded-circle imagen">
@@ -65,7 +65,7 @@
           </div>
 
           <div class="col-lg-6 bloque">
-            <div class="card tarjeta offset-1 offset-lg-4">
+            <div class="card tarjeta offset-1 offset-lg-5">
               <div class="row g-0">
                 <div class="col-4">
                   <img src="assets/images/img/PEBD.jpg" class="img-fluid rounded-circle imagen">
@@ -82,7 +82,7 @@
           </div>
 
           <div class="col-lg-6 bloque">
-            <div class="card tarjeta offset-1 offset-sm-0">
+            <div class="card tarjeta offset-1 offset-sm-1">
               <div class="row g-0">
                 <div class="col-4">
                   <img src="assets/images/img/carton.jpg" class="img-fluid rounded-circle imagen">
@@ -99,16 +99,18 @@
           </div>
 
           <div class="col-lg-12 bloque">
-            <div class="card tarjeta offset-1 offset-lg-4">
-              <div class="row g-0">
-                <div class="col-4">
-                  <img src="assets/images/img/latas.jpg" class="img-fluid rounded-circle imagen">
-                </div>
-                <div class="col-8 centrado">
-                  <div class="row card-body">
-                    <h1 class="card-title titulo col-9">1.233,2</h1>
-                    <p class="col-3 textTarjeta"><small>KG</small></p>
-                    <p class="textTarjeta" style="justify-content: center;"><small>Total Latas de aluminio</small></p>
+            <div class="col-lg-6">
+              <div class="card tarjeta offset-1 offset-lg-9">
+                <div class="row g-0">
+                  <div class="col-4">
+                    <img src="assets/images/img/latas.jpg" class="img-fluid rounded-circle imagen">
+                  </div>
+                  <div class="col-8 centrado">
+                    <div class="row card-body">
+                      <h1 class="card-title titulo col-9">1.233,2</h1>
+                      <p class="col-3 textTarjeta"><small>KG</small></p>
+                      <p class="textTarjeta" style="justify-content: center;"><small>Total Latas de aluminio</small></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -122,7 +124,7 @@
     <div class="container Trazabilidad">
       
       
-          <div class="row trazabilidadBG"  >
+          <div class="row trazabilidadBG">
             
               <!-- <h1 class="tituloREP">¿Cómo funciona?</h1> -->
               <div class="col-lg-6 col-sm-12 px-5 TrazabilidadTexto">
@@ -130,12 +132,69 @@
                 <p class="try33">Contamos con un sistema digital que monitorea tus desechos desde su recolección hasta su 
                   <span class="reutilización">reutilización <i class="fa-solid fa-recycle"></i></span>, generando una trazabilidad
                   sobre los productos y disminuyendo de esta forma, el impacto ambiental de éstos. 
-                  </p>
+                </p>
+
+                <div class="apareceTexto" *ngIf="mostrarTexto1">
+                  <div class="card apareceTarjeta col-12">
+                    <div class="card-body" style="padding: 1rem;">
+                      <p class="textoApareceTarjeta" style="color: red;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="apareceTexto" *ngIf="mostrarTexto2">
+                  <div class="card apareceTarjeta col-12">
+                    <div class="card-body" style="padding: 1rem;">
+                      <p class="textoApareceTarjeta" style="color: green;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="apareceTexto" *ngIf="mostrarTexto3">
+                  <div class="card apareceTarjeta col-12">
+                    <div class="card-body" style="padding: 1rem;">
+                      <p class="textoApareceTarjeta" style="color: black;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="apareceTexto" *ngIf="mostrarTexto4">
+                  <div class="card apareceTarjeta col-12">
+                    <div class="card-body" style="padding: 1rem;">
+                      <p class="textoApareceTarjeta" style="color: blue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="apareceTexto" *ngIf="mostrarTexto5">
+                  <div class="card apareceTarjeta col-12">
+                    <div class="card-body" style="padding: 1rem;">
+                      <p class="textoApareceTarjeta" style="color: rebeccapurple;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
-              <div class="col-lg-6 col-sm-12">
+              <div class="row col-lg-6 col-sm-12 contIMG imagenFondo">
+                
+                <div class="col-4 caja cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()"></div><!--  (click)="agregarTexto(1)" -->
+                <div class="col-4 caja2 cuadrado"></div>
+                <div class="col-4 caja3 cuadrado" (mouseenter)="hoverStateIn(2)" (mouseleave)="hoverStateOut()"></div>
+             
+                <div class="col-4 caja4 cuadrado"></div>
+                <div class="col-4 caja5 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()"></div>
+                <div class="col-4 caja6 cuadrado"></div>
+             
+                <div class="col-4 caja7 cuadrado" (mouseenter)="hoverStateIn(4)" (mouseleave)="hoverStateOut()"></div>
+                <div class="col-4 caja8 cuadrado"></div>
+                <div class="col-4 caja9 cuadrado" (mouseenter)="hoverStateIn(5)" (mouseleave)="hoverStateOut()"></div>
+             
+            </div>
+              <!-- <div class="col-lg-6 col-sm-12 contIMG">
                 
                 <img src="../../../assets/images/Trazabilidad.png" class="img-fluid square trazabilidadIMG" >
-              </div>
+              </div> -->
               
              
           </div> 
