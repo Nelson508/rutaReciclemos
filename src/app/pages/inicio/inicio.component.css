@@ -235,14 +235,12 @@ h1{
   }
 
   .cuadrado{
-    /* border: 1px solid black; */ 
     padding: 4rem;
   }
 
   @media (max-width: 576px) {
     .cuadrado{
-      
-      border: 1px solid black; 
+      /*border: 1px solid black;  */
       padding: 2rem;
     }
   }
