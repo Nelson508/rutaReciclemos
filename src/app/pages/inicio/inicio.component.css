@@ -185,6 +185,7 @@ h1{
     border-radius: 1.5%;
     /* border: 1px solid; */
     padding-bottom: 4rem;
+    justify-content: center;
   }
 
   .trazabilidadIMG{
@@ -194,6 +195,14 @@ h1{
     margin-top: 3rem;
     margin-right: 5%;
     box-shadow: 0 0 1em rgba(199, 63, 138, 0.342);
+  }
+
+  .imagenFondo{
+    border: 1px solid;
+    background-color:#3fe3ac0c;
+    border-radius: 5%;
+    background: url("../../../assets/images/Trazabilidad.png") center center no-repeat;
+    background-size: 100% 100%;
   }
 
   .TrazabilidadTexto{
@@ -206,6 +215,65 @@ h1{
     color: green;
     font-weight: bolder;
   }
+
+  .apareceTarjeta{
+    background-color: transparent;
+    /* box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1); */
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+  }
+
+  .textoApareceTarjeta{
+    font-size: 1rem;
+    text-align: justify;
+    color: #5e6576; 
+    font-family: sans-serif;
+  }
+
+  .contIMG {
+    margin-top: 3rem;
+  }
+
+  .cuadrado{
+    /* border: 1px solid black; */ 
+    padding: 4rem;
+  }
+
+  @media (max-width: 576px) {
+    .cuadrado{
+      
+      border: 1px solid black; 
+      padding: 2rem;
+    }
+  }
+  
+
+  /* .contIMG:hover + .TrazabilidadTexto .apareceTexto {
+    position:relative;
+    top: 0px;
+    left: 0px;
+  } */
+
+ /*  .contIMG > .caja:hover + .TrazabilidadTexto > .apareceTexto{
+    position:relative;
+    top: 0px;
+    left: 0px;
+  } */
+
+  /* .trazabilidadBG .contIMG .caja:hover ~ .trazabilidadBG .TrazabilidadTexto .apareceTexto {
+    position:relative;
+    top: 0px;
+    left: 0px;~ .TrazabilidadTexto [class="apareceTexto"] 
+  } */
+
+
+/*   .box1:hover .apareceTexto {
+    position:relative;
+    top: 60px;
+    left: -430px;
+    width: 300px;
+  } */
+
 
   /* .try33{
     border: 1px solid;

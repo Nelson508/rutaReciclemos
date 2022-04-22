@@ -158,7 +158,7 @@
 
 .titulo{
     font-size: 3.25rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     /* color: #8cc63f */
 }
 
@@ -225,8 +225,8 @@ a{
 }
 
 .contenedor{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
