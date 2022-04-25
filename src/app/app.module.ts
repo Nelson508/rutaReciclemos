@@ -11,6 +11,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './pages/footer/footer.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { MenuComponent } from './pages/menu/menu.component';
     
   ],
   providers: [
-    
+    {provide: APP_BASE_HREF, useValue: '/'}
   ],
   bootstrap: [AppComponent]
 })
