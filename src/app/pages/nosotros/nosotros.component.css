@@ -192,21 +192,19 @@ a{
 }
 
 
-.fondoTemporal{
+.fondoRuraReciclemos{
     padding-top: 0rem;
     padding-bottom: 5em;
     background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
-    background-color: #0ba7731c;
     background-size: cover;
     text-align: center;
 }
 
 @media (min-width: 576px) {
-    .fondoTemporal{
+    .fondoRuraReciclemos{
         padding-top: 0rem;
         padding-bottom: 15em;
         background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
-        background-color: #0ba7731c;
         background-size: cover;
         text-align: center;
     }
@@ -290,19 +288,6 @@ a{
   }
   
   /* FIN FOOOOTER*/
-
-
-
-
-
-  /* Borrar este codigo */
-/* .fondoTemporal{
-    padding-top: 8rem;
-	padding-bottom: 24em;
-	background: url("../../../assets/images/header-background.jpg") center center no-repeat;
-	background-size: cover;
-	text-align: center;
-} */
 
 /* .animacion {
 	display: inline-block;

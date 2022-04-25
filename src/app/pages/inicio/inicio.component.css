@@ -57,7 +57,7 @@
 	text-align: center;
 }
 
-.fondoTemporal{
+.fondoRuraReciclemos{
   padding-top: 0rem;
   padding-bottom: 5rem;
   background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
@@ -66,7 +66,7 @@
 }
 
 @media (min-width: 576px) {
-  .fondoTemporal{
+  .fondoRuraReciclemos{
     padding-top: 0rem;
     padding-bottom: 15rem;
     background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
@@ -75,15 +75,6 @@
   }
 
 }
-
-
-/* .fondoTemporal{
-  padding-top: 8rem;
-  padding-bottom: 24em;
-  background: url("../../../assets/images/header-background.jpg") center center no-repeat;
-  background-size: cover;
-  text-align: center;
-} */
 
 .card-body {
 	padding: 0rem;
