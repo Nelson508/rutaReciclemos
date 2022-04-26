@@ -12,6 +12,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './pages/footer/footer.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import {APP_BASE_HREF} from '@angular/common';
+import { AdministracionComponent } from './pages/administracion/administracion.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import {APP_BASE_HREF} from '@angular/common';
     PoliticasComponent,
     FooterComponent,
     MenuComponent,
+    AdministracionComponent,
+    LoginComponent,
  
   ],
   imports: [
