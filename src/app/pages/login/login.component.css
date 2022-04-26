@@ -1,0 +1,27 @@
+.login{
+    
+    color: #000;
+    
+    
+}
+
+
+.loginCart{
+    
+    background-color: rgba(84, 3, 150, 0.096);
+    box-shadow: 0 0 2em rgba(42, 42, 129, 0.466);
+    /* padding-bottom: 15%; */
+}
+
+
+.ingresar{
+    background-color: #8cc63f;
+    /* margin-bottom: 15%; */
+}
+
+.iconicosh{
+    position: absolute;
+    margin-left: 88%;
+    margin-top: -12%;
+    color: #3d0066;
+}

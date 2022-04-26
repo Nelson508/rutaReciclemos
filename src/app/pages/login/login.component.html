@@ -1,1 +1,73 @@
-<p>login works!</p>
+
+<div id="wrapper" style="padding-top: 4em;">
+    
+    <div class="height-100v d-flex align-items-center justify-content-center login">
+		
+		<div class="card  mx-4 my-5 py-4 loginCart">
+			<div class="card-body">
+				<div class="card-content px-5 py-5 ">
+					<div class="text-center">
+						<img src="assets/images/Ruta_Reciclemos_200x100-8.png" alt="logo icon"
+                        style="height: 60%;
+                               width: 60%;"
+                        >
+					</div>
+					<div class="card-title  text-center py-3"> <h4 style="color: #3d0066;">Bienvenida Isabel</h4></div>
+					<form style="padding-bottom: 5%;" >
+						<div class="form-group">
+							<label for="exampleInputUsername" class="sr-only">Username</label>
+							<div class="position-relative has-icon-right">
+								<input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Ingrese correo" ngModel required
+                                style="font-family:  sans-serif; font-size: small;"
+                                maxlength="20" 
+                                [(ngModel)]="accesso.usuario">
+                                
+                                
+                                
+								<div class="form-control-position"> 
+                                    <i class="fa fa-user iconicosh" 
+                                    ></i>
+                                    
+								</div>
+							</div>
+						</div>
+						<div class="form-group" style="margin-bottom: 15%;">
+							<label for="exampleInputPassword" class="sr-only">Password</label>
+							<div class="position-relative has-icon-right">
+								<input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Ingrese contraseña" ngModel required
+                                style="font-family:  sans-serif; font-size: small;"
+                                maxlength="20"
+                                [(ngModel)]="accesso.pass"
+                                >
+								<div class="form-control-position"> <i class="fa fa-lock iconicosh"></i>
+								</div>
+							</div>
+						</div>
+<!-- 					
+						<button type="button" class="btn btn btn-primary btn-block">Ingresar</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button> -->
+                        <button type="button" class="btn  btn-sm btn-block ingresar w-100"
+                        (click)="Ingresar()"
+                        >Ingresar</button>
+                        <!-- <p>
+                            <ngb-alert [dismissible]="false">
+                              <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                            </ngb-alert>
+                          </p> -->
+                          <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                           
+                          </div> -->
+						
+					</form>
+                    
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
