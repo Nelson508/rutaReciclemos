@@ -14,6 +14,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import {APP_BASE_HREF} from '@angular/common';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms'; 
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { LoginComponent } from './pages/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
 
     
   ],
