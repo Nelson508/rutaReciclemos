@@ -9,32 +9,50 @@
 /*     Tarjeta PET    */
 /**********************/
 
-.fondoPET{
+/* .fondoPET{
     background: url("../../../assets/images/img/PET.jpg") center center no-repeat;
   /*  background: linear-gradient( rgb(230, 208, 11), rgba(230, 208, 11) ) center center no-repeat; */
-}
+/* } */
 
-.fondoPET:hover{
+/*.fondoPET:hover{
     background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PET.jpg");
     background-repeat: no-repeat;  
     background-position: center;
     background-size: cover;  
+} */
+
+.fondoPET{
+    background: url("../../../assets/images/img/PET.png") center center no-repeat;
+    border-radius: 10px;
+ /*    background-size: cover; */
+    /* transform:scale(1.1); */
 }
+
+.fondoPET:hover{
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PET.png");
+    background-repeat: no-repeat;  
+    background-position: center;
+    border-radius: 10px;
+  /*   background-size: cover;   */
+}
+
 
 /**********************/
 /*    Tarjeta PEAD    */
 /**********************/
 
 .fondoPEAD{
-    background: url("../../../assets/images/img/PEAD.jpg") center center no-repeat;
+    background: url("../../../assets/images/img/PEAD.png") center center no-repeat;
+    border-radius: 10px;
 
 }
 
 .fondoPEAD:hover{
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PEAD.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PEAD.png");
     background-repeat: no-repeat;  
     background-position: center;
-    background-size: cover;  
+    /* background-size: cover;  */ 
+    border-radius: 10px;
 }
 
 /**********************/
@@ -42,30 +60,34 @@
 /**********************/
 
 .fondoPEBD{
-    background: url("../../../assets/images/img/PEBD.jpg") center center no-repeat;
+    background: url("../../../assets/images/img/PEBD.png") center center no-repeat;
+    border-radius: 10px;
 
 }
 
 .fondoPEBD:hover{
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PEBD.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PEBD.png");
     background-repeat: no-repeat;  
     background-position: center;
-    background-size: cover;  
+    /* background-size: cover;  */ 
+    border-radius: 10px;
 }
 /**********************/
 /*   Tarjeta Carton   */
 /**********************/
 
 .fondoCarton{
-    background: url("../../../assets/images/img/carton.jpg") center center no-repeat;
+    background: url("../../../assets/images/img/PAPELES CARTONES.png") center center no-repeat;
+    border-radius: 10px;
 
 }
 
 .fondoCarton:hover{
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/carton.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/PAPELES CARTONES.png");
     background-repeat: no-repeat;  
     background-position: center;
-    background-size: cover;  
+    /* background-size: cover;  */
+    border-radius: 10px; 
 }
 
 /**********************/
@@ -73,15 +95,17 @@
 /**********************/
 
 .fondoLatas{
-    background: url("../../../assets/images/img/latas.jpg") center center no-repeat;
+    background: url("../../../assets/images/img/LATAS.png") center center no-repeat;
+    border-radius: 10px;
 
 }
 
 .fondoLatas:hover{
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/latas.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../assets/images/img/LATAS.png");
     background-repeat: no-repeat;  
     background-position: center;
-    background-size: cover;  
+  /*   background-size: cover;   */
+    border-radius: 10px;
 }
 
 

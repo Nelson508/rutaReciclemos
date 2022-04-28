@@ -15,6 +15,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms'; 
+import { ResumenComponent } from './pages/resumen/resumen.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     AdministracionComponent,
     LoginComponent,
+    ResumenComponent,
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
 
     
   ],
