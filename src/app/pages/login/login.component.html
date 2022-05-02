@@ -47,17 +47,14 @@
 						<button type="button" class="btn btn btn-primary btn-block">Ingresar</button>
                         <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button> -->
                         <button type="button" class="btn  btn-sm btn-block ingresar w-100"
-                        (click)="Ingresar()"
-                        >Ingresar</button>
+                        (click)="Ingresar()" [disabled]="!accesso.usuario || !accesso.pass"
+                        >Iniciar sesión</button>
                         <!-- <p>
                             <ngb-alert [dismissible]="false">
-                              <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                              <strong>Warning!</strong> Better check yourself,asdasdasd you're not looking too good.
                             </ngb-alert>
                           </p> -->
-                          <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                           
-                          </div> -->
+                          
 						
 					</form>
                     
@@ -65,6 +62,11 @@
 			</div>
 			
 		</div>
+
+		<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+		   
+		  </div> -->
 	</div>
 </div>
 

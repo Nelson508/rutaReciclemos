@@ -18,6 +18,15 @@ import { FormsModule } from '@angular/forms';
 import { ResumenComponent } from './pages/resumen/resumen.component';
 import { ChartsModule } from 'ng2-charts';
 
+// PAQUETES PARA HACER LA CONSULTACION
+
+import {AngularFireModule} from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import {environment} from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import {FirebaseService} from './services/firebase.service'
+
 
 @NgModule({
   declarations: [
@@ -31,6 +40,8 @@ import { ChartsModule } from 'ng2-charts';
     AdministracionComponent,
     LoginComponent,
     ResumenComponent,
+    
+    
  
   ],
   imports: [
@@ -38,12 +49,18 @@ import { ChartsModule } from 'ng2-charts';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), /*SE INSTANCIA LA CONEXION*/
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    
 
     
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    {provide: APP_BASE_HREF, useValue: '/',
+    },
+    [FirebaseService]   
   ],
   bootstrap: [AppComponent]
 })
