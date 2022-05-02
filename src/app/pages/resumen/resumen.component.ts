@@ -68,7 +68,7 @@ export class ResumenComponent implements OnInit {
   ];
   
   // Pie
-  public pieChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
+  public pieChartLabels: string[] = ["holanda", "Lable2", "Lable3", "Lable4"];
   public pieChartData: number[] = [13, 120, 11, 20];
   public pieChartType: ChartType = 'pie';
   public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true
+  production: true,
+    firebaseConfig : {
+    apiKey: "AIzaSyD-39pgYYswgPf_p4p0UV5iDqlJGMH-glo",
+    authDomain: "ruta-reciclemos.firebaseapp.com",
+    databaseURL: "https://ruta-reciclemos-default-rtdb.firebaseio.com",
+    projectId: "ruta-reciclemos",
+    storageBucket: "ruta-reciclemos.appspot.com",
+    messagingSenderId: "147060087997",
+    appId: "1:147060087997:web:bbffbd92a97cbaa617ebd4",
+    measurementId: "G-W6VFE6Z0HE"
+  }
 };
 
 /*
