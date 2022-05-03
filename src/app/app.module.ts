@@ -15,8 +15,11 @@ import {APP_BASE_HREF} from '@angular/common';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms'; 
-import { ResumenComponent } from './pages/resumen/resumen.component';
+//import { ResumenComponent } from './pages/resumen/resumen.component';
 import { ChartsModule } from 'ng2-charts';
+import { ComponentsModule } from './components/components.module';
+import { PagesModule } from './pages/pages.module';
+
 
 // PAQUETES PARA HACER LA CONSULTACION
 
@@ -38,8 +41,8 @@ import {FirebaseService} from './services/firebase.service'
     FooterComponent,
     MenuComponent,
     AdministracionComponent,
-    LoginComponent,
-    ResumenComponent,
+    LoginComponent,/* 
+    ResumenComponent, */
     
     
  
@@ -50,6 +53,8 @@ import {FirebaseService} from './services/firebase.service'
     NgbModule,
     FormsModule,
     ChartsModule,
+    ComponentsModule,
+    PagesModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), /*SE INSTANCIA LA CONEXION*/
     AngularFireDatabaseModule,
     AngularFirestoreModule,
