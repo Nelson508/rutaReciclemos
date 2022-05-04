@@ -27,6 +27,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import {FirebaseService} from './services/firebase.service'
 
+//encriptar
+import * as CryptoJS from 'crypto-js';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import {FirebaseService} from './services/firebase.service'
     AngularFireModule.initializeApp(environment.firebaseConfig), /*SE INSTANCIA LA CONEXION*/
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    
     
 
     
