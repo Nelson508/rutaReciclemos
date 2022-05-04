@@ -15,6 +15,8 @@ export class FirebaseService {
   nuevoDatita = new EventEmitter();
   databaseRef: DatabaseReference;
   data: any;
+
+  
   constructor(public fireServices: AngularFirestore,
               public db: AngularFireDatabase          
     ) {
@@ -65,6 +67,20 @@ export class FirebaseService {
 
 getData(): Promise<any> {
   return this.databaseRef.child('zxcv').get().then((snapshot) => {
+    if (snapshot.exists()) {
+      // I don't think you need to keep the data in this.data anymore
+      this.data = snapshot.val();
+      // console.log(this.data['1']['user']);
+      return this.data;
+    } else {
+      console.log('No data available');
+      return null; // or return another default value, like [] or {} or "";
+    }
+  });
+}
+
+getKey(): Promise<any> {
+  return this.databaseRef.child('zkey').get().then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.data = snapshot.val();

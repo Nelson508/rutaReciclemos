@@ -5,6 +5,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { InformacionComponent } from './pages/informacion/informacion.component';
 import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
+import { LoginComponent } from './pages/login/login.component';
+import { WatcherGuard } from './watcher.guard';
 
 const routes: Routes = [
   {
@@ -32,7 +34,12 @@ const routes: Routes = [
   },
   {
     path: 'administracion',
-    component: AdministracionComponent
+    component: AdministracionComponent,
+    canActivate: [WatcherGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
   
 ];
