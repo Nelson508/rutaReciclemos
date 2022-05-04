@@ -4,6 +4,7 @@ import {NgbModal, ModalDismissReasons, NgbAlert} from '@ng-bootstrap/ng-bootstra
 import Swal from 'sweetalert2';
 import {FirebaseService} from '../../services/firebase.service'
 import * as CryptoJS from 'crypto-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +14,19 @@ import * as CryptoJS from 'crypto-js';
 export class LoginComponent implements OnInit {
 
   accesso = {
-    usuario: '',
-    pass: '',
+    usuario: 'Admin',
+    pass: 'Trans-1x7/Z1',
   }
-
+  //variables de login
   dathax: any;
   encrypted: string = '';
   decrypted: string = '';
   TT: string = '';
 
-  constructor(private firebaseSer: FirebaseService) { }
+  status: any;
+
+  constructor(private firebaseSer: FirebaseService,
+              private router: Router) { }
 
   ngOnInit(
     
@@ -44,7 +48,7 @@ export class LoginComponent implements OnInit {
 
       });
       
-    // console.log(`datita : ${this.dathax}`);
+    //dathax almacena toda la  user informacion proveniente from BD
     const usr:string = this.dathax['1']['user'];
     this.encrypted = this.dathax['1']['pass'];
     this.TT = this.dathax['1']['T'];
@@ -60,9 +64,36 @@ export class LoginComponent implements OnInit {
       //https://sweetalert2.github.io/#examples
  
       //TOKEN CREATION
+      
+      this.status = this.dathax['1']['key'];
+      
+
+      localStorage.setItem("tk", JSON.stringify(this.status));
+      let status = localStorage.getItem("tk");
+    
+      if(status)
+        {
+          status = JSON.parse(status);
+          console.log(status);
+        }else{
+          console.log('nada oiga')
+        }
+
+        this.firebaseSer.getKey().then( data =>
+          {
+            let key = data['key'];
+            console.log('KEY:' + key)
+            
+          });
+  
+      
+
+      
 
       //TOKEN CREATION
-      console.log("exito");
+
+
+      //INICIO SWAL FIREE
       Swal.fire({
         icon: 'success',
         title:'Inicio exitoso',
@@ -82,6 +113,8 @@ export class LoginComponent implements OnInit {
 
       this.accesso.usuario = '';
       this.accesso.pass = '';
+      this.router.navigate(['/', 'administracion'])
+
     }else{
       Swal.fire({
         icon: 'error',
@@ -93,6 +126,8 @@ export class LoginComponent implements OnInit {
         
       });
     }
+
+    //FIN SWALFIREE
   }
 
 
@@ -111,6 +146,8 @@ export class LoginComponent implements OnInit {
         padding: CryptoJS.pad.Pkcs7
       }).toString(CryptoJS.enc.Utf8);
   }
+
+  
 
 
   
