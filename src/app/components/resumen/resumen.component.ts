@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-resumen',
@@ -7,6 +8,8 @@ import { ChartType } from 'chart.js';
   styleUrls: ['./resumen.component.css']
 })
 export class ResumenComponent implements OnInit {
+
+  @Input() desactivado:boolean = false;
 
   // barChart
   public barChartOptions: any = {
@@ -68,7 +71,7 @@ export class ResumenComponent implements OnInit {
   ];
   
   // Pie
-  public pieChartLabels: string[] = ["holanda", "Lable2", "Lable3", "Lable4"];
+  public pieChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
   public pieChartData: number[] = [13, 120, 11, 20];
   public pieChartType: ChartType = 'pie';
   public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
@@ -106,6 +109,12 @@ export class ResumenComponent implements OnInit {
      
   };
 
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   // events
   public chartClicked(e: any): void {
@@ -116,9 +125,95 @@ export class ResumenComponent implements OnInit {
     //your code here
   }
 
-  constructor() { }
+  ngOnDestroy(){
+   
+    this.doughnutChartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        position :"right",	
+        display: true,
+          labels: {
+          fontColor: '#585757',  
+          boxWidth:15
+          }
+      },
+      animation: {
+        animateScale: false,
+        animateRotate: true,
+        duration: 500,
+        easing: 'linear'
+      }
+      
+    }
 
-  ngOnInit(): void {
+    this.pieChartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        position :"right",	
+        display: true,
+          labels: {
+          fontColor: '#585757',  
+          boxWidth:15
+          }
+      },
+      animation: {
+        animateScale: false,
+        animateRotate: true,
+        duration: 500,
+        easing: 'linear'
+      }
+      
+    }
+
+    this.barChartOptions = {
+      scaleShowVerticalLines: false,
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: true,
+        labels: {
+        fontColor: '#585757',  
+        boxWidth:40
+        }
+      },
+      scales: {
+        xAxes: [{
+          
+        ticks: {
+          beginAtZero:true,
+          fontColor: '#585757'
+        },
+        gridLines: {
+          display: true ,
+          color: "rgba(0, 0, 0, 0.07)"
+        },
+        
+        }],
+        
+        yAxes: [{
+          ticks: {
+            beginAtZero:true,
+            fontColor: '#585757'
+          },
+          gridLines: {
+            display: true ,
+            color: "rgba(0, 0, 0, 0.07)"
+          },
+          }]
+         
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: false,
+        duration: 500,
+        easing: 'linear'
+      }
+    
+    };
+    
+    this.chart?.update();
   }
 
 }

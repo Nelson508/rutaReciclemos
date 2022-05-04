@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid" [hidden]="desactivado">
 	
 	<div class="row" style="margin-bottom: 1rem;">
 		<!-- Pie chart-->
 		<div class="col-lg-6 col-xl-6">
 			<div class="card">
-				<div class="card-header text-uppercase">Pie Chart</div>
+				<div class="card-header text-uppercase">Por Comuna</div>
 				<div class="card-body">
 					<div class="height-240">
 						<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -16,7 +16,7 @@
 		<!-- Bar chart-->
 		<div class="col-lg-6 col-xl-6">
 			<div class="card">
-				<div class="card-header text-uppercase">Bar Chart</div>
+				<div class="card-header text-uppercase">Ventas</div>
 				<div class="card-body">
 					<div class="height-240">
 						<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
@@ -31,7 +31,7 @@
 		<!-- Doughnut chart-->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Doughnut Chart</div>
+				<div class="card-header text-uppercase">Tipo de material por Personas</div>
 				<div class="card-body">
 					<div class="height-240">
 						<canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -43,7 +43,7 @@
 		<!-- Pie chart-->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Pie Chart</div>
+				<div class="card-header text-uppercase">Rango Etario</div>
 				<div class="card-body">
 					<div class="height-240">
 						<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -55,7 +55,7 @@
 		<!-- Doughnut chart-->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Doughnut Chart</div>
+				<div class="card-header text-uppercase">Género por material reciclado</div>
 				<div class="card-body">
 					<div class="height-240">
 						<canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
