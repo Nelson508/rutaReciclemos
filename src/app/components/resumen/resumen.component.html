@@ -1,13 +1,13 @@
 <div class="container-fluid" [hidden]="desactivado">
 	
 	<div class="row" style="margin-bottom: 1rem;">
-		<!-- Pie chart-->
+		<!-- Grafico Por Comuna -->
 		<div class="col-lg-6 col-xl-6">
 			<div class="card">
 				<div class="card-header text-uppercase">Por Comuna</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<canvas baseChart [data]="comunaChartData" [labels]="comunaChartLabels" [options]="comunaChartOptions" [chartType]="comunaChartType" (chartHover)="chartHovered($event)" [colors]="comunaChartColors" (chartClick)="chartClicked($event)"></canvas>
 					</div>
 				</div>
 			</div>
@@ -28,25 +28,25 @@
 	</div>
 
 	<div class="row" style="margin-bottom: 1rem;">
-		<!-- Doughnut chart-->
+		<!-- Grafico por Personas -->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
 				<div class="card-header text-uppercase">Tipo de material por Personas</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<canvas baseChart [data]="personaChartData" [labels]="personaChartLabels" [options]="personaChartOptions" [chartType]="personaChartType" (chartHover)="chartHovered($event)" [colors]="personaChartColors" (chartClick)="chartClicked($event)"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- / Doughnut chart-->
-		<!-- Pie chart-->
+		<!-- Grafico por Rango Etario -->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
 				<div class="card-header text-uppercase">Rango Etario</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<canvas baseChart [data]="edadChartData" [labels]="edadChartLabels" [options]="edadChartOptions" [chartType]="edadChartType" (chartHover)="chartHovered($event)" [colors]="edadChartColors" (chartClick)="chartClicked($event)"></canvas>
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				<div class="card-header text-uppercase">Género por material reciclado</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<canvas baseChart [data]="generoChartData" [labels]="generoChartLabels" [options]="generoChartOptions" [chartType]="generoChartType" (chartHover)="chartHovered($event)" [colors]="generoChartColors" (chartClick)="chartClicked($event)"></canvas>
 					</div>
 				</div>
 			</div>

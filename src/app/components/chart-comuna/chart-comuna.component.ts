@@ -14,10 +14,10 @@ export class ChartComunaComponent implements OnInit {
   
 
   // Pie
-  public pieChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
-  public pieChartData: number[] = [13, 120, 11, 20];
+  public pieChartLabels: string[] = ["Concepción", "Talcahuano", "Coronel", "Chuguayante","San Pedro de la paz"];
+  public pieChartData: number[] = [80, 30, 11, 20, 25];
   public pieChartType: ChartType = 'pie';
-  public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
+  public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3"], borderWidth: [1, 1, 1, 1, 1] }];
   public pieChartOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
@@ -29,17 +29,6 @@ export class ChartComunaComponent implements OnInit {
         boxWidth:15
         }
     },
-    /* transitions: {
-      reset: !this.desactivado
-    } */
-    /* animation: {
-      animateScale: true,
-      animateRotate: !this.desactivado,
-      duration: 1000,
-      easing: 'linear',
-    },
-     */
-    
   
   };
 
@@ -73,7 +62,7 @@ export class ChartComunaComponent implements OnInit {
 
     this.pieChartOptions = {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       legend: {
         position :"right",	
         display: true,

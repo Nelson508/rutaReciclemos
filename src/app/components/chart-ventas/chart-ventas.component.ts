@@ -95,7 +95,7 @@ export class ChartVentasComponent implements OnInit {
      this.barChartOptions = {
       scaleShowVerticalLines: false,
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       legend: {
         display: true,
         labels: {
