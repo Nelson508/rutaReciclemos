@@ -14,10 +14,10 @@ export class ChartPersonasComponent implements OnInit {
 
 
    // Doughnut
-   public doughnutChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
-   public doughnutChartData: number[] = [13, 120, 11, 20];
-   public doughnutChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962", "#0a151f"] ,
-                                               borderWidth: [0, 0, 0, 0]}];
+   public doughnutChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
+   public doughnutChartData: number[] = [13, 30, 11, 20, 50];
+   public doughnutChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962", "#0a151f", "#ff8800"] ,
+                                               borderWidth: [5, 5, 5, 5, 5]}];
    public doughnutChartType: ChartType = 'doughnut';
    public doughnutChartOptions: any = {
      responsive: true,
@@ -54,7 +54,7 @@ export class ChartPersonasComponent implements OnInit {
 
     this.doughnutChartOptions = {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       legend: {
         position :"right",	
         display: true,

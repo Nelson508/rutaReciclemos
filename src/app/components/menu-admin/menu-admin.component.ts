@@ -16,19 +16,24 @@ export class MenuAdminComponent implements OnInit {
 
   @Input() activarReseumen: boolean = true;
   @Input() activarComunas: boolean = false;
-  @Input() activarVentas: boolean = false;
   @Input() activarPersonas: boolean = false;
   @Input() activarEdades: boolean = false;
   @Input() activarGeneros: boolean = false;
+  @Input() activarVentas: boolean = false;
 
   @ViewChild(ResumenComponent) graficoReseumen?: ResumenComponent;
   @ViewChild(ChartComunaComponent) graficoComunas?: ChartComunaComponent;
-  @ViewChild(ChartVentasComponent) graficoVentas?: ChartVentasComponent;
   @ViewChild(ChartPersonasComponent) graficoPersonas?: ChartPersonasComponent;
   @ViewChild(ChartEdadComponent) graficoEdades?: ChartEdadComponent;
   @ViewChild(ChartGeneroComponent) graficoGeneros?: ChartGeneroComponent;
-  
+  @ViewChild(ChartVentasComponent) graficoVentas?: ChartVentasComponent;
 
+  resumen:any = 'active';
+  comunas:any;
+  personas:any;
+  edades:any;
+  generos:any;
+  ventas:any;
 
   constructor(private router: Router) {}
 
@@ -40,43 +45,56 @@ export class MenuAdminComponent implements OnInit {
     if(aux==1){
       this.activarReseumen = true;
       this.graficoReseumen?.ngOnDestroy();
+      this.resumen = 'active';
+
     }else{
       this.activarReseumen = false;
+      this.resumen = '';
     }
  
     if(aux==2){
       this.activarComunas = true;
       this.graficoComunas?.ngOnDestroy();
+      this.comunas = 'active';
     }else{
       this.activarComunas = false;
+      this.comunas = '';
     }
 
     if(aux==3){
-      this.activarVentas = true;
-      this.graficoVentas?.ngOnDestroy();
+      this.activarPersonas = true;
+      this.graficoPersonas?.ngOnDestroy();
+      this.personas = 'active';
     }else{
-      this.activarVentas = false;
+      this.activarPersonas = false;
+      this.personas = '';
     }
 
     if(aux==4){
-      this.activarPersonas = true;
-      this.graficoPersonas?.ngOnDestroy();
+      this.activarEdades = true;
+      this.graficoEdades?.ngOnDestroy();
+      this.edades = 'active';
     }else{
-      this.activarPersonas = false;
+      this.activarEdades = false;
+      this.edades = '';
     }
 
     if(aux==5){
-      this.activarEdades = true;
-      this.graficoEdades?.ngOnDestroy();
+      this.activarGeneros = true;
+      this.graficoGeneros?.ngOnDestroy();
+      this.generos = 'active';
     }else{
-      this.activarEdades = false;
+      this.activarGeneros = false;
+      this.generos = '';
     }
 
     if(aux==6){
-      this.activarGeneros = true;
-      this.graficoGeneros?.ngOnDestroy();
+      this.activarVentas = true;
+      this.graficoVentas?.ngOnDestroy();
+      this.ventas = 'active';
     }else{
-      this.activarGeneros = false;
+      this.activarVentas = false;
+      this.ventas = '';
     }
   }
 

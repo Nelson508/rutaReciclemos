@@ -12,7 +12,7 @@ export class ChartEdadComponent implements OnInit {
   @Input() desactivado:boolean = false;
 
   // Pie
-  public pieChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
+  public pieChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
   public pieChartData: number[] = [13, 120, 11, 20];
   public pieChartType: ChartType = 'pie';
   public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
@@ -50,7 +50,7 @@ export class ChartEdadComponent implements OnInit {
  
     this.pieChartOptions = {
        responsive: true,
-       maintainAspectRatio: false,
+       maintainAspectRatio: true,
        legend: {
          position :"right",	
          display: true,

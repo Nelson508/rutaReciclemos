@@ -11,8 +11,89 @@ export class ResumenComponent implements OnInit {
 
   @Input() desactivado:boolean = false;
 
-  // barChart
-  public barChartOptions: any = {
+ 
+  
+  // Grafico Por Comuna
+  public comunaChartLabels: string[] = ["Concepción", "Talcahuano", "Coronel", "Chuguayante","San Pedro de la paz"];
+  public comunaChartData: number[] = [80, 30, 11, 20, 25];
+  public comunaChartType: ChartType = 'pie';
+  public comunaChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3"], borderWidth: [1, 1, 1, 1, 1] }];
+  public comunaChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position :"right",	
+      display: true,
+         labels: {
+         fontColor: '#585757',  
+         boxWidth:15
+        }
+     }
+  
+  };
+
+  // Grafico por Personas
+  public personaChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
+  public personaChartData: number[] = [13, 30, 11, 20, 50];
+  public personaChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962", "#0a151f", "#ff8800"] ,
+                                              borderWidth: [5, 5, 5, 5, 5]}];
+  public personaChartType: ChartType = 'doughnut';
+  public personaChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position :"right",	
+      display: true,
+         labels: {
+         fontColor: '#585757',  
+         boxWidth:15
+        }
+     },
+     
+  };
+
+  // Grafico por Rango Etario
+  public edadChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
+  public edadChartData: number[] = [13, 120, 11, 20];
+  public edadChartType: ChartType = 'pie';
+  public edadChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
+  public edadChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position :"right",	
+      display: true,
+         labels: {
+         fontColor: '#585757',  
+         boxWidth:15
+        }
+     }
+  
+  };
+
+  
+  // Grafico por Genero
+  public generoChartLabels: string[] = ["Masculino", "Femenino", "No especifica"];
+  public generoChartData: number[] = [13, 20, 11];
+  public generoChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962"] ,
+                                              borderWidth: [3, 3, 3]}];
+  public generoChartType: ChartType = 'doughnut';
+  public generoChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position :"right",	
+      display: true,
+         labels: {
+         fontColor: '#585757',  
+         boxWidth:15
+        }
+     },
+     
+  };
+
+   // barChart
+   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     maintainAspectRatio: false,
@@ -69,45 +150,6 @@ export class ResumenComponent implements OnInit {
       backgroundColor: "#14b6ff"
     },
   ];
-  
-  // Pie
-  public pieChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
-  public pieChartData: number[] = [13, 120, 11, 20];
-  public pieChartType: ChartType = 'pie';
-  public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
-  public pieChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
-        }
-     }
-  
-  };
-
-  // Doughnut
-  public doughnutChartLabels: string[] = ["Lable1", "Lable2", "Lable3", "Lable4"];
-  public doughnutChartData: number[] = [13, 120, 11, 20];
-  public doughnutChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962", "#0a151f"] ,
-                                              borderWidth: [0, 0, 0, 0]}];
-  public doughnutChartType: ChartType = 'doughnut';
-  public doughnutChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
-        }
-     },
-     
-  };
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
   
@@ -127,7 +169,7 @@ export class ResumenComponent implements OnInit {
 
   ngOnDestroy(){
    
-    this.doughnutChartOptions = {
+    this.comunaChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
@@ -147,7 +189,47 @@ export class ResumenComponent implements OnInit {
       
     }
 
-    this.pieChartOptions = {
+    this.personaChartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        position :"right",	
+        display: true,
+          labels: {
+          fontColor: '#585757',  
+          boxWidth:15
+          }
+      },
+      animation: {
+        animateScale: false,
+        animateRotate: true,
+        duration: 500,
+        easing: 'linear'
+      }
+      
+    }
+
+    this.edadChartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        position :"right",	
+        display: true,
+          labels: {
+          fontColor: '#585757',  
+          boxWidth:15
+          }
+      },
+      animation: {
+        animateScale: false,
+        animateRotate: true,
+        duration: 500,
+        easing: 'linear'
+      }
+      
+    }
+
+    this.generoChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
       legend: {

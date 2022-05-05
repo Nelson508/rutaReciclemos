@@ -4,48 +4,36 @@
             <i class="fa fa-bars hand" aria-hidden="true"></i>
             <span>Graficos Administracion</span>
         </div>
-        <div class="sidebar-item" (click)="menuClick(1)">
-            <!--   <a href="#"> -->
-                  <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                  <span>Resumen</span>
-                  <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-              <!-- </a> -->
-          </div>
-        <div class="sidebar-item" (click)="menuClick(2)">
-          <!--   <a href="#"> -->
-                <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                <span>Reciclaje por comuna</span>
-                <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-            <!-- </a> -->
+        <div class="sidebar-item {{resumen}}" (click)="menuClick(1)">
+            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <span>Resumen</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-        <div class="sidebar-item" (click)="menuClick(3)">
-         <!--    <a href="#"> -->
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                <span>Ventas</span>
-                <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-           <!--  </a> -->
+        <div class="sidebar-item {{comunas}}" (click)="menuClick(2)">
+            <i class="fa fa-pie-chart" aria-hidden="true"></i>
+            <span>Reciclaje por comuna</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-        <div class="sidebar-item" (click)="menuClick(4)">
-         <!--    <a href="#"> -->
-                <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                <span>Reciclaje por personas</span>
-                <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-           <!--  </a> -->
+        <div class="sidebar-item {{personas}}" (click)="menuClick(3)">
+            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <span>Reciclaje por personas</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-        <div class="sidebar-item" (click)="menuClick(5)">
-          <!--   <a href="#"> -->
-                <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                <span>Reciclaje por edad</span>
-                <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-           <!--  </a> -->
+        <div class="sidebar-item {{edades}}" (click)="menuClick(4)">
+            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <span>Reciclaje por edad</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-        <div class="sidebar-item" (click)="menuClick(6)">
-           <!--  <a href="#"> -->
-                <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                <span>Reciclaje por género</span>
-                <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-         <!--    </a> -->
+        <div class="sidebar-item {{generos}}" (click)="menuClick(5)">
+            <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
+            <span>Reciclaje por género</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
+        <div class="sidebar-item {{ventas}}" (click)="menuClick(6)">
+            <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
+            <span>Ventas</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+           </div>
     </div>
     <div class="col-lg-9">
         <app-resumen [desactivado]="!activarReseumen"></app-resumen>

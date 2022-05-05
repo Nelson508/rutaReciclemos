@@ -1,10 +1,13 @@
 <!-- Doughnut chart-->
-<div class="col-lg-6 col-xl-6" [hidden]="desactivado">
+<div class="col-lg-12 col-xl-12" [hidden]="desactivado">
     <div class="card">
         <div class="card-header text-uppercase">Tipo de material por Personas</div>
         <div class="card-body">
-            <div class="height-240">
-                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+            <button class="btn btn-success"><i class="fa-solid fa-file-excel"></i> Descargar</button>
+            <div class="canvas-container">
+                <div class="w-75">
+                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+                </div>
             </div>
         </div>
     </div>
