@@ -27,7 +27,7 @@
  */
 
  .sidebar-item .icono{
-    color: red;
+    color: #ff8800;
 }
 
 .sidebar-item .fa{
@@ -53,10 +53,10 @@
     background-color: rgba(121, 52, 243, 0.15);
 }
 
-.sidebar-item .icono:hover{
+/* .sidebar-item .icono:hover{
     color: #7934f3;
 }
-
+ */
 
 .hand {
 	cursor: pointer;
@@ -66,3 +66,13 @@
 	font-size: 0;
 	visibility: hidden;
 }
+
+/* @media (max-width: 576px) {
+	.sidebar{
+		transform: translateX(-350px);
+		display:flex;
+		flex: none;
+		z-index: -1;
+	}
+	
+} */

@@ -34,13 +34,18 @@ export class MenuAdminComponent implements OnInit {
   edades:any;
   generos:any;
   ventas:any;
+  oculatrSidebar: boolean= false;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+
+    if(screen.width < 576){
+      this.oculatrSidebar = true;
+    }
   }
 
-  menuClick(aux: number){
+  async menuClick(aux: number){
 
     if(aux==1){
       this.activarReseumen = true;
@@ -81,7 +86,7 @@ export class MenuAdminComponent implements OnInit {
 
     if(aux==5){
       this.activarGeneros = true;
-      this.graficoGeneros?.ngOnDestroy();
+      await this.graficoGeneros?.ngOnDestroy();
       this.generos = 'active';
     }else{
       this.activarGeneros = false;

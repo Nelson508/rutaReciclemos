@@ -1,26 +1,26 @@
 <div class="row">
-    <div class="sidebar expanded col-lg-4">
+    <div class="sidebar expanded col-lg-4" [hidden]="oculatrSidebar">
         <div class="sidebar-item no-hover" id="burger">
             <i class="fa fa-bars hand" aria-hidden="true"></i>
             <span>Graficos Administración</span>
         </div>
         <div class="sidebar-item {{resumen}}" (click)="menuClick(1)">
-            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
             <span>Resumen</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
         <div class="sidebar-item {{comunas}}" (click)="menuClick(2)">
-            <i class="fa fa-pie-chart" aria-hidden="true"></i>
+            <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
             <span>Reciclaje por comuna</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
         <div class="sidebar-item {{personas}}" (click)="menuClick(3)">
-            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
             <span>Reciclaje por personas</span>
-            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+            <i class="fa fa-angle-right" style="float:right;"  aria-hidden="true"></i>
         </div>
         <div class="sidebar-item {{edades}}" (click)="menuClick(4)">
-            <i class="fa fa-pie-chart" style="color: #ff8800;" aria-hidden="true"></i>
+            <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
             <span>Reciclaje por edad</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
@@ -35,7 +35,7 @@
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
     </div>
-    <div class="col-lg-9">
+    <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12">
         <app-resumen [desactivado]="!activarReseumen"></app-resumen>
         <app-chart-comuna [desactivado]="!activarComunas"></app-chart-comuna>
         <app-chart-ventas [desactivado]="!activarVentas"></app-chart-ventas> 

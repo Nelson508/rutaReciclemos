@@ -16,6 +16,7 @@ export class FirebaseService {
   databaseRef: DatabaseReference;
   data: any;
   dataGenero: any;
+  dataRutasCompletas: any;
 
   
   constructor(public fireServices: AngularFirestore,
@@ -94,13 +95,28 @@ getKey(): Promise<any> {
   });
 }
 
-getGenero(): Promise<any> {
-  return this.databaseRef.child('Usuarios').get().then((snapshot) => {
+getRutasCompletadas(): Promise<any> {
+  return this.databaseRef.child('rutas_completadas').get().then((snapshot) => {
+    if (snapshot.exists()) {
+      // I don't think you need to keep the data in this.data anymore
+      this.dataRutasCompletas = snapshot.val();
+      //console.log(this.dataRutasCompletas);
+      return this.dataRutasCompletas;
+    } else {
+      console.log('No data available');
+      return null; // or return another default value, like [] or {} or "";
+    }
+  });
+}
+
+getGenero(id:any): Promise<any> {
+  return this.databaseRef.child('Usuarios/app_usuarios/'+id+'/Sexo').get().then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.dataGenero = snapshot.val();
-      //console.log(this.dataGenero.app_usuarios);
-      return this.dataGenero.app_usuarios;
+     
+      //console.log(this.dataGenero);
+      return this.dataGenero;
     } else {
       console.log('No data available');
       return null; // or return another default value, like [] or {} or "";
