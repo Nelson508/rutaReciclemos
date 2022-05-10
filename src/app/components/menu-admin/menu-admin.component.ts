@@ -7,6 +7,7 @@ import { ChartPersonasComponent } from '../chart-personas/chart-personas.compone
 import { ChartVentasComponent } from '../chart-ventas/chart-ventas.component';
 import { ResumenComponent } from '../resumen/resumen.component';
 
+
 @Component({
   selector: 'app-menu-admin',
   templateUrl: './menu-admin.component.html',
@@ -101,6 +102,14 @@ export class MenuAdminComponent implements OnInit {
       this.activarVentas = false;
       this.ventas = '';
     }
+  }
+
+
+  cerrarSesion()
+  {
+    localStorage.clear();
+    this.router.navigate(['/', 'login'])
+
   }
 
 }

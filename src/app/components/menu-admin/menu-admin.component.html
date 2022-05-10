@@ -2,7 +2,7 @@
     <div class="sidebar expanded col-lg-4" [hidden]="oculatrSidebar">
         <div class="sidebar-item no-hover" id="burger">
             <i class="fa fa-bars hand" aria-hidden="true"></i>
-            <span>Graficos Administración</span>
+            <span>Administración</span>
         </div>
         <div class="sidebar-item {{resumen}}" (click)="menuClick(1)">
             <i class="fa fa-pie-chart icono" aria-hidden="true"></i>
@@ -32,6 +32,13 @@
         <div class="sidebar-item {{ventas}}" (click)="menuClick(6)">
             <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
             <span>Ventas</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+        </div>
+
+        <div class="sidebar-item" (click)="cerrarSesion()">
+            <i class="fa fa-arrow-right-from-bracket" style="color: red;" aria-hidden="true"></i>
+            
+            <span>Cerrar sesión</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
     </div>
