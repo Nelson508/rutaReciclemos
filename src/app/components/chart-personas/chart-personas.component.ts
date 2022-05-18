@@ -18,8 +18,8 @@ export class ChartPersonasComponent implements OnInit {
   pebd:number = 0;
   carton:number = 0;
   latas:number = 0;
-  pe:any;
-  arr= [this.pet, this.pead,this.pebd, this.carton, this.latas]
+  
+
   
 
 
@@ -48,9 +48,9 @@ export class ChartPersonasComponent implements OnInit {
   constructor(private firebaseSer: FirebaseService) { }
 
   async ngOnInit() {
-    console.log('nGPet22: ' + this.pet)
+    
     await this.obtenerRutasCompletadas();
-    console.log('nGPet: ' + this.pet)
+    
   }
 
   // events
@@ -94,9 +94,9 @@ export class ChartPersonasComponent implements OnInit {
      data =>
       {
         this.dathax = data;
-        console.log(data);
+        // console.log(data);
         let largo = Object.keys(this.dathax).length;
-        console.log('Largo:' + largo);
+        // console.log('Largo:' + largo);
          for (let i = 1; i < largo; i++) {
           
           this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
@@ -110,21 +110,19 @@ export class ChartPersonasComponent implements OnInit {
           //console.log(PET,PEAD,PEBD,carton,latas);
           
           //console.log(total);
-          console.log('i:' + i);
+          // console.log('i:' + i);
          
-          console.log('PET:' +this.pet + 'PEAD: ' + this.pead + 'PEBD: ' +this.pebd + 'Carton: ' + this.carton + 'Latas:' + this.latas)
+          // console.log('PET:' +this.pet + 'PEAD: ' + this.pead + 'PEBD: ' +this.pebd + 'Carton: ' + this.carton + 'Latas:' + this.latas)
        
 
         }
 
-        console.log('peti' + this.pet)
+        
         
       }
     )
 
-    console.log('peti1' + this.pet);
-    this.pet = Number(this.pet);
-    this.pe = this.pet;
+   
     
 
   }

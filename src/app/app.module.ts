@@ -33,6 +33,12 @@ import {FirebaseService} from './services/firebase.service'
 //encriptar
 import * as CryptoJS from 'crypto-js';
 
+// import {GeoJson} from './map';
+import * as mapboxgl from 'mapbox-gl'
+// import { HttpModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import * as XLSX from 'xlsx';
+
 
 @NgModule({
   declarations: [
@@ -61,6 +67,7 @@ import * as CryptoJS from 'crypto-js';
     AngularFireModule.initializeApp(environment.firebaseConfig), /*SE INSTANCIA LA CONEXION*/
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    HttpClientModule
     
     
 

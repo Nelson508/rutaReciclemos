@@ -3,3 +3,14 @@
     align-items:center;
     justify-content: center;
 }
+
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    
+  }
+
+th{
+    background-color: rgb(231, 213, 46) ;
+}
