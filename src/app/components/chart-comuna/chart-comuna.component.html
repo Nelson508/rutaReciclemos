@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header text-uppercase">Por Comuna</div>
         <div class="card-body">
-            <button class="btn btn-success"><i class="fa-solid fa-file-excel"></i> Descargar</button>
+            <button class="btn btn-success" (click)="generateExcel()"><i class="fa-solid fa-file-excel"></i> Descargar</button>
             <div class="canvas-container">
                 <div class="w-75">
                     <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)" ></canvas>
@@ -13,3 +13,23 @@
     </div>
 </div>
 <!-- / Pie chart-->
+
+
+<!--EKZEL-->
+<div [hidden]="excell">
+	<table id="comuna-table">
+		<tr style="background-color: rgb(231, 213, 46) ;">
+			<th>g</th>
+			<th>nombre</th>
+			<th>fecha</th>
+		</tr>
+		<tr *ngFor="let data of harray">
+			<td>{{data.g}}</td>
+			<td>{{data.nombre}}</td>
+			<td>{{data.timestamp}}</td>
+		</tr>
+
+	</table>
+
+</div>
+<!--EKZEL-->
