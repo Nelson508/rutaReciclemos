@@ -197,8 +197,9 @@
               
             </div>
             <div class="modal-body">
-                <img src="{{item.imagen}}" alt="" class="img-fluid w-100">
-                <p style="padding-top:2%; text-align:center; color:#000;font-family:  sans-serif;">{{item.descripcion}}</p>
+                <img [src]="item.imagen" alt="" class="img-fluid w-100">
+                <!-- <p style="padding-top:2%; text-align:center; color:#000;font-family:  sans-serif;">{{item.descripcion}}</p> -->
+                <quill-view-html [content]="item.descripcion" theme="snow"></quill-view-html>
             </div>
             <!-- <div class="modal-footer">
               <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>

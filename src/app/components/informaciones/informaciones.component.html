@@ -1,0 +1,171 @@
+<div class="col-lg-12 col-xl-12" [hidden]="desactivado">
+    
+    <div id="Informaciones" class="container GaleriaInfo">
+        <div class="row">
+            <h4 class="page-title">Informaciones</h4>
+           
+            <!-- Gallery item -->
+    
+            <div *ngFor="let item of galeria"  class="UnitGaleria col-lg-4 col-md-6 sm-12 p-3" [hidden]="item.eliminado">
+                
+              <div class="bg-white rounded shadow-sm">
+                <img src="{{item.imagen}}" alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5>{{item.titulo}}</h5>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-danger m-1" (click)="eliminarRegistro(item._id)"><i class="fa-solid fa-trash"></i></button>
+                    <button type="button" class="btn btn-primary m-1" (click)="open(mymodal)"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+              </div>
+              <!---COMIENZO MODAL-->
+              <ng-template #mymodal let-modal>
+                <form (ngSubmit)="guardarCambios(modalForm.value)" #modalForm="ngForm">
+                  <!--   <pre>{{modalForm.value | json}}</pre> -->
+                    <div class="modal-header">
+                        <input type="number" class="form-control" id="_id" name="_id" [ngModel]="item._id" ngModel required hidden> <!-- [value]="item._id" (ngModelChange)="publicacion._id = item._id" -->
+                        <!-- Título -->
+                        <div class="form-group col-12 col-lg-12 col-xl-12">
+                            <label for="input-1">Título</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" [ngModel]="item.titulo" ngModel required>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Imagen -->
+                        <div class="mb-3">
+                            <label for="input-1">Imagen</label>
+                            <input type="file" class="form-control" (change)="capturarFile($event)" accept="image/*"> <!-- id="imagen" name="imagen" [(ngModel)]="item.imagen" ngModel -->
+                        </div>
+                        <div class="mb-3">
+                            <img [src]="(previsualizacion) ? previsualizacion : item.imagen" class="img-fluid w-25">
+                        </div>
+                        <!-- Descripción -->
+                        <label for="input-1">Descripción</label>  
+                        <quill-editor ngDefaultControl #editor id="descripcion" name="descripcion" [ngModel]="item.descripcion" [modules]="modules" [styles]="{height: '100px'}" (onEditorChanged)="changedEditor($event)" ngModel [required]="true"></quill-editor>       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="loading">
+                            {{(loading) ? 'Cargando...' : 'Guardar'}}
+                        </button>
+                    </div>
+                </form>
+              </ng-template>
+              <!---FIN MODAL-->
+            </div>
+            
+            <!---NUEVO REGISTRO-->
+            <div class="text-center col-lg-4 col-md-6 sm-12 p-3">
+                <button type="button" class="btn btn-outline-primary btn-sq-responsive" (click)="open(mymodal)"><i class="fa-solid fa-plus"></i></button>
+                <ng-template #mymodal let-modal>
+                    <div class="modal-header">
+                        <!-- Título -->
+                        <div class="form-group col-12 col-lg-12 col-xl-12">
+                            <label for="input-1">Título</label>
+                            <input type="text" class="form-control" [(ngModel)]="publicacion.titulo">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Imagen -->
+                        <div class="mb-3">
+                            <label for="input-1">Imagen</label>
+                            <input class="form-control" type="file" (change)="capturarFile($event)" accept="image/*" >
+                        </div>
+                        <div class="mb-3">
+                            <img [src]="previsualizacion" class="img-fluid w-25">
+                        </div>
+                        <!-- Descripción -->
+                        <label for="input-1">Descripción</label>  
+                        <quill-editor ngDefaultControl #editor [modules]="modules" [styles]="{height: '100px'}" (onEditorChanged)="changedEditor($event)" [(ngModel)]="publicacion.descripcion"></quill-editor>       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
+                        <button type="button" class="btn btn-primary" [disabled]="loading" (click)="nuevoRegistro()">
+                            {{(loading) ? 'Cargando...' : 'Guardar'}}
+                        </button>
+                    </div>
+                  </ng-template>
+            </div>
+              <!---FIN NUEVO REGISTRO-->
+            <!-- End -->
+      
+        </div>
+    
+    
+    </div>
+</div>
+<!-- Breadcrumb-->
+
+<div class="col-lg-6 col-xl-12" [hidden]="true">
+   <!--  <div class="row pt-2 pb-2">
+        
+        <div class="col-sm-9">
+            <h4 class="page-title">Editor</h4>
+            
+        </div>
+        
+    </div>
+    <div class="card">
+        <quill-editor ngDefaultControl #editor [(ngModel)]="editorContent" [styles]="{height: '200px'}" (onEditorChanged)="changedEditor($event)">
+           
+
+            
+        </quill-editor>
+        <quill-view-html [content]="editorContent" theme="snow"></quill-view-html>
+    </div> -->
+   <!--  <div class="card">
+        <div class="toolbar" id="toolbar-toolbar"> 
+            <span class="ql-formats">
+            <select class="ql-font">
+                <option selected=""></option>
+                <option value="serif"></option>
+                <option value="monospace"></option>
+                <option value="Open Sans"></option>
+            </select>
+            <select class="ql-size">
+                <option value="small"></option>
+                <option selected=""></option>
+                <option value="large"></option>
+                <option value="huge"></option>
+            </select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+                <select class="ql-color"></select>
+                <select class="ql-background"></select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+                <select class="ql-align">
+                    <option selected=""></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                </select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-link"></button>
+                <button class="ql-image"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-header" value="1" type="button"></button>
+                <button class="ql-header" value="2" type="button"></button>
+                <button class="ql-blockquote" type="button"></button>
+                <button class="ql-code-block" type="button"></button>
+              </span>
+        </div>
+        <div id="editor-container">
+            <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
+            <br/>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <u>incididunt</u> ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <strong>commodo</strong> consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse <u>cillum dolore eu fugiat nulla</u> pariatur. Excepteur <strong>occaecat cupidatat non proident</strong> , sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <br>
+                <br>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+        </div>
+    </div> -->
+</div>

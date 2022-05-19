@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {FirebaseService} from '../../services/firebase.service';
 
 @Component({
   selector: 'app-informacion',
@@ -19,37 +20,41 @@ export class InformacionComponent implements OnInit {
   Informacion = 'active';
   
   eyes = false;
-  galeria = [
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-     titulo: 'Ruta Reciclemos lanza App a Play Store.',
-    descripcion: 'Se lograron más de 1.000 descargas en la primera semana.'
-    },
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-2.jpg',
-     titulo: 'Ruta Reciclemos amplía su zona de recolección junto con su horario.',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 2'
-    },
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-3.jpg',
-     titulo: '5 entretenidas formas de reutilizar tus botellas plasticas.',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 3'
-    },
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-4.jpg',
-     titulo: '¿Por qué es importante lavar bien nuestros envases ?',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 4'
-    },
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-5.jpg',
-     titulo: 'Las piñas de Perú',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 5'
-    },
-    {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-6.jpg',
-     titulo: 'Encuentran polimero cancerigeno en platano',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 6'
-    }
-  ]  //fin galera
+
+  galeria: any = [];
+  // galeria = [
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
+  //    titulo: 'Ruta Reciclemos lanza App a Play Store.',
+  //   descripcion: 'Se lograron más de 1.000 descargas en la primera semana.'
+  //   },
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-2.jpg',
+  //    titulo: 'Ruta Reciclemos amplía su zona de recolección junto con su horario.',
+  //   descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 2'
+  //   },
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-3.jpg',
+  //    titulo: '5 entretenidas formas de reutilizar tus botellas plasticas.',
+  //   descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 3'
+  //   },
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-4.jpg',
+  //    titulo: '¿Por qué es importante lavar bien nuestros envases ?',
+  //   descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 4'
+  //   },
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-5.jpg',
+  //    titulo: 'Las piñas de Perú',
+  //   descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 5'
+  //   },
+  //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-6.jpg',
+  //    titulo: 'Encuentran polimero cancerigeno en platano',
+  //   descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit 6'
+  //   }
+  // ]  //fin galera
 
   closeResult = '';
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+              private firebaseSer: FirebaseService) { }
 
   ngOnInit(): void {
+    this.traerInformacion();
   }
 
   changeEyes()
@@ -80,17 +85,14 @@ export class InformacionComponent implements OnInit {
     }
   }
 
+  async traerInformacion(){
 
-  
+    let valores = await this.firebaseSer.getInformaciones();
+    console.log(valores);
 
-  
+    this.galeria = valores; 
 
-  
-
-
-
-
-
+  }
 
 
 }

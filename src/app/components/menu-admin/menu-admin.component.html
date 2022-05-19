@@ -29,15 +29,23 @@
             <span>Reciclaje por género</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-        <div class="sidebar-item {{ventas}}" (click)="menuClick(6)">
+        <div class="sidebar-item {{puntoLimpio}}" (click)="menuClick(6)">
+            <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
+            <span>Puntos Limpios</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+        </div>
+        <div class="sidebar-item {{ventas}}" (click)="menuClick(7)">
             <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
             <span>Ventas</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
-
+        <div class="sidebar-item {{informaciones}}" (click)="menuClick(8)">
+            <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
+            <span>Informaciones</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+        </div>
         <div class="sidebar-item" (click)="cerrarSesion()">
             <i class="fa fa-arrow-right-from-bracket" style="color: red;" aria-hidden="true"></i>
-            
             <span>Cerrar sesión</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
@@ -45,10 +53,12 @@
     <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12">
         <app-resumen [desactivado]="!activarReseumen"></app-resumen>
         <app-chart-comuna [desactivado]="!activarComunas"></app-chart-comuna>
-        <app-chart-ventas [desactivado]="!activarVentas"></app-chart-ventas> 
         <app-chart-personas [desactivado]="!activarPersonas"></app-chart-personas>
         <app-chart-edad [desactivado]="!activarEdades"></app-chart-edad>
         <app-chart-genero [desactivado]="!activarGeneros"></app-chart-genero>
+        <app-chart-punto-limpio [desactivado]="!activarPuntosLimpios"></app-chart-punto-limpio> 
+        <app-chart-ventas [desactivado]="!activarVentas"></app-chart-ventas> 
+        <app-informaciones [desactivado]="!activarInformaciones"></app-informaciones> 
     </div>
 </div>
 

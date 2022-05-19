@@ -1,0 +1,120 @@
+.form-control {
+    border: 1px solid #ced4da;
+    background-color: rgba(0, 0, 0, 0);
+    color: #495057 !important;
+  
+}
+
+.form-control:focus {
+  border: 1px solid #7934f3;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0.2rem rgba(121, 52, 243, 0.35);
+}
+
+.input-file{
+  background-color: transparent;
+  position: relative;
+  height: 200px;
+  border:solid 1px rgb(228, 228, 132228);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+/*** Responsive square button ***/
+
+/* Style for Extra Large Screen */
+@media (max-width:3920px) {
+  .btn-sq-responsive {
+  width: 200px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  height: 200px !important;
+  font-size:24px;
+  }
+}
+  
+/* Style for Large Screen */
+@media (max-width:991px) {
+  .btn-sq-responsive {
+  width: 150px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  height: 150px !important;
+  font-size:18px;
+  }
+}
+  
+/* Style for Medium Screen */
+@media (max-width:767px) {
+  .btn-sq-responsive {
+  width: 100px !important; /* whatever width you want for medium screen */
+  max-width: 100% !important;
+  max-height: 100% !important;
+  height: 100px !important; /* whatever height you want for medium screen */
+  font-size:12px;
+  }
+}
+  
+  /* Style for Small Screen */
+@media (max-width:575px) {
+  .btn-sq-responsive {
+  width: 50px !important; /* whatever width you want for mobile screen */
+  max-width: 100% !important;
+  max-height: 100% !important;
+  height: 50px !important; /* whatever height you want for mobile screen */
+  font-size:5px;
+  padding: 0px;
+  font-size:7px;
+  }
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #7934f3;
+	border-color: #7934f3;
+}
+
+.btn-primary:hover {
+	  color: #fff;
+	  background-color: #6a27e0;
+	  border-color: #6a27e0;
+}
+  
+.btn-primary.focus,
+.btn-primary:focus {
+  box-shadow: none;
+}
+  
+.btn-primary.disabled,
+.btn-primary:disabled {
+	color: #fff;
+  background-color: #6a27e0;
+	border-color: #6a27e0;
+}
+  
+.btn-outline-primary {
+	color: #7934f3;
+	background-color: transparent;
+	background-image: none;
+	border-color: #7934f3;
+} 
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #7934f3;
+  border-color: #7934f3;
+}
+  
+.btn-outline-primary.focus,
+.btn-outline-primary:focus {
+  color: #fff;
+  background-color: #7934f3;
+  border-color: #7934f3;
+  box-shadow: none;
+}
+  
+.btn-outline-primary.disabled,
+.btn-outline-primary:disabled {
+  color: #7934f3;
+  background-color: transparent;
+}
+
+  

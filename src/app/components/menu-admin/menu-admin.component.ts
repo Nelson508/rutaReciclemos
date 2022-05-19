@@ -4,8 +4,11 @@ import { ChartComunaComponent } from '../chart-comuna/chart-comuna.component';
 import { ChartEdadComponent } from '../chart-edad/chart-edad.component';
 import { ChartGeneroComponent } from '../chart-genero/chart-genero.component';
 import { ChartPersonasComponent } from '../chart-personas/chart-personas.component';
+import { ChartPuntoLimpioComponent } from '../chart-punto-limpio/chart-punto-limpio.component';
 import { ChartVentasComponent } from '../chart-ventas/chart-ventas.component';
 import { ResumenComponent } from '../resumen/resumen.component';
+import {FirebaseService} from '../../services/firebase.service';
+
 
 
 @Component({
@@ -20,13 +23,16 @@ export class MenuAdminComponent implements OnInit {
   @Input() activarPersonas: boolean = false;
   @Input() activarEdades: boolean = false;
   @Input() activarGeneros: boolean = false;
+  @Input() activarPuntosLimpios: boolean = false;
   @Input() activarVentas: boolean = false;
+  @Input() activarInformaciones: boolean = false;
 
   @ViewChild(ResumenComponent) graficoReseumen?: ResumenComponent;
   @ViewChild(ChartComunaComponent) graficoComunas?: ChartComunaComponent;
   @ViewChild(ChartPersonasComponent) graficoPersonas?: ChartPersonasComponent;
   @ViewChild(ChartEdadComponent) graficoEdades?: ChartEdadComponent;
   @ViewChild(ChartGeneroComponent) graficoGeneros?: ChartGeneroComponent;
+  @ViewChild(ChartPuntoLimpioComponent) graficoPuntosLimpios?: ChartPuntoLimpioComponent;
   @ViewChild(ChartVentasComponent) graficoVentas?: ChartVentasComponent;
 
   resumen:any = 'active';
@@ -35,9 +41,12 @@ export class MenuAdminComponent implements OnInit {
   edades:any;
   generos:any;
   ventas:any;
+  puntoLimpio:any;
+  informaciones:any;
   oculatrSidebar: boolean= false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private firebaseSer: FirebaseService) {}
 
   ngOnInit(): void {
 
@@ -95,12 +104,32 @@ export class MenuAdminComponent implements OnInit {
     }
 
     if(aux==6){
+      this.activarPuntosLimpios = true;
+      this.graficoPuntosLimpios?.ngOnDestroy();
+      this.puntoLimpio = 'active';
+    }else{
+      this.activarPuntosLimpios = false;
+      this.puntoLimpio = '';
+    }
+
+    if(aux==7){
       this.activarVentas = true;
       this.graficoVentas?.ngOnDestroy();
       this.ventas = 'active';
     }else{
       this.activarVentas = false;
       this.ventas = '';
+    }
+
+    if(aux==8){
+      this.activarInformaciones = true;
+      //this.graficoVentas?.ngOnDestroy();
+      this.informaciones = 'active';
+      let valores = await this.firebaseSer.login();
+      console.log(valores);
+    }else{
+      this.activarInformaciones = false;
+      this.informaciones = '';
     }
   }
 
