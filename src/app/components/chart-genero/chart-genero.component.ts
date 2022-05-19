@@ -84,8 +84,8 @@ export class ChartGeneroComponent implements OnInit {
 
         }
 
-        console.log(this.Masculino);
-        console.log(this.No_especifica);
+        //console.log(this.Masculino);
+        //console.log(this.No_especifica);
       });
   }
 

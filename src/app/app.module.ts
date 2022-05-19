@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
-
+import { QuillModule } from 'ngx-quill';
 
 // PAQUETES PARA HACER LA CONSULTACION
 
@@ -51,9 +51,7 @@ import * as XLSX from 'xlsx';
     MenuComponent,
     AdministracionComponent,
     LoginComponent,/* 
-    ResumenComponent, */
-    
-    
+    ResumenComponent, */  
  
   ],
   imports: [
@@ -67,10 +65,8 @@ import * as XLSX from 'xlsx';
     AngularFireModule.initializeApp(environment.firebaseConfig), /*SE INSTANCIA LA CONEXION*/
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    HttpClientModule
-    
-    
-
+    HttpClientModule,
+    QuillModule.forRoot(),
     
   ],
   providers: [

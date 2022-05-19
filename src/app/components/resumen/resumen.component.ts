@@ -16,7 +16,7 @@ export class ResumenComponent implements OnInit {
   dathax:any;
   ciudad:string = '';
   //https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
-  comunaArray: any = [
+  comunaArray = [
     {
       nombre: 'Alto Bío-Bío',
       peso: 0
@@ -241,8 +241,8 @@ export class ResumenComponent implements OnInit {
      
   };
 
-   // barChart
-   public barChartOptions: any = {
+  // Grafico puntos limpios
+  public puntoLimpioChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     maintainAspectRatio: false,
@@ -277,20 +277,21 @@ export class ResumenComponent implements OnInit {
           color: "rgba(0, 0, 0, 0.07)"
         },
         }]
-       
+        
     }
   
   };
-  public barChartLabels: string[] = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
-  public barChartType: ChartType  = 'bar';
-  public barChartLegend = true;
+  public puntoLimpioChartLabels: string[] = ['Blumar', 'Orizon', 'Huachipato'];
+  public puntoLimpioChartType: ChartType  = 'bar';
+  public puntoLimpioChartLegend = true;
   
-  public barChartData: any[] = [
-    { barPercentage: .5, data: [13, 20, 4, 18, 29, 25, 8], label: 'Google' },
-    { barPercentage: .5, data: [31, 30, 6, 6, 21, 4, 11], label: 'Facebook' }
+  public puntoLimpioChartData: any[] = [
+    { barPercentage: .5, data: [13, 20, 4], label: 'Plasticos' },
+    { barPercentage: .5, data: [31, 30, 6], label: 'Cartón y Papel' },
+    { barPercentage: .5, data: [18, 15, 3], label: 'Latas de aluminio' }
   ];
   
-  public barChartColors: Array<any> = [
+  public puntoLimpioChartColors: Array<any> = [
     
     {
       backgroundColor: "#04b962"
@@ -298,6 +299,9 @@ export class ResumenComponent implements OnInit {
     {
       backgroundColor: "#14b6ff"
     },
+    {
+      backgroundColor: "#7934f3"
+    }
   ];
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
@@ -401,7 +405,7 @@ export class ResumenComponent implements OnInit {
       
     }
 
-    this.barChartOptions = {
+    this.puntoLimpioChartOptions = {
       scaleShowVerticalLines: false,
       responsive: true,
       maintainAspectRatio: false,
@@ -490,8 +494,8 @@ export class ResumenComponent implements OnInit {
             
             //  console.log(` lng: ${lng} | lat: ${lat}`);
              await this.getAdress(lat,lng, total);
-             console.log(1)
-             console.log(this.comunaArray);
+            //console.log(1)
+             //console.log(this.comunaArray);
  
              }else{
           
@@ -507,8 +511,8 @@ export class ResumenComponent implements OnInit {
 
         // console.log(this.harray)
         //  console.log('ordenar')
-        console.log(2)
-        console.log(this.comunaArray);
+        //console.log(2)
+        //console.log(this.comunaArray);
          await this.sortComunas();
         // let jurray = this.comunaArray.sort((a,b) =>  Number(b.peso) - Number(a.peso))
         // this.comunaArray.sort(this.sortComunas)
@@ -525,7 +529,7 @@ export class ResumenComponent implements OnInit {
 
   }
 
-  async getAdress(lng:any,lat:any, total:number)
+  async getAdress(lng:any,lat:any, total:number): Promise<any>
   {
     //en la consulta primero va lng, lat
     //de la bd vienen lat,lng
@@ -533,8 +537,9 @@ export class ResumenComponent implements OnInit {
     // let lat = '-36.813'
 
     let api_key = 'pk.eyJ1IjoibHVpc20taXQiLCJhIjoiY2wzMHNjcHNuMXNnbzNicDJxZjJnMDgyNSJ9.977eW4ZB5TbbKJFgicE7Mg'
-    this.http.get<IGeocoderResult>(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?country=cl&limit=1&types=place%2Cpostcode%2Caddress&language=es&access_token=${api_key}`)
-      .subscribe((resp:any) => {
+    return this.http.get<IGeocoderResult>(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?country=cl&limit=1&types=place%2Cpostcode%2Caddress&language=es&access_token=${api_key}`)
+      .toPromise()  
+      .then((resp:any) => {
         // console.log(resp.features[0].place_name)
         let adress = resp.features[0].place_name;
         let city = adress.split(",");
@@ -767,14 +772,16 @@ export class ResumenComponent implements OnInit {
     
     // let ordenado = this.comunaArray.map(item => item).sort((a,b)=>a.peso-b.peso)
     let x= []
-   
+
+    this.comunaArray.sort((a,b) =>(b.peso - a.peso))
+    console.log(this.comunaArray)
     
     // await console.log(this.altoBioBio);
     // // this.comunaArray.forEach(element => 
     // //   {
     // //     console.log(element.peso)
     // //   });
-    await console.log(JSON.stringify(this.comunaArray[1]))
+    //await console.log(JSON.stringify(this.comunaArray[1]))
     // console.log(this.comunaArray)
     
     

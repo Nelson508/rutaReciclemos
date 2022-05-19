@@ -4,7 +4,8 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 import Access from '../interfaces/interfaces';
 import { getDatabase, ref, onValue, get, child} from "firebase/database";
 import { DatabaseReference } from '@angular/fire/compat/database/interfaces';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,14 @@ export class FirebaseService {
   data: any;
   dataGenero: any;
   dataRutasCompletas: any;
+  puntosFijos: any;
+  publicacion: any = [];
 
   
   constructor(public fireServices: AngularFirestore,
-              public db: AngularFireDatabase          
+              public db: AngularFireDatabase,
+              private afauth: AngularFireAuth       
     ) {
-
       this.databaseRef = db.database.ref();
      }
  //https://github.com/angular/angularfire/blob/master/docs/rtdb/querying-lists.md
@@ -68,7 +71,7 @@ export class FirebaseService {
 
 
 getData(): Promise<any> {
-  return this.databaseRef.child('zxcv').get().then((snapshot) => {
+  return this.databaseRef.child('zxcv').once('value').then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.data = snapshot.val();
@@ -82,7 +85,7 @@ getData(): Promise<any> {
 }
 
 getKey(): Promise<any> {
-  return this.databaseRef.child('zkey').get().then((snapshot) => {
+  return this.databaseRef.child('zkey').once('value').then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.data = snapshot.val();
@@ -96,7 +99,7 @@ getKey(): Promise<any> {
 }
 
 getRutasCompletadas(): Promise<any> {
-  return this.databaseRef.child('rutas_completadas').get().then((snapshot) => {
+  return this.databaseRef.child('rutas_completadas').once('value').then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.dataRutasCompletas = snapshot.val();
@@ -110,7 +113,7 @@ getRutasCompletadas(): Promise<any> {
 }
 
 getGenero(id:any): Promise<any> {
-  return this.databaseRef.child('Usuarios/app_usuarios/'+id+'/Sexo').get().then((snapshot) => {
+  return this.databaseRef.child('Usuarios/app_usuarios/'+id+'/Sexo').once('value').then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.dataGenero = snapshot.val();
@@ -124,4 +127,173 @@ getGenero(id:any): Promise<any> {
   });
 }
 
+getPuntosFijos(): Promise<any> {
+  return this.databaseRef.child('puntofijo').once('value').then((snapshot) => {
+    if (snapshot.exists()) {
+      // I don't think you need to keep the data in this.data anymore
+      this.puntosFijos = snapshot.val();
+     // console.log(this.puntosFijos);
+      return this.puntosFijos;
+    } else {
+      console.log('No data available');
+      return null; // or return another default value, like [] or {} or "";
+    }
+  });
+}
+
+getInformaciones(): Promise<any> {
+
+  return this.databaseRef.child('informaciones/').orderByChild('eliminado').equalTo(false).once('value').then((snapshot) => {
+    if (snapshot.exists()) {
+      // I don't think you need to keep the data in this.data anymore
+      //let publicacion = [];
+      this.publicacion = [];
+      
+      snapshot.forEach(childrenSnapshot =>{
+        this.publicacion.push(childrenSnapshot.val());
+      });
+      
+      //console.log(this.publicacion);
+      //this.puntosFijos = snapshot.val();
+      return this.publicacion;
+    } else {
+      console.log('No data available');
+      return null; // or return another default value, like [] or {} or "";
+    }
+  });
+}
+
+setInformaciones(id:number, publicacion:any){
+
+  console.log('Infomraciones:' + id);
+  
+  this.databaseRef.child('informaciones/'+ id).set({
+    _id: id,
+    titulo: publicacion.titulo,
+    descripcion: publicacion.descripcion,
+    imagen: publicacion.imagen,
+    eliminado: false
+  });
+}
+
+updateInformaciones(publicacion:any): Promise<any> {
+
+  console.log('Infomracion:' + publicacion);
+  // console.log('Id', publicacion._id)
+
+  console.log('Titulo', publicacion.titulo)
+  if(publicacion.imagen != undefined){
+    return this.databaseRef.child('informaciones/' +  publicacion._id).update({
+      titulo: publicacion.titulo,
+      descripcion: publicacion.descripcion,
+      imagen: publicacion.imagen,
+    }, (error) => {
+      if (error) {
+        Swal.fire({
+          title: 'Error, inténtelo nuevamente',
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK',
+        });
+
+      } else {
+  
+        Swal.fire(
+          'Actualizado',
+          'La publicación ha sido actualizada correctamente.',
+          'success'
+        )
+
+      }
+    });
+  }
+  // console.log('Descripcion', publicacion.descripcion)
+  console.log('Descripcion', publicacion.imagen)
+  
+  return this.databaseRef.child('informaciones/' +  publicacion._id).update({
+    titulo: publicacion.titulo,
+    descripcion: publicacion.descripcion
+  }, (error) => {
+    if (error) {
+
+      Swal.fire({
+        title: 'Error, inténtelo nuevamente',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    } else {
+
+      Swal.fire(
+        'Actualizado',
+        'La publicación ha sido actualizada correctamente.',
+        'success'
+      )
+
+    }
+  });
+}
+
+eliminarInformacion(id:number): Promise<any>{
+
+  return this.databaseRef.child('informaciones/' + id).update({
+    eliminado: true
+  }, (error) => {
+    if (error) {
+
+      Swal.fire({
+        title: 'Error, inténtelo nuevamente',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    } else {
+
+      Swal.fire(
+        'Eliminado!',
+        'La publicación ha sido eliminada con éxito.',
+        'success'
+      )
+    }
+  // }).then((snapshot) => {
+  //     return true;
+   });
+}
+
+
+/* const usersRef = ref.child('users'); */
+/* usersRef.set({
+  alanisawesome: {
+    date_of_birth: 'June 23, 1912',
+    full_name: 'Alan Turing'
+  },
+  gracehop: {
+    date_of_birth: 'December 9, 1906',
+    full_name: 'Grace Hopper'
+  }
+});
+ */
+
+  /* async register() {
+    try {
+      return await this.afauth.createUserWithEmailAndPassword('Nelson@dominguez.com', '123456');
+    } catch (err) {
+      console.log("error en login: ", err);
+      return null;
+    }
+  } */
+
+  async login() {
+    try {
+      return await this.afauth.signInWithEmailAndPassword('Nelson@dominguez.com', '123456');
+    } catch (err) {
+      console.log("error en login: ", err);
+      return null;
+    }
+  }
 }

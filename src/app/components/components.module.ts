@@ -8,6 +8,13 @@ import { ChartVentasComponent } from './chart-ventas/chart-ventas.component';
 import { ChartPersonasComponent } from './chart-personas/chart-personas.component';
 import { ResumenComponent } from './resumen/resumen.component';
 import { ChartsModule } from 'ng2-charts';
+import { ChartPuntoLimpioComponent } from './chart-punto-limpio/chart-punto-limpio.component';
+import { InformacionesComponent } from './informaciones/informaciones.component';
+import { QuillModule } from 'ngx-quill';
+import { FormsModule } from '@angular/forms';
+
+//import QuillModule from 'quill';
+
 
 
 
@@ -19,11 +26,15 @@ import { ChartsModule } from 'ng2-charts';
     ChartGeneroComponent,
     ChartVentasComponent,
     ChartPersonasComponent,
-    ResumenComponent
+    ResumenComponent,
+    ChartPuntoLimpioComponent,
+    InformacionesComponent
   ],
   imports: [
     CommonModule,
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    QuillModule.forRoot(),
   ],
   exports: [
     MenuAdminComponent,
