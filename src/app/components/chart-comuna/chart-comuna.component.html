@@ -19,14 +19,343 @@
 <div [hidden]="excell">
 	<table id="comuna-table">
 		<tr style="background-color: rgb(231, 213, 46) ;">
-			<th>g</th>
-			<th>nombre</th>
-			<th>fecha</th>
+			<th>Comuna/ Residuo</th>
+			<th>PET</th>
+			<th>PEAD</th>
+			<th>PEBD</th>
+			<th>Papel/Cartón</th>
+			<th>Aluminio</th>
+			<th>Total</th>
 		</tr>
-		<tr *ngFor="let data of harray">
-			<td>{{data.g}}</td>
-			<td>{{data.nombre}}</td>
-			<td>{{data.timestamp}}</td>
+		<tr>
+			<td>{{OAltobiobio.nombre}}</td>
+			<td>{{OAltobiobio.pet}}</td>
+			<td>{{OAltobiobio.pead}}</td>
+			<td>{{OAltobiobio.pebd}}</td>
+			<td>{{OAltobiobio.carton}}</td>
+			<td>{{OAltobiobio.aluminio}}</td>
+			<td>{{altoBioBio}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OAntuco.nombre}}</td>
+			<td>{{OAntuco.pet}}</td>
+			<td>{{OAntuco.pead}}</td>
+			<td>{{OAntuco.pebd}}</td>
+			<td>{{OAntuco.carton}}</td>
+			<td>{{OAntuco.aluminio}}</td>
+			<td>{{antuco}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OArauco.nombre}}</td>
+			<td>{{OArauco.pet}}</td>
+			<td>{{OArauco.pead}}</td>
+			<td>{{OArauco.pebd}}</td>
+			<td>{{OArauco.carton}}</td>
+			<td>{{OArauco.aluminio}}</td>
+			<td>{{arauco}}</td>
+		</tr>
+		
+		<tr>
+			<td>{{OCabrero.nombre}}</td>
+			<td>{{OCabrero.pet}}</td>
+			<td>{{OCabrero.pead}}</td>
+			<td>{{OCabrero.pebd}}</td>
+			<td>{{OCabrero.carton}}</td>
+			<td>{{OCabrero.aluminio}}</td>
+			<td>{{cabrero}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OCanete.nombre}}</td>
+			<td>{{OCanete.pet}}</td>
+			<td>{{OCanete.pead}}</td>
+			<td>{{OCanete.pebd}}</td>
+			<td>{{OCanete.carton}}</td>
+			<td>{{OCanete.aluminio}}</td>
+			<td>{{canete}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OChiguayante.nombre}}</td>
+			<td>{{OChiguayante.pet}}</td>
+			<td>{{OChiguayante.pead}}</td>
+			<td>{{OChiguayante.pebd}}</td>
+			<td>{{OChiguayante.carton}}</td>
+			<td>{{OChiguayante.aluminio}}</td>
+			<td>{{chiguayante}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OConcepcion.nombre}}</td>
+			<td>{{OConcepcion.pet}}</td>
+			<td>{{OConcepcion.pead}}</td>
+			<td>{{OConcepcion.pebd}}</td>
+			<td>{{OConcepcion.carton}}</td>
+			<td>{{OConcepcion.aluminio}}</td>
+			<td>{{concepcion}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OContulmo.nombre}}</td>
+			<td>{{OContulmo.pet}}</td>
+			<td>{{OContulmo.pead}}</td>
+			<td>{{OContulmo.pebd}}</td>
+			<td>{{OContulmo.carton}}</td>
+			<td>{{OContulmo.aluminio}}</td>
+			<td>{{contulmo}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OCoronel.nombre}}</td>
+			<td>{{OCoronel.pet}}</td>
+			<td>{{OCoronel.pead}}</td>
+			<td>{{OCoronel.pebd}}</td>
+			<td>{{OCoronel.carton}}</td>
+			<td>{{OCoronel.aluminio}}</td>
+			<td>{{coronel}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OCuranilahue.nombre}}</td>
+			<td>{{OCuranilahue.pet}}</td>
+			<td>{{OCuranilahue.pead}}</td>
+			<td>{{OCuranilahue.pebd}}</td>
+			<td>{{OCuranilahue.carton}}</td>
+			<td>{{OCuranilahue.aluminio}}</td>
+			<td>{{curanilahue}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OFlorida.nombre}}</td>
+			<td>{{OFlorida.pet}}</td>
+			<td>{{OFlorida.pead}}</td>
+			<td>{{OFlorida.pebd}}</td>
+			<td>{{OFlorida.carton}}</td>
+			<td>{{OFlorida.aluminio}}</td>
+			<td>{{florida}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OHualpen.nombre}}</td>
+			<td>{{OHualpen.pet}}</td>
+			<td>{{OHualpen.pead}}</td>
+			<td>{{OHualpen.pebd}}</td>
+			<td>{{OHualpen.carton}}</td>
+			<td>{{OHualpen.aluminio}}</td>
+			<td>{{hualpen}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OHualqui.nombre}}</td>
+			<td>{{OHualqui.pet}}</td>
+			<td>{{OHualqui.pead}}</td>
+			<td>{{OHualqui.pebd}}</td>
+			<td>{{OHualqui.carton}}</td>
+			<td>{{OHualqui.aluminio}}</td>
+			<td>{{hualqui}}</td>
+		</tr>
+
+
+		<tr>
+			<td>{{OLaja.nombre}}</td>
+			<td>{{OLaja.pet}}</td>
+			<td>{{OLaja.pead}}</td>
+			<td>{{OLaja.pebd}}</td>
+			<td>{{OLaja.carton}}</td>
+			<td>{{OLaja.aluminio}}</td>
+			<td>{{laja}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OLebu.nombre}}</td>
+			<td>{{OLebu.pet}}</td>
+			<td>{{OLebu.pead}}</td>
+			<td>{{OLebu.pebd}}</td>
+			<td>{{OLebu.carton}}</td>
+			<td>{{OLebu.aluminio}}</td>
+			<td>{{lebu}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OAlamos.nombre}}</td>
+			<td>{{OAlamos.pet}}</td>
+			<td>{{OAlamos.pead}}</td>
+			<td>{{OAlamos.pebd}}</td>
+			<td>{{OAlamos.carton}}</td>
+			<td>{{OAlamos.aluminio}}</td>
+			<td>{{losAlamos}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OAngeles.nombre}}</td>
+			<td>{{OAngeles.pet}}</td>
+			<td>{{OAngeles.pead}}</td>
+			<td>{{OAngeles.pebd}}</td>
+			<td>{{OAngeles.carton}}</td>
+			<td>{{OAngeles.aluminio}}</td>
+			<td>{{losAngeles}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OLota.nombre}}</td>
+			<td>{{OLota.pet}}</td>
+			<td>{{OLota.pead}}</td>
+			<td>{{OLota.pebd}}</td>
+			<td>{{OLota.carton}}</td>
+			<td>{{OLota.aluminio}}</td>
+			<td>{{lota}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OMulchen.nombre}}</td>
+			<td>{{OMulchen.pet}}</td>
+			<td>{{OMulchen.pead}}</td>
+			<td>{{OMulchen.pebd}}</td>
+			<td>{{OMulchen.carton}}</td>
+			<td>{{OMulchen.aluminio}}</td>
+			<td>{{mulchen}}</td>
+		</tr>
+
+		<tr>
+			<td>{{ONacimiento.nombre}}</td>
+			<td>{{ONacimiento.pet}}</td>
+			<td>{{ONacimiento.pead}}</td>
+			<td>{{ONacimiento.pebd}}</td>
+			<td>{{ONacimiento.carton}}</td>
+			<td>{{ONacimiento.aluminio}}</td>
+			<td>{{nacimiento}}</td>
+		</tr>
+
+		<tr>
+			<td>{{ONegrete.nombre}}</td>
+			<td>{{ONegrete.pet}}</td>
+			<td>{{ONegrete.pead}}</td>
+			<td>{{ONegrete.pebd}}</td>
+			<td>{{ONegrete.carton}}</td>
+			<td>{{ONegrete.aluminio}}</td>
+			<td>{{negrete}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OPenco.nombre}}</td>
+			<td>{{OPenco.pet}}</td>
+			<td>{{OPenco.pead}}</td>
+			<td>{{OPenco.pebd}}</td>
+			<td>{{OPenco.carton}}</td>
+			<td>{{OPenco.aluminio}}</td>
+			<td>{{penco}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OQuilaco.nombre}}</td>
+			<td>{{OQuilaco.pet}}</td>
+			<td>{{OQuilaco.pead}}</td>
+			<td>{{OQuilaco.pebd}}</td>
+			<td>{{OQuilaco.carton}}</td>
+			<td>{{OQuilaco.aluminio}}</td>
+			<td>{{quilaco}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OQuilleco.nombre}}</td>
+			<td>{{OQuilleco.pet}}</td>
+			<td>{{OQuilleco.pead}}</td>
+			<td>{{OQuilleco.pebd}}</td>
+			<td>{{OQuilleco.carton}}</td>
+			<td>{{OQuilleco.aluminio}}</td>
+			<td>{{quilleco}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OSanpedro.nombre}}</td>
+			<td>{{OSanpedro.pet}}</td>
+			<td>{{OSanpedro.pead}}</td>
+			<td>{{OSanpedro.pebd}}</td>
+			<td>{{OSanpedro.carton}}</td>
+			<td>{{OSanpedro.aluminio}}</td>
+			<td>{{sanPedroDeLaPaz}}</td>
+		</tr>
+
+		<tr>
+			<td>{{ORosendo.nombre}}</td>
+			<td>{{ORosendo.pet}}</td>
+			<td>{{ORosendo.pead}}</td>
+			<td>{{ORosendo.pebd}}</td>
+			<td>{{ORosendo.carton}}</td>
+			<td>{{ORosendo.aluminio}}</td>
+			<td>{{sanRosendo}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OBarbara.nombre}}</td>
+			<td>{{OBarbara.pet}}</td>
+			<td>{{OBarbara.pead}}</td>
+			<td>{{OBarbara.pebd}}</td>
+			<td>{{OBarbara.carton}}</td>
+			<td>{{OBarbara.aluminio}}</td>
+			<td>{{santaBarbara}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OJuana.nombre}}</td>
+			<td>{{OJuana.pet}}</td>
+			<td>{{OJuana.pead}}</td>
+			<td>{{OJuana.pebd}}</td>
+			<td>{{OJuana.carton}}</td>
+			<td>{{OJuana.aluminio}}</td>
+			<td>{{santaJuana}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OTalcahuano.nombre}}</td>
+			<td>{{OTalcahuano.pet}}</td>
+			<td>{{OTalcahuano.pead}}</td>
+			<td>{{OTalcahuano.pebd}}</td>
+			<td>{{OTalcahuano.carton}}</td>
+			<td>{{OTalcahuano.aluminio}}</td>
+			<td>{{talcahuano}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OTirua.nombre}}</td>
+			<td>{{OTirua.pet}}</td>
+			<td>{{OTirua.pead}}</td>
+			<td>{{OTirua.pebd}}</td>
+			<td>{{OTirua.carton}}</td>
+			<td>{{OTirua.aluminio}}</td>
+			<td>{{tirua}}</td>
+		</tr>
+
+		<tr>
+			<td>{{OTome.nombre}}</td>
+			<td>{{OTome.pet}}</td>
+			<td>{{OTome.pead}}</td>
+			<td>{{OTome.pebd}}</td>
+			<td>{{OTome.carton}}</td>
+			<td>{{OTome.aluminio}}</td>
+			<td>{{tome}}</td>
+		</tr>
+		<tr>
+			<td>{{OTucapel.nombre}}</td>
+			<td>{{OTucapel.pet}}</td>
+			<td>{{OTucapel.pead}}</td>
+			<td>{{OTucapel.pebd}}</td>
+			<td>{{OTucapel.carton}}</td>
+			<td>{{OTucapel.aluminio}}</td>
+			<td>{{tucapel}}</td>
+
+		</tr>
+
+		<tr>
+			<td>{{OYumbel.nombre}}</td>
+			<td>{{OYumbel.pet}}</td>
+			<td>{{OYumbel.pead}}</td>
+			<td>{{OYumbel.pebd}}</td>
+			<td>{{OYumbel.carton}}</td>
+			<td>{{OYumbel.aluminio}}</td>
+			<td>{{yumbel}}</td>
 		</tr>
 
 	</table>

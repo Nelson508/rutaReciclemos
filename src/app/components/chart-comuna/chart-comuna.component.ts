@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http'
 import { IGeocoderResult } from 'src/app/interfaces/interfaces';
 import * as XLSX from 'xlsx';
 
+
 @Component({
   selector: 'app-chart-comuna',
   templateUrl: './chart-comuna.component.html',
@@ -23,7 +24,7 @@ export class ChartComunaComponent implements OnInit {
   antuco:number = 0;
   arauco:number = 0;
   cabrero:number =0;
-  cañete: number=0;
+  canete: number=0;
   chiguayante: number=0;
   concepcion: number=0;
   contulmo: number=0;
@@ -55,6 +56,346 @@ export class ChartComunaComponent implements OnInit {
   harray: any = [];
   excell = true;
 
+  //comienzo de objetos para generacion de Excel
+  OAltobiobio = {
+    nombre: 'Alto Bío-Bío',
+    pet: 0,
+    pead: 0,
+    pebd: 0,
+    carton: 0,
+    aluminio: 0
+  }
+
+ OAntuco = {
+  nombre: 'Antuco',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OArauco = {
+  nombre: 'Arauco',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0  
+}
+
+OCabrero = 
+{
+  nombre: 'Cabrero',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OCanete = 
+{
+  nombre: 'Cañete',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OChiguayante = 
+{
+  nombre: 'Chiguayante',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OConcepcion  = 
+{
+  nombre: 'Concepción',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OContulmo  = 
+{
+  nombre: 'Contulmo',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OCoronel   = 
+{
+  nombre: 'Coronel',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OCuranilahue   = 
+{
+  nombre: 'Curanilahue',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OFlorida   = 
+{
+  nombre: 'Florida',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OHualpen   = 
+{
+  nombre: 'Hualpén',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OHualqui   = 
+{
+  nombre: 'Hualqui',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OLaja   = 
+{
+  nombre: 'Laja',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OLebu  = 
+{
+  nombre: 'Lebu',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OAlamos  = 
+{
+  nombre: 'Los Álamos',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OAngeles  = 
+{
+  nombre: 'Los Ángeles',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OLota  = 
+{
+  nombre: 'Lota',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OMulchen  = 
+{
+  nombre: 'Mulchén',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+ONacimiento  = 
+{
+  nombre: 'Nacimiento',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+ONegrete  = 
+{
+  nombre: 'Negrete',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OPenco  = 
+{
+  nombre: 'Penco',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OQuilaco  = 
+{
+  nombre: 'Quilaco',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OQuilleco  = 
+{
+  nombre: 'Quilleco',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OSanpedro  = 
+{
+  nombre: 'San Pedro De La Paz',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+ORosendo  = 
+{
+  nombre: 'San Rosendo',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OBarbara  = 
+{
+  nombre: 'Santa Bárbara',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OJuana  = 
+{
+  nombre: 'Santa Juana',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OTalcahuano  = 
+{
+  nombre: 'Talcahuano',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OTirua  = 
+{
+  nombre: 'Tirúa',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OTome  = 
+{
+  nombre: 'Tomé',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OTucapel  = 
+{
+  nombre: 'Tucapel',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+OYumbel  = 
+{
+  nombre: 'Yumbel',
+  pet: 0,
+  pead: 0,
+  pebd: 0,
+  carton: 0,
+  aluminio: 0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -67,7 +408,7 @@ export class ChartComunaComponent implements OnInit {
                                       "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
                                       "Tirúa", "Tomé", "Tucapel", "Yumbel"
                                     ];
-  public pieChartData: number[] = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.cañete, this.chiguayante,
+  public pieChartData: number[] = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
                                    this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
                                    this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
                                    this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
@@ -77,7 +418,7 @@ export class ChartComunaComponent implements OnInit {
                                                       "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
                                                       "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
                                                       "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
-                                                      "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#000"
+                                                      "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"
                                                       
                                                       ], 
                                     borderWidth: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] }];
@@ -125,7 +466,7 @@ export class ChartComunaComponent implements OnInit {
       this.chart?.update();
       this.pieChartData = [121, 10, 11, 220];
     } */
-    this.pieChartData = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.cañete, this.chiguayante,
+    this.pieChartData = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
       this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
       this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
       this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
@@ -186,7 +527,7 @@ export class ChartComunaComponent implements OnInit {
             let lat = this.dathax[i].l[1];
           
             // console.log(` lng: ${lng} | lat: ${lat}`);
-            await this.getAdress(lat,lng, total);
+            await this.getAdress(lat,lng, total, pet, pead, pebd, carton, latas);
 
             }else{
             // console.log('Nel perro' +this.dathax[i].timestamp)
@@ -215,7 +556,7 @@ export class ChartComunaComponent implements OnInit {
     )
   }
 
-  async getAdress(lng:any,lat:any, total:number)
+  async getAdress(lng:any,lat:any, total:number,pet:number, pead:number, pebd:number, carton:number, latas:number)
   {
     //en la consulta primero va lng, lat
     //de la bd vienen lat,lng
@@ -242,169 +583,334 @@ export class ChartComunaComponent implements OnInit {
       if(this.ciudad == 'Alto Biobío')
       {
         this.altoBioBio += total;
+        this.OAltobiobio.pet += pet;
+        this.OAltobiobio.pead += pead;
+        this.OAltobiobio.pebd += pebd;
+        this.OAltobiobio.carton += carton;
+        this.OAltobiobio.aluminio += latas;
         
       }
       
       if(this.ciudad == 'Antuco')
       {
         this.antuco += total;
+        this.OAntuco.pet += pet;
+        this.OAntuco.pead += pead;
+        this.OAntuco.pebd += pebd;
+        this.OAntuco.carton += carton;
+        this.OAntuco.aluminio += latas;
       }
 
       if(this.ciudad == 'Arauco')
       {
         this.arauco += total;
+        this.OArauco.pet += pet;
+        this.OArauco.pead += pead;
+        this.OArauco.pebd += pebd;
+        this.OArauco.carton += carton;
+        this.OArauco.aluminio += latas;
       }
 
       if(this.ciudad == 'Cabrero')
       {
         this.cabrero += total;
+        this.OCabrero.pet += pet;
+        this.OCabrero.pead += pead;
+        this.OCabrero.pebd += pebd;
+        this.OCabrero.carton += carton;
+        this.OCabrero.aluminio += latas;
       }
       
       if(this.ciudad == 'Cañete' || this.ciudad == 'Canete')
       {
-        this.cañete += total;
+        this.canete += total;
+        this.OCanete.pet += pet;
+        this.OCanete.pead += pead;
+        this.OCanete.pebd += pebd;
+        this.OCanete.carton += carton;
+        this.OCanete.aluminio += latas;
       }
 
       if(this.ciudad == 'Chiguayante')
       {
         this.chiguayante += total;
+        this.OChiguayante.pet += pet;
+        this.OChiguayante.pead += pead;
+        this.OChiguayante.pebd += pebd;
+        this.OChiguayante.carton += carton;
+        this.OChiguayante.aluminio += latas;
       }
 
       if(this.ciudad == 'Concepción')
       {
         this.concepcion  += total;
+        this.OConcepcion.pet += pet;
+        this.OConcepcion.pead += pead;
+        this.OConcepcion.pebd += pebd;
+        this.OConcepcion.carton += carton;
+        this.OConcepcion.aluminio += latas;
         
       }
 
       if(this.ciudad == 'Contulmo')
       {
         this.contulmo  += total;
+        this.OContulmo.pet += pet;
+        this.OContulmo.pead += pead;
+        this.OContulmo.pebd += pebd;
+        this.OContulmo.carton += carton;
+        this.OContulmo.aluminio += latas;
       }
 
       if(this.ciudad == 'Coronel')
       {
         this.coronel  += total;
+        this.OCoronel.pet += pet;
+        this.OCoronel.pead += pead;
+        this.OCoronel.pebd += pebd;
+        this.OCoronel.carton += carton;
+        this.OCoronel.aluminio += latas;
       }
 
       if(this.ciudad == 'Curanilahue')
       {
         this.curanilahue  += total;
+        this.OCuranilahue.pet += pet;
+        this.OCuranilahue.pead += pead;
+        this.OCuranilahue.pebd += pebd;
+        this.OCuranilahue.carton += carton;
+        this.OCuranilahue.aluminio += latas;
       }
 
       if(this.ciudad == 'Florida')
       {
         this.florida  += total;
+        this.OFlorida.pet += pet;
+        this.OFlorida.pead += pead;
+        this.OFlorida.pebd += pebd;
+        this.OFlorida.carton += carton;
+        this.OFlorida.aluminio += latas;
       }
 
       if(this.ciudad == 'Hualpén')
       {
         this.hualpen  += total;
+        this.OHualpen.pet += pet;
+        this.OHualpen.pead += pead;
+        this.OHualpen.pebd += pebd;
+        this.OHualpen.carton += carton;
+        this.OHualpen.aluminio += latas;
       }
 
       if(this.ciudad == 'Hualqui')
       {
         this.hualqui  += total;
+        this.OHualqui.pet += pet;
+        this.OHualqui.pead += pead;
+        this.OHualqui.pebd += pebd;
+        this.OHualqui.carton += carton;
+        this.OHualqui.aluminio += latas;
       }
 
       if(this.ciudad == 'Laja')
       {
         this.laja  += total;
+        this.OLaja.pet += pet;
+        this.OLaja.pead += pead;
+        this.OLaja.pebd += pebd;
+        this.OLaja.carton += carton;
+        this.OLaja.aluminio += latas;
       }
 
       if(this.ciudad == 'Lebu')
       {
         this.lebu  += total;
+        this.OLebu.pet += pet;
+        this.OLebu.pead += pead;
+        this.OLebu.pebd += pebd;
+        this.OLebu.carton += carton;
+        this.OLebu.aluminio += latas;
       }
 
       if(this.ciudad == 'Los Álamos' || this.ciudad == 'Los Alamos' )
       {
         this.losAlamos  += total;
+        this.OAlamos.pet += pet;
+        this.OAlamos.pead += pead;
+        this.OAlamos.pebd += pebd;
+        this.OAlamos.carton += carton;
+        this.OAlamos.aluminio += latas;
       }
 
       if(this.ciudad == 'Los Ángeles' || this.ciudad == 'Los Ángeles')
       {
         this.losAngeles  += total;
+        this.OAngeles.pet += pet;
+        this.OAngeles.pead += pead;
+        this.OAngeles.pebd += pebd;
+        this.OAngeles.carton += carton;
+        this.OAngeles.aluminio += latas;
       }
       
       if(this.ciudad == 'Lota')
       {
         this.lota  += total;
+        this.OLota.pet += pet;
+        this.OLota.pead += pead;
+        this.OLota.pebd += pebd;
+        this.OLota.carton += carton;
+        this.OLota.aluminio += latas;
       }
 
       if(this.ciudad == 'Mulchén' || this.ciudad == 'Mulchen')
       {
         this.mulchen  += total;
+        this.OMulchen.pet += pet;
+        this.OMulchen.pead += pead;
+        this.OMulchen.pebd += pebd;
+        this.OMulchen.carton += carton;
+        this.OMulchen.aluminio += latas;
       }
 
       if(this.ciudad == 'Nacimiento')
       {
         this.nacimiento  += total;
+        this.ONacimiento.pet += pet;
+        this.ONacimiento.pead += pead;
+        this.ONacimiento.pebd += pebd;
+        this.ONacimiento.carton += carton;
+        this.ONacimiento.aluminio += latas;
       }
 
       if(this.ciudad == 'Negrete')
       {
         this.negrete  += total;
+        this.ONegrete.pet += pet;
+        this.ONegrete.pead += pead;
+        this.ONegrete.pebd += pebd;
+        this.ONegrete.carton += carton;
+        this.ONegrete.aluminio += latas;
       }
 
       if(this.ciudad == 'Penco')
       {
         this.penco  += total;
+        this.OPenco.pet += pet;
+        this.OPenco.pead += pead;
+        this.OPenco.pebd += pebd;
+        this.OPenco.carton += carton;
+        this.OPenco.aluminio += latas;
       }
 
       if(this.ciudad == 'Quilaco')
       {
         this.quilaco  += total;
+        this.OQuilaco.pet += pet;
+        this.OQuilaco.pead += pead;
+        this.OQuilaco.pebd += pebd;
+        this.OQuilaco.carton += carton;
+        this.OQuilaco.aluminio += latas;
       }
       
       if(this.ciudad == 'Quilleco')
       {
         this.quilleco  += total;
+        this.OQuilleco.pet += pet;
+        this.OQuilleco.pead += pead;
+        this.OQuilleco.pebd += pebd;
+        this.OQuilleco.carton += carton;
+        this.OQuilleco.aluminio += latas;
       }
 
       if(this.ciudad == 'San Pedro De La Paz' || this.ciudad == 'San Pedro de la Paz')
       {
         this.sanPedroDeLaPaz  += total;
+        this.OSanpedro.pet += pet;
+        this.OSanpedro.pead += pead;
+        this.OSanpedro.pebd += pebd;
+        this.OSanpedro.carton += carton;
+        this.OSanpedro.aluminio += latas;
       }
 
 
       if(this.ciudad == 'San Rosendo')
       {
         this.sanRosendo  += total;
+        this.ORosendo.pet += pet;
+        this.ORosendo.pead += pead;
+        this.ORosendo.pebd += pebd;
+        this.ORosendo.carton += carton;
+        this.ORosendo.aluminio += latas;
       }
 
       if(this.ciudad == 'Santa Bárbara' || this.ciudad == 'Santa Barbara')
       {
         this.santaBarbara  += total;
+        this.OBarbara.pet += pet;
+        this.OBarbara.pead += pead;
+        this.OBarbara.pebd += pebd;
+        this.OBarbara.carton += carton;
+        this.OBarbara.aluminio += latas;
       }
 
       if(this.ciudad == 'Santa Juana')
       {
         this.santaJuana  += total;
+        this.OJuana.pet += pet;
+        this.OJuana.pead += pead;
+        this.OJuana.pebd += pebd;
+        this.OJuana.carton += carton;
+        this.OJuana.aluminio += latas;
       }
       
       if(this.ciudad == 'Talcahuano')
       {
         this.talcahuano  += total;
+        this.OTalcahuano.pet += pet;
+        this.OTalcahuano.pead += pead;
+        this.OTalcahuano.pebd += pebd;
+        this.OTalcahuano.carton += carton;
+        this.OTalcahuano.aluminio += latas;
       }
 
       if(this.ciudad == 'Tirúa' || this.ciudad == 'Tirua')
       {
         this.tirua  += total;
+        this.OTirua.pet += pet;
+        this.OTirua.pead += pead;
+        this.OTirua.pebd += pebd;
+        this.OTirua.carton += carton;
+        this.OTirua.aluminio += latas;
       }
 
       if(this.ciudad == 'Tomé' || this.ciudad == 'Tome')
       {
         this.tome  += total;
+        this.OTome.pet += pet;
+        this.OTome.pead += pead;
+        this.OTome.pebd += pebd;
+        this.OTome.carton += carton;
+        this.OTome.aluminio += latas;
       }
 
       if(this.ciudad == 'Tucapel')
       {
         this.tucapel  += total;
+        this.OTucapel.pet += pet;
+        this.OTucapel.pead += pead;
+        this.OTucapel.pebd += pebd;
+        this.OTucapel.carton += carton;
+        this.OTucapel.aluminio += latas;
       }
 
       if(this.ciudad == 'Yumbel')
       {
         this.yumbel  += total;
+        this.OYumbel.pet += pet;
+        this.OYumbel.pead += pead;
+        this.OYumbel.pebd += pebd;
+        this.OYumbel.carton += carton;
+        this.OYumbel.aluminio += latas;
       }
       
     })

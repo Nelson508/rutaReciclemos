@@ -15,7 +15,6 @@ export class ResumenComponent implements OnInit {
   @Input() desactivado:boolean = false;
   dathax:any;
   ciudad:string = '';
-  //https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
   comunaArray = [
     {
       nombre: 'Alto Bío-Bío',
@@ -150,23 +149,28 @@ export class ResumenComponent implements OnInit {
       peso: 0
     }
   ];
-  harray: Array<Object> = [];
+  //variables que muestran los valores en el TOp5 de comuna
+  top1:number = 0;
+  top2:number = 0;
+  top3:number = 0;
+  top4:number =0;
+  top5: number=0;
+  top6: number =0;
 
-  harrison = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  altoBioBio:number = 0;
-  antuco:number = 0;
-  arauco:number = 0;
-  cabrero:number =0;
-  cañete: number=0;
+  PersonasPet: number = 0;
+  PersonasPead: number = 0;
+  PersonasPebd:number = 0;
+  PersonasCarton:number = 0;
+  PersonasLatas:number = 0;
   
 
  
   
   // Grafico Por Comuna
-  public comunaChartLabels: string[] = ["Concepción", "Talcahuano", "Coronel", "Chuguayante","San Pedro de la paz"];
-  public comunaChartData: number[] = [80, 30, 11, 20, 25];
+  public comunaChartLabels: string[] = [this.comunaArray[0].nombre, this.comunaArray[1].nombre, this.comunaArray[2].nombre, this.comunaArray[3].nombre, this.comunaArray[4].nombre, "Otras comunas"];
+  public comunaChartData: number[] = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
   public comunaChartType: ChartType = 'pie';
-  public comunaChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3"], borderWidth: [1, 1, 1, 1, 1] }];
+  public comunaChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"], borderWidth: [1, 1, 1, 1, 1,1] }];
   public comunaChartOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
@@ -183,9 +187,9 @@ export class ResumenComponent implements OnInit {
 
   // Grafico por Personas
   public personaChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
-  public personaChartData: number[] = [13, 30, 11, 20, 50];
-  public personaChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962", "#0a151f", "#ff8800"] ,
-                                              borderWidth: [5, 5, 5, 5, 5]}];
+  public personaChartData: number[] = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
+  public personaChartColors: any[] = [{ backgroundColor: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"] ,
+                                              borderWidth: [0,0,0,0,0]}];
   public personaChartType: ChartType = 'doughnut';
   public personaChartOptions: any = {
     responsive: true,
@@ -309,8 +313,9 @@ export class ResumenComponent implements OnInit {
   constructor(private firebaseSer: FirebaseService,
               private http: HttpClient) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getComunas();
+   await  this.ngOnDestroy();
     
   }
 
@@ -324,7 +329,10 @@ export class ResumenComponent implements OnInit {
   }
 
   ngOnDestroy(){
-   
+    // INICIO cosas de Comuna
+    this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
+
+    
     this.comunaChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
@@ -344,7 +352,9 @@ export class ResumenComponent implements OnInit {
       }
       
     }
+    // FIN cosas de Comuna
 
+    this.personaChartData = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
     this.personaChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
@@ -473,54 +483,54 @@ export class ResumenComponent implements OnInit {
          
            if(date == this.dathax[i].timestamp.slice(0,4) )
            {
-            this.harray.push(this.dathax[i])
-             
+             //sumamos las cantidades totales para TIpo De material reciclado
+            this.PersonasPet +=  parseFloat(this.dathax[i].kilosreciclaje1);
+            this.PersonasPead += parseFloat(this.dathax[i].kilosreciclaje2);
+            this.PersonasPebd += parseFloat(this.dathax[i].kilosreciclaje3);
+            this.PersonasCarton += parseFloat(this.dathax[i].kilosreciclaje4);
+            this.PersonasLatas += parseFloat(this.dathax[i].kilosreciclaje5);
+            //restringimos a 2 decimales despues de la coma
+            this.PersonasPet = Math.round((this.PersonasPet + Number.EPSILON) * 100) / 100;
+            this.PersonasPead = Math.round(( this.PersonasPead+ Number.EPSILON) * 100) / 100;
+            this.PersonasPebd = Math.round(( this.PersonasPebd+ Number.EPSILON) * 100) / 100;
+            this.PersonasCarton = Math.round((this.PersonasCarton + Number.EPSILON) * 100) / 100;
+            this.PersonasLatas = Math.round((this.PersonasLatas + Number.EPSILON) * 100) / 100;
+
+            //se suman las cantidades para calcular el total que se asignara a su respectiva comuna
              let pet =  parseFloat(this.dathax[i].kilosreciclaje1);
              let pead = parseFloat(this.dathax[i].kilosreciclaje2);
              let pebd = parseFloat(this.dathax[i].kilosreciclaje3);
              let carton = parseFloat(this.dathax[i].kilosreciclaje4);
              let latas = parseFloat(this.dathax[i].kilosreciclaje5);
-            // let pet =  parseFloat(this.harray[i].kilosreciclaje1);
-            //  let pead = parseFloat(this.harray[i].kilosreciclaje2);
-            //  let pebd = parseFloat(this.harray[i].kilosreciclaje3);
-            //  let carton = parseFloat(this.harray[i].kilosreciclaje4);
-            //  let latas = parseFloat(this.harray[i].kilosreciclaje5);
-           
+ 
              //se suman las cantidades para asignarselas a su comuna correspondiente
              let total = pet + pead + pebd + carton + latas;
              //traspasamos lng y lat desde BD
              let lng = this.dathax[i].l[0];
              let lat = this.dathax[i].l[1];
-            
-            //  console.log(` lng: ${lng} | lat: ${lat}`);
              await this.getAdress(lat,lng, total);
-            //console.log(1)
-             //console.log(this.comunaArray);
+
  
              }else{
           
              }        
  
          }
+        //ordenamos el object array de mayor a menor
+         this.comunaArray.sort((a,b) =>(b.peso - a.peso))
+         
+         this.top1 = this.comunaArray[0].peso;
+         this.top2 = this.comunaArray[1].peso;
+         this.top3 = this.comunaArray[2].peso;
+         this.top4 = this.comunaArray[3].peso;
+         this.top5 = this.comunaArray[4].peso;
+         
+         for(let i=5; i < 33; i++ )
+         {
+          // console.log(this.top6 +'+'+ this.comunaArray[i].peso);
+           this.top6 += this.comunaArray[i].peso;
+         }
 
-        // this.harray.push(...this.dathax)
-        // // this.harray.forEach((element: any) => {
-        // //   console.log(element)
-          
-        // // });
-
-        // console.log(this.harray)
-        //  console.log('ordenar')
-        //console.log(2)
-        //console.log(this.comunaArray);
-         await this.sortComunas();
-        // let jurray = this.comunaArray.sort((a,b) =>  Number(b.peso) - Number(a.peso))
-        // this.comunaArray.sort(this.sortComunas)
-        // console.log(jurray);
-    //     for( const value of this.comunaArray)
-    // {
-    //   console.log(value)
-    // }https://jsonworld.com/demo/how-to-export-data-to-excel-file-in-angular-application
  
        }
      )
@@ -547,247 +557,147 @@ export class ResumenComponent implements OnInit {
         this.ciudad = city[1];
         //le quitamos el primer caracter a this.ciudad porque es un espacio
         this.ciudad = this.ciudad.substring(1);
-        // console.log(this.ciudad + ' '+ this.ciudad.length)
-        // console.log(total);
+
+   
         total = Math.round((total));
 
         //comienza el ciclo de ifs
         if (this.ciudad == 'Alto Biobío') {
           this.comunaArray[0]['peso'] += total;
-          this.harrison[0] += total;
-          this.altoBioBio += total;
-
         }
 
         if (this.ciudad == 'Antuco') {
-          this.comunaArray[1].peso += total;
-          this.harrison[1] += total;
-          this.antuco += total;
+          this.comunaArray[1].peso += total;      
         }
 
         if (this.ciudad == 'Arauco') {
-          this.comunaArray[2].peso += total;
-          this.harrison[2] += total;
-          this.arauco += total;
+          this.comunaArray[2].peso += total;   
         }
 
         if (this.ciudad == 'Cabrero') {
-          this.comunaArray[3].peso += total;
-          this.harrison[3] += total;
-          this.cabrero += total;
+          this.comunaArray[3].peso += total; 
         }
 
         if (this.ciudad == 'Cañete' || this.ciudad == 'Canete') {
-          this.comunaArray[4].peso += total;
-          this.harrison[4] += total;
-          this.cañete += total;
+          this.comunaArray[4].peso += total;        
         }
 
         if (this.ciudad == 'Chiguayante') {
           this.comunaArray[5].peso += total;
-          this.harrison[5] += total;
         }
 
         if (this.ciudad == 'Concepción') {
           this.comunaArray[6].peso += total;
-          this.harrison[6] += total;
-
         }
 
         if (this.ciudad == 'Contulmo') {
           this.comunaArray[7].peso += total;
-          this.harrison[7] += total;
         }
 
         if (this.ciudad == 'Coronel') {
           this.comunaArray[8].peso += total;
-          this.harrison[8] += total;
         }
 
         if (this.ciudad == 'Curanilahue') {
           this.comunaArray[9].peso += total;
-          this.harrison[9] += total;
         }
 
         if (this.ciudad == 'Florida') {
           this.comunaArray[10].peso += total;
-          this.harrison[10] += total;
         }
 
         if (this.ciudad == 'Hualpén') {
           this.comunaArray[11].peso += total;
-          this.harrison[11] += total;
         }
 
         if (this.ciudad == 'Hualqui') {
           this.comunaArray[12].peso += total;
-          this.harrison[12] += total;
         }
 
         if (this.ciudad == 'Laja') {
           this.comunaArray[13].peso += total;
-          this.harrison[13] += total;
         }
 
         if (this.ciudad == 'Lebu') {
           this.comunaArray[14].peso += total;
-          this.harrison[14] += total;
         }
 
         if (this.ciudad == 'Los Álamos' || this.ciudad == 'Los Alamos') {
           this.comunaArray[15].peso += total;
-          this.harrison[15] += total;
         }
 
         if (this.ciudad == 'Los Ángeles' || this.ciudad == 'Los Ángeles') {
           this.comunaArray[16].peso += total;
-          this.harrison[16] += total;
         }
 
         if (this.ciudad == 'Lota') {
           this.comunaArray[17].peso += total;
-          this.harrison[17] += total;
         }
 
         if (this.ciudad == 'Mulchén' || this.ciudad == 'Mulchen') {
           this.comunaArray[18].peso += total;
-          this.harrison[18] += total;
         }
 
         if (this.ciudad == 'Nacimiento') {
           this.comunaArray[19].peso += total;
-          this.harrison[19] += total;
         }
 
         if (this.ciudad == 'Negrete') {
           this.comunaArray[20].peso += total;
-          this.harrison[20] += total;
         }
 
         if (this.ciudad == 'Penco') {
           this.comunaArray[21].peso += total;
-          this.harrison[21] += total;
         }
 
         if (this.ciudad == 'Quilaco') {
           this.comunaArray[22].peso += total;
-          this.harrison[22] += total;
         }
 
         if (this.ciudad == 'Quilleco') {
           this.comunaArray[23].peso += total;
-          this.harrison[23] += total;
         }
 
         if (this.ciudad == 'San Pedro De La Paz' || this.ciudad == 'San Pedro de la Paz') {
           this.comunaArray[24].peso += total;
-          this.harrison[24] += total;
         }
 
 
         if (this.ciudad == 'San Rosendo') {
           this.comunaArray[25].peso += total;
-          this.harrison[25] += total;
         }
 
         if (this.ciudad == 'Santa Bárbara' || this.ciudad == 'Santa Barbara') {
           this.comunaArray[26].peso += total;
-          this.harrison[26] += total;
         }
 
         if (this.ciudad == 'Santa Juana') {
           this.comunaArray[27].peso += total;
-          this.harrison[27] += total;
         }
 
         if (this.ciudad == 'Talcahuano') {
           this.comunaArray[28].peso += total;
-          this.harrison[28] += total;
         }
 
         if (this.ciudad == 'Tirúa' || this.ciudad == 'Tirua') {
           this.comunaArray[29].peso += total;
-          this.harrison[29] += total;
         }
 
         if (this.ciudad == 'Tomé' || this.ciudad == 'Tome') {
           this.comunaArray[30].peso += total;
-          this.harrison[30] += total;
         }
 
         if (this.ciudad == 'Tucapel') {
           this.comunaArray[31].peso += total;
-          this.harrison[31] += total;
         }
 
         if (this.ciudad == 'Yumbel') {
           this.comunaArray[32].peso += total;
-          this.harrison[32] += total;
         }
 
       })
-    
-   
+  }
+
   
-  }
-
-  async sortComunas()
-  {
-    // a traves de sort ordenamos el array de mayor a menor
-
-    
-     let arraycito = [
-       {name: 'pepe',
-        edad: 100
-       },
-       {name: 'Marcelo',
-        edad: 20
-       },
-       {
-        name: 'Julio',
-        edad: 1
-       },
-       {
-         name: 'sdfsdf',
-         edad: 33
-       },
-       {
-         name: 'asda',
-         edad: 4
-       }
-     ]
-
-    
-     arraycito.sort((a,b) =>
-    {
-      return b.edad - a.edad;
-    })
-
-    console.log(arraycito)
-
-    // this.sort((a,b) =>
-    // {
-    //   return b.edad - a.edad;
-    // })
-    
-    // let ordenado = this.comunaArray.map(item => item).sort((a,b)=>a.peso-b.peso)
-    let x= []
-
-    this.comunaArray.sort((a,b) =>(b.peso - a.peso))
-    console.log(this.comunaArray)
-    
-    // await console.log(this.altoBioBio);
-    // // this.comunaArray.forEach(element => 
-    // //   {
-    // //     console.log(element.peso)
-    // //   });
-    //await console.log(JSON.stringify(this.comunaArray[1]))
-    // console.log(this.comunaArray)
-    
-    
-   
-    
-
-  }
 
 }
