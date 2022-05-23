@@ -1,9 +1,9 @@
 <!-- Doughnut chart-->
 <div class="col-lg-12 col-xl-12" [hidden]="desactivado">
     <div class="card">
-        <div class="card-header text-uppercase">Tipo de material reciclado por Personas</div>
+        <div class="card-header text-uppercase">Reciclaje por material</div>
         <div class="card-body">
-            <button class="btn btn-success"><i class="fa-solid fa-file-excel"></i> Descargar</button>
+            <button class="btn btn-success" (click)="generateExcelTipoReciclaje()"><i class="fa-solid fa-file-excel"></i> Descargar</button>
             <div class="canvas-container">
                 <div class="w-75">
                     <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -13,3 +13,134 @@
     </div>
 </div>
 <!-- / Doughnut chart-->
+
+<div [hidden]="excellPersonas">
+    <table id="tipoMaterial-table">
+        <tr>
+            <th>Mes/Residuo</th>
+            <th>PET</th>
+			<th>PEAD</th>
+			<th>PEBD</th>
+			<th>Papel/Cartón</th>
+			<th>Aluminio</th>
+			<th>Total</th>
+        </tr>
+
+        <tr>
+            <td>{{enero.nombre}}</td>
+            <td>{{enero.pet}}</td>
+            <td>{{enero.pead}}</td>
+            <td>{{enero.pebd}}</td>
+            <td>{{enero.carton}}</td>
+            <td>{{enero.aluminio}}</td>
+            <td>{{enero.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{febrero.nombre}}</td>
+            <td>{{febrero.pet}}</td>
+            <td>{{febrero.pead}}</td>
+            <td>{{febrero.pebd}}</td>
+            <td>{{febrero.carton}}</td>
+            <td>{{febrero.aluminio}}</td>
+            <td>{{febrero.total}}</td>
+        </tr>
+        <tr>
+            <td>{{marzo.nombre}}</td>
+            <td>{{marzo.pet}}</td>
+            <td>{{marzo.pead}}</td>
+            <td>{{marzo.pebd}}</td>
+            <td>{{marzo.carton}}</td>
+            <td>{{marzo.aluminio}}</td>
+            <td>{{marzo.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{abril.nombre}}</td>
+            <td>{{abril.pet}}</td>
+            <td>{{abril.pead}}</td>
+            <td>{{abril.pebd}}</td>
+            <td>{{abril.carton}}</td>
+            <td>{{abril.aluminio}}</td>
+            <td>{{abril.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{mayo.nombre}}</td>
+            <td>{{mayo.pet}}</td>
+            <td>{{mayo.pead}}</td>
+            <td>{{mayo.pebd}}</td>
+            <td>{{mayo.carton}}</td>
+            <td>{{mayo.aluminio}}</td>
+            <td>{{mayo.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{junio.nombre}}</td>
+            <td>{{junio.pet}}</td>
+            <td>{{junio.pead}}</td>
+            <td>{{junio.pebd}}</td>
+            <td>{{junio.carton}}</td>
+            <td>{{junio.aluminio}}</td>
+            <td>{{junio.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{julio.nombre}}</td>
+            <td>{{julio.pet}}</td>
+            <td>{{julio.pead}}</td>
+            <td>{{julio.pebd}}</td>
+            <td>{{julio.carton}}</td>
+            <td>{{julio.aluminio}}</td>
+            <td>{{julio.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{agosto.nombre}}</td>
+            <td>{{agosto.pet}}</td>
+            <td>{{agosto.pead}}</td>
+            <td>{{agosto.pebd}}</td>
+            <td>{{agosto.carton}}</td>
+            <td>{{agosto.aluminio}}</td>
+            <td>{{agosto.total}}</td>
+        </tr>
+
+        <tr>
+            <td>{{septiembre.nombre}}</td>
+            <td>{{septiembre.pet}}</td>
+            <td>{{septiembre.pead}}</td>
+            <td>{{septiembre.pebd}}</td>
+            <td>{{septiembre.carton}}</td>
+            <td>{{septiembre.aluminio}}</td>
+            <td>{{septiembre.total}}</td>
+        </tr>
+        <tr>
+            <td>{{octubre.nombre}}</td>
+            <td>{{octubre.pet}}</td>
+            <td>{{octubre.pead}}</td>
+            <td>{{octubre.pebd}}</td>
+            <td>{{octubre.carton}}</td>
+            <td>{{octubre.aluminio}}</td>
+            <td>{{octubre.total}}</td>
+        </tr>
+        <tr>
+            <td>{{noviembre.nombre}}</td>
+            <td>{{noviembre.pet}}</td>
+            <td>{{noviembre.pead}}</td>
+            <td>{{noviembre.pebd}}</td>
+            <td>{{noviembre.carton}}</td>
+            <td>{{noviembre.aluminio}}</td>
+            <td>{{noviembre.total}}</td>
+        </tr>
+        <tr>
+            <td>{{diciembre.nombre}}</td>
+            <td>{{diciembre.pet}}</td>
+            <td>{{diciembre.pead}}</td>
+            <td>{{diciembre.pebd}}</td>
+            <td>{{diciembre.carton}}</td>
+            <td>{{diciembre.aluminio}}</td>
+            <td>{{diciembre.total}}</td>
+        </tr>
+
+    </table>
+</div>
