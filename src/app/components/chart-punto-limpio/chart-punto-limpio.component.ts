@@ -4,6 +4,7 @@ import { BaseChartDirective } from 'ng2-charts';
 //import { parse } from 'querystring';
 import { parseJsonText } from 'typescript';
 import {FirebaseService} from '../../services/firebase.service';
+import * as XLSX from 'xlsx';
 
 
 @Component({
@@ -16,6 +17,12 @@ export class ChartPuntoLimpioComponent implements OnInit {
   @Input() desactivado:boolean = true;
   info: any;
 
+  nombrePuntoFijo: string[] = [];
+  plasticos: number[] = [];
+  latasAluminio: number[] = [];
+  cartonPapel: number[] = [];
+
+  excel: any = [];
 
   // barChart
   public barChartOptions: any = {
@@ -57,26 +64,26 @@ export class ChartPuntoLimpioComponent implements OnInit {
     }
   
   };
-  public barChartLabels: string[] = ['Blumar', 'Orizon', 'Huachipato'];
+  public barChartLabels: string[] = this.nombrePuntoFijo;
   public barChartType: ChartType  = 'bar';
   public barChartLegend = true;
   
   public barChartData: any[] = [
-    { barPercentage: .5, data: [13, 20, 4], label: 'Plasticos' },
-    { barPercentage: .5, data: [31, 30, 6], label: 'Cartón y Papel' },
-    { barPercentage: .5, data: [18, 15, 3], label: 'Latas de aluminio' }
+    { barPercentage: .5, data: this.plasticos, label: 'Plasticos' },
+    { barPercentage: .5, data: this.cartonPapel, label: 'Cartón y Papel' },
+    { barPercentage: .5, data: this.latasAluminio, label: 'Latas de aluminio' }
   ];
   
   public barChartColors: Array<any> = [
     
     {
-      backgroundColor: "#04b962"
+      backgroundColor: "#FDDA0D"
     },
     {
-      backgroundColor: "#14b6ff"
+      backgroundColor: "#0096FF"
     },
     {
-      backgroundColor: "#7934f3"
+      backgroundColor: "#888888"
     }
   ];
   
@@ -104,15 +111,44 @@ export class ChartPuntoLimpioComponent implements OnInit {
       {
         this.info = data;
 
+        let largo = Object.keys(this.info).length;
         //let largo = Object.keys(this.info).length;
-        let informacion = JSON.stringify(this.info);
-        //console.log(informacion);
-        /* for (let i = 1; i < largo; i++) {
-          let element = this.info[i];
-          console.log(element);
-        } */
-        
+        //let informacion = JSON.stringify(this.info);
+        //console.log(this.info);
+        for (let i = 0; i < largo; i++) {
+
+          this.excel.push(this.info[i]);
+          this.nombrePuntoFijo.push(this.info[i].nombre);
+          this.plasticos.push(this.info[i].fijo_punto_plasticos);
+          this.latasAluminio.push(this.info[i].fijo_punto_latas);
+          this.cartonPapel.push(this.info[i].fijo_punto_carton);
+
+          //console.log(this.info[i]);
+        }
+        console.log(this.excel);
+        /* console.log(this.nombrePuntoFijo);
+        console.log(this.plasticos);
+        console.log(this.latasAluminio);
+        console.log(this.cartonPapel);
+         */
       });
+  }
+
+  generateExcel()
+  {
+
+    //le pasamos la id de la tabla al excel guy, imma right?
+    let element = document.getElementById('puntoLimpio-table');
+    const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+
+    //yenereit workbuk an ad de workshit (worksheet)
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Puntos Limpios');
+
+    //guardamos el archivo
+    XLSX.writeFile(wb, 'ReportePuntosLimpios.xlsx');
   }
 
   ngOnDestroy(){

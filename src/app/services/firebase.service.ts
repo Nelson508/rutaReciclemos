@@ -18,7 +18,7 @@ export class FirebaseService {
   data: any;
   dataGenero: any;
   dataRutasCompletas: any;
-  puntosFijos: any;
+  puntosFijos: any = [];
   publicacion: any = [];
 
   
@@ -128,11 +128,14 @@ getGenero(id:any): Promise<any> {
 }
 
 getPuntosFijos(): Promise<any> {
-  return this.databaseRef.child('puntofijo').once('value').then((snapshot) => {
+  return this.databaseRef.child('puntofijo/').orderByChild('nombre').once('value').then((snapshot) => {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
-      this.puntosFijos = snapshot.val();
-     // console.log(this.puntosFijos);
+      this.puntosFijos = [];
+      snapshot.forEach(childrenSnapshot =>{
+        this.puntosFijos.push(childrenSnapshot.val());
+        console.log(this.puntosFijos);
+      });
       return this.puntosFijos;
     } else {
       console.log('No data available');

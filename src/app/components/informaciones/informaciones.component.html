@@ -21,20 +21,21 @@
               <!---COMIENZO MODAL-->
               <ng-template #mymodal let-modal>
                 <form (ngSubmit)="guardarCambios(modalForm.value)" #modalForm="ngForm">
-                  <!--   <pre>{{modalForm.value | json}}</pre> -->
+                    <pre>{{modalForm.value | json}}</pre>
                     <div class="modal-header">
                         <input type="number" class="form-control" id="_id" name="_id" [ngModel]="item._id" ngModel required hidden> <!-- [value]="item._id" (ngModelChange)="publicacion._id = item._id" -->
                         <!-- Título -->
                         <div class="form-group col-12 col-lg-12 col-xl-12">
                             <label for="input-1">Título</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" [ngModel]="item.titulo" ngModel required>
+                            <input type="text" class="form-control" maxlength="80" id="titulo" name="titulo" [ngModel]="item.titulo" ngModel required>
+                            <!-- <span class="caracteres">{{ 80 - modalForm.value.titulo?.length }} caracteres restantes</span> -->
                         </div>
                     </div>
                     <div class="modal-body">
                         <!-- Imagen -->
                         <div class="mb-3">
                             <label for="input-1">Imagen</label>
-                            <input type="file" class="form-control" (change)="capturarFile($event)" accept="image/*"> <!-- id="imagen" name="imagen" [(ngModel)]="item.imagen" ngModel -->
+                            <input type="file" class="form-control" (change)="capturarFile($event)" accept=".png, .jpg, .jpeg"> <!-- id="imagen" name="imagen" [(ngModel)]="item.imagen" ngModel -->
                         </div>
                         <div class="mb-3">
                             <img [src]="(previsualizacion) ? previsualizacion : item.imagen" class="img-fluid w-25">
@@ -42,10 +43,13 @@
                         <!-- Descripción -->
                         <label for="input-1">Descripción</label>  
                         <quill-editor ngDefaultControl #editor id="descripcion" name="descripcion" [ngModel]="item.descripcion" [modules]="modules" [styles]="{height: '100px'}" (onEditorChanged)="changedEditor($event)" ngModel [required]="true"></quill-editor>       
+                       <!--  <span class="caracteresDescripcion">{{ 1500 - modalForm.value.descripcion?.length }} caracteres restantes</span> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="loading">
+                        <button type="submit" 
+                                class="btn btn-primary" 
+                                [disabled]="loading">
                             {{(loading) ? 'Cargando...' : 'Guardar'}}
                         </button>
                     </div>
@@ -62,14 +66,15 @@
                         <!-- Título -->
                         <div class="form-group col-12 col-lg-12 col-xl-12">
                             <label for="input-1">Título</label>
-                            <input type="text" class="form-control" [(ngModel)]="publicacion.titulo">
+                            <input type="text" class="form-control" maxlength="80" [(ngModel)]="publicacion.titulo">
+                           <!--  <span class="caracteres">{{ 80 - publicacion.titulo.length }} caracteres restantes</span> -->
                         </div>
                     </div>
                     <div class="modal-body">
                         <!-- Imagen -->
                         <div class="mb-3">
                             <label for="input-1">Imagen</label>
-                            <input class="form-control" type="file" (change)="capturarFile($event)" accept="image/*" >
+                            <input class="form-control" type="file" (change)="capturarFile($event)" accept=".png, .jpg, .jpeg" >
                         </div>
                         <div class="mb-3">
                             <img [src]="previsualizacion" class="img-fluid w-25">
@@ -77,10 +82,14 @@
                         <!-- Descripción -->
                         <label for="input-1">Descripción</label>  
                         <quill-editor ngDefaultControl #editor [modules]="modules" [styles]="{height: '100px'}" (onEditorChanged)="changedEditor($event)" [(ngModel)]="publicacion.descripcion"></quill-editor>       
+                       <!--  <span class="caracteresDescripcion">{{ 1500 - publicacion.descripcion.length }} caracteres restantes</span> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
-                        <button type="button" class="btn btn-primary" [disabled]="loading" (click)="nuevoRegistro()">
+                        <button type="button" 
+                                class="btn btn-primary" 
+                                (click)="nuevoRegistro()"
+                                [disabled]="loading">
                             {{(loading) ? 'Cargando...' : 'Guardar'}}
                         </button>
                     </div>

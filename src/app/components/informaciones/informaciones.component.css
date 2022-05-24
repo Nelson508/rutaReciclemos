@@ -117,4 +117,17 @@
   background-color: transparent;
 }
 
+.caracteres{
+  position: absolute;
+  right: 0rem;
+  font-size:small;
+  color: grey;
+}
+
+.caracteresDescripcion{
+  position: absolute;
+  right: 1rem;
+  font-size:small;
+  color: grey;
+}
   

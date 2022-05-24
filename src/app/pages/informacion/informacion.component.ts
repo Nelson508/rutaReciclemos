@@ -22,6 +22,7 @@ export class InformacionComponent implements OnInit {
   eyes = false;
 
   galeria: any = [];
+  arrayVacio: boolean = true;
   // galeria = [
   //   {imagen: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
   //    titulo: 'Ruta Reciclemos lanza App a Play Store.',
@@ -90,7 +91,10 @@ export class InformacionComponent implements OnInit {
     let valores = await this.firebaseSer.getInformaciones();
     console.log(valores);
 
-    this.galeria = valores; 
+    if (valores != null) {
+      this.arrayVacio = false;
+      this.galeria = valores; 
+    } 
 
   }
 

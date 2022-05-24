@@ -26,13 +26,13 @@ export class InformacionesComponent implements OnInit {
   public loading: boolean = false;
   nuevaImg: any;
   galeria: any = [];
-  max_Id: number=0;
+  max_Id: number=-1;
 
   publicacion = {
     _id:0,
     titulo: '',
-    descripcion: '',
-    imagen:''
+    descripcion: null,
+    imagen:null
   }
 
   // galeria = [
@@ -95,28 +95,6 @@ export class InformacionesComponent implements OnInit {
   ngOnInit() {
     this.modalReference.close();
     this.traerInformacion();
-   
-    
-    /* const quill = new Quill('#editor-container', {
-      modules: {
-        toolbar: {
-          container: '#toolbar-toolbar'
-        }
-      },
-      placeholder: 'Compose an epic...',
-      theme: 'snow'
-    }); */
-
-    /* const quill = new Quill('editor', {
-      
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-          ['blockquote', 'code-block']                       // link and image, video
-        ]
-                
-      }
-    }); */
     
   }
 
@@ -159,12 +137,39 @@ export class InformacionesComponent implements OnInit {
 
   capturarFile(e:any){
     const archivoCapturado = e.target.files[0];
-    this.extraerBase64(archivoCapturado).then( (imagen:any) =>{
-      this.previsualizacion = imagen.base;
-      this.publicacion.imagen = imagen.base;
-      console.log(imagen.base);
-    })
-    this.archivos.push(archivoCapturado);
+
+    if(archivoCapturado.type !== 'image/png' && archivoCapturado.type !== 'image/jpg' && archivoCapturado.type !== 'image/jpeg'){
+      
+      Swal.fire({
+        title: 'Error, el archivo ingresado no es una imagen',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+    }else if(archivoCapturado.size > 10485760){
+
+      Swal.fire({
+        title: 'Error, la imagen ingresada no puede superar los 10MB',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    }else{
+
+      console.log(archivoCapturado);
+  
+      this.extraerBase64(archivoCapturado).then( (imagen:any) =>{
+        this.previsualizacion = imagen.base;
+        this.publicacion.imagen = imagen.base;
+        //console.log(imagen.base);
+      })
+      this.archivos.push(archivoCapturado);
+      
+    }
+    
 
 
   }
@@ -206,6 +211,35 @@ export class InformacionesComponent implements OnInit {
 
   nuevoRegistro(){
 
+    let valido = this.validacion(this.publicacion);
+
+    if(this.publicacion.imagen == null){
+
+      valido = 'Ingrese una imagen para la publicación';
+    }
+    
+    if(valido != undefined){
+
+      return Swal.fire({
+        title: valido,
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    }/* else if(this.publicacion.imagen == null){
+
+      return Swal.fire({
+        title: 'Ingrese una imagen para la publicación',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    } */
+
     console.log('maximo id:'+ this.max_Id);
 
     let nuevoId = this.max_Id + 1;
@@ -214,9 +248,16 @@ export class InformacionesComponent implements OnInit {
 
     this.modalReference.close();
 
-    this.max_Id = nuevoId;
-
     this.galeria.push(this.publicacion);
+
+    this.publicacion = {
+      _id:0,
+      titulo: '',
+      descripcion: null,
+      imagen:null
+    }
+
+    this.max_Id = nuevoId;
 
     console.log('nuevo id:'+this.max_Id);
     
@@ -224,19 +265,29 @@ export class InformacionesComponent implements OnInit {
 
 
   async guardarCambios(values: any){
-    /* console.log('Form values', values)
-    console.log('Id', values._id)
-    console.log('Titulo', values.titulo)
-    console.log('Descripcion', values.descripcion) */
-    //console.log('Imagen', values.imagen)
-    //console.log('Previsualizacion', this.previsualizacion)
 
+    let valido = this.validacion(values);
+
+    if(valido != undefined){
+
+      return Swal.fire({
+        title: valido,
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+    }
+
+    
     try {
       this.loading = true;
       if(this.previsualizacion != ''){
         values.imagen = this.previsualizacion;
-        //this.galeria[values._id].imagen = values.imagen;
+        
       }
+     /*  values.imagen = this.previsualizacion; */
       await this.firebaseSer.updateInformaciones(values);
       await this.traerInformacion();
       //this.galeria[values._id].titulo =  values.titulo;
@@ -329,5 +380,23 @@ export class InformacionesComponent implements OnInit {
   //   });
   }
   
+  validacion(dates:any){
 
+    if(dates.titulo == ''){
+      return 'Ingrese un título para la publicación';
+    }
+
+    if(dates.titulo.length > 80){
+      return 'El título no debe tener mas de 80 caracteres';
+    }
+
+    if(dates.descripcion == null){
+      return 'Ingrese una descripción para la publicación';
+    }
+
+    if(dates.descripcion.length > 1500){
+      return 'La descripción no debe tener mas de 1500 caracteres';
+    }
+  
+  }
 }

@@ -79,6 +79,7 @@ export class MenuAdminComponent implements OnInit {
     if(aux==3){
       this.activarPersonas = true;
       this.graficoPersonas?.ngOnDestroy();
+      /* this.graficoPersonas?.apxChart(); */
       this.personas = 'active';
     }else{
       this.activarPersonas = false;
@@ -126,7 +127,8 @@ export class MenuAdminComponent implements OnInit {
       //this.graficoVentas?.ngOnDestroy();
       this.informaciones = 'active';
       let valores = await this.firebaseSer.login();
-      console.log(valores);
+      //let valores = await this.firebaseSer.register();
+     // console.log(valores);
     }else{
       this.activarInformaciones = false;
       this.informaciones = '';
