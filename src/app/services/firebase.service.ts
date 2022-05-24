@@ -296,4 +296,19 @@ eliminarInformacion(id:number): Promise<any>{
       return null;
     }
   }
+
+  getFechaNacimiento(id:any): Promise<any> {
+    return this.databaseRef.child('Usuarios/app_usuarios/'+id+'/fecha_nacimiento').once('value').then((snapshot) => {
+      if (snapshot.exists()) {
+        // I don't think you need to keep the data in this.data anymore
+        this.dataGenero = snapshot.val();
+       
+        //console.log(this.dataGenero);
+        return this.dataGenero;
+      } else {
+        console.log('No data available');
+        return null; // or return another default value, like [] or {} or "";
+      }
+    });
+  }
 }
