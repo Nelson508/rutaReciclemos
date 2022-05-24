@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header text-uppercase">Puntos Limpios</div>
         <div class="card-body">
-            <button class="btn btn-success"><i class="fa-solid fa-file-excel"></i> Descargar</button>
+            <button class="btn btn-success" (click)="generateExcel()"><i class="fa-solid fa-file-excel"></i> Descargar</button>
             <div class="canvas-container">
                 <div class="w-75">
                     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
@@ -13,3 +13,29 @@
     </div>
 </div>
 <!-- / Bar chart-->
+
+<!-- EXCEL -->
+<div [hidden]="true">
+	<table id="puntoLimpio-table">
+		<tr>
+            <th>Punto Limpio/Residuo</th>
+			<th>Plasticos</th>
+			<th>Cartón y Papel</th>
+			<th>Latas de aluminio</th>
+		</tr>
+        <tr>
+            <td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr *ngFor="let data of excel">
+			<td>P.L. {{data.nombre}}</td>
+			<td>{{data.fijo_punto_plasticos}}</td>
+			<td>{{data.fijo_punto_carton}}</td>
+			<td>{{data.fijo_punto_latas}}</td>
+		</tr>
+
+	</table>
+
+</div>
