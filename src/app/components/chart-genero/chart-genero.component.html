@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header text-uppercase">Género por total de kilos reciclados</div>
         <div class="card-body">
-            <button class="btn btn-success"><i class="fa-solid fa-file-excel"></i> Descargar</button>
+            <button class="btn btn-success" (click)="generateExcelGenero()"><i class="fa-solid fa-file-excel"></i> Descargar</button>
             <div class="canvas-container">
                 <div class="w-75">
                     <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -13,3 +13,49 @@
     </div>
 </div>
 <!-- / Doughnut chart-->
+
+<div [hidden]="excelGenero">
+    <table id="genero-table">
+        <tr style="background-color: rgb(231, 213, 46) ;">
+			<th>Genero/ Residuo</th>
+			<th>PET</th>
+			<th>PEAD</th>
+			<th>PEBD</th>
+			<th>Papel/Cartón</th>
+			<th>Aluminio</th>
+			<th>Total</th>
+		</tr>
+        
+        <tr>
+            <td>Femenino</td>
+            <td>{{Fpet}}</td>
+            <td>{{Fpead}}</td>
+            <td>{{Fpebd}}</td>
+            <td>{{Fcarton}}</td>
+            <td>{{Faluminio}}</td>
+            <td>{{Femenino}}</td>
+        </tr>
+
+        <tr>
+            <td>Masculino</td>
+            <td>{{Mpet}}</td>
+            <td>{{Mpead}}</td>
+            <td>{{Mpebd}}</td>
+            <td>{{Mcarton}}</td>
+            <td>{{Maluminio}}</td>
+            <td>{{Masculino}}</td>
+        </tr>
+
+        <tr>
+            <td>No especifica</td>
+            <td>{{NNpet}}</td>
+            <td>{{NNpead}}</td>
+            <td>{{NNpebd}}</td>
+            <td>{{NNcarton}}</td>
+            <td>{{NNaluminio}}</td>
+            <td>{{No_especifica}}</td>
+        </tr>
+
+
+    </table>
+</div>

@@ -5,6 +5,7 @@ import {FirebaseService} from '../../services/firebase.service';
 import {HttpClient} from '@angular/common/http'
 import { IGeocoderResult } from 'src/app/interfaces/interfaces';
 
+
 @Component({
   selector: 'app-resumen',
   templateUrl: './resumen.component.html',
@@ -157,6 +158,14 @@ export class ResumenComponent implements OnInit {
   top5: number=0;
   top6: number =0;
 
+  topName1:string = '';
+  topName2:string = '';
+  topName3:string = '';
+  topName4:string = '';
+  topName5:string = '';
+
+  
+
   PersonasPet: number = 0;
   PersonasPead: number = 0;
   PersonasPebd:number = 0;
@@ -166,8 +175,9 @@ export class ResumenComponent implements OnInit {
 
  
   
-  // Grafico Por Comuna
-  public comunaChartLabels: string[] = [this.comunaArray[0].nombre, this.comunaArray[1].nombre, this.comunaArray[2].nombre, this.comunaArray[3].nombre, this.comunaArray[4].nombre, "Otras comunas"];
+  // // Grafico Por Comuna
+  // public comunaChartLabels: string[] = [this.comunaArray[0].nombre, this.comunaArray[1].nombre, this.comunaArray[2].nombre, this.comunaArray[3].nombre, this.comunaArray[4].nombre, "Otras comunas"];
+  public comunaChartLabels: string[] = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
   public comunaChartData: number[] = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
   public comunaChartType: ChartType = 'pie';
   public comunaChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"], borderWidth: [1, 1, 1, 1, 1,1] }];
@@ -331,7 +341,7 @@ export class ResumenComponent implements OnInit {
   ngOnDestroy(){
     // INICIO cosas de Comuna
     this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
-
+    this.comunaChartLabels = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
     
     this.comunaChartOptions = {
       responsive: true,
@@ -524,6 +534,12 @@ export class ResumenComponent implements OnInit {
          this.top3 = this.comunaArray[2].peso;
          this.top4 = this.comunaArray[3].peso;
          this.top5 = this.comunaArray[4].peso;
+
+         this.topName1 = this.comunaArray[0].nombre;
+         this.topName2 = this.comunaArray[1].nombre;
+         this.topName3 = this.comunaArray[2].nombre;
+         this.topName4 = this.comunaArray[3].nombre;
+         this.topName5 = this.comunaArray[4].nombre;
          
          for(let i=5; i < 33; i++ )
          {
@@ -536,7 +552,7 @@ export class ResumenComponent implements OnInit {
      )
      
     
-
+    this.ngOnDestroy();
   }
 
   async getAdress(lng:any,lat:any, total:number): Promise<any>

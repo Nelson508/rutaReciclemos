@@ -3,7 +3,7 @@
 	<div class="card">
 		<div class="card-header text-uppercase">Rango Etario</div>
 		<div class="card-body">
-			<button class="btn btn-success"><i class="fa-solid fa-file-excel"></i><span> Descargar</span></button>
+			<button class="btn btn-success" (click)="generateExcelEtario()"><i class="fa-solid fa-file-excel"></i><span> Descargar</span></button>
 			<div class="canvas-container">
 				<div class="w-75">
 					<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
@@ -13,3 +13,89 @@
 	</div>
 </div>
 <!-- / Pie chart-->
+
+<div [hidden]="excelEdad">
+    <table id="edad-table">
+        <tr style="background-color: rgb(231, 213, 46) ;">
+			<th>Edad/ Residuo</th>
+			<th>PET</th>
+			<th>PEAD</th>
+			<th>PEBD</th>
+			<th>Papel/Cartón</th>
+			<th>Aluminio</th>
+			<th>Total</th>
+		</tr>
+        
+        <tr>
+            <td>{{A.nombre}}</td>
+            <td>{{A.pet}}</td>
+            <td>{{A.pead}}</td>
+            <td>{{A.pebd}}</td>
+            <td>{{A.carton}}</td>
+            <td>{{A.aluminio}}</td>
+            <td>{{A.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{B.nombre}}</td>
+            <td>{{B.pet}}</td>
+            <td>{{B.pead}}</td>
+            <td>{{B.pebd}}</td>
+            <td>{{B.carton}}</td>
+            <td>{{B.aluminio}}</td>
+            <td>{{B.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{C.nombre}}</td>
+            <td>{{C.pet}}</td>
+            <td>{{C.pead}}</td>
+            <td>{{C.pebd}}</td>
+            <td>{{C.carton}}</td>
+            <td>{{C.aluminio}}</td>
+            <td>{{C.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{D.nombre}}</td>
+            <td>{{D.pet}}</td>
+            <td>{{D.pead}}</td>
+            <td>{{D.pebd}}</td>
+            <td>{{D.carton}}</td>
+            <td>{{D.aluminio}}</td>
+            <td>{{D.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{E.nombre}}</td>
+            <td>{{E.pet}}</td>
+            <td>{{E.pead}}</td>
+            <td>{{E.pebd}}</td>
+            <td>{{E.carton}}</td>
+            <td>{{E.aluminio}}</td>
+            <td>{{E.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{F.nombre}}</td>
+            <td>{{F.pet}}</td>
+            <td>{{F.pead}}</td>
+            <td>{{F.pebd}}</td>
+            <td>{{F.carton}}</td>
+            <td>{{F.aluminio}}</td>
+            <td>{{F.total}}</td>
+        </tr>
+
+		<tr>
+            <td>{{G.nombre}}</td>
+            <td>{{G.pet}}</td>
+            <td>{{G.pead}}</td>
+            <td>{{G.pebd}}</td>
+            <td>{{G.carton}}</td>
+            <td>{{G.aluminio}}</td>
+            <td>{{G.total}}</td>
+        </tr>
+
+
+    </table>
+</div>

@@ -577,7 +577,7 @@ OYumbel  =
       this.ciudad = this.ciudad.substring(1);
       // console.log(this.ciudad + ' '+ this.ciudad.length)
       // console.log(total);
-      total = Math.round((total + Number.EPSILON) * 100) / 100
+      total = Math.round((total + Number.EPSILON) * 100) / 100;
 
       //comienza el ciclo de ifs
       if(this.ciudad == 'Alto Biobío')
