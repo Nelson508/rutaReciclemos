@@ -16,6 +16,14 @@ export class ResumenComponent implements OnInit {
   @Input() desactivado:boolean = false;
   dathax:any;
   ciudad:string = '';
+
+  /* Variables Puntos Limpios Fijos */
+  nombrePuntoFijo: string[] = [];
+  plasticos: number[] = [];
+  latasAluminio: number[] = [];
+  cartonPapel: number[] = [];
+
+
   comunaArray = [
     {
       nombre: 'Alto Bío-Bío',
@@ -295,26 +303,26 @@ export class ResumenComponent implements OnInit {
     }
   
   };
-  public puntoLimpioChartLabels: string[] = ['Blumar', 'Orizon', 'Huachipato'];
+  public puntoLimpioChartLabels: string[] = this.nombrePuntoFijo;
   public puntoLimpioChartType: ChartType  = 'bar';
   public puntoLimpioChartLegend = true;
   
   public puntoLimpioChartData: any[] = [
-    { barPercentage: .5, data: [13, 20, 4], label: 'Plasticos' },
-    { barPercentage: .5, data: [31, 30, 6], label: 'Cartón y Papel' },
-    { barPercentage: .5, data: [18, 15, 3], label: 'Latas de aluminio' }
+    { barPercentage: .5, data: this.plasticos, label: 'Plasticos' },
+    { barPercentage: .5, data: this.cartonPapel, label: 'Cartón y Papel' },
+    { barPercentage: .5, data: this.latasAluminio, label: 'Latas de aluminio' }
   ];
   
   public puntoLimpioChartColors: Array<any> = [
     
     {
-      backgroundColor: "#04b962"
+      backgroundColor: "#FDDA0D"
     },
     {
-      backgroundColor: "#14b6ff"
+      backgroundColor: "#0096FF"
     },
     {
-      backgroundColor: "#7934f3"
+      backgroundColor: "#888888"
     }
   ];
 
@@ -326,6 +334,7 @@ export class ResumenComponent implements OnInit {
   async ngOnInit() {
     this.getComunas();
    await  this.ngOnDestroy();
+   this.infoPuntosFijos(); 
     
   }
 
@@ -713,7 +722,31 @@ export class ResumenComponent implements OnInit {
 
       })
   }
-
   
+  async infoPuntosFijos(){
+    await this.firebaseSer.getPuntosFijos().then( async data =>
+      {
+
+        let largo = Object.keys(data).length;
+
+        console.log(largo)
+        
+        for (let i = 0; i < largo; i++) {
+
+          this.nombrePuntoFijo.push(data[i].nombre);
+          this.plasticos.push(data[i].fijo_punto_plasticos);
+          this.latasAluminio.push(data[i].fijo_punto_latas);
+          this.cartonPapel.push(data[i].fijo_punto_carton);
+
+          console.log(data[i]);
+        }
+
+        console.log(this.nombrePuntoFijo);
+        console.log(this.plasticos);
+        console.log(this.latasAluminio);
+        console.log(this.cartonPapel);
+        
+      });
+  }
 
 }
