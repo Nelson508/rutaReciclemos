@@ -3,6 +3,7 @@ import { ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import {FirebaseService} from '../../services/firebase.service';
 import * as XLSX from 'xlsx';
+import ApexCharts from 'apexcharts';
 
 @Component({
   selector: 'app-chart-genero',
@@ -16,6 +17,7 @@ export class ChartGeneroComponent implements OnInit {
   Masculino: number = 0;
   Femenino: number = 0;
   No_especifica: number = 0;
+  options:any = {};
 
   Mpet: number = 0;
   Mpead: number =0;
@@ -60,7 +62,9 @@ export class ChartGeneroComponent implements OnInit {
       
    };
 
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+
+   @ViewChild(ApexCharts) chart?: ApexCharts;
+  // @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
   constructor(private firebaseSer: FirebaseService) { }
 
@@ -112,6 +116,7 @@ export class ChartGeneroComponent implements OnInit {
               this.Mpebd += PEBD;
               this.Mcarton += carton;
               this.Maluminio += latas;
+              this.Masculino = Math.round((this.Masculino + Number.EPSILON) * 100) / 100;
 
             } else if (genero == 'Femenino') 
             {
@@ -121,6 +126,8 @@ export class ChartGeneroComponent implements OnInit {
               this.Fpebd += PEBD;
               this.Fcarton += carton;
               this.Faluminio += latas;
+
+              this.Femenino = Math.round(( this.Femenino+ Number.EPSILON) * 100) / 100;
               
             } else if(genero == 'No aplica') 
             {
@@ -130,6 +137,8 @@ export class ChartGeneroComponent implements OnInit {
               this.NNpebd += PEBD;
               this.NNcarton += carton;
               this.NNaluminio += latas;
+
+              this.No_especifica = Math.round((this.No_especifica + Number.EPSILON) * 100) / 100;
 
               this.NNpet  = Math.round((this.NNpet + Number.EPSILON) * 100) / 100;
               this.NNpead = Math.round(( this.NNpead+ Number.EPSILON) * 100) / 100;
@@ -165,30 +174,78 @@ export class ChartGeneroComponent implements OnInit {
   // }
 
 
-  ngOnDestroy(){
+  async ngOnDestroy(){
 
-    this.doughnutChartData = [this.Masculino, this.Femenino, this.No_especifica];
-
-    this.doughnutChartOptions = {
-      responsive: true,
-      maintainAspectRatio: true,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
+    this.options = {
+      chart: {
+          height: 280,
+          type: 'donut',
+          foreColor: '#4e4e4e',
       },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [this.Masculino, this.Femenino, this.No_especifica],
+      colors: ["#7934f3", "#f43643", "#04b962"],
+      labels: ["Masculino", "Femenino", "No especifica"],
+      legend: {
+        customLegendItems:["Masculino", "Femenino", "No especifica"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+        }
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
     }
-    this.chart?.update();
+
+    await this.chart?.destroy();
+
+    this.chart = new ApexCharts(
+      document.querySelector("#chart-genero"),
+      this.options
+    );
+    await this.chart?.render();
+
+    // this.doughnutChartData = [this.Masculino, this.Femenino, this.No_especifica];
+
+    // this.doughnutChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: true,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+    // this.chart?.update();
   }
 
   //funcion que genera el excel

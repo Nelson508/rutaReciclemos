@@ -5,6 +5,7 @@ import {FirebaseService} from '../../services/firebase.service';
 import {HttpClient} from '@angular/common/http'
 import { IGeocoderResult } from 'src/app/interfaces/interfaces';
 import * as XLSX from 'xlsx';
+import ApexCharts from 'apexcharts';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class ChartComunaComponent implements OnInit {
   //@ViewChild(BaseChartDirective)
   dathax:any;
   ciudad:string = '';
+  options:any = {};
 
   //Comunas que almacenan valor;
   altoBioBio:number = 0;
@@ -400,44 +402,45 @@ OYumbel  =
 
   
 
-  // Pie
-  public pieChartLabels: string[] = ["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
-                                      "Concepción", "Contulmo", "Coronel", "Curanilahue", 
-                                      "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
-                                      "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
-                                      "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
-                                      "Tirúa", "Tomé", "Tucapel", "Yumbel"
-                                    ];
-  public pieChartData: number[] = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
-                                   this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
-                                   this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
-                                   this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
-                                   this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel];
-  public pieChartType: ChartType = 'pie';
-  public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
-                                                      "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
-                                                      "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
-                                                      "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
-                                                      "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"
+  // // Pie
+  // public pieChartLabels: string[] = ["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
+  //                                     "Concepción", "Contulmo", "Coronel", "Curanilahue", 
+  //                                     "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
+  //                                     "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
+  //                                     "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
+  //                                     "Tirúa", "Tomé", "Tucapel", "Yumbel"
+  //                                   ];
+  // public pieChartData: number[] = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
+  //                                  this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
+  //                                  this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
+  //                                  this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
+  //                                  this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel];
+  // public pieChartType: ChartType = 'pie';
+  // public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
+  //                                                     "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
+  //                                                     "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
+  //                                                     "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
+  //                                                     "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"
                                                       
-                                                      ], 
-                                    borderWidth: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] }];
-  public pieChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position :"right",	
-      display: true,
-        labels: {
-        fontColor: '#585757',  
-        boxWidth:15
-        }
-    },
+  //                                                     ], 
+  //                                   borderWidth: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] }];
+  // public pieChartOptions: any = {
+  //   responsive: true,
+  //   maintainAspectRatio: false,
+  //   legend: {
+  //     position :"right",	
+  //     display: true,
+  //       labels: {
+  //       fontColor: '#585757',  
+  //       boxWidth:15
+  //       }
+  //   },
   
-  };
+  // };
 
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-  
+  // @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  @ViewChild(ApexCharts) chart?: ApexCharts;
+
   constructor(private firebaseSer: FirebaseService,
               private http: HttpClient) { }
 
@@ -458,7 +461,7 @@ OYumbel  =
     //your code here
   }
   
-  ngOnDestroy(){
+  async ngOnDestroy(){
    /* if(this.desactivado == true){
       this.chart?.update();
       this.pieChartData = [13, 120, 11, 20];
@@ -466,31 +469,175 @@ OYumbel  =
       this.chart?.update();
       this.pieChartData = [121, 10, 11, 220];
     } */
-    this.pieChartData = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
-      this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
-      this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
-      this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
-      this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel];
-    this.pieChartOptions = {
-      responsive: true,
-      maintainAspectRatio: true,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
+
+    this.options = {
+      chart: {
+          height: 1400,
+          type: 'pie',
+          foreColor: '#4e4e4e',
+         
       },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '13px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start',
+          borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          background:{
+            borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+          } 
+      },
+      series: [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
+        this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
+        this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
+        this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
+        this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel],
+
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
+      "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
+      "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
+      "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
+      "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"],
+
+      labels: ["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
+      "Concepción", "Contulmo", "Coronel", "Curanilahue", 
+      "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
+      "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
+      "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
+      "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+
+      borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      background:{
+        borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      }, 
+
+      legend: {
+        customLegendItems:["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
+        "Concepción", "Contulmo", "Coronel", "Curanilahue", 
+        "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
+        "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
+        "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
+        "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+        }
+      },
+      // responsive: [{
+        
+      //     breakpoint: 480,
+      //     options: {
+      //         chart: {
+      //             height: 330
+      //         },
+      //         legend: {
+      //             position: 'bottom'
+      //         }
+      //     }
+      // }]
+  
     }
-    this.chart?.update();
+
+    await this.chart?.destroy();
+
+    this.chart = new ApexCharts(
+      document.querySelector("#chart-comuna"),
+      this.options
+    );
+    await this.chart?.render();
+
+
+
+    // this.options = {
+    //   chart: {
+    //       height: 300,
+    //       type: 'pie',
+    //       foreColor: '#4e4e4e',
+    //   },
+    //   dataLabels: {
+    //       enabled: true,
+    //       style:{
+    //         colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+    //         fontSize: '13px',
+    //         fontFamily: 'Helvetica',
+    //         fontWeight:'0px'
+    //       },
+    //       textAnchor: 'start' 
+    //   },
+    //   series: [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
+    //     this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
+    //     this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
+    //     this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
+    //     this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel],
+
+    //   colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
+    //   "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
+    //   "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
+    //   "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
+    //   "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"],
+
+    //   labels: ["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
+    //   "Concepción", "Contulmo", "Coronel", "Curanilahue", 
+    //   "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
+    //   "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
+    //   "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
+    //   "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+
+    //   legend: {
+    //     customLegendItems:["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
+    //     "Concepción", "Contulmo", "Coronel", "Curanilahue", 
+    //     "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
+    //     "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
+    //     "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
+    //     "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+        
+    //     formatter: function(abc:any, opts:any) {
+    //         return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+    //     }
+    //   },
+    //   responsive: [{
+    //       breakpoint: 480,
+    //       options: {
+    //           chart: {
+    //               height: 330
+    //           },
+    //           legend: {
+    //               position: 'bottom'
+    //           }
+    //       }
+    //   }]
+  
+    // }
+
+    // this.pieChartData = [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
+    //   this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
+    //   this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
+    //   this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
+    //   this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel];
+    // this.pieChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: true,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+    // this.chart?.update();
   }
 
 
@@ -554,6 +701,8 @@ OYumbel  =
         
       }
     )
+
+    await this.ngOnDestroy();
   }
 
   async getAdress(lng:any,lat:any, total:number,pet:number, pead:number, pebd:number, carton:number, latas:number)
