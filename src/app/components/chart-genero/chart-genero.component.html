@@ -6,7 +6,8 @@
             <button class="btn btn-success" (click)="generateExcelGenero()"><i class="fa-solid fa-file-excel"></i> Descargar</button>
             <div class="canvas-container">
                 <div class="w-75">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+                    <div id="chart-genero"></div>
+                    <!-- <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas> -->
                 </div>
             </div>
         </div>
