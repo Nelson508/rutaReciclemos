@@ -22,7 +22,7 @@ export class ChartPersonasComponent implements OnInit {
   carton:number = 0;
   latas:number = 0;
   excellPersonas = true;
-  
+  options:any = {}
 
   enero = {
     nombre: 'Enero',
@@ -168,63 +168,14 @@ export class ChartPersonasComponent implements OnInit {
       
    };
 
-   /* public abc = ["Botellas PET", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"]; */
+   
 
-   public options = {
-    chart: {
-        height: 280,
-        type: 'pie',
-        foreColor: '#4e4e4e',
-    },
-    dataLabels: {
-        enabled: true
-    },
-    series: [100, 200, 41, 60],
-    /* fill: {
-        type: 'gradient',
-        gradient: {
-            gradientToColors: [ '#2af598', '#fc4a1a', '#fc00ff', '#f7971e'],
-        },
-    }, */
-    /* seriesName:["Botellas PET", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"], */
-    colors: ["#009efd", "#f7b733", "#00dbde", '#ffd200'],
-    legend: {
-      customLegendItems:["Botella PETE", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
-      
-      formatter: function(abc:any, opts:any) {
-          return abc + " - " + opts.w.globals.series[opts.seriesIndex]
-      }
-    },
-    responsive: [{
-        breakpoint: 480,
-        options: {
-            chart: {
-                height: 330
-            },
-            legend: {
-                position: 'bottom'
-            }
-        }
-    }]
-
-}
-
-/* this.chart = new ApexCharts(
-    document.querySelector("#chart5"),
-    options
-); */
-/* chart.destroy(); */
-
-/* this.chart.render(); */
 
   @ViewChild(ApexCharts) chart?: ApexCharts;
 
   constructor(private firebaseSer: FirebaseService) { }
 
-  async ngOnInit() {
-   /*  $.getScript('./assets/js/apex-charts.js'); */
-   //this.apxChart();
-    
+  async ngOnInit() {    
     await this.obtenerRutasCompletadas();
     
   }
@@ -238,51 +189,48 @@ export class ChartPersonasComponent implements OnInit {
     //your code here
   }
 
- /*  apxChart(){ */
-
-    
-  //this.chart?.destroy();
-  
-
-  /* } */
-
+ 
   async ngOnDestroy(){
 
-  //   this.options = {
-  //     chart: {
-  //         height: 280,
-  //         type: 'pie',
-  //         foreColor: '#4e4e4e',
-  //     },
-  //     dataLabels: {
-  //         enabled: true
-  //     },
-  //     series: [100, 200, 41, 60],
-  //     /* fill: {
-  //         type: 'gradient',
-  //         gradient: {
-  //             gradientToColors: [ '#2af598', '#fc4a1a', '#fc00ff', '#f7971e'],
-  //         },
-  //     }, */
-  //     colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
-  //     legend: {
-  //         formatter: function(val:any, opts:any) {
-  //             return val + " - " + opts.w.globals.series[opts.seriesIndex]
-  //         }
-  //     },
-  //     responsive: [{
-  //         breakpoint: 480,
-  //         options: {
-  //             chart: {
-  //                 height: 330
-  //             },
-  //             legend: {
-  //                 position: 'bottom'
-  //             }
-  //         }
-  //     }]
-
-  // }
+    this.options = {
+      chart: {
+          height: 280,
+          type: 'donut',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [Math.round((this.pet + Number.EPSILON)*100)/100, Math.round((this.pead + Number.EPSILON)*100)/100, Math.round((this.pebd + Number.EPSILON)*100)/100, Math.round((this.carton + Number.EPSILON)*100)/100, Math.round((this.latas + Number.EPSILON)*100)/100],
+      colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
+      labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+      legend: {
+        customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+        }
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
    
     /* this.doughnutChartData = [this.pet, this.pead, this.pebd, this.carton, this.latas];
     this.doughnutChartOptions = {
