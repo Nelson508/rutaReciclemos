@@ -4,6 +4,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import {FirebaseService} from '../../services/firebase.service';
 import {HttpClient} from '@angular/common/http'
 import { IGeocoderResult } from 'src/app/interfaces/interfaces';
+import ApexCharts from 'apexcharts';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class ResumenComponent implements OnInit {
   @Input() desactivado:boolean = false;
   dathax:any;
   ciudad:string = '';
+  //graficos
+  // optionsComuna:any = {};
 
   /* Variables Puntos Limpios Fijos */
   nombrePuntoFijo: string[] = [];
@@ -179,29 +182,55 @@ export class ResumenComponent implements OnInit {
   PersonasPebd:number = 0;
   PersonasCarton:number = 0;
   PersonasLatas:number = 0;
+
+  //variables para chart-genero
+  Masculino: number = 0;
+  Femenino: number = 0;
+  No_especifica: number = 0;
   
 
  
   
   // // Grafico Por Comuna
-  // public comunaChartLabels: string[] = [this.comunaArray[0].nombre, this.comunaArray[1].nombre, this.comunaArray[2].nombre, this.comunaArray[3].nombre, this.comunaArray[4].nombre, "Otras comunas"];
-  public comunaChartLabels: string[] = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
-  public comunaChartData: number[] = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
-  public comunaChartType: ChartType = 'pie';
-  public comunaChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"], borderWidth: [1, 1, 1, 1, 1,1] }];
-  public comunaChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
+  public optionsComuna = {
+    chart: {
+        height: 280,
+        type: 'donut',
+        foreColor: '#4e4e4e',
+    },
+    dataLabels: {
+        enabled: true,
+        style:{
+          colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
+          fontSize: '10px',
+          fontFamily: 'Helvetica',
+          fontWeight:'0px'
+        },
+        textAnchor: 'start' 
+    },
+    series: [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6],
+    colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
+    labels: [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
     legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
+      customLegendItems:[this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
+      
+      formatter: function(abc:any, opts:any) {
+          return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+      }
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                height: 330
+            },
+            legend: {
+                position: 'bottom'
+            }
         }
-     }
-  
-  };
+    }]
+
+  }
 
   // Grafico por Personas
   public personaChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
@@ -244,24 +273,45 @@ export class ResumenComponent implements OnInit {
 
   
   // Grafico por Genero
-  public generoChartLabels: string[] = ["Masculino", "Femenino", "No especifica"];
-  public generoChartData: number[] = [13, 20, 11];
-  public generoChartColors: any[] = [{ backgroundColor: ["#7934f3", "#f43643", "#04b962"] ,
-                                              borderWidth: [3, 3, 3]}];
-  public generoChartType: ChartType = 'doughnut';
-  public generoChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
+  public optionsGenero = {
+    chart: {
+        height: 1000,
+        type: 'donut',
+        foreColor: '#4e4e4e',
+    },
+    dataLabels: {
+        enabled: true,
+        style:{
+          colors: ["#000000","#000000","#000000"],
+          fontSize: '10px',
+          fontFamily: 'Helvetica',
+          fontWeight:'0px'
+        },
+        
+    },
+    series: [this.Masculino, this.Femenino, this.No_especifica],
+    colors: ["#7934f3", "#f43643", "#04b962"],
+    labels: ["Masculino", "Femenino", "No especifica"],
     legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
-        }
-     },
-     
-  };
+      customLegendItems:["Masculino", "Femenino", "No especifica"],
+      
+      formatter: function(abc:any, opts:any) {
+          return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+      }
+    },
+    // responsive: [{
+    //     breakpoint: 480,
+    //     options: {
+    //         chart: {
+    //             height: 330
+    //         },
+    //         legend: {
+    //             position: 'bottom'
+    //         }
+    //     }
+    // }]
+
+  }
 
   // Grafico puntos limpios
   public puntoLimpioChartOptions: any = {
@@ -326,14 +376,16 @@ export class ResumenComponent implements OnInit {
     }
   ];
 
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  // @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  @ViewChild(ApexCharts) chart?: ApexCharts;
+  @ViewChild(ApexCharts) chart2?: ApexCharts;
   
   constructor(private firebaseSer: FirebaseService,
               private http: HttpClient) { }
 
   async ngOnInit() {
     this.getComunas();
-   await  this.ngOnDestroy();
+   
    this.infoPuntosFijos(); 
     
   }
@@ -347,140 +399,251 @@ export class ResumenComponent implements OnInit {
     //your code here
   }
 
-  ngOnDestroy(){
-    // INICIO cosas de Comuna
-    this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
-    this.comunaChartLabels = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
+  async ngOnDestroy(){
+
     
-    this.comunaChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
-      },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
-    }
-    // FIN cosas de Comuna
+    // INICIO cosas de Comuna
 
-    this.personaChartData = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
-    this.personaChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
+    this.optionsComuna = {
+      chart: {
+          height: 280,
+          type: 'donut',
+          foreColor: '#4e4e4e',
       },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
-    }
-
-    this.edadChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
+            fontSize: '10px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
       },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
-    }
-
-    this.generoChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
+      series: [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6],
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
+      labels: [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
       legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
-      },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
-    }
-
-    this.puntoLimpioChartOptions = {
-      scaleShowVerticalLines: false,
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        display: true,
-        labels: {
-        fontColor: '#585757',  
-        boxWidth:40
+        customLegendItems:[this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
         }
       },
-      scales: {
-        xAxes: [{
-          
-        ticks: {
-          beginAtZero:true,
-          fontColor: '#585757'
-        },
-        gridLines: {
-          display: true ,
-          color: "rgba(0, 0, 0, 0.07)"
-        },
-        
-        }],
-        
-        yAxes: [{
-          ticks: {
-            beginAtZero:true,
-            fontColor: '#585757'
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+
+    //fin cosas de comuna
+
+    //inicio cositas de genero
+    this.optionsGenero = {
+      chart: {
+          height: 1000,
+          type: 'donut',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000"],
+            fontSize: '10px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
           },
-          gridLines: {
-            display: true ,
-            color: "rgba(0, 0, 0, 0.07)"
-          },
-          }]
          
       },
-      animation: {
-        animateScale: true,
-        animateRotate: false,
-        duration: 500,
-        easing: 'linear'
-      }
+      series: [this.Masculino, this.Femenino, this.No_especifica],
+      colors: ["#7934f3", "#f43643", "#04b962"],
+      labels: ["Masculino", "Femenino", "No especifica"],
+      legend: {
+        customLegendItems:["Masculino", "Femenino", "No especifica"],
+        
+        formatter: function(abc:any, opts:any) {
+            // return opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+        }
+      },
+      // responsive: [{
+      //     breakpoint: 480,
+      //     options: {
+      //         chart: {
+      //             height: 330
+      //         },
+      //         legend: {
+      //             position: 'bottom'
+      //         }
+      //     }
+      // }]
+  
+    }
+
+    //fin cositas de genero
+
     
-    };
     
-    this.chart?.update();
+     
+    //genero
+    this.chart2?.destroy();
+    this.chart2 = new ApexCharts(
+      document.querySelector("#chart-genero-resumen"),
+      this.optionsGenero
+    );
+    await this.chart2?.render();
+
+    this.chart?.destroy();
+    //comuna
+    this.chart = new ApexCharts(
+      document.querySelector("#chart-comuna-resumen"),
+      this.optionsComuna
+    );
+   await this.chart?.render();
+
+    
+
+
+    // this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
+    // this.comunaChartLabels = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
+    
+    // this.comunaChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+    // // FIN cosas de Comuna
+
+    // this.personaChartData = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
+    // this.personaChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+
+    // this.edadChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+
+    // this.generoChartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     position :"right",	
+    //     display: true,
+    //       labels: {
+    //       fontColor: '#585757',  
+    //       boxWidth:15
+    //       }
+    //   },
+    //   animation: {
+    //     animateScale: false,
+    //     animateRotate: true,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+      
+    // }
+
+    // this.puntoLimpioChartOptions = {
+    //   scaleShowVerticalLines: false,
+    //   responsive: true,
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     display: true,
+    //     labels: {
+    //     fontColor: '#585757',  
+    //     boxWidth:40
+    //     }
+    //   },
+    //   scales: {
+    //     xAxes: [{
+          
+    //     ticks: {
+    //       beginAtZero:true,
+    //       fontColor: '#585757'
+    //     },
+    //     gridLines: {
+    //       display: true ,
+    //       color: "rgba(0, 0, 0, 0.07)"
+    //     },
+        
+    //     }],
+        
+    //     yAxes: [{
+    //       ticks: {
+    //         beginAtZero:true,
+    //         fontColor: '#585757'
+    //       },
+    //       gridLines: {
+    //         display: true ,
+    //         color: "rgba(0, 0, 0, 0.07)"
+    //       },
+    //       }]
+         
+    //   },
+    //   animation: {
+    //     animateScale: true,
+    //     animateRotate: false,
+    //     duration: 500,
+    //     easing: 'linear'
+    //   }
+    
+    // };
+    
+    // this.chart?.update();
   }
 
 
@@ -528,6 +691,26 @@ export class ResumenComponent implements OnInit {
              let lng = this.dathax[i].l[0];
              let lat = this.dathax[i].l[1];
              await this.getAdress(lat,lng, total);
+
+             //Comienzo de trabajo para chart-genero
+             let element = this.dathax[i].uid;
+             let genero = await this.infoGenero(element);
+
+             if(genero == 'Masculino')
+            {
+              this.Masculino += total;
+              this.Masculino = Math.round((this.Masculino + Number.EPSILON) * 100) / 100;
+
+            } else if (genero == 'Femenino') 
+            {
+              this.Femenino += total;
+              this.Femenino = Math.round(( this.Femenino+ Number.EPSILON) * 100) / 100;
+              
+            } else if(genero == 'No aplica') 
+            {
+              this.No_especifica += total;
+              this.No_especifica = Math.round((this.No_especifica + Number.EPSILON) * 100) / 100;
+            }
 
  
              }else{
@@ -747,6 +930,10 @@ export class ResumenComponent implements OnInit {
         console.log(this.cartonPapel);
         
       });
+  }
+
+  infoGenero(id:any) {
+    return this.firebaseSer.getGenero(id);
   }
 
 }

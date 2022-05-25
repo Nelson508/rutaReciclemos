@@ -7,7 +7,8 @@
 				<div class="card-header text-uppercase">Por Comuna</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="comunaChartData" [labels]="comunaChartLabels" [options]="comunaChartOptions" [chartType]="comunaChartType" (chartHover)="chartHovered($event)" [colors]="comunaChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<div id="chart-comuna-resumen"></div>
+						<!-- <canvas baseChart [data]="comunaChartData" [labels]="comunaChartLabels" [options]="comunaChartOptions" [chartType]="comunaChartType" (chartHover)="chartHovered($event)" [colors]="comunaChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
 			</div>
@@ -53,12 +54,13 @@
 		</div>
 		<!-- / Pie chart-->
 		<!-- Doughnut chart-->
-		<div class="col-lg-6 col-xl-4">
+		<div class="col-lg- col-xl-4">
 			<div class="card">
 				<div class="card-header text-uppercase">Género por total de kilos reciclados</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="generoChartData" [labels]="generoChartLabels" [options]="generoChartOptions" [chartType]="generoChartType" (chartHover)="chartHovered($event)" [colors]="generoChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<div id="chart-genero-resumen"></div>
+						<!-- <canvas baseChart [data]="generoChartData" [labels]="generoChartLabels" [options]="generoChartOptions" [chartType]="generoChartType" (chartHover)="chartHovered($event)" [colors]="generoChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
 			</div>
