@@ -187,6 +187,54 @@ export class ResumenComponent implements OnInit {
   Masculino: number = 0;
   Femenino: number = 0;
   No_especifica: number = 0;
+
+
+/* Variables Reciclaje por Material */
+  pet: number = 0;
+  pead: number = 0;
+  pebd:number = 0;
+  carton:number = 0;
+  latas:number = 0;
+
+
+  /* Variables Rango etario
+  GRUPO A: ENTRE 6 Y 14
+  GRUPO B: ENTRE 15 Y 24
+  GRUPO C: ENTRE 25 Y 34
+  GRUPO D: ENTRE 35 Y 44
+  GRUPO E: ENTRE 45 Y 54
+  GRUPO F: ENTRE 55 Y 64
+  GRUPO G: ENTRE 65 Y 150
+  */
+
+  A = {
+    total: 0
+  }
+
+  B = {
+    total: 0
+  }
+
+  C = {
+    total: 0
+  }
+
+  D = {
+    total: 0
+  }
+
+  E = {
+    total: 0
+  }
+
+  F = {
+    total: 0
+  }
+
+  G = {
+    total: 0
+  }
+
   
 
  
@@ -232,45 +280,89 @@ export class ResumenComponent implements OnInit {
 
   }
 
-  // Grafico por Personas
-  public personaChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
-  public personaChartData: number[] = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
-  public personaChartColors: any[] = [{ backgroundColor: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"] ,
-                                              borderWidth: [0,0,0,0,0]}];
-  public personaChartType: ChartType = 'doughnut';
-  public personaChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
+  // Grafico por Material
+  public optionsMateriales = {
+    chart: {
+        height: 280,
+        type: 'donut',
+        foreColor: '#4e4e4e',
+    },
+    dataLabels: {
+        enabled: true,
+        style:{
+          colors: ["#000000", "#000000", "#000000", "#000000", "#000000"],
+          fontSize: '15px',
+          fontFamily: 'Helvetica',
+          fontWeight:'0px'
+        },
+        textAnchor: 'start' 
+    },
+    series: [Math.round((this.pet + Number.EPSILON)*100)/100, Math.round((this.pead + Number.EPSILON)*100)/100, Math.round((this.pebd + Number.EPSILON)*100)/100, Math.round((this.carton + Number.EPSILON)*100)/100, Math.round((this.latas + Number.EPSILON)*100)/100],
+    colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
+    labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
     legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
+      customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+      
+      formatter: function(abc:any, opts:any) {
+          return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+      },
+      position: 'bottom',
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                height: 330
+            },
+            legend: {
+                position: 'bottom'
+            }
         }
-     },
-     
-  };
+    }]
+
+  }
 
   // Grafico por Rango Etario
-  public edadChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
-  public edadChartData: number[] = [13, 120, 11, 20];
-  public edadChartType: ChartType = 'pie';
-  public edadChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
-  public edadChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
+  public optionsEdad = {
+    chart: {
+        height: 280,
+        type: 'pie',
+        foreColor: '#4e4e4e',
+    },
+    dataLabels: {
+        enabled: true,
+        style:{
+          colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+          fontSize: '15px',
+          fontFamily: 'Helvetica',
+          fontWeight:'0px'
+        },
+        textAnchor: 'start' 
+    },
+    series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
+    colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
+    labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
     legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
+      customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+      
+      formatter: function(abc:any, opts:any) {
+          return abc + " - " + opts.w.globals.series[opts.seriesIndex] + "Kg"
+      },
+      position: 'bottom',
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                height: 330
+            },
+            legend: {
+                position: 'bottom'
+            }
         }
-     }
-  
-  };
+    }]
 
+  }
   
   // Grafico por Genero
   public optionsGenero = {
@@ -297,7 +389,8 @@ export class ResumenComponent implements OnInit {
       
       formatter: function(abc:any, opts:any) {
           return abc + " - " + opts.w.globals.series[opts.seriesIndex]
-      }
+      },
+      position: 'bottom',
     },
     // responsive: [{
     //     breakpoint: 480,
@@ -379,6 +472,8 @@ export class ResumenComponent implements OnInit {
   // @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
   @ViewChild(ApexCharts) chart?: ApexCharts;
   @ViewChild(ApexCharts) chart2?: ApexCharts;
+  @ViewChild(ApexCharts) chartMaterial?: ApexCharts;
+  @ViewChild(ApexCharts) chartEdad?: ApexCharts;
   
   constructor(private firebaseSer: FirebaseService,
               private http: HttpClient) { }
@@ -387,6 +482,8 @@ export class ResumenComponent implements OnInit {
     this.getComunas();
    
    this.infoPuntosFijos(); 
+
+   await this.obtenerRutasCompletadas();
     
   }
 
@@ -406,8 +503,8 @@ export class ResumenComponent implements OnInit {
 
     this.optionsComuna = {
       chart: {
-          height: 280,
-          type: 'donut',
+          height: 150,
+          type: 'pie',
           foreColor: '#4e4e4e',
       },
       dataLabels: {
@@ -449,7 +546,7 @@ export class ResumenComponent implements OnInit {
     //inicio cositas de genero
     this.optionsGenero = {
       chart: {
-          height: 1000,
+          height: 480,
           type: 'donut',
           foreColor: '#4e4e4e',
       },
@@ -472,7 +569,8 @@ export class ResumenComponent implements OnInit {
         formatter: function(abc:any, opts:any) {
             // return opts.w.globals.series[opts.seriesIndex]
             return abc + " - " + opts.w.globals.series[opts.seriesIndex]
-        }
+        },
+        position: 'bottom',
       },
       // responsive: [{
       //     breakpoint: 480,
@@ -490,9 +588,94 @@ export class ResumenComponent implements OnInit {
 
     //fin cositas de genero
 
+    //inicio opciones de mamteriales
+    this.optionsMateriales = {
+      chart: {
+          height: 480,
+          type: 'donut',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [Math.round((this.pet + Number.EPSILON)*100)/100, Math.round((this.pead + Number.EPSILON)*100)/100, Math.round((this.pebd + Number.EPSILON)*100)/100, Math.round((this.carton + Number.EPSILON)*100)/100, Math.round((this.latas + Number.EPSILON)*100)/100],
+      colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
+      labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+      legend: {
+        customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+        },
+        position: 'bottom',
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+
+    //fin opciones de mamteriales
     
+    //inicio opciones rango etario
+    this.optionsEdad = {
+      chart: {
+          height: 480,
+          type: 'pie',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
+      labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+      legend: {
+        customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + "Kg"
+        },
+        position: 'bottom',
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+
+    //fin opciones rango etario
     
-     
     //genero
     this.chart2?.destroy();
     this.chart2 = new ApexCharts(
@@ -501,15 +684,34 @@ export class ResumenComponent implements OnInit {
     );
     await this.chart2?.render();
 
-    this.chart?.destroy();
+    
     //comuna
+    this.chart?.destroy();
     this.chart = new ApexCharts(
       document.querySelector("#chart-comuna-resumen"),
       this.optionsComuna
     );
    await this.chart?.render();
 
-    
+
+   //material
+    this.chartMaterial?.destroy();
+    this.chartMaterial = new ApexCharts(
+      document.querySelector("#chart-material-resumen"),
+      this.optionsMateriales
+    );
+    await this.chartMaterial?.render();
+
+    //edad
+    this.chartEdad?.destroy();
+
+    this.chartEdad = new ApexCharts(
+      document.querySelector("#chart-edad-resumen"),
+      this.optionsEdad
+    );
+
+    this.chartEdad?.render();
+     
 
 
     // this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
@@ -597,51 +799,51 @@ export class ResumenComponent implements OnInit {
       
     // }
 
-    // this.puntoLimpioChartOptions = {
-    //   scaleShowVerticalLines: false,
-    //   responsive: true,
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     display: true,
-    //     labels: {
-    //     fontColor: '#585757',  
-    //     boxWidth:40
-    //     }
-    //   },
-    //   scales: {
-    //     xAxes: [{
+    this.puntoLimpioChartOptions = {
+      scaleShowVerticalLines: false,
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: true,
+        labels: {
+        fontColor: '#585757',  
+        boxWidth:40
+        }
+      },
+      scales: {
+        xAxes: [{
           
-    //     ticks: {
-    //       beginAtZero:true,
-    //       fontColor: '#585757'
-    //     },
-    //     gridLines: {
-    //       display: true ,
-    //       color: "rgba(0, 0, 0, 0.07)"
-    //     },
+        ticks: {
+          beginAtZero:true,
+          fontColor: '#585757'
+        },
+        gridLines: {
+          display: true ,
+          color: "rgba(0, 0, 0, 0.07)"
+        },
         
-    //     }],
+        }],
         
-    //     yAxes: [{
-    //       ticks: {
-    //         beginAtZero:true,
-    //         fontColor: '#585757'
-    //       },
-    //       gridLines: {
-    //         display: true ,
-    //         color: "rgba(0, 0, 0, 0.07)"
-    //       },
-    //       }]
+        yAxes: [{
+          ticks: {
+            beginAtZero:true,
+            fontColor: '#585757'
+          },
+          gridLines: {
+            display: true ,
+            color: "rgba(0, 0, 0, 0.07)"
+          },
+          }]
          
-    //   },
-    //   animation: {
-    //     animateScale: true,
-    //     animateRotate: false,
-    //     duration: 500,
-    //     easing: 'linear'
-    //   }
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: false,
+        duration: 500,
+        easing: 'linear'
+      }
     
-    // };
+    };
     
     // this.chart?.update();
   }
@@ -711,6 +913,63 @@ export class ResumenComponent implements OnInit {
               this.No_especifica += total;
               this.No_especifica = Math.round((this.No_especifica + Number.EPSILON) * 100) / 100;
             }
+
+            /**** Comienzo de trabajo para chart-edad ***/
+             //se consulta la edad desde la BD
+             let dateBorn = await this.infoFechaNacimiento(element);
+             let age = date - dateBorn.slice(6,10);
+
+             if( age >=6 && age <=14)
+            {
+              // console.log("su edad esta entre 6 y 14");
+              this.A.total += total;
+              this.A.total = Math.round((this.A.total + Number.EPSILON) * 100) / 100;
+
+
+            }
+
+            //edad entre 15 y 24 anos
+            if( age >=15 && age <=24)
+            {
+              this.B.total += total;
+              this.B.total = Math.round((this.B.total + Number.EPSILON) * 100) / 100;
+            }
+
+            //edad entre 25 y 34 anos
+            if( age >=25 && age <=34)
+            {
+              this.C.total += total;
+              this.C.total = Math.round((this.C.total + Number.EPSILON) * 100) / 100;
+            }
+
+            //edad entre 35 y 44 anos 
+            if( age >=35 && age <=44)
+            {
+              this.D.total += total;
+              this.D.total = Math.round((this.D.total + Number.EPSILON) * 100) / 100;
+            }
+
+            //edad entre 45 y 54
+            if( age >=45 && age <=54)
+            {
+              this.E.total += total;
+              this.E.total = Math.round((this.E.total + Number.EPSILON) * 100) / 100;
+            }
+
+            //edad entre 55 y 64 anos
+            if( age >=55 && age <=64)
+            {
+              this.F.total += total;
+              this.F.total = Math.round((this.F.total + Number.EPSILON) * 100) / 100;
+            }
+
+            //edad entre 65 o mayor
+            if( age >=65 && age <=150)
+            {
+              this.G.total += total;
+              this.G.total = Math.round((this.G.total + Number.EPSILON) * 100) / 100;
+            }
+
 
  
              }else{
@@ -934,6 +1193,44 @@ export class ResumenComponent implements OnInit {
 
   infoGenero(id:any) {
     return this.firebaseSer.getGenero(id);
+  }
+
+  
+  async obtenerRutasCompletadas()
+  {
+   await this.firebaseSer.getRutasCompletadas().then(
+     data =>
+      {
+        this.dathax = data;
+        // console.log(data);
+        let largo = Object.keys(this.dathax).length;
+        // console.log('Largo:' + largo);
+        let date = new Date().getFullYear();
+         for (let i = 1; i < largo; i++) 
+         {
+
+          if(date == this.dathax[i].timestamp.slice(0,4) )
+          {
+          
+          this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
+          this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+          this.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+          this.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+          this.latas += parseFloat(this.dathax[i].kilosreciclaje5);
+          
+          }
+
+        }
+      }
+    )
+
+    this.ngOnDestroy();
+    
+  }
+
+  infoFechaNacimiento(id:any)
+  {
+    return this.firebaseSer.getFechaNacimiento(id);
   }
 
 }

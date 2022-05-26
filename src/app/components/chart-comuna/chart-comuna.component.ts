@@ -417,7 +417,7 @@ OYumbel  =
   //                                  this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel];
   // public pieChartType: ChartType = 'pie';
   // public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
-  //                                                     "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
+  //                                                     "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A", "#186A3B",
   //                                                     "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
   //                                                     "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
   //                                                     "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"
@@ -472,7 +472,7 @@ OYumbel  =
 
     this.options = {
       chart: {
-          height: 1400,
+          height: 480,
           type: 'pie',
           foreColor: '#4e4e4e',
          
@@ -498,7 +498,7 @@ OYumbel  =
         this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel],
 
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
-      "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A ", "#186A3B",
+      "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A", "#186A3B",
       "#A93226", "#F39C12", "#AED6F1", "#A6ACAF", "#F6DDCC", "#EBDEF0", "#2C3E50",
       "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
       "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"],
@@ -522,6 +522,8 @@ OYumbel  =
         "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
         "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
         "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+        
+        position: 'bottom',
         
         formatter: function(abc:any, opts:any) {
             return abc + " - " + opts.w.globals.series[opts.seriesIndex]

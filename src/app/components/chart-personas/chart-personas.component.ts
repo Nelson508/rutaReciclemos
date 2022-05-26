@@ -149,7 +149,7 @@ export class ChartPersonasComponent implements OnInit {
 
 
    // Doughnut
-   public doughnutChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
+   /* public doughnutChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
    public doughnutChartData: number[] = [this.pet, this.pead, this.pebd, this.carton, this.latas];
    public doughnutChartColors: any[] = [{ backgroundColor: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"] ,
                                                borderWidth: [1,1,1,1,1]}];
@@ -167,7 +167,7 @@ export class ChartPersonasComponent implements OnInit {
       },
       
    };
-
+ */
    
 
 
@@ -252,8 +252,7 @@ export class ChartPersonasComponent implements OnInit {
       }
       
     } */
-    //this.chart?.destroy();
-    /* this.chart?.updateOptions(this.options,true,true); */
+
     await this.chart?.destroy();
 
     this.chart = new ApexCharts(
@@ -262,14 +261,6 @@ export class ChartPersonasComponent implements OnInit {
     );
     await this.chart?.render();
 
-    /* this.chart = new ApexCharts(
-      document.querySelector("#chart5"),
-      this.options
-    );
-    
-    this.chart?.render(); */
-    /* this.chart?.destroy();
-    this.chart?.updateSeries(this.options,true); */
   }
 
 
