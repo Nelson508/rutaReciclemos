@@ -6,7 +6,8 @@
 			<button class="btn btn-success" (click)="generateExcelEtario()"><i class="fa-solid fa-file-excel"></i><span> Descargar</span></button>
 			<div class="canvas-container">
 				<div class="w-75">
-					<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
+                    <div id="chartEdad"></div>
+					<!-- <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 				</div>
 			</div>
 		</div>

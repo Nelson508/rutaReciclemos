@@ -3,6 +3,7 @@ import { ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import {FirebaseService} from '../../services/firebase.service';
 import * as XLSX from 'xlsx';
+import ApexCharts from 'apexcharts';
 
 @Component({
   selector: 'app-chart-edad',
@@ -13,7 +14,8 @@ export class ChartEdadComponent implements OnInit {
 
   @Input() desactivado:boolean = false;
   info: any;
-  excelEdad = false;
+  options:any = {}
+  excelEdad = true;
   /*
   GRUPO A: ENTRE 6 Y 14
   GRUPO B: ENTRE 15 Y 24
@@ -113,7 +115,7 @@ export class ChartEdadComponent implements OnInit {
   
   };
 
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  @ViewChild(ApexCharts) chart?: ApexCharts;
 
   constructor(private firebaseSer: FirebaseService) { }
 
@@ -133,7 +135,7 @@ export class ChartEdadComponent implements OnInit {
 
   ngOnDestroy(){
  
-    this.pieChartOptions = {
+    /* this.pieChartOptions = {
        responsive: true,
        maintainAspectRatio: true,
        legend: {
@@ -151,11 +153,57 @@ export class ChartEdadComponent implements OnInit {
          easing: 'linear'
        }
        
-     }
-     this.chart?.update();
+     } */
+     this.options = {
+      chart: {
+          height: 280,
+          type: 'pie',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
+      labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+      legend: {
+        customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + "Kg"
+        }
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+    this.chart?.destroy();
+
+    this.chart = new ApexCharts(
+      document.querySelector("#chartEdad"),
+      this.options
+    );
+
+    this.chart?.render();
+     //this.chart?.update();
+
    }
-
-
 
    async infoRutasCompletadas(){
     await this.firebaseSer.getRutasCompletadas().then( async data =>

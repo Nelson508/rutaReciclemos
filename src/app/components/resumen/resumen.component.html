@@ -35,7 +35,8 @@
 				<div class="card-header text-uppercase">Reciclaje por material</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="personaChartData" [labels]="personaChartLabels" [options]="personaChartOptions" [chartType]="personaChartType" (chartHover)="chartHovered($event)" [colors]="personaChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<div id="chart-material-resumen"></div>
+						<!-- <canvas baseChart [data]="personaChartData" [labels]="personaChartLabels" [options]="personaChartOptions" [chartType]="personaChartType" (chartHover)="chartHovered($event)" [colors]="personaChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
 			</div>
@@ -47,7 +48,8 @@
 				<div class="card-header text-uppercase">Rango Etario</div>
 				<div class="card-body">
 					<div class="height-240">
-						<canvas baseChart [data]="edadChartData" [labels]="edadChartLabels" [options]="edadChartOptions" [chartType]="edadChartType" (chartHover)="chartHovered($event)" [colors]="edadChartColors" (chartClick)="chartClicked($event)"></canvas>
+						<div id="chart-edad-resumen"></div>
+						<!-- <canvas baseChart [data]="edadChartData" [labels]="edadChartLabels" [options]="edadChartOptions" [chartType]="edadChartType" (chartHover)="chartHovered($event)" [colors]="edadChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
 			</div>
