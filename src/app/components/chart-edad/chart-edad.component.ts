@@ -170,14 +170,14 @@ export class ChartEdadComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
+      series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
       labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
       legend: {
         customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + "Kg"
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
         }
       },
       responsive: [{

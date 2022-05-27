@@ -605,14 +605,14 @@ export class ResumenComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [Math.round((this.pet + Number.EPSILON)*100)/100, Math.round((this.pead + Number.EPSILON)*100)/100, Math.round((this.pebd + Number.EPSILON)*100)/100, Math.round((this.carton + Number.EPSILON)*100)/100, Math.round((this.latas + Number.EPSILON)*100)/100],
+      series: [Math.round(((this.pet/1000) + Number.EPSILON)*100)/100, Math.round(((this.pead/1000) + Number.EPSILON)*100)/100, Math.round(((this.pebd/1000) + Number.EPSILON)*100)/100, Math.round(((this.carton/1000) + Number.EPSILON)*100)/100, Math.round(((this.latas/1000) + Number.EPSILON)*100)/100],
       colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
       labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
       legend: {
         customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
         },
         position: 'bottom',
       },
@@ -649,14 +649,14 @@ export class ResumenComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
+      series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
       labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
       legend: {
         customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + "Kg"
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
         },
         position: 'bottom',
       },
