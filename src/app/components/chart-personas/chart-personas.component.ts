@@ -208,14 +208,14 @@ export class ChartPersonasComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [Math.round((this.pet + Number.EPSILON)*100)/100, Math.round((this.pead + Number.EPSILON)*100)/100, Math.round((this.pebd + Number.EPSILON)*100)/100, Math.round((this.carton + Number.EPSILON)*100)/100, Math.round((this.latas + Number.EPSILON)*100)/100],
+      series: [Math.round(((this.pet/1000) + Number.EPSILON)*100)/100, Math.round(((this.pead/1000) + Number.EPSILON)*100)/100, Math.round(((this.pebd/1000) + Number.EPSILON)*100)/100, Math.round(((this.carton/1000) + Number.EPSILON)*100)/100, Math.round(((this.latas/1000) + Number.EPSILON)*100)/100],
       colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
       labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
       legend: {
         customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
         }
       },
       responsive: [{
