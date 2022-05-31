@@ -5,10 +5,12 @@
         <div class="row">
             <div class="col-lg-6">
               <div class="text-container" style="margin-top: 1.5rem; margin-bottom: 1rem;">
-                <h1 class="h1-large">Una plataforma que te ayuda a cuidar al medio ambiente</h1>
-                <p class="p-large" style="font-family:  sans-serif;color:green;">Unete a nuestro equipo y luchemos juntos por un desarrollo sustentable
-                  en donde junto a la comunidad generemos un cambio en nuestro estilo de vida y en el de nuestros cercanos.
+                <h1 class="h1-large">Una plataforma que te ayuda a cuidar el medio ambiente.</h1>
+                <p class="p-large" style="font-family:  sans-serif;color:green;">
+                  Únete a nuestro equipo y se parte de nuestra comunidad sostenible, mediante la segregación 
+                  y buen manejo de residuos reciclables. Evita que tus “responsabilidades” lleguen al relleno sanitario.
                 </p>
+                <p class="p-large" style="font-family:  sans-serif;color:green;">Para cambiar el mundo, primero hagámoslo nosotros.</p>
                 <a style="width: 50%;margin-top:10%;" class="btn btn-primary boton" href="#">ÚNETE AQUÍ</a>
               </div>
             </div> 
@@ -25,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-              <h2 class="text-center">Cantidad de desechos gestionados gracias a Ruta Reciclemos</h2>
+              <h3 class="text-center">Cantidad de residuos reciclables gestionados gracias a tus cambios de hábitos</h3>
             </div>
         </div>
         <div class="row g-0" style="display: flex; justify-content: center;">
@@ -120,89 +122,128 @@
     </div>
   </div>
   
-    <!---INICIO SECCION TRAZABILIDAD-->
-    <div class="container Trazabilidad">
-      
-      
-          <div class="row trazabilidadBG">
+  <!---INICIO SECCION TRAZABILIDAD-->
+  <div class="trazabilidadBG">
+    <div class="container Trazabilidad">   
+      <div class="row"> 
+        <div class="col-lg-6 col-sm-12 px-5 TrazabilidadTexto">
+          <h1 class="text-center">Trazabilidad </h1>
+          <p class="textoApareceTarjeta">Contamos con un sistema digital que monitorea tus residuos desde su recolección hasta su  
+            <span class="reutilización">reciclaje <i class="fa-solid fa-recycle"></i></span>, logrando la trazabilidad 
+            de los residuos reciclables recolectados y disminuyendo así el impacto ambiental que estos generan. 
+          </p>
+
+          <div *ngIf="mostrarImagen">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body text-center">
+                <img class="img-fluid" style="width: 50%;" src="../../../assets/images/Ruta_Reciclemos_200x100-8.png"/>
+              </div>
+            </div>
+          </div>
+
+         <!--  <div class="col-lg-6">
+            <div class="text-center"> 
+              <img class="img-fluid" style="width: 90%;" src="assets/images/Mockup2.png"/>
+            </div> 
+        </div> -->
+  
+          <div *ngIf="mostrarTexto1">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body" style="padding: 1rem;">
+                <p class="textoApareceTarjeta">Solicita tu servicio de retiro “Quiero Reciclar” e indica el peso aproximado.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="mostrarTexto2">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body" style="padding: 1rem;">
+                <p class="textoApareceTarjeta">Cada vez que recepcionemos tus residuos serán pesados y toda la información ingresará a nuestro sistema de gestión.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="mostrarTexto3">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body" style="padding: 1rem;">
+                <p class="textoApareceTarjeta">El punto limpio móvil entregará  los residuos reciclables para ser enfardados y preparados para su reciclaje.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="mostrarTexto4">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body" style="padding: 1rem;">
+                <p class="textoApareceTarjeta">Contamos con un sistema digital que monitorea tus residuos desde su recolección hasta su reciclaje.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="mostrarTexto5">
+            <div class="card apareceTarjeta col-12">
+              <div class="card-body" style="padding: 1rem;">
+                <p class="textoApareceTarjeta">Cada vez que solicitas “Quiero Reciclar” el generador de ruta formula la mejor ruta para la recolección de residuos.</p>
+              </div>
+            </div>
+          </div>
+  
+  
+        </div>
+        <div class="col-lg-6 col-sm-12 px-5">
+  
+          <div class="row contIMG imagenFondo">
             
-              <!-- <h1 class="tituloREP">¿Cómo funciona?</h1> -->
-              <div class="col-lg-6 col-sm-12 px-5 TrazabilidadTexto">
-                <h1 class="text-center">Trazabilidad </h1>
-                <p class="try33">Contamos con un sistema digital que monitorea tus desechos desde su recolección hasta su 
-                  <span class="reutilización">reutilización <i class="fa-solid fa-recycle"></i></span>, generando una trazabilidad
-                  sobre los productos y disminuyendo de esta forma, el impacto ambiental de éstos. 
-                </p>
+            <div id="caja1" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div><!--  (click)="agregarTexto(1)" (touchmove)="touchLeave()"-->
+            <div id="caja2" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja3" class="col-2 cuadrado"></div>
+            <div id="caja4" class="col-2 cuadrado"></div>
+            <div id="caja5" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja6" class="col-2 cuadrado"></div>
+          
+            <div id="caja7" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja8" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja9" class="col-2 cuadrado"></div>
+            <div id="caja10" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja11" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja12" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+          
+            <div id="caja13" class="col-2 cuadrado"></div>
+            <div id="caja14" class="col-2 cuadrado" (mouseenter)="hoverStateIn(5)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(5)"></div>
+            <div id="caja15" class="col-2 cuadrado"></div>
+            <div id="caja16" class="col-2 cuadrado" (mouseenter)="hoverStateIn(2)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(2)"></div>
+            <div id="caja17" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
+            <div id="caja18" class="col-2 cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div>
 
-                <div class="apareceTexto" *ngIf="mostrarTexto1">
-                  <div class="card apareceTarjeta col-12">
-                    <div class="card-body" style="padding: 1rem;">
-                      <p class="textoApareceTarjeta" style="color: red;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="apareceTexto" *ngIf="mostrarTexto2">
-                  <div class="card apareceTarjeta col-12">
-                    <div class="card-body" style="padding: 1rem;">
-                      <p class="textoApareceTarjeta" style="color: green;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="apareceTexto" *ngIf="mostrarTexto3">
-                  <div class="card apareceTarjeta col-12">
-                    <div class="card-body" style="padding: 1rem;">
-                      <p class="textoApareceTarjeta" style="color: black;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="apareceTexto" *ngIf="mostrarTexto4">
-                  <div class="card apareceTarjeta col-12">
-                    <div class="card-body" style="padding: 1rem;">
-                      <p class="textoApareceTarjeta" style="color: blue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="apareceTexto" *ngIf="mostrarTexto5">
-                  <div class="card apareceTarjeta col-12">
-                    <div class="card-body" style="padding: 1rem;">
-                      <p class="textoApareceTarjeta" style="color: rebeccapurple;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ipsam sunt dignissimos ex ullam tempore molestias veritatis cumque hic recusandae minima autem non aspernatur alias liber</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="col-lg-6 col-sm-12 px-5">
-
-                <div class="row contIMG imagenFondo">
-                  
-                  <div class="col-4 caja cuadrado" (mouseenter)="hoverStateIn(1)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(1)"></div><!--  (click)="agregarTexto(1)" (touchmove)="touchLeave()"-->
-                  <div class="col-4 caja2 cuadrado"></div>
-                  <div class="col-4 caja3 cuadrado" (mouseenter)="hoverStateIn(2)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(2)"></div>
-               
-                  <div class="col-4 caja4 cuadrado"></div>
-                  <div class="col-4 caja5 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(3)"></div>
-                  <div class="col-4 caja6 cuadrado"></div>
-               
-                  <div class="col-4 caja7 cuadrado" (mouseenter)="hoverStateIn(4)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(4)"></div>
-                  <div class="col-4 caja8 cuadrado"></div>
-                  <div class="col-4 caja9 cuadrado" (mouseenter)="hoverStateIn(5)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(5)"></div>
-               
-                </div>
-              </div>
-              <!-- <div class="col-lg-6 col-sm-12 contIMG">
-                
-                <img src="../../../assets/images/Trazabilidad.png" class="img-fluid square trazabilidadIMG" >
-              </div> -->
-              
-             
-          </div> 
-      
-  </div> 
+            <div id="caja19" class="col-2 cuadrado" (mouseenter)="hoverStateIn(4)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(4)"></div>
+            <div id="caja20" class="col-2 cuadrado" (mouseenter)="hoverStateIn(5)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(5)"></div>
+            <div id="caja21" class="col-2 cuadrado" (mouseenter)="hoverStateIn(5)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(5)"></div>
+            <div id="caja22" class="col-2 cuadrado" (mouseenter)="hoverStateIn(2)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(2)"></div>
+            <div id="caja23" class="col-2 cuadrado"></div>
+            <div id="caja24" class="col-2 cuadrado"></div>
+          
+            <div id="caja25" class="col-2 cuadrado" (mouseenter)="hoverStateIn(4)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(4)"></div>
+            <div id="caja26" class="col-2 cuadrado" (mouseenter)="hoverStateIn(4)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(4)"></div>
+            <div id="caja27" class="col-2 cuadrado"></div>
+            <div id="caja28" class="col-2 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(3)"></div>
+            <div id="caja29" class="col-2 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(3)"></div>
+            <div id="caja30" class="col-2 cuadrado"></div>
+          
+            <div id="caja31" class="col-2 cuadrado"></div>
+            <div id="caja32" class="col-2 cuadrado"></div>
+            <div id="caja33" class="col-2 cuadrado"></div>
+            <div id="caja34" class="col-2 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(3)"></div>
+            <div id="caja35" class="col-2 cuadrado" (mouseenter)="hoverStateIn(3)" (mouseleave)="hoverStateOut()" (touchstart)="touchDown(3)"></div>
+            <div id="caja36" class="col-2 cuadrado"></div>
+          
+          </div>
+        </div>
+        <!-- <div class="col-lg-6 col-sm-12 contIMG">
+          
+          <img src="../../../assets/images/Trazabilidad.png" class="img-fluid square trazabilidadIMG" >
+        </div> -->
+      </div> 
+    </div>
+  </div>
   
   <!---FIN SECCION TRAZABILIDAD-->
 

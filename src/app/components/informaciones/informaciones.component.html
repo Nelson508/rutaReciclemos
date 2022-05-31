@@ -21,7 +21,7 @@
               <!---COMIENZO MODAL-->
               <ng-template #mymodal let-modal>
                 <form (ngSubmit)="guardarCambios(modalForm.value)" #modalForm="ngForm">
-                    <pre>{{modalForm.value | json}}</pre>
+                <!--     <pre>{{modalForm.value | json}}</pre> -->
                     <div class="modal-header">
                         <input type="number" class="form-control" id="_id" name="_id" [ngModel]="item._id" ngModel required hidden> <!-- [value]="item._id" (ngModelChange)="publicacion._id = item._id" -->
                         <!-- Título -->

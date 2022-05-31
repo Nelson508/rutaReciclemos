@@ -10,6 +10,7 @@ import {FirebaseService} from '../../services/firebase.service';
 
 
 export class InicioComponent implements OnInit {
+  mostrarImagen = true;
   mostrarTexto1 = false;
   mostrarTexto2 = false;
   mostrarTexto3 = false;
@@ -62,6 +63,7 @@ export class InicioComponent implements OnInit {
 
 
   hoverStateIn(aux: any){
+    this.mostrarImagen = (aux==0) ? true : false;
     this.mostrarTexto1 = (aux==1) ? true : false;
     this.mostrarTexto2 = (aux==2) ? true : false;
     this.mostrarTexto3 = (aux==3) ? true : false;
@@ -70,6 +72,7 @@ export class InicioComponent implements OnInit {
   }
 
   hoverStateOut(){
+    this.mostrarImagen = true;
     this.mostrarTexto1 = false;
     this.mostrarTexto2 = false;
     this.mostrarTexto3 = false;

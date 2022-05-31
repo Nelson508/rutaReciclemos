@@ -19,9 +19,9 @@
 	<table id="puntoLimpio-table">
 		<tr>
             <th>Punto Limpio/Residuo</th>
-			<th>Plasticos</th>
-			<th>Cartón y Papel</th>
-			<th>Latas de aluminio</th>
+			<th>Plasticos (Tons)</th>
+			<th>Cartón y Papel (Tons)</th>
+			<th>Latas de aluminio (Tons)</th>
 		</tr>
         <tr>
             <td></td>
@@ -30,7 +30,7 @@
 			<td></td>
 		</tr>
 		<tr *ngFor="let data of excel">
-			<td>P.L. {{data.nombre}}</td>
+			<td>{{data.nombre}}</td>
 			<td>{{data.fijo_punto_plasticos}}</td>
 			<td>{{data.fijo_punto_carton}}</td>
 			<td>{{data.fijo_punto_latas}}</td>
