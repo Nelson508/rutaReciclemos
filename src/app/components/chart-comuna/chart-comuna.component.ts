@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 import ApexCharts from 'apexcharts';
 
 
+
 @Component({
   selector: 'app-chart-comuna',
   templateUrl: './chart-comuna.component.html',
@@ -20,6 +21,7 @@ export class ChartComunaComponent implements OnInit {
   dathax:any;
   ciudad:string = '';
   options:any = {};
+  comunaLabels: Array<string> = [];
 
   //Comunas que almacenan valor;
   altoBioBio:number = 0;
@@ -56,7 +58,142 @@ export class ChartComunaComponent implements OnInit {
   tucapel: number=0;
   yumbel: number=0;
   harray: any = [];
-  excell = true;
+  excell = false;
+
+  comunaArray = [
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    },
+    {
+      nombre: '',
+      peso: 0
+    }
+  ];
 
   //comienzo de objetos para generacion de Excel
   OAltobiobio = {
@@ -386,6 +523,8 @@ OYumbel  =
   aluminio: 0
 }
 
+Toplabel1 = '';
+
 
 
 
@@ -491,11 +630,11 @@ OYumbel  =
             borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
           } 
       },
-      series: [this.altoBioBio, this.antuco, this.arauco, this.cabrero, this.canete, this.chiguayante,
-        this.concepcion, this.contulmo , this.coronel, this.curanilahue, this.florida, this.hualpen, this.hualqui,
-        this.laja, this.lebu, this.losAlamos , this.losAngeles, this.lota, this.mulchen, this.nacimiento, 
-        this.negrete, this.penco, this.quilaco, this.quilleco, this.sanPedroDeLaPaz, this.sanRosendo, this.santaBarbara,
-        this.santaJuana, this.talcahuano, this.tirua , this.tome, this.tucapel, this.yumbel],
+      series: [this.comunaArray[0].peso,  this.comunaArray[1].peso,  this.comunaArray[2].peso,   this.comunaArray[3].peso, this.comunaArray[4].peso, this.comunaArray[5].peso,
+               this.comunaArray[6].peso,  this.comunaArray[7].peso , this.comunaArray[8].peso,   this.comunaArray[9].peso, this.comunaArray[10].peso, this.comunaArray[11].peso, this.comunaArray[12].peso,
+               this.comunaArray[13].peso, this.comunaArray[14].peso, this.comunaArray[15].peso , this.comunaArray[16].peso,this.comunaArray[17].peso, this.comunaArray[18].peso, this.comunaArray[19].peso, 
+               this.comunaArray[20].peso, this.comunaArray[21].peso, this.comunaArray[22].peso,  this.comunaArray[23].peso,this.comunaArray[24].peso, this.comunaArray[25].peso, this.comunaArray[26].peso,
+               this.comunaArray[27].peso, this.comunaArray[28].peso, this.comunaArray[29].peso , this.comunaArray[30].peso,this.comunaArray[31].peso, this.comunaArray[32].peso],
 
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6",
       "#117864", "#3498DB", "#F1948A", "#EDBB99", "#F4D03F", "#F0B27A", "#186A3B",
@@ -503,12 +642,11 @@ OYumbel  =
       "#ee82ee", "#ffa500", "#ff0000", "#5F4C0B", "#084B8A", "#6A0888", "#E6E6E6",
       "#F7819F", "#210B61", "#58FAF4", "#00FFBF", "#14b6ff"],
 
-      labels: ["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
-      "Concepción", "Contulmo", "Coronel", "Curanilahue", 
-      "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
-      "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
-      "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
-      "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+      labels: [this.comunaArray[0].nombre,  this.comunaArray[1].nombre,  this.comunaArray[2].nombre,   this.comunaArray[3].nombre, this.comunaArray[4].nombre, this.comunaArray[5].nombre,
+               this.comunaArray[6].nombre,  this.comunaArray[7].nombre , this.comunaArray[8].nombre,   this.comunaArray[9].nombre, this.comunaArray[10].nombre, this.comunaArray[11].nombre, this.comunaArray[12].nombre,
+               this.comunaArray[13].nombre, this.comunaArray[14].nombre, this.comunaArray[15].nombre , this.comunaArray[16].nombre,this.comunaArray[17].nombre, this.comunaArray[18].nombre, this.comunaArray[19].nombre, 
+               this.comunaArray[20].nombre, this.comunaArray[21].nombre, this.comunaArray[22].nombre,  this.comunaArray[23].nombre,this.comunaArray[24].nombre, this.comunaArray[25].nombre, this.comunaArray[26].nombre,
+               this.comunaArray[27].nombre, this.comunaArray[28].nombre, this.comunaArray[29].nombre , this.comunaArray[30].nombre,this.comunaArray[31].nombre, this.comunaArray[32].nombre],
 
       borderWith: [0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       background:{
@@ -516,17 +654,16 @@ OYumbel  =
       }, 
 
       legend: {
-        customLegendItems:["Alto Bío-Bío", "Antuco", "Arauco","Cabrero", "Cañete", "Chiguayante", 
-        "Concepción", "Contulmo", "Coronel", "Curanilahue", 
-        "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Álamos", "Los Ángeles", 
-        "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco",
-        "San Pedro De La Paz", "San Rosendo", "Santa Bárbara" , "Santa Juana", "Talcahuano",
-        "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+        customLegendItems:[this.comunaArray[0].nombre,  this.comunaArray[1].nombre,  this.comunaArray[2].nombre,   this.comunaArray[3].nombre, this.comunaArray[4].nombre, this.comunaArray[5].nombre,
+        this.comunaArray[6].nombre,  this.comunaArray[7].nombre , this.comunaArray[8].nombre,   this.comunaArray[9].nombre, this.comunaArray[10].nombre, this.comunaArray[11].nombre, this.comunaArray[12].nombre,
+        this.comunaArray[13].nombre, this.comunaArray[14].nombre, this.comunaArray[15].nombre , this.comunaArray[16].nombre,this.comunaArray[17].nombre, this.comunaArray[18].nombre, this.comunaArray[19].nombre, 
+        this.comunaArray[20].nombre, this.comunaArray[21].nombre, this.comunaArray[22].nombre,  this.comunaArray[23].nombre,this.comunaArray[24].nombre, this.comunaArray[25].nombre, this.comunaArray[26].nombre,
+        this.comunaArray[27].nombre, this.comunaArray[28].nombre, this.comunaArray[29].nombre , this.comunaArray[30].nombre,this.comunaArray[31].nombre, this.comunaArray[32].nombre],
         
-        position: 'bottom',
+        position: 'right',
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
         }
       },
       // responsive: [{
@@ -704,6 +841,424 @@ OYumbel  =
       }
     )
 
+    //INICIO ORDENAR COMUNA
+    this.comunaArray  = [
+      {
+        nombre: 'Alto Bío-Bío',
+        peso: this.altoBioBio
+      },
+      {
+        nombre: 'Antuco',
+        peso: this.antuco
+      },
+      {
+        nombre: 'Arauco',
+        peso: this.arauco
+      },
+      {
+        nombre: 'Cabrero',
+        peso: this.cabrero
+      },
+      {
+        nombre: 'Cañete',
+        peso: this.canete
+      },
+      {
+        nombre: 'Chiguayante',
+        peso: this.chiguayante
+      },
+      {
+        nombre: 'Concepción',
+        peso: this.concepcion
+      },
+      {
+        nombre: 'Contulmo',
+        peso: this.contulmo
+      },
+      {
+        nombre: 'Coronel',
+        peso: this.coronel
+      },
+      {
+        nombre: 'Curanilahue',
+        peso: this.curanilahue
+      },
+      {
+        nombre: 'Florida',
+        peso: this.florida
+      },
+      {
+        nombre: 'Hualpén',
+        peso: this.hualpen
+      },
+      {
+        nombre: 'Hualqui',
+        peso: this.hualqui
+      },
+      {
+        nombre: 'Laja',
+        peso: this.laja
+      },
+      {
+        nombre: 'Lebu',
+        peso: this.lebu
+      },
+      {
+        nombre: 'Los Álamos',
+        peso: this.losAlamos
+      },
+      {
+        nombre: 'Los Ángeles',
+        peso: this.losAngeles
+      },
+      {
+        nombre: 'Lota',
+        peso: this.lota
+      },
+      {
+        nombre: 'Mulchén',
+        peso: this.mulchen
+      },
+      {
+        nombre: 'Nacimiento',
+        peso: this.nacimiento
+      },
+      {
+        nombre: 'Negrete',
+        peso: this.negrete
+      },
+      {
+        nombre: 'Penco',
+        peso: this.penco
+      },
+      {
+        nombre: 'Quilaco',
+        peso: this.quilaco
+      },
+      {
+        nombre: 'Quilleco',
+        peso: this.quilleco
+      },
+      {
+        nombre: 'San Pedro De La Paz',
+        peso: this.sanPedroDeLaPaz
+      },
+      {
+        nombre: 'San Rosendo',
+        peso: this.sanRosendo
+      },
+      {
+        nombre: 'Santa Bárbara',
+        peso: this.santaBarbara
+      },
+      {
+        nombre: 'Santa Juana',
+        peso: this.santaJuana
+      },
+      {
+        nombre: 'Talcahuano',
+        peso: this.talcahuano
+      },
+      {
+        nombre: 'Tirúa',
+        peso: this.tirua
+      },
+      {
+        nombre: 'Tomé',
+        peso: this.tome
+      },
+      {
+        nombre: 'Tucapel',
+        peso: this.tucapel
+      },
+      {
+        nombre: 'Yumbel',
+        peso: this.yumbel
+      }
+    ];
+
+    this.comunaArray.sort((a,b) =>(b.peso - a.peso));
+
+    this.comunaArray.forEach( element =>
+      {
+        element.peso = Math.round(((element.peso/1000) + Number.EPSILON) * 100) / 100;
+        // this.comunaLabels.push(element.nombre)
+      })
+
+      this.Toplabel1 = this.comunaArray[0].nombre
+
+    // console.log(this.comunaArray);
+
+
+    //FIN ORDENAR COMUNA
+
+    //pasar datos de tabla excell a tons
+    //alto Bío-Bío
+    this.OAltobiobio.pet = Math.round(((this.OAltobiobio.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OAltobiobio.pead = Math.round(((this.OAltobiobio.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OAltobiobio.pebd = Math.round(((this.OAltobiobio.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OAltobiobio.carton = Math.round(((this.OAltobiobio.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OAltobiobio.aluminio = Math.round(((this.OAltobiobio.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.altoBioBio    = Math.round(((this.altoBioBio/1000) + Number.EPSILON) * 100) / 100;
+
+    //antuco
+    this.OAntuco.pet = Math.round(((this.OAntuco.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OAntuco.pead = Math.round(((this.OAntuco.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OAntuco.pebd = Math.round(((this.OAntuco.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OAntuco.carton = Math.round(((this.OAntuco.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OAntuco.aluminio = Math.round(((this.OAntuco.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.antuco  = Math.round(((this.antuco/1000) + Number.EPSILON) * 100) / 100;
+
+    //arauco
+    this.OArauco.pet  = Math.round(((this.OArauco.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OArauco.pead = Math.round((( this.OArauco.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OArauco.pebd = Math.round((( this.OArauco.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OArauco.carton = Math.round((( this.OArauco.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OArauco.aluminio = Math.round((( this.OArauco.aluminio /1000) + Number.EPSILON) * 100) / 100;
+    this.arauco  = Math.round((( this.arauco /1000) + Number.EPSILON) * 100) / 100;
+
+    //cabrero
+    this.OCabrero.pet = Math.round(((this.OCabrero.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OCabrero.pead = Math.round((( this.OCabrero.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OCabrero.pebd = Math.round((( this.OCabrero.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OCabrero.carton = Math.round((( this.OCabrero.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OCabrero.aluminio = Math.round((( this.OCabrero.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.cabrero = Math.round((( this.cabrero/1000) + Number.EPSILON) * 100) / 100;
+
+    //canete
+    this.OCanete.pet = Math.round((( this.OCanete.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OCanete.pead = Math.round((( this.OCanete.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OCanete.pebd = Math.round((( this.OCanete.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OCanete.carton = Math.round(((this.OCanete.carton /1000) + Number.EPSILON) * 100) / 100;
+    this.OCanete.aluminio = Math.round((( this.OCanete.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.canete = Math.round((( this.canete/1000) + Number.EPSILON) * 100) / 100;
+
+    //chiguayante
+    this.OChiguayante.pet = Math.round((( this.OChiguayante.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OChiguayante.pead = Math.round((( this.OChiguayante.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OChiguayante.pebd = Math.round((( this.OChiguayante.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OChiguayante.carton = Math.round((( this.OChiguayante.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OChiguayante.aluminio = Math.round((( this.OChiguayante.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.chiguayante = Math.round((( this.chiguayante/1000) + Number.EPSILON) * 100) / 100;
+
+    //concepcion
+    this.OConcepcion.pet = Math.round((( this.OConcepcion.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OConcepcion.pead  = Math.round((( this.OConcepcion.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OConcepcion.pebd = Math.round((( this.OConcepcion.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OConcepcion.carton = Math.round((( this.OConcepcion.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OConcepcion.aluminio = Math.round((( this.OConcepcion.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.concepcion  = Math.round((( this.concepcion/1000) + Number.EPSILON) * 100) / 100;
+
+    //contulmo
+    this.OContulmo.pet = Math.round((( this.OContulmo.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OContulmo.pead = Math.round((( this.OContulmo.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OContulmo.pebd = Math.round((( this.OContulmo.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OContulmo.carton = Math.round((( this.OContulmo.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OContulmo.aluminio = Math.round((( this.OContulmo.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.contulmo = Math.round((( this.contulmo/1000) + Number.EPSILON) * 100) / 100;
+    
+    //coronel
+    this.OCoronel.pet = Math.round((( this.OCoronel.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OCoronel.pead = Math.round((( this.OCoronel.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OCoronel.pebd = Math.round((( this.OCoronel.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OCoronel.carton = Math.round((( this.OCoronel.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OCoronel.aluminio = Math.round((( this.OCoronel.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.coronel = Math.round(((this.coronel /1000) + Number.EPSILON) * 100) / 100;
+    
+    //curanilahue
+    this.OCuranilahue.pet = Math.round((( this.OCuranilahue.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OCuranilahue.pead = Math.round((( this.OCuranilahue.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OCuranilahue.pebd = Math.round(((this.OCuranilahue.pebd /1000) + Number.EPSILON) * 100) / 100;
+    this.OCuranilahue.carton = Math.round((( this.OCuranilahue.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OCuranilahue.aluminio = Math.round((( this.OCuranilahue.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.curanilahue = Math.round((( this.curanilahue /1000) + Number.EPSILON) * 100) / 100;
+
+    //florida
+    this.OFlorida.pet = Math.round(((  this.OFlorida.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OFlorida.pead = Math.round((( this.OFlorida.pead /1000) + Number.EPSILON) * 100) / 100;
+    this.OFlorida.pebd = Math.round(((  this.OFlorida.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OFlorida.carton = Math.round((( this.OFlorida.carton /1000) + Number.EPSILON) * 100) / 100;
+    this.OFlorida.aluminio = Math.round(((  this.OFlorida.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.florida = Math.round(((  this.florida/1000) + Number.EPSILON) * 100) / 100;
+
+    //hualpen
+    this.OHualpen.pet = Math.round((( this.OHualpen.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OHualpen.pead = Math.round(((  this.OHualpen.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualpen.pebd = Math.round(((  this.OHualpen.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualpen.carton = Math.round(((  this.OHualpen.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualpen.aluminio = Math.round(((  this.OHualpen.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.hualpen  = Math.round(((  this.hualpen/1000) + Number.EPSILON) * 100) / 100;
+
+    //hualqui
+    this.OHualqui.pet = Math.round(((  this.OHualqui.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualqui.pead = Math.round(((  this.OHualqui.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualqui.pebd = Math.round((( this.OHualqui.pebd /1000) + Number.EPSILON) * 100) / 100;
+    this.OHualqui.carton = Math.round(((  this.OHualqui.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualqui.aluminio = Math.round(((  this.OHualqui.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.hualqui  = Math.round(((  this.hualqui/1000) + Number.EPSILON) * 100) / 100;
+
+    //laja
+    this.OLaja.pet = Math.round((( this.OLaja.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OLaja.pead  = Math.round((( this.OLaja.pead /1000) + Number.EPSILON) * 100) / 100;
+    this.OLaja.pebd = Math.round((( this.OLaja.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OLaja.carton = Math.round((( this.OLaja.carton /1000) + Number.EPSILON) * 100) / 100;
+    this.OLaja.aluminio = Math.round((( this.OLaja.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.laja = Math.round((( this.laja/1000) + Number.EPSILON) * 100) / 100;
+    
+    //lebu
+    this.OLebu.pet = Math.round((( this.OLebu.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OLebu.pead = Math.round((( this.OLebu.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OLebu.pebd = Math.round((( this.OLebu.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OLebu.carton = Math.round(((  this.OLebu.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OLebu.aluminio = Math.round((( this.OLebu.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.lebu  = Math.round((( this.lebu/1000) + Number.EPSILON) * 100) / 100;
+
+    //Los alamos
+    this.OAlamos.pet = Math.round((( this.OAlamos.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OAlamos.pead = Math.round((( this.OAlamos.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OAlamos.pebd = Math.round((( this.OAlamos.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OAlamos.carton = Math.round((( this.OAlamos.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OAlamos.aluminio = Math.round((( this.OAlamos.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.losAlamos  = Math.round((( this.losAlamos/1000) + Number.EPSILON) * 100) / 100;
+
+    //los angeles
+    this.OAngeles.pet = Math.round((( this.OAngeles.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OAngeles.pead = Math.round((( this.OAngeles.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OAngeles.pebd = Math.round((( this.OAngeles.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OAngeles.carton = Math.round((( this.OAngeles.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OAngeles.aluminio = Math.round((( this.OAngeles.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.losAngeles = Math.round((( this.losAngeles/1000) + Number.EPSILON) * 100) / 100;
+
+    //lota
+    this.OLota.pet  = Math.round((( this.OLota.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OLota.pead = Math.round((( this.OLota.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OLota.pebd = Math.round((( this.OLota.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OLota.carton = Math.round((( this.OLota.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OLota.aluminio = Math.round((( this.OLota.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.lota = Math.round((( this.lota/1000) + Number.EPSILON) * 100) / 100;
+    
+    //mulchen
+    this.OMulchen.pet = Math.round(((this.OMulchen.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OMulchen.pead = Math.round(((this.OMulchen.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OMulchen.pebd = Math.round(((this.OMulchen.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OMulchen.carton = Math.round(((this.OMulchen.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OMulchen.aluminio = Math.round(((this.OMulchen.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.mulchen = Math.round(((this.mulchen/1000) + Number.EPSILON) * 100) / 100;
+
+    //nacimiento
+    this.ONacimiento.pet = Math.round((( this.ONacimiento.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.ONacimiento.pead = Math.round((( this.ONacimiento.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.ONacimiento.pebd = Math.round((( this.ONacimiento.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.ONacimiento.carton = Math.round((( this.ONacimiento.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.ONacimiento.aluminio = Math.round((( this.ONacimiento.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.nacimiento = Math.round((( this.nacimiento/1000) + Number.EPSILON) * 100) / 100;
+
+    //negrete
+    this.ONegrete.pet = Math.round(((this.ONegrete.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.ONegrete.pead = Math.round((( this.ONegrete.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.ONegrete.pebd = Math.round((( this.ONegrete.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.ONegrete.carton = Math.round((( this.ONegrete.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.ONegrete.aluminio  = Math.round((( this.ONegrete.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.negrete = Math.round(((this.negrete /1000) + Number.EPSILON) * 100) / 100;
+    
+    //penco
+    this.OPenco.pet = Math.round((( this.OPenco.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OPenco.pead = Math.round((( this.OPenco.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OPenco.pebd = Math.round((( this.OPenco.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OPenco.carton = Math.round((( this.OPenco.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OPenco.aluminio = Math.round((( this.OPenco.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.penco  = Math.round(((this.penco /1000) + Number.EPSILON) * 100) / 100;
+
+    //quilaco
+    this.OQuilaco.pet = Math.round((( this.OQuilaco.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilaco.pead = Math.round((( this.OQuilaco.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilaco.pebd = Math.round((( this.OQuilaco.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilaco.carton = Math.round((( this.OQuilaco.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilaco.aluminio = Math.round((( this.OQuilaco.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.quilaco = Math.round((( this.quilaco/1000) + Number.EPSILON) * 100) / 100;
+    
+    //quilleco
+    this.OQuilleco.pet = Math.round((( this.OQuilleco.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilleco.pead = Math.round((( this.OQuilleco.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilleco.pebd = Math.round((( this.OQuilleco.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilleco.carton = Math.round((( this.OQuilleco.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilleco.aluminio = Math.round((( this.OQuilleco.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.quilleco = Math.round((( this.quilleco/1000) + Number.EPSILON) * 100) / 100;
+
+    //Sam pedro
+    this.OSanpedro.pet = Math.round((( this.OSanpedro.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OSanpedro.pead = Math.round((( this.OSanpedro.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OSanpedro.pebd = Math.round((( this.OSanpedro.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OSanpedro.carton = Math.round((( this.OSanpedro.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OSanpedro.aluminio  = Math.round((( this.OSanpedro.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.sanPedroDeLaPaz = Math.round((( this.sanPedroDeLaPaz /1000) + Number.EPSILON) * 100) / 100;
+    
+    //San rosendo
+    this.ORosendo.pet = Math.round(((this.ORosendo.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.ORosendo.pead = Math.round((( this.ORosendo.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.ORosendo.pebd = Math.round(((this.ORosendo.pebd /1000) + Number.EPSILON) * 100) / 100;
+    this.ORosendo.carton = Math.round((( this.ORosendo.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.ORosendo.aluminio = Math.round((( this.ORosendo.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.sanRosendo = Math.round((( this.sanRosendo/1000) + Number.EPSILON) * 100) / 100;
+
+    //barbara
+    this.OBarbara.pet = Math.round((( this.OBarbara.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OBarbara.pead = Math.round((( this.OBarbara.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OBarbara.pebd = Math.round((( this.OBarbara.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OBarbara.carton = Math.round((( this.OBarbara.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OBarbara.aluminio = Math.round((( this.OBarbara.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.santaBarbara = Math.round((( this.santaBarbara/1000) + Number.EPSILON) * 100) / 100;
+    
+      //saint johana
+    this.OJuana.pet = Math.round(((this.OJuana.pet /1000) + Number.EPSILON) * 100) / 100;
+    this.OJuana.pead  = Math.round((( this.OJuana.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OJuana.pebd = Math.round(((this.OJuana.pebd /1000) + Number.EPSILON) * 100) / 100;
+    this.OJuana.carton = Math.round((( this.OJuana.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OJuana.aluminio = Math.round((( this.OJuana.aluminio /1000) + Number.EPSILON) * 100) / 100;
+    this.santaJuana = Math.round((( this.santaJuana/1000) + Number.EPSILON) * 100) / 100;
+
+    //talca huanooo oOOOO
+    this.OTalcahuano.pet  = Math.round((( this.OTalcahuano.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OTalcahuano.pead = Math.round((( this.OTalcahuano.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OTalcahuano.pebd = Math.round((( this.OTalcahuano.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OTalcahuano.carton = Math.round((( this.OTalcahuano.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OTalcahuano.aluminio = Math.round((( this.OTalcahuano.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.talcahuano = Math.round((( this.talcahuano/1000) + Number.EPSILON) * 100) / 100;
+    
+    //tiru AA
+    this.OTirua.pet = Math.round((( this.OTirua.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OTirua.pead  = Math.round((( this.OTirua.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OTirua.pebd = Math.round((( this.OTirua.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OTirua.carton = Math.round((( this.OTirua.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OTirua.aluminio = Math.round((( this.OTirua.aluminio /1000) + Number.EPSILON) * 100) / 100;
+    this.tirua = Math.round(((this.tirua /1000) + Number.EPSILON) * 100) / 100;
+    
+
+    //tome
+    this.OTome.pet = Math.round((( this.OTome.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OTome.pead = Math.round((( this.OTome.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OTome.pebd = Math.round((( this.OTome.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OTome.carton = Math.round((( this.OTome.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OTome.aluminio = Math.round((( this.OTome.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.tome = Math.round((( this.tome/1000) + Number.EPSILON) * 100) / 100;
+
+    //tucapel
+    this.OTucapel.pet = Math.round((( this.OTucapel.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OTucapel.pead = Math.round((( this.OTucapel.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OTucapel.pebd = Math.round((( this.OTucapel.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OTucapel.carton = Math.round((( this.OTucapel.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OTucapel.aluminio = Math.round((( this.OTucapel.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.tucapel = Math.round((( this.tucapel/1000) + Number.EPSILON) * 100) / 100;
+    
+
+    //yumbo
+    this.OYumbel.pet = Math.round((( this.OYumbel.pet/1000) + Number.EPSILON) * 100) / 100;
+    this.OYumbel.pead = Math.round((( this.OYumbel.pead/1000) + Number.EPSILON) * 100) / 100;
+    this.OYumbel.pebd = Math.round((( this.OYumbel.pebd/1000) + Number.EPSILON) * 100) / 100;
+    this.OYumbel.carton = Math.round((( this.OYumbel.carton/1000) + Number.EPSILON) * 100) / 100;
+    this.OYumbel.aluminio = Math.round((( this.OYumbel.aluminio/1000) + Number.EPSILON) * 100) / 100;
+    this.yumbel = Math.round((( this.yumbel/1000) + Number.EPSILON) * 100) / 100;
+
     await this.ngOnDestroy();
   }
 
@@ -716,7 +1271,8 @@ OYumbel  =
 
     let api_key = 'pk.eyJ1IjoibHVpc20taXQiLCJhIjoiY2wzMHNjcHNuMXNnbzNicDJxZjJnMDgyNSJ9.977eW4ZB5TbbKJFgicE7Mg'
     await this.http.get<IGeocoderResult>(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?country=cl&limit=1&types=place%2Cpostcode%2Caddress&language=es&access_token=${api_key}`)
-    .subscribe( resp => 
+    .toPromise()
+    .then( (resp:any) => 
       {
       // console.log(resp.features[0].place_name)
       let adress = resp.features[0].place_name;

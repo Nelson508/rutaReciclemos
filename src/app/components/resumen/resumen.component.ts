@@ -242,7 +242,7 @@ export class ResumenComponent implements OnInit {
   // // Grafico Por Comuna
   public optionsComuna = {
     chart: {
-        height: 280,
+        height: 500,
         type: 'donut',
         foreColor: '#4e4e4e',
     },
@@ -503,7 +503,7 @@ export class ResumenComponent implements OnInit {
 
     this.optionsComuna = {
       chart: {
-          height: 150,
+          height: 500,
           type: 'pie',
           foreColor: '#4e4e4e',
       },
@@ -511,20 +511,20 @@ export class ResumenComponent implements OnInit {
           enabled: true,
           style:{
             colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
-            fontSize: '10px',
+            fontSize: '15px',
             fontFamily: 'Helvetica',
             fontWeight:'0px'
           },
           textAnchor: 'start' 
       },
-      series: [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6],
+      series: [Math.round(((this.top1 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top2 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top3 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top4 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top5 /1000) + Number.EPSILON)*100)/100,Math.round(((this.top6 /1000) + Number.EPSILON)*100)/100],
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
       labels: [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
       legend: {
         customLegendItems:[this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
         }
       },
       responsive: [{
@@ -554,13 +554,13 @@ export class ResumenComponent implements OnInit {
           enabled: true,
           style:{
             colors: ["#000000", "#000000", "#000000"],
-            fontSize: '10px',
+            fontSize: '15px',
             fontFamily: 'Helvetica',
             fontWeight:'0px'
           },
          
       },
-      series: [this.Masculino, this.Femenino, this.No_especifica],
+      series: [ Math.round(((this.Masculino /1000) + Number.EPSILON)*100)/100,  Math.round(((this.Femenino /1000) + Number.EPSILON)*100)/100, Math.round(((this.No_especifica /1000) + Number.EPSILON)*100)/100],
       colors: ["#7934f3", "#f43643", "#04b962"],
       labels: ["Masculino", "Femenino", "No especifica"],
       legend: {
@@ -568,7 +568,7 @@ export class ResumenComponent implements OnInit {
         
         formatter: function(abc:any, opts:any) {
             // return opts.w.globals.series[opts.seriesIndex]
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
         },
         position: 'bottom',
       },

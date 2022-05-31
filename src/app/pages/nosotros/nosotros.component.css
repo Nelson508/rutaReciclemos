@@ -437,3 +437,19 @@ a{
  }
 
  /*FIN CSS PARA EQUIPO*/
+ .helpLi{
+    list-style-image: url("../../../favicon.ico");
+    
+
+ }
+
+ /* li{
+    list-style: none;
+ }
+ li:before{
+    content: '';
+    display: inline-block;
+    height: y;
+    width: x;
+    background-image: url("../../../favicon.ico");
+ } */

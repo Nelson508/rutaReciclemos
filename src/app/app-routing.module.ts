@@ -7,6 +7,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { LoginComponent } from './pages/login/login.component';
 import { WatcherGuard } from './watcher.guard';
+import { SellprodComponent } from './pages/sellprod/sellprod.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'ventas-productos',
+    component: SellprodComponent,
+    canActivate: [WatcherGuard]
   }
   
 ];

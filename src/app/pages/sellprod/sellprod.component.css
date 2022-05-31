@@ -1,0 +1,16 @@
+.motherBox{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.ripz{
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
+}
+
+.item {
+    flex-grow: 1;
+    /* height: 100px; */
+    margin-left: 0.2%;
+    margin-right: 0.2%;
+  }
