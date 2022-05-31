@@ -117,11 +117,18 @@ export class ChartPuntoLimpioComponent implements OnInit {
         //console.log(this.info);
         for (let i = 0; i < largo; i++) {
 
+          console.log(this.info[i].fijo_punto_plasticos = Math.round(((parseFloat(this.info[i].fijo_punto_plasticos)/1000) + Number.EPSILON) * 100) / 100);
+          this.info[i].fijo_punto_latas = Math.round(((parseFloat(this.info[i].fijo_punto_latas)/1000) + Number.EPSILON) * 100) / 100;
+          this.info[i].fijo_punto_carton = Math.round(((parseFloat(this.info[i].fijo_punto_carton)/1000) + Number.EPSILON) * 100) / 100;
+
           this.excel.push(this.info[i]);
+          console.log(this.excel);
           this.nombrePuntoFijo.push(this.info[i].nombre);
           this.plasticos.push(this.info[i].fijo_punto_plasticos);
           this.latasAluminio.push(this.info[i].fijo_punto_latas);
           this.cartonPapel.push(this.info[i].fijo_punto_carton);
+
+          //Math.round((total + Number.EPSILON) * 100) / 100;
 
           //console.log(this.info[i]);
         }

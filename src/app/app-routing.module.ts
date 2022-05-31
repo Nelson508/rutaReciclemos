@@ -8,6 +8,7 @@ import { AdministracionComponent } from './pages/administracion/administracion.c
 import { LoginComponent } from './pages/login/login.component';
 import { WatcherGuard } from './watcher.guard';
 import { SellprodComponent } from './pages/sellprod/sellprod.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
     path: 'ventas-productos',
     component: SellprodComponent,
     canActivate: [WatcherGuard]
+  },
+  {
+    path: 'productos',
+    component: ProductosComponent
   }
   
 ];

@@ -1,0 +1,34 @@
+.pricing-table .list-group {
+    box-shadow: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.pricing-table .card .card-body .list-group .list-group-item {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.pricing-table .card .card-body .list-group .list-group-item:first-child {
+    border-top: 0px;
+}
+.pricing-table .card .card-body .list-group .list-group-item:last-child {
+    border-bottom: 0px;
+}
+.pricing-table.pricing-table-color .card .card-body .list-group .list-group-item {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+.price-title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+.price {
+    font-size: 3.5em;
+    line-height: 1.8em;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.currency {
+    font-size: 35px;
+}

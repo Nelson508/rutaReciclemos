@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
   classy = 'active'
   @Input() Nosotros:any;
   @Input() Informacion:any;
+  @Input() Productos:any;
 
   constructor() { }
 

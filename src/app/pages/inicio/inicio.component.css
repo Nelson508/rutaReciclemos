@@ -62,6 +62,7 @@
   padding-bottom: 5rem;
   background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
   background-size: cover;
+  background-color: #7842a51c;
   text-align: center;
 }
 
@@ -71,6 +72,7 @@
     padding-bottom: 15rem;
     background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
     background-size: cover;
+    background-color: #7842a51c;
     text-align: center;
   }
 
@@ -172,8 +174,8 @@ h1{
   
   .trazabilidadBG{
     background-color: #7842a51c;
-    box-shadow: 0 0 1em rgba(199, 63, 138, 0.342);
-    border-radius: 1.5%;
+   /*  box-shadow: 0 0 1em rgba(199, 63, 138, 0.342); */
+   /*  border-radius: 1.5%; */
     /* border: 1px solid; */
     padding-bottom: 4rem;
     justify-content: center;
@@ -189,7 +191,7 @@ h1{
   }
 
   .imagenFondo{
-    border: 1px solid;
+    border: 0px solid;
     background-color:#3fe3ac0c;
     border-radius: 5%;
     background: url("../../../assets/images/Trazabilidad.png") center center no-repeat;
@@ -199,9 +201,10 @@ h1{
   .TrazabilidadTexto{
     padding-top: 4%;
     font-family:  sans-serif;
-    color: #000;
+    /* color: #000; */
     text-align: justify;
   }
+
   .reutilización{
     color: green;
     font-weight: bolder;
@@ -210,14 +213,16 @@ h1{
   .apareceTarjeta{
     background-color: transparent;
     /* box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1); */
-    border: 10px solid #ffffff;
-    border-radius: 10px;
+    border: 0px solid #ffffff;
+    /* border-radius: 10px; */
   }
 
   .textoApareceTarjeta{
-    font-size: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    /* font-size: 1rem; */
     text-align: justify;
-    color: #5e6576; 
+    /* color: #5e6576;  */
     font-family: sans-serif;
   }
 
@@ -226,13 +231,14 @@ h1{
   }
 
   .cuadrado{
-    padding: 4rem;
+    padding: 2rem;
+   /*  border: 1px solid; */
   }
 
   @media (max-width: 576px) {
     .cuadrado{
       /*border: 1px solid black;  */
-      padding: 2rem;
+      padding: 1rem;
     }
   }
   

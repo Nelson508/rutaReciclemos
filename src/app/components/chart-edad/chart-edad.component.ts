@@ -228,7 +228,7 @@ export class ChartEdadComponent implements OnInit {
             let dateBorn = await this.infoFechaNacimiento(element);
             // console.log('yearBorn: '+ dateBorn.slice(6,10));
             let age = date - dateBorn.slice(6,10);
-            console.log('edad'+ age);
+           /*  console.log('edad'+ age); */
             
 
             
@@ -264,7 +264,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 15 y 24 anos
             if( age >=15 && age <=24)
             {
-              console.log("su edad esta entre 15 y 24");
+              //console.log("su edad esta entre 15 y 24");
               this.B.pet += PET;
               this.B.pead += PEAD;
               this.B.pebd += PEBD;
@@ -284,7 +284,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 25 y 34 anos
             if( age >=25 && age <=34)
             {
-              console.log("su edad esta entre 25 y 34");
+              //console.log("su edad esta entre 25 y 34");
               this.C.pet += PET;
               this.C.pead += PEAD;
               this.C.pebd += PEBD;
@@ -303,7 +303,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 35 y 44 anos 
             if( age >=35 && age <=44)
             {
-              console.log("su edad esta entre 35 y 44");
+              //console.log("su edad esta entre 35 y 44");
               this.D.pet += PET;
               this.D.pead += PEAD;
               this.D.pebd += PEBD;
@@ -322,7 +322,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 45 y 54
             if( age >=45 && age <=54)
             {
-              console.log("su edad esta entre 45 y 54");
+              //console.log("su edad esta entre 45 y 54");
               this.E.pet += PET;
               this.E.pead += PEAD;
               this.E.pebd += PEBD;
@@ -341,7 +341,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 55 y 64 anos
             if( age >=55 && age <=64)
             {
-              console.log("su edad esta entre 55 y 64");
+            /*   console.log("su edad esta entre 55 y 64"); */
               this.F.pet += PET;
               this.F.pead += PEAD;
               this.F.pebd += PEBD;
@@ -360,7 +360,7 @@ export class ChartEdadComponent implements OnInit {
             //edad entre 65 o mayor
             if( age >=65 && age <=150)
             {
-              console.log("su edad es mayor a 65 anos!");
+            /*   console.log("su edad es mayor a 65 anos!"); */
               this.G.pet += PET;
               this.G.pead += PEAD;
               this.G.pebd += PEBD;
