@@ -116,7 +116,7 @@ export class ChartGeneroComponent implements OnInit {
               this.Mpebd += PEBD;
               this.Mcarton += carton;
               this.Maluminio += latas;
-              this.Masculino = Math.round((this.Masculino + Number.EPSILON) * 100) / 100;
+              
 
             } else if (genero == 'Femenino') 
             {
@@ -127,7 +127,7 @@ export class ChartGeneroComponent implements OnInit {
               this.Fcarton += carton;
               this.Faluminio += latas;
 
-              this.Femenino = Math.round(( this.Femenino+ Number.EPSILON) * 100) / 100;
+              
               
             } else if(genero == 'No aplica') 
             {
@@ -138,19 +138,39 @@ export class ChartGeneroComponent implements OnInit {
               this.NNcarton += carton;
               this.NNaluminio += latas;
 
-              this.No_especifica = Math.round((this.No_especifica + Number.EPSILON) * 100) / 100;
-
-              this.NNpet  = Math.round((this.NNpet + Number.EPSILON) * 100) / 100;
-              this.NNpead = Math.round(( this.NNpead+ Number.EPSILON) * 100) / 100;
-              this.NNpebd= Math.round(( this.NNpebd+ Number.EPSILON) * 100) / 100;
-              this.NNcarton= Math.round((this.NNcarton + Number.EPSILON) * 100) / 100;
-              this.NNaluminio= Math.round((this.NNaluminio + Number.EPSILON) * 100) / 100;
+              
             }
 
           }
           
 
-        }
+        } //fin ciclo FOr
+        //transformando a toneladas
+        //male
+        this.Mpet = Math.round(( this.Mpet/1000 + Number.EPSILON) * 100) / 100;
+        this.Mpead = Math.round(( this.Mpead/1000 + Number.EPSILON) * 100) / 100;
+        this.Mpebd = Math.round(( this.Mpebd/1000 + Number.EPSILON) * 100) / 100;
+        this.Mcarton = Math.round(( this.Mcarton/1000 + Number.EPSILON) * 100) / 100;
+        this.Maluminio = Math.round(( this.Maluminio/1000 + Number.EPSILON) * 100) / 100;
+        this.Masculino = Math.round(( this.Masculino/1000+ Number.EPSILON) * 100) / 100;
+
+        //female
+        this.Fpet = Math.round(( this.Fpet/1000 + Number.EPSILON) * 100) / 100;
+        this.Fpead = Math.round(( this.Fpead/1000 + Number.EPSILON) * 100) / 100;
+        this.Fpebd = Math.round(( this.Fpebd/1000 + Number.EPSILON) * 100) / 100;
+        this.Fcarton = Math.round(( this.Fcarton/1000 + Number.EPSILON) * 100) / 100;
+        this.Faluminio = Math.round(( this.Faluminio/1000 + Number.EPSILON) * 100) / 100;
+        this.Femenino = Math.round(( this.Femenino/1000 + Number.EPSILON) * 100) / 100;
+
+        //no binarie
+        this.No_especifica = Math.round((this.No_especifica/1000 + Number.EPSILON) * 100) / 100;
+        this.NNpet  = Math.round((this.NNpet/1000 + Number.EPSILON) * 100) / 100;
+        this.NNpead = Math.round(( this.NNpead/1000 + Number.EPSILON) * 100) / 100;
+        this.NNpebd= Math.round(( this.NNpebd/1000 + Number.EPSILON) * 100) / 100;
+        this.NNcarton= Math.round((this.NNcarton/1000 + Number.EPSILON) * 100) / 100;
+        this.NNaluminio= Math.round((this.NNaluminio/1000 + Number.EPSILON) * 100) / 100;
+
+        
 
 
       });
@@ -192,14 +212,14 @@ export class ChartGeneroComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [this.Masculino, this.Femenino, this.No_especifica],
+      series: [ this.Masculino,  this.Femenino, this.No_especifica],
       colors: ["#7934f3", "#f43643", "#04b962"],
       labels: ["Masculino", "Femenino", "No especifica"],
       legend: {
         customLegendItems:["Masculino", "Femenino", "No especifica"],
         
         formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
         }
       },
       responsive: [{

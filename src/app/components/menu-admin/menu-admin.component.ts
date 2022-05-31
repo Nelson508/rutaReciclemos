@@ -143,4 +143,11 @@ export class MenuAdminComponent implements OnInit {
 
   }
 
+  ventasProductos()
+  {
+    
+    this.router.navigate(['/', 'ventas-productos'])
+
+  }
+
 }
