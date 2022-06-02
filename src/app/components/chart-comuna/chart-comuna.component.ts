@@ -58,7 +58,7 @@ export class ChartComunaComponent implements OnInit {
   tucapel: number=0;
   yumbel: number=0;
   harray: any = [];
-  excell = false;
+  excell = true;
 
   comunaArray = [
     {
@@ -994,271 +994,332 @@ Toplabel1 = '';
 
     //pasar datos de tabla excell a tons
     //alto Bío-Bío
-    this.OAltobiobio.pet = Math.round(((this.OAltobiobio.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OAltobiobio.pead = Math.round(((this.OAltobiobio.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OAltobiobio.pebd = Math.round(((this.OAltobiobio.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OAltobiobio.carton = Math.round(((this.OAltobiobio.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OAltobiobio.aluminio = Math.round(((this.OAltobiobio.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.altoBioBio    = Math.round(((this.altoBioBio/1000) + Number.EPSILON) * 100) / 100;
+    this.OAltobiobio.pet = Math.round(((this.OAltobiobio.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAltobiobio.pead = Math.round(((this.OAltobiobio.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAltobiobio.pebd = Math.round(((this.OAltobiobio.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAltobiobio.carton = Math.round(((this.OAltobiobio.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAltobiobio.aluminio = Math.round(((this.OAltobiobio.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.altoBioBio    = Math.round(((this.altoBioBio/1000) + Number.EPSILON) * 1000) / 1000;
 
     //antuco
-    this.OAntuco.pet = Math.round(((this.OAntuco.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OAntuco.pead = Math.round(((this.OAntuco.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OAntuco.pebd = Math.round(((this.OAntuco.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OAntuco.carton = Math.round(((this.OAntuco.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OAntuco.aluminio = Math.round(((this.OAntuco.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.antuco  = Math.round(((this.antuco/1000) + Number.EPSILON) * 100) / 100;
+    this.OAntuco.pet = Math.round(((this.OAntuco.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAntuco.pead = Math.round(((this.OAntuco.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAntuco.pebd = Math.round(((this.OAntuco.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAntuco.carton = Math.round(((this.OAntuco.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAntuco.aluminio = Math.round(((this.OAntuco.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.antuco =  this.OAntuco.pet + this.OAntuco.pead + this.OAntuco.pebd + this.OAntuco.carton +this.OAntuco.aluminio;
+    this.antuco  = Math.round(((this.antuco) + Number.EPSILON) * 1000) / 1000;
 
     //arauco
-    this.OArauco.pet  = Math.round(((this.OArauco.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OArauco.pead = Math.round((( this.OArauco.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OArauco.pebd = Math.round((( this.OArauco.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OArauco.carton = Math.round((( this.OArauco.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OArauco.aluminio = Math.round((( this.OArauco.aluminio /1000) + Number.EPSILON) * 100) / 100;
-    this.arauco  = Math.round((( this.arauco /1000) + Number.EPSILON) * 100) / 100;
+    this.OArauco.pet  = Math.round(((this.OArauco.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OArauco.pead = Math.round((( this.OArauco.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OArauco.pebd = Math.round((( this.OArauco.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OArauco.carton = Math.round((( this.OArauco.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OArauco.aluminio = Math.round((( this.OArauco.aluminio /1000) + Number.EPSILON) * 1000) / 1000;
+    this.arauco = this.OArauco.pet + this.OArauco.pead + this.OArauco.pebd + this.OArauco.carton + this.OArauco.aluminio;
+    this.arauco  = Math.round((( this.arauco) + Number.EPSILON) * 1000) / 1000;
 
     //cabrero
-    this.OCabrero.pet = Math.round(((this.OCabrero.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OCabrero.pead = Math.round((( this.OCabrero.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OCabrero.pebd = Math.round((( this.OCabrero.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OCabrero.carton = Math.round((( this.OCabrero.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OCabrero.aluminio = Math.round((( this.OCabrero.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.cabrero = Math.round((( this.cabrero/1000) + Number.EPSILON) * 100) / 100;
+    this.OCabrero.pet = Math.round(((this.OCabrero.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCabrero.pead = Math.round((( this.OCabrero.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCabrero.pebd = Math.round((( this.OCabrero.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCabrero.carton = Math.round((( this.OCabrero.carton/1000) + Number.EPSILON) * 1000) / 1000;;
+    this.OCabrero.aluminio = Math.round((( this.OCabrero.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.cabrero = this.OCabrero.pet+  this.OCabrero.pead + this.OCabrero.pebd + this.OCabrero.carton +this.OCabrero.aluminio;
+    this.cabrero = Math.round((( this.cabrero) + Number.EPSILON) * 1000) / 1000;
 
     //canete
-    this.OCanete.pet = Math.round((( this.OCanete.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OCanete.pead = Math.round((( this.OCanete.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OCanete.pebd = Math.round((( this.OCanete.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OCanete.carton = Math.round(((this.OCanete.carton /1000) + Number.EPSILON) * 100) / 100;
-    this.OCanete.aluminio = Math.round((( this.OCanete.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.canete = Math.round((( this.canete/1000) + Number.EPSILON) * 100) / 100;
+    this.OCanete.pet = Math.round((( this.OCanete.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCanete.pead = Math.round((( this.OCanete.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCanete.pebd = Math.round((( this.OCanete.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCanete.carton = Math.round(((this.OCanete.carton /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCanete.aluminio = Math.round((( this.OCanete.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.canete = this.OCanete.pet + this.OCanete.pead + this.OCanete.pebd + this.OCanete.carton + this.OCanete.aluminio;
+    this.canete = Math.round((( this.canete) + Number.EPSILON) * 1000) / 1000;
 
     //chiguayante
-    this.OChiguayante.pet = Math.round((( this.OChiguayante.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OChiguayante.pead = Math.round((( this.OChiguayante.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OChiguayante.pebd = Math.round((( this.OChiguayante.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OChiguayante.carton = Math.round((( this.OChiguayante.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OChiguayante.aluminio = Math.round((( this.OChiguayante.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.chiguayante = Math.round((( this.chiguayante/1000) + Number.EPSILON) * 100) / 100;
+    this.OChiguayante.pet = Math.round((( this.OChiguayante.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OChiguayante.pead = Math.round((( this.OChiguayante.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OChiguayante.pebd = Math.round((( this.OChiguayante.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OChiguayante.carton = Math.round((( this.OChiguayante.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OChiguayante.aluminio = Math.round((( this.OChiguayante.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.chiguayante = this.OChiguayante.pet + this.OChiguayante.pead + this.OChiguayante.pebd + this.OChiguayante.carton + this.OChiguayante.aluminio;
+    this.chiguayante = Math.round((( this.chiguayante) + Number.EPSILON) * 1000) / 1000;
 
     //concepcion
-    this.OConcepcion.pet = Math.round((( this.OConcepcion.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OConcepcion.pead  = Math.round((( this.OConcepcion.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OConcepcion.pebd = Math.round((( this.OConcepcion.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OConcepcion.carton = Math.round((( this.OConcepcion.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OConcepcion.aluminio = Math.round((( this.OConcepcion.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.concepcion  = Math.round((( this.concepcion/1000) + Number.EPSILON) * 100) / 100;
+    this.OConcepcion.pet = Math.round((( this.OConcepcion.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OConcepcion.pead  = Math.round((( this.OConcepcion.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OConcepcion.pebd = Math.round((( this.OConcepcion.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OConcepcion.carton = Math.round((( this.OConcepcion.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OConcepcion.aluminio = Math.round((( this.OConcepcion.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.concepcion  = this.OConcepcion.pet + this.OConcepcion.pead +  this.OConcepcion.pebd + this.OConcepcion.carton + this.OConcepcion.aluminio;
+    this.concepcion  = Math.round((( this.concepcion) + Number.EPSILON) * 1000) / 1000;
 
     //contulmo
-    this.OContulmo.pet = Math.round((( this.OContulmo.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OContulmo.pead = Math.round((( this.OContulmo.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OContulmo.pebd = Math.round((( this.OContulmo.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OContulmo.carton = Math.round((( this.OContulmo.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OContulmo.aluminio = Math.round((( this.OContulmo.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.contulmo = Math.round((( this.contulmo/1000) + Number.EPSILON) * 100) / 100;
+    this.OContulmo.pet = Math.round((( this.OContulmo.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OContulmo.pead = Math.round((( this.OContulmo.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OContulmo.pebd = Math.round((( this.OContulmo.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OContulmo.carton = Math.round((( this.OContulmo.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OContulmo.aluminio = Math.round((( this.OContulmo.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.contulmo = this.OContulmo.pet + this.OContulmo.pead + this.OContulmo.pebd + this.OContulmo.carton + this.OContulmo.aluminio;
+    this.contulmo = Math.round((( this.contulmo) + Number.EPSILON) * 1000) / 1000;
     
     //coronel
-    this.OCoronel.pet = Math.round((( this.OCoronel.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OCoronel.pead = Math.round((( this.OCoronel.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OCoronel.pebd = Math.round((( this.OCoronel.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OCoronel.carton = Math.round((( this.OCoronel.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OCoronel.aluminio = Math.round((( this.OCoronel.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.coronel = Math.round(((this.coronel /1000) + Number.EPSILON) * 100) / 100;
+    this.OCoronel.pet = Math.round((( this.OCoronel.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCoronel.pead = Math.round((( this.OCoronel.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCoronel.pebd = Math.round((( this.OCoronel.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCoronel.carton = Math.round((( this.OCoronel.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCoronel.aluminio = Math.round((( this.OCoronel.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.coronel = this.OCoronel.pet + this.OCoronel.pead + this.OCoronel.pebd + this.OCoronel.carton  + this.OCoronel.aluminio;
+    this.coronel = Math.round(((this.coronel) + Number.EPSILON) * 1000) / 1000;
     
     //curanilahue
-    this.OCuranilahue.pet = Math.round((( this.OCuranilahue.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OCuranilahue.pead = Math.round((( this.OCuranilahue.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OCuranilahue.pebd = Math.round(((this.OCuranilahue.pebd /1000) + Number.EPSILON) * 100) / 100;
-    this.OCuranilahue.carton = Math.round((( this.OCuranilahue.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OCuranilahue.aluminio = Math.round((( this.OCuranilahue.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.curanilahue = Math.round((( this.curanilahue /1000) + Number.EPSILON) * 100) / 100;
+    this.OCuranilahue.pet = Math.round((( this.OCuranilahue.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCuranilahue.pead = Math.round((( this.OCuranilahue.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCuranilahue.pebd = Math.round(((this.OCuranilahue.pebd /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCuranilahue.carton = Math.round((( this.OCuranilahue.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OCuranilahue.aluminio = Math.round((( this.OCuranilahue.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.curanilahue = this.OCuranilahue.pet  + this.OCuranilahue.pead + this.OCuranilahue.pebd + this.OCuranilahue.carton +this.OCuranilahue.aluminio;
+    this.curanilahue = Math.round((( this.curanilahue) + Number.EPSILON) * 1000) / 1000;
 
     //florida
-    this.OFlorida.pet = Math.round(((  this.OFlorida.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OFlorida.pead = Math.round((( this.OFlorida.pead /1000) + Number.EPSILON) * 100) / 100;
-    this.OFlorida.pebd = Math.round(((  this.OFlorida.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OFlorida.carton = Math.round((( this.OFlorida.carton /1000) + Number.EPSILON) * 100) / 100;
-    this.OFlorida.aluminio = Math.round(((  this.OFlorida.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.florida = Math.round(((  this.florida/1000) + Number.EPSILON) * 100) / 100;
+    this.OFlorida.pet = Math.round(((  this.OFlorida.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OFlorida.pead = Math.round((( this.OFlorida.pead /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OFlorida.pebd = Math.round(((  this.OFlorida.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OFlorida.carton = Math.round((( this.OFlorida.carton /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OFlorida.aluminio = Math.round(((  this.OFlorida.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.florida =this.OFlorida.pet + this.OFlorida.pead + this.OFlorida.pebd + this.OFlorida.carton + this.OFlorida.aluminio;
+    this.florida = Math.round(((  this.florida) + Number.EPSILON) * 1000) / 1000;
 
     //hualpen
-    this.OHualpen.pet = Math.round((( this.OHualpen.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OHualpen.pead = Math.round(((  this.OHualpen.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualpen.pebd = Math.round(((  this.OHualpen.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualpen.carton = Math.round(((  this.OHualpen.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualpen.aluminio = Math.round(((  this.OHualpen.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.hualpen  = Math.round(((  this.hualpen/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualpen.pet = Math.round((( this.OHualpen.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualpen.pead = Math.round(((  this.OHualpen.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualpen.pebd = Math.round(((  this.OHualpen.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualpen.carton = Math.round(((  this.OHualpen.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualpen.aluminio = Math.round(((  this.OHualpen.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.hualpen  =this.OHualpen.pet + this.OHualpen.pead + this.OHualpen.pebd + this.OHualpen.carton + this.OHualpen.aluminio;
+    this.hualpen  = Math.round(((  this.hualpen) + Number.EPSILON) * 1000) / 1000;
 
     //hualqui
-    this.OHualqui.pet = Math.round(((  this.OHualqui.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualqui.pead = Math.round(((  this.OHualqui.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualqui.pebd = Math.round((( this.OHualqui.pebd /1000) + Number.EPSILON) * 100) / 100;
-    this.OHualqui.carton = Math.round(((  this.OHualqui.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OHualqui.aluminio = Math.round(((  this.OHualqui.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.hualqui  = Math.round(((  this.hualqui/1000) + Number.EPSILON) * 100) / 100;
+    this.OHualqui.pet = Math.round(((  this.OHualqui.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualqui.pead = Math.round(((  this.OHualqui.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualqui.pebd = Math.round((( this.OHualqui.pebd /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualqui.carton = Math.round(((  this.OHualqui.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OHualqui.aluminio = Math.round(((  this.OHualqui.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.hualqui  = this.OHualqui.pet + this.OHualqui.pead + this.OHualqui.pebd + this.OHualqui.carton + this.OHualqui.aluminio;
+    this.hualqui  = Math.round(((  this.hualqui) + Number.EPSILON) * 1000) / 1000;
 
     //laja
-    this.OLaja.pet = Math.round((( this.OLaja.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OLaja.pead  = Math.round((( this.OLaja.pead /1000) + Number.EPSILON) * 100) / 100;
-    this.OLaja.pebd = Math.round((( this.OLaja.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OLaja.carton = Math.round((( this.OLaja.carton /1000) + Number.EPSILON) * 100) / 100;
-    this.OLaja.aluminio = Math.round((( this.OLaja.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.laja = Math.round((( this.laja/1000) + Number.EPSILON) * 100) / 100;
+    this.OLaja.pet = Math.round((( this.OLaja.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLaja.pead  = Math.round((( this.OLaja.pead /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLaja.pebd = Math.round((( this.OLaja.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLaja.carton = Math.round((( this.OLaja.carton /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLaja.aluminio = Math.round((( this.OLaja.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.laja =  this.OLaja.pet + this.OLaja.pead + this.OLaja.pebd + this.OLaja.carton + this.OLaja.aluminio;
+    this.laja = Math.round((( this.laja) + Number.EPSILON) * 1000) / 1000;
     
     //lebu
-    this.OLebu.pet = Math.round((( this.OLebu.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OLebu.pead = Math.round((( this.OLebu.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OLebu.pebd = Math.round((( this.OLebu.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OLebu.carton = Math.round(((  this.OLebu.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OLebu.aluminio = Math.round((( this.OLebu.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.lebu  = Math.round((( this.lebu/1000) + Number.EPSILON) * 100) / 100;
+    this.OLebu.pet = Math.round((( this.OLebu.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLebu.pead = Math.round((( this.OLebu.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLebu.pebd = Math.round((( this.OLebu.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLebu.carton = Math.round(((  this.OLebu.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLebu.aluminio = Math.round((( this.OLebu.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.lebu  = this.OLebu.pet + this.OLebu.pead + this.OLebu.pebd + this.OLebu.carton + this.OLebu.aluminio;
+    this.lebu  = Math.round((( this.lebu) + Number.EPSILON) * 1000) / 1000;
 
     //Los alamos
-    this.OAlamos.pet = Math.round((( this.OAlamos.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OAlamos.pead = Math.round((( this.OAlamos.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OAlamos.pebd = Math.round((( this.OAlamos.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OAlamos.carton = Math.round((( this.OAlamos.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OAlamos.aluminio = Math.round((( this.OAlamos.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.losAlamos  = Math.round((( this.losAlamos/1000) + Number.EPSILON) * 100) / 100;
+    this.OAlamos.pet = Math.round((( this.OAlamos.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAlamos.pead = Math.round((( this.OAlamos.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAlamos.pebd = Math.round((( this.OAlamos.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAlamos.carton = Math.round((( this.OAlamos.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAlamos.aluminio = Math.round((( this.OAlamos.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.losAlamos  = this.OAlamos.pet + this.OAlamos.pead + this.OAlamos.pebd + this.OAlamos.carton + this.OAlamos.aluminio;
+    this.losAlamos  = Math.round((( this.losAlamos) + Number.EPSILON) * 1000) / 1000;
 
     //los angeles
-    this.OAngeles.pet = Math.round((( this.OAngeles.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OAngeles.pead = Math.round((( this.OAngeles.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OAngeles.pebd = Math.round((( this.OAngeles.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OAngeles.carton = Math.round((( this.OAngeles.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OAngeles.aluminio = Math.round((( this.OAngeles.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.losAngeles = Math.round((( this.losAngeles/1000) + Number.EPSILON) * 100) / 100;
+    this.OAngeles.pet = Math.round((( this.OAngeles.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAngeles.pead = Math.round((( this.OAngeles.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAngeles.pebd = Math.round((( this.OAngeles.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAngeles.carton = Math.round((( this.OAngeles.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OAngeles.aluminio = Math.round((( this.OAngeles.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.losAngeles = this.OAngeles.pet + this.OAngeles.pead + this.OAngeles.pebd + this.OAngeles.carton + this.OAngeles.aluminio;
+    this.losAngeles = Math.round((( this.losAngeles) + Number.EPSILON) * 1000) / 1000;
 
     //lota
-    this.OLota.pet  = Math.round((( this.OLota.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OLota.pead = Math.round((( this.OLota.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OLota.pebd = Math.round((( this.OLota.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OLota.carton = Math.round((( this.OLota.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OLota.aluminio = Math.round((( this.OLota.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.lota = Math.round((( this.lota/1000) + Number.EPSILON) * 100) / 100;
+    this.OLota.pet  = Math.round((( this.OLota.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLota.pead = Math.round((( this.OLota.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLota.pebd = Math.round((( this.OLota.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLota.carton = Math.round((( this.OLota.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OLota.aluminio = Math.round((( this.OLota.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.lota = this.OLota.pet + this.OLota.pead + this.OLota.pebd + this.OLota.carton + this.OLota.aluminio;
+    this.lota = Math.round((( this.lota) + Number.EPSILON) * 1000) / 1000;
     
     //mulchen
-    this.OMulchen.pet = Math.round(((this.OMulchen.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OMulchen.pead = Math.round(((this.OMulchen.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OMulchen.pebd = Math.round(((this.OMulchen.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OMulchen.carton = Math.round(((this.OMulchen.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OMulchen.aluminio = Math.round(((this.OMulchen.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.mulchen = Math.round(((this.mulchen/1000) + Number.EPSILON) * 100) / 100;
+    this.OMulchen.pet = Math.round(((this.OMulchen.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OMulchen.pead = Math.round(((this.OMulchen.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OMulchen.pebd = Math.round(((this.OMulchen.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OMulchen.carton = Math.round(((this.OMulchen.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OMulchen.aluminio = Math.round(((this.OMulchen.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.mulchen = this.OMulchen.pet + this.OMulchen.pead + this.OMulchen.pebd + this.OMulchen.carton + this.OMulchen.aluminio;
+    this.mulchen = Math.round(((this.mulchen) + Number.EPSILON) * 1000) / 1000;
 
     //nacimiento
-    this.ONacimiento.pet = Math.round((( this.ONacimiento.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.ONacimiento.pead = Math.round((( this.ONacimiento.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.ONacimiento.pebd = Math.round((( this.ONacimiento.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.ONacimiento.carton = Math.round((( this.ONacimiento.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.ONacimiento.aluminio = Math.round((( this.ONacimiento.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.nacimiento = Math.round((( this.nacimiento/1000) + Number.EPSILON) * 100) / 100;
+    this.ONacimiento.pet = Math.round((( this.ONacimiento.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONacimiento.pead = Math.round((( this.ONacimiento.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONacimiento.pebd = Math.round((( this.ONacimiento.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONacimiento.carton = Math.round((( this.ONacimiento.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONacimiento.aluminio = Math.round((( this.ONacimiento.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.nacimiento = this.ONacimiento.pet + this.ONacimiento.pead + this.ONacimiento.pebd + this.ONacimiento.carton + this.ONacimiento.aluminio;
+    this.nacimiento = Math.round((( this.nacimiento) + Number.EPSILON) * 1000) / 1000;
 
     //negrete
-    this.ONegrete.pet = Math.round(((this.ONegrete.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.ONegrete.pead = Math.round((( this.ONegrete.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.ONegrete.pebd = Math.round((( this.ONegrete.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.ONegrete.carton = Math.round((( this.ONegrete.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.ONegrete.aluminio  = Math.round((( this.ONegrete.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.negrete = Math.round(((this.negrete /1000) + Number.EPSILON) * 100) / 100;
+    this.ONegrete.pet = Math.round(((this.ONegrete.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONegrete.pead = Math.round((( this.ONegrete.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONegrete.pebd = Math.round((( this.ONegrete.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONegrete.carton = Math.round((( this.ONegrete.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ONegrete.aluminio  = Math.round((( this.ONegrete.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.negrete = this.ONegrete.pet + this.ONegrete.pead + this.ONegrete.pebd + this.ONegrete.carton + this.ONegrete.aluminio;
+    this.negrete = Math.round(((this.negrete) + Number.EPSILON) * 1000) / 1000;
     
     //penco
-    this.OPenco.pet = Math.round((( this.OPenco.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OPenco.pead = Math.round((( this.OPenco.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OPenco.pebd = Math.round((( this.OPenco.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OPenco.carton = Math.round((( this.OPenco.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OPenco.aluminio = Math.round((( this.OPenco.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.penco  = Math.round(((this.penco /1000) + Number.EPSILON) * 100) / 100;
+    this.OPenco.pet = Math.round((( this.OPenco.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OPenco.pead = Math.round((( this.OPenco.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OPenco.pebd = Math.round((( this.OPenco.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OPenco.carton = Math.round((( this.OPenco.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OPenco.aluminio = Math.round((( this.OPenco.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.penco  = this.OPenco.pet + this.OPenco.pead + this.OPenco.pebd + this.OPenco.carton + this.OPenco.aluminio;
+    this.penco  = Math.round(((this.penco) + Number.EPSILON) * 1000) / 1000;
 
     //quilaco
-    this.OQuilaco.pet = Math.round((( this.OQuilaco.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilaco.pead = Math.round((( this.OQuilaco.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilaco.pebd = Math.round((( this.OQuilaco.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilaco.carton = Math.round((( this.OQuilaco.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilaco.aluminio = Math.round((( this.OQuilaco.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.quilaco = Math.round((( this.quilaco/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilaco.pet = Math.round((( this.OQuilaco.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilaco.pead = Math.round((( this.OQuilaco.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilaco.pebd = Math.round((( this.OQuilaco.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilaco.carton = Math.round((( this.OQuilaco.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilaco.aluminio = Math.round((( this.OQuilaco.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.quilaco = this.OQuilaco.pet + this.OQuilaco.pead + this.OQuilaco.pebd + this.OQuilaco.carton + this.OQuilaco.aluminio;
+    this.quilaco = Math.round((( this.quilaco) + Number.EPSILON) * 1000) / 1000;
     
     //quilleco
-    this.OQuilleco.pet = Math.round((( this.OQuilleco.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilleco.pead = Math.round((( this.OQuilleco.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilleco.pebd = Math.round((( this.OQuilleco.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilleco.carton = Math.round((( this.OQuilleco.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OQuilleco.aluminio = Math.round((( this.OQuilleco.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.quilleco = Math.round((( this.quilleco/1000) + Number.EPSILON) * 100) / 100;
+    this.OQuilleco.pet = Math.round((( this.OQuilleco.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilleco.pead = Math.round((( this.OQuilleco.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilleco.pebd = Math.round((( this.OQuilleco.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilleco.carton = Math.round((( this.OQuilleco.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OQuilleco.aluminio = Math.round((( this.OQuilleco.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.quilleco = this.OQuilleco.pet + this.OQuilleco.pead + this.OQuilleco.pebd + this.OQuilleco.carton + this.OQuilleco.aluminio;
+    this.quilleco = Math.round((( this.quilleco) + Number.EPSILON) * 1000) / 1000;
 
     //Sam pedro
-    this.OSanpedro.pet = Math.round((( this.OSanpedro.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OSanpedro.pead = Math.round((( this.OSanpedro.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OSanpedro.pebd = Math.round((( this.OSanpedro.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OSanpedro.carton = Math.round((( this.OSanpedro.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OSanpedro.aluminio  = Math.round((( this.OSanpedro.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.sanPedroDeLaPaz = Math.round((( this.sanPedroDeLaPaz /1000) + Number.EPSILON) * 100) / 100;
+    this.OSanpedro.pet = Math.round((( this.OSanpedro.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OSanpedro.pead = Math.round((( this.OSanpedro.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OSanpedro.pebd = Math.round((( this.OSanpedro.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OSanpedro.carton = Math.round((( this.OSanpedro.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OSanpedro.aluminio  = Math.round((( this.OSanpedro.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.sanPedroDeLaPaz = this.OSanpedro.pet + this.OSanpedro.pead + this.OSanpedro.pebd + this.OSanpedro.carton + this.OSanpedro.aluminio;
+    this.sanPedroDeLaPaz = Math.round((( this.sanPedroDeLaPaz) + Number.EPSILON) * 1000) / 1000;
     
     //San rosendo
-    this.ORosendo.pet = Math.round(((this.ORosendo.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.ORosendo.pead = Math.round((( this.ORosendo.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.ORosendo.pebd = Math.round(((this.ORosendo.pebd /1000) + Number.EPSILON) * 100) / 100;
-    this.ORosendo.carton = Math.round((( this.ORosendo.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.ORosendo.aluminio = Math.round((( this.ORosendo.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.sanRosendo = Math.round((( this.sanRosendo/1000) + Number.EPSILON) * 100) / 100;
+    this.ORosendo.pet = Math.round(((this.ORosendo.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.ORosendo.pead = Math.round((( this.ORosendo.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ORosendo.pebd = Math.round(((this.ORosendo.pebd /1000) + Number.EPSILON) * 1000) / 1000;
+    this.ORosendo.carton = Math.round((( this.ORosendo.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.ORosendo.aluminio = Math.round((( this.ORosendo.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.sanRosendo = this.ORosendo.pet + this.ORosendo.pead + this.ORosendo.pebd + this.ORosendo.carton + this.ORosendo.aluminio;
+    this.sanRosendo = Math.round((( this.sanRosendo) + Number.EPSILON) * 1000) / 1000;
 
     //barbara
-    this.OBarbara.pet = Math.round((( this.OBarbara.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OBarbara.pead = Math.round((( this.OBarbara.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OBarbara.pebd = Math.round((( this.OBarbara.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OBarbara.carton = Math.round((( this.OBarbara.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OBarbara.aluminio = Math.round((( this.OBarbara.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.santaBarbara = Math.round((( this.santaBarbara/1000) + Number.EPSILON) * 100) / 100;
+    this.OBarbara.pet = Math.round((( this.OBarbara.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OBarbara.pead = Math.round((( this.OBarbara.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OBarbara.pebd = Math.round((( this.OBarbara.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OBarbara.carton = Math.round((( this.OBarbara.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OBarbara.aluminio = Math.round((( this.OBarbara.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.santaBarbara = this.OBarbara.pet + this.OBarbara.pead + this.OBarbara.pebd + this.OBarbara.carton +  this.OBarbara.aluminio;
+    this.santaBarbara = Math.round((( this.santaBarbara) + Number.EPSILON) * 1000) / 1000;
     
       //saint johana
-    this.OJuana.pet = Math.round(((this.OJuana.pet /1000) + Number.EPSILON) * 100) / 100;
-    this.OJuana.pead  = Math.round((( this.OJuana.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OJuana.pebd = Math.round(((this.OJuana.pebd /1000) + Number.EPSILON) * 100) / 100;
-    this.OJuana.carton = Math.round((( this.OJuana.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OJuana.aluminio = Math.round((( this.OJuana.aluminio /1000) + Number.EPSILON) * 100) / 100;
-    this.santaJuana = Math.round((( this.santaJuana/1000) + Number.EPSILON) * 100) / 100;
+    this.OJuana.pet = Math.round(((this.OJuana.pet /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OJuana.pead  = Math.round((( this.OJuana.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OJuana.pebd = Math.round(((this.OJuana.pebd /1000) + Number.EPSILON) * 1000) / 1000;
+    this.OJuana.carton = Math.round((( this.OJuana.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OJuana.aluminio = Math.round((( this.OJuana.aluminio /1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.santaJuana = this.OJuana.pet + this.OJuana.pead +this.OJuana.pebd + this.OJuana.carton + this.OJuana.aluminio;
+    this.santaJuana = Math.round((( this.santaJuana) + Number.EPSILON) * 1000) / 1000;
 
     //talca huanooo oOOOO
-    this.OTalcahuano.pet  = Math.round((( this.OTalcahuano.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OTalcahuano.pead = Math.round((( this.OTalcahuano.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OTalcahuano.pebd = Math.round((( this.OTalcahuano.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OTalcahuano.carton = Math.round((( this.OTalcahuano.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OTalcahuano.aluminio = Math.round((( this.OTalcahuano.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.talcahuano = Math.round((( this.talcahuano/1000) + Number.EPSILON) * 100) / 100;
+    this.OTalcahuano.pet  = Math.round((( this.OTalcahuano.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTalcahuano.pead = Math.round((( this.OTalcahuano.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTalcahuano.pebd = Math.round((( this.OTalcahuano.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTalcahuano.carton = Math.round((( this.OTalcahuano.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTalcahuano.aluminio = Math.round((( this.OTalcahuano.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.talcahuano = this.OTalcahuano.pet + this.OTalcahuano.pead + this.OTalcahuano.pebd + this.OTalcahuano.carton + this.OTalcahuano.aluminio;
+    this.talcahuano = Math.round((( this.talcahuano) + Number.EPSILON) * 1000) / 1000;
     
     //tiru AA
-    this.OTirua.pet = Math.round((( this.OTirua.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OTirua.pead  = Math.round((( this.OTirua.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OTirua.pebd = Math.round((( this.OTirua.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OTirua.carton = Math.round((( this.OTirua.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OTirua.aluminio = Math.round((( this.OTirua.aluminio /1000) + Number.EPSILON) * 100) / 100;
-    this.tirua = Math.round(((this.tirua /1000) + Number.EPSILON) * 100) / 100;
+    this.OTirua.pet = Math.round((( this.OTirua.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTirua.pead  = Math.round((( this.OTirua.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTirua.pebd = Math.round((( this.OTirua.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTirua.carton = Math.round((( this.OTirua.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTirua.aluminio = Math.round((( this.OTirua.aluminio /1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.tirua = this.OTirua.pet + this.OTirua.pead + this.OTirua.pebd + this.OTirua.carton +this.OTirua.aluminio;
+    this.tirua = Math.round(((this.tirua) + Number.EPSILON) * 1000) / 1000;
     
 
     //tome
-    this.OTome.pet = Math.round((( this.OTome.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OTome.pead = Math.round((( this.OTome.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OTome.pebd = Math.round((( this.OTome.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OTome.carton = Math.round((( this.OTome.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OTome.aluminio = Math.round((( this.OTome.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.tome = Math.round((( this.tome/1000) + Number.EPSILON) * 100) / 100;
+    this.OTome.pet = Math.round((( this.OTome.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTome.pead = Math.round((( this.OTome.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTome.pebd = Math.round((( this.OTome.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTome.carton = Math.round((( this.OTome.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTome.aluminio = Math.round((( this.OTome.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.tome = this.OTome.pet + this.OTome.pead + this.OTome.pebd + this.OTome.pebd + this.OTome.carton + this.OTome.aluminio;
+    this.tome = Math.round((( this.tome) + Number.EPSILON) * 1000) / 1000;
 
     //tucapel
-    this.OTucapel.pet = Math.round((( this.OTucapel.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OTucapel.pead = Math.round((( this.OTucapel.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OTucapel.pebd = Math.round((( this.OTucapel.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OTucapel.carton = Math.round((( this.OTucapel.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OTucapel.aluminio = Math.round((( this.OTucapel.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.tucapel = Math.round((( this.tucapel/1000) + Number.EPSILON) * 100) / 100;
+    this.OTucapel.pet = Math.round((( this.OTucapel.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTucapel.pead = Math.round((( this.OTucapel.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTucapel.pebd = Math.round((( this.OTucapel.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTucapel.carton = Math.round((( this.OTucapel.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OTucapel.aluminio = Math.round((( this.OTucapel.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+
+    this.tucapel = this.OTucapel.pet + this.OTucapel.pead + this.OTucapel.pebd + this.OTucapel.carton + this.OTucapel.aluminio
+    this.tucapel = Math.round((( this.tucapel) + Number.EPSILON) * 1000) / 1000;
     
 
     //yumbo
-    this.OYumbel.pet = Math.round((( this.OYumbel.pet/1000) + Number.EPSILON) * 100) / 100;
-    this.OYumbel.pead = Math.round((( this.OYumbel.pead/1000) + Number.EPSILON) * 100) / 100;
-    this.OYumbel.pebd = Math.round((( this.OYumbel.pebd/1000) + Number.EPSILON) * 100) / 100;
-    this.OYumbel.carton = Math.round((( this.OYumbel.carton/1000) + Number.EPSILON) * 100) / 100;
-    this.OYumbel.aluminio = Math.round((( this.OYumbel.aluminio/1000) + Number.EPSILON) * 100) / 100;
-    this.yumbel = Math.round((( this.yumbel/1000) + Number.EPSILON) * 100) / 100;
+    this.OYumbel.pet = Math.round((( this.OYumbel.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OYumbel.pead = Math.round((( this.OYumbel.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OYumbel.pebd = Math.round((( this.OYumbel.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OYumbel.carton = Math.round((( this.OYumbel.carton/1000) + Number.EPSILON) * 1000) / 1000;
+    this.OYumbel.aluminio = Math.round((( this.OYumbel.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
 
+    this.yumbel = this.OYumbel.pet + this.OYumbel.pead + this.OYumbel.pebd + this.OYumbel.carton + this.OYumbel.aluminio;
+    this.yumbel = Math.round((( this.yumbel) + Number.EPSILON) * 1000) / 1000;
     await this.ngOnDestroy();
   }
 
@@ -1284,7 +1345,7 @@ Toplabel1 = '';
       this.ciudad = this.ciudad.substring(1);
       // console.log(this.ciudad + ' '+ this.ciudad.length)
       // console.log(total);
-      total = Math.round((total + Number.EPSILON) * 100) / 100;
+      // total = Math.round((total + Number.EPSILON) * 100) / 100;
 
       //comienza el ciclo de ifs
       if(this.ciudad == 'Alto Biobío')
