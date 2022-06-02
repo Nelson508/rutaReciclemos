@@ -1,3 +1,17 @@
+li, div {
+    font-family: 'Open Sans', arial, sans-serif;
+    color: #494d55;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+h2 {
+    font-family: 'Roboto', sans-serif ;
+    font-weight: 500;
+    color: #000;
+}
+
 .pricing-table .list-group {
     box-shadow: none;
     padding-left: 1rem;
@@ -32,3 +46,216 @@
 .currency {
     font-size: 35px;
 }
+
+small{
+    font-weight: 400;
+}
+
+/* Boton */
+
+.btn {
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 9px 19px;
+	border-radius: 0.25rem;
+	text-transform: uppercase;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+  
+.btn-round {
+	border-radius: 30px !important;
+}
+
+.btn-link {
+    color: #7934f3;
+	font-weight: 600;
+	box-shadow: none;
+    text-decoration: none;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  text-decoration: none;
+}
+
+.text-primary {
+    color: #FFEA00 !important;
+}
+
+.bg-white {
+    background-color: #fff !important;
+}
+
+img {
+    width: 50%;
+    border-radius: 50%;
+  /*   padding: 4px; */
+    background-color: #fff;
+   /*  border: 1px solid #c4c1da; */
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* User Details */
+/* .user-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.user-details .media .avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.user-details .media .media-body .user-title {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.84);
+    margin-bottom: 2px;
+}
+.user-details .media .media-body .user-subtitle {
+    font-size: 13px;
+    color: #232323;
+    margin-bottom: 0;
+} */
+/*Cards */
+/* .card {
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(57, 98, 254, 0.02), 0 3px 6px rgba(117, 108, 254, 0.12);
+    border: none;
+    background-color: #fff;
+}
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.84);
+}
+.card-title {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: #353434;
+}
+.card-action {
+    float: right;
+}
+.card-action a i {
+    color: #353434;
+    border-radius: 50%;
+}
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.card-deck {
+    margin-bottom: 25px;
+}
+@media (min-width: 576px) {
+    .card-deck {
+        margin-right: -12.5px;
+        margin-left: -12.5px;
+   }
+    .card-deck .card {
+        margin-right: 12.5px;
+        margin-left: 12.5px;
+   }
+}
+.card-group {
+    box-shadow: 0 5px 15px rgba(57, 98, 254, 0.02), 0 3px 6px rgba(117, 108, 254, 0.12);
+    margin-bottom: 25px;
+}
+.card-group .card {
+    box-shadow: none;
+}
+.bubble {
+    position: relative;
+    overflow: hidden;
+}
+.bubble .card-block:before, .bubble .card-block:after {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.22);
+    right: -40px;
+    border-radius: 50%;
+}
+.bubble .card-block:before {
+    width: 100px;
+    height: 100px;
+    bottom: -40px;
+}
+.bubble .card-block:after {
+    width: 80px;
+    height: 80px;
+    bottom: 40px;
+} */
+/*Profile card 2*/
+/* .profile-card-2 .card-img-block {
+    float: left;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+.profile-card-2 .card-body {
+    position: relative;
+}
+.profile-card-2 .profile {
+    border-radius: 50%;
+    position: absolute;
+    top: -42px;
+    left: 15%;
+    max-width: 75px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+.profile-card-2 h5 {
+    font-weight: 600;
+}
+.profile-card-2 .card-text {
+    font-weight: 300;
+    font-size: 15px;
+}
+.profile-card-2 .icon-block {
+    float: left;
+    width: 100%;
+}
+.profile-card-2 .icon-block a {
+    text-decoration: none;
+}
+.profile-card-2 i {
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.profile-card img {
+    vertical-align: middle;
+  border-style: none;
+    border-radius: 50%;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #c4c1da;
+}
+.profile-cover {
+    position: relative;
+    width: 100%;
+    height: 125px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+.border-angle {
+    border-top-left-radius: 60px !important;
+    border-bottom-right-radius: 60px !important;
+} */
