@@ -20,6 +20,7 @@ export class FirebaseService {
   dataRutasCompletas: any;
   puntosFijos: any = [];
   publicacion: any = [];
+  dataproductos:any;
 
   
   constructor(public fireServices: AngularFirestore,
@@ -166,7 +167,8 @@ getInformaciones(): Promise<any> {
   });
 }
 
-setInformaciones(id:number, publicacion:any){
+setInformaciones(id:number, publicacion:any)
+{
 
   console.log('Infomraciones:' + id);
   
@@ -311,6 +313,55 @@ eliminarInformacion(id:number): Promise<any>{
       } else {
         console.log('No data available');
         return null; // or return another default value, like [] or {} or "";
+      }
+    });
+  }
+
+  getProductos(): Promise<any> {
+    return this.databaseRef.child('productos').once('value').then((snapshot) => {
+      if (snapshot.exists()) {
+        // I don't think you need to keep the data in this.data anymore
+        this.dataproductos = snapshot.val();
+       
+        //console.log(this.dataGenero);
+        return this.dataproductos;
+      } else {
+        console.log('No data available');
+        return null; // or return another default value, like [] or {} or "";
+      }
+    });
+  }
+
+  updateProducto(material:any): Promise<any> {
+
+    // console.log('From fireBase:' + material);
+ 
+  
+    
+   
+    
+    return this.databaseRef.child('productos/' +  material.id).update({
+      cantidad: material.nuevaCantidad,
+      precio: material.precio
+    }, (error) => {
+      if (error) {
+  
+        Swal.fire({
+          title: 'Error, inténtelo nuevamente',
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK',
+        });
+  
+      } else {
+  
+        Swal.fire(
+          'Actualizado',
+          'Los valores del material se han actualizado exitosamente.',
+          'success'
+        )
+  
       }
     });
   }

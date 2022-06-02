@@ -102,12 +102,12 @@ export class ChartGeneroComponent implements OnInit {
             let latas = parseFloat(this.info[i].kilosreciclaje5);
             let genero = await this.infoGenero(element);
             let total = PET + PEAD + PEBD + carton + latas;
-            total = Math.round((total + Number.EPSILON) * 100) / 100;
-            PET = Math.round((PET + Number.EPSILON) * 100) / 100;
-            PEAD = Math.round((PEAD + Number.EPSILON) * 100) / 100;
-            PEBD = Math.round((PEBD + Number.EPSILON) * 100) / 100;
-            carton = Math.round((carton + Number.EPSILON) * 100) / 100;
-            latas = Math.round((latas + Number.EPSILON) * 100) / 100;
+            // total = Math.round((total + Number.EPSILON) * 100) / 100;
+            // PET = Math.round((PET + Number.EPSILON) * 100) / 100;
+            // PEAD = Math.round((PEAD + Number.EPSILON) * 100) / 100;
+            // PEBD = Math.round((PEBD + Number.EPSILON) * 100) / 100;
+            // carton = Math.round((carton + Number.EPSILON) * 100) / 100;
+            // latas = Math.round((latas + Number.EPSILON) * 100) / 100;
             if(genero == 'Masculino')
             {
               this.Masculino += total;
@@ -147,28 +147,30 @@ export class ChartGeneroComponent implements OnInit {
         } //fin ciclo FOr
         //transformando a toneladas
         //male
-        this.Mpet = Math.round(( this.Mpet/1000 + Number.EPSILON) * 100) / 100;
-        this.Mpead = Math.round(( this.Mpead/1000 + Number.EPSILON) * 100) / 100;
-        this.Mpebd = Math.round(( this.Mpebd/1000 + Number.EPSILON) * 100) / 100;
-        this.Mcarton = Math.round(( this.Mcarton/1000 + Number.EPSILON) * 100) / 100;
-        this.Maluminio = Math.round(( this.Maluminio/1000 + Number.EPSILON) * 100) / 100;
-        this.Masculino = Math.round(( this.Masculino/1000+ Number.EPSILON) * 100) / 100;
+        this.Mpet = Math.round(( this.Mpet/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Mpead = Math.round(( this.Mpead/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Mpebd = Math.round(( this.Mpebd/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Mcarton = Math.round(( this.Mcarton/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Maluminio = Math.round(( this.Maluminio/1000 + Number.EPSILON) * 1000) / 1000;
+
+        this.Masculino = this.Mpet+ this.Mpead + this.Mpebd + this.Mcarton + this.Maluminio;
+        this.Masculino = Math.round(( this.Masculino+ Number.EPSILON) * 1000) / 1000;
 
         //female
-        this.Fpet = Math.round(( this.Fpet/1000 + Number.EPSILON) * 100) / 100;
-        this.Fpead = Math.round(( this.Fpead/1000 + Number.EPSILON) * 100) / 100;
-        this.Fpebd = Math.round(( this.Fpebd/1000 + Number.EPSILON) * 100) / 100;
-        this.Fcarton = Math.round(( this.Fcarton/1000 + Number.EPSILON) * 100) / 100;
-        this.Faluminio = Math.round(( this.Faluminio/1000 + Number.EPSILON) * 100) / 100;
-        this.Femenino = Math.round(( this.Femenino/1000 + Number.EPSILON) * 100) / 100;
+        this.Fpet = Math.round(( this.Fpet/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Fpead = Math.round(( this.Fpead/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Fpebd = Math.round(( this.Fpebd/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Fcarton = Math.round(( this.Fcarton/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Faluminio = Math.round(( this.Faluminio/1000 + Number.EPSILON) * 1000) / 1000;
+        this.Femenino = Math.round(( this.Femenino/1000 + Number.EPSILON) * 1000) / 1000;
 
         //no binarie
-        this.No_especifica = Math.round((this.No_especifica/1000 + Number.EPSILON) * 100) / 100;
-        this.NNpet  = Math.round((this.NNpet/1000 + Number.EPSILON) * 100) / 100;
-        this.NNpead = Math.round(( this.NNpead/1000 + Number.EPSILON) * 100) / 100;
-        this.NNpebd= Math.round(( this.NNpebd/1000 + Number.EPSILON) * 100) / 100;
-        this.NNcarton= Math.round((this.NNcarton/1000 + Number.EPSILON) * 100) / 100;
-        this.NNaluminio= Math.round((this.NNaluminio/1000 + Number.EPSILON) * 100) / 100;
+        this.No_especifica = Math.round((this.No_especifica/1000 + Number.EPSILON) * 1000) / 1000;
+        this.NNpet  = Math.round((this.NNpet/1000 + Number.EPSILON) * 1000) / 1000;
+        this.NNpead = Math.round(( this.NNpead/1000 + Number.EPSILON) * 1000) / 1000;
+        this.NNpebd= Math.round(( this.NNpebd/1000 + Number.EPSILON) * 1000) / 1000;
+        this.NNcarton= Math.round((this.NNcarton/1000 + Number.EPSILON) * 1000) / 1000;
+        this.NNaluminio= Math.round((this.NNaluminio/1000 + Number.EPSILON) * 1000) / 1000;
 
         
 

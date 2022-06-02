@@ -1,6 +1,8 @@
 .motherBox{
-    margin-top: 10%;
-    margin-bottom: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: #0ba7731c;
+    /* background-color: rgba(84, 3, 150, 0.096); */
 }
 .ripz{
     display: flex;
@@ -13,4 +15,17 @@
     /* height: 100px; */
     margin-left: 0.2%;
     margin-right: 0.2%;
+    margin-top: 3%;
   }
+
+
+#tbl{
+    /* border-radius: 10%; */
+    box-shadow: 0 0 1.2em rgba(30, 30, 31, 0.932);
+    border:1px solid #383838;
+    
+}
+
+.actualizar{
+    background-color: #8cc63f;
+}
