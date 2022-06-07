@@ -1,0 +1,11 @@
+.contador{
+    background-color: rgb(117, 115, 119);
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.timer{
+    color: white;
+    text-align: end;
+}

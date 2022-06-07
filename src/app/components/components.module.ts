@@ -13,6 +13,9 @@ import { InformacionesComponent } from './informaciones/informaciones.component'
 import { QuillModule } from 'ngx-quill';
 import { FormsModule } from '@angular/forms';
 import { TarjetasPreciosComponent } from './tarjetas-precios/tarjetas-precios.component';
+import { VentasComponent } from './ventas/ventas.component';
+import { ContadorComponent } from './contador/contador.component';
+import { MaterialesComponent } from './materiales/materiales.component';
 
 //import QuillModule from 'quill';
 
@@ -30,7 +33,10 @@ import { TarjetasPreciosComponent } from './tarjetas-precios/tarjetas-precios.co
     ResumenComponent,
     ChartPuntoLimpioComponent,
     InformacionesComponent,
-    TarjetasPreciosComponent
+    TarjetasPreciosComponent,
+    VentasComponent,
+    ContadorComponent,
+    MaterialesComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +46,8 @@ import { TarjetasPreciosComponent } from './tarjetas-precios/tarjetas-precios.co
   ],
   exports: [
     MenuAdminComponent,
-    TarjetasPreciosComponent
+    TarjetasPreciosComponent,
+    VentasComponent
   ]
 })
 export class ComponentsModule { }
