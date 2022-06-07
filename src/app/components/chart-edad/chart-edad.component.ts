@@ -14,7 +14,7 @@ export class ChartEdadComponent implements OnInit {
 
   @Input() desactivado:boolean = false;
   info: any;
-  options:any = {}
+  options:any = {};
   excelEdad = true;
   /*
   GRUPO A: ENTRE 6 Y 14
@@ -97,7 +97,7 @@ export class ChartEdadComponent implements OnInit {
   }
 
   // Pie
-  public pieChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
+  /* public pieChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
   public pieChartData: number[] = [13, 120, 11, 20];
   public pieChartType: ChartType = 'pie';
   public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
@@ -113,13 +113,13 @@ export class ChartEdadComponent implements OnInit {
         }
      }
   
-  };
+  }; */
 
   @ViewChild(ApexCharts) chart?: ApexCharts;
 
   constructor(private firebaseSer: FirebaseService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.infoRutasCompletadas();
   }
   
@@ -133,28 +133,9 @@ export class ChartEdadComponent implements OnInit {
     //your code here
   }
 
-  ngOnDestroy(){
+  async ngOnDestroy(){
  
-    /* this.pieChartOptions = {
-       responsive: true,
-       maintainAspectRatio: true,
-       legend: {
-         position :"right",	
-         display: true,
-           labels: {
-           fontColor: '#585757',  
-           boxWidth:15
-           }
-       },
-       animation: {
-         animateScale: false,
-         animateRotate: true,
-         duration: 500,
-         easing: 'linear'
-       }
-       
-     } */
-     this.options = {
+    this.options = {
       chart: {
           height: 280,
           type: 'pie',
@@ -170,7 +151,8 @@ export class ChartEdadComponent implements OnInit {
           },
           textAnchor: 'start' 
       },
-      series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
+      //series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
+      series: [this.A.total, this.B.total, this.C.total, this.D.total, this.E.total, this.F.total, this.G.total],
       colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
       labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
       legend: {
@@ -193,6 +175,7 @@ export class ChartEdadComponent implements OnInit {
       }]
   
     }
+    
     this.chart?.destroy();
 
     this.chart = new ApexCharts(
@@ -201,7 +184,6 @@ export class ChartEdadComponent implements OnInit {
     );
 
     this.chart?.render();
-     //this.chart?.update();
 
    }
 
@@ -233,159 +215,157 @@ export class ChartEdadComponent implements OnInit {
 
             
             let total = PET + PEAD + PEBD + carton + latas;
-            total = Math.round((total + Number.EPSILON) * 100) / 100;
+            /* total = Math.round((total + Number.EPSILON) * 100) / 100;
             PET = Math.round((PET + Number.EPSILON) * 100) / 100;
             PEAD = Math.round((PEAD + Number.EPSILON) * 100) / 100;
             PEBD = Math.round((PEBD + Number.EPSILON) * 100) / 100;
             carton = Math.round((carton + Number.EPSILON) * 100) / 100;
             latas = Math.round((latas + Number.EPSILON) * 100) / 100;
-
+ */
             //edad entre 6 y 14 anos
             if( age >=6 && age <=14)
             {
-              // console.log("su edad esta entre 6 y 14");
               this.A.pet += PET;
               this.A.pead += PEAD;
               this.A.pebd += PEBD;
               this.A.carton += carton;
               this.A.aluminio += latas;
               this.A.total += total;
-
-              this.A.pet = Math.round((this.A.pet + Number.EPSILON) * 100) / 100;
-              this.A.pead = Math.round((this.A.pead + Number.EPSILON) * 100) / 100;
-              this.A.pebd = Math.round((this.A.pebd + Number.EPSILON) * 100) / 100;
-              this.A.carton = Math.round((this.A.carton  + Number.EPSILON) * 100) / 100;
-              this.A.aluminio = Math.round((this.A.aluminio + Number.EPSILON) * 100) / 100;
-              this.A.total = Math.round((this.A.total + Number.EPSILON) * 100) / 100;
-
-
             }
 
             //edad entre 15 y 24 anos
             if( age >=15 && age <=24)
             {
-              //console.log("su edad esta entre 15 y 24");
               this.B.pet += PET;
               this.B.pead += PEAD;
               this.B.pebd += PEBD;
               this.B.carton += carton;
               this.B.aluminio += latas;
               this.B.total += total;
-
-              
-              this.B.pet = Math.round((this.B.pet + Number.EPSILON) * 100) / 100;
-              this.B.pead = Math.round((this.B.pead + Number.EPSILON) * 100) / 100;
-              this.B.pebd = Math.round((this.B.pebd + Number.EPSILON) * 100) / 100;
-              this.B.carton = Math.round((this.B.carton  + Number.EPSILON) * 100) / 100;
-              this.B.aluminio = Math.round((this.B.aluminio + Number.EPSILON) * 100) / 100;
-              this.B.total = Math.round((this.B.total + Number.EPSILON) * 100) / 100;
             }
 
             //edad entre 25 y 34 anos
             if( age >=25 && age <=34)
             {
-              //console.log("su edad esta entre 25 y 34");
               this.C.pet += PET;
               this.C.pead += PEAD;
               this.C.pebd += PEBD;
               this.C.carton += carton;
               this.C.aluminio += latas;
               this.C.total += total;
-
-              this.C.pet = Math.round((this.C.pet + Number.EPSILON) * 100) / 100;
-              this.C.pead = Math.round((this.C.pead + Number.EPSILON) * 100) / 100;
-              this.C.pebd = Math.round((this.C.pebd + Number.EPSILON) * 100) / 100;
-              this.C.carton = Math.round((this.C.carton  + Number.EPSILON) * 100) / 100;
-              this.C.aluminio = Math.round((this.C.aluminio + Number.EPSILON) * 100) / 100;
-              this.C.total = Math.round((this.C.total + Number.EPSILON) * 100) / 100;
             }
 
             //edad entre 35 y 44 anos 
             if( age >=35 && age <=44)
             {
-              //console.log("su edad esta entre 35 y 44");
               this.D.pet += PET;
               this.D.pead += PEAD;
               this.D.pebd += PEBD;
               this.D.carton += carton;
               this.D.aluminio += latas;
               this.D.total += total;
-
-              this.D.pet = Math.round((this.D.pet + Number.EPSILON) * 100) / 100;
-              this.D.pead = Math.round((this.D.pead + Number.EPSILON) * 100) / 100;
-              this.D.pebd = Math.round((this.D.pebd + Number.EPSILON) * 100) / 100;
-              this.D.carton = Math.round((this.D.carton  + Number.EPSILON) * 100) / 100;
-              this.D.aluminio = Math.round((this.D.aluminio + Number.EPSILON) * 100) / 100;
-              this.D.total = Math.round((this.D.total + Number.EPSILON) * 100) / 100;
             }
 
             //edad entre 45 y 54
             if( age >=45 && age <=54)
             {
-              //console.log("su edad esta entre 45 y 54");
               this.E.pet += PET;
               this.E.pead += PEAD;
               this.E.pebd += PEBD;
               this.E.carton += carton;
               this.E.aluminio += latas;
               this.E.total += total;
-
-              this.E.pet = Math.round((this.E.pet + Number.EPSILON) * 100) / 100;
-              this.E.pead = Math.round((this.E.pead + Number.EPSILON) * 100) / 100;
-              this.E.pebd = Math.round((this.E.pebd + Number.EPSILON) * 100) / 100;
-              this.E.carton = Math.round((this.E.carton  + Number.EPSILON) * 100) / 100;
-              this.E.aluminio = Math.round((this.E.aluminio + Number.EPSILON) * 100) / 100;
-              this.E.total = Math.round((this.E.total + Number.EPSILON) * 100) / 100;
             }
 
             //edad entre 55 y 64 anos
             if( age >=55 && age <=64)
             {
-            /*   console.log("su edad esta entre 55 y 64"); */
               this.F.pet += PET;
               this.F.pead += PEAD;
               this.F.pebd += PEBD;
               this.F.carton += carton;
               this.F.aluminio += latas;
               this.F.total += total;
-
-              this.F.pet = Math.round((this.F.pet + Number.EPSILON) * 100) / 100;
-              this.F.pead = Math.round((this.F.pead + Number.EPSILON) * 100) / 100;
-              this.F.pebd = Math.round((this.F.pebd + Number.EPSILON) * 100) / 100;
-              this.F.carton = Math.round((this.F.carton  + Number.EPSILON) * 100) / 100;
-              this.F.aluminio = Math.round((this.F.aluminio + Number.EPSILON) * 100) / 100;
-              this.F.total = Math.round((this.F.total + Number.EPSILON) * 100) / 100;
             }
 
             //edad entre 65 o mayor
             if( age >=65 && age <=150)
             {
-            /*   console.log("su edad es mayor a 65 anos!"); */
               this.G.pet += PET;
               this.G.pead += PEAD;
               this.G.pebd += PEBD;
               this.G.carton += carton;
               this.G.aluminio += latas;
               this.G.total += total;
-
-              this.G.pet = Math.round((this.G.pet + Number.EPSILON) * 100) / 100;
-              this.G.pead = Math.round((this.G.pead + Number.EPSILON) * 100) / 100;
-              this.G.pebd = Math.round((this.G.pebd + Number.EPSILON) * 100) / 100;
-              this.G.carton = Math.round((this.G.carton  + Number.EPSILON) * 100) / 100;
-              this.G.aluminio = Math.round((this.G.aluminio + Number.EPSILON) * 100) / 100;
-              this.G.total = Math.round((this.G.total + Number.EPSILON) * 100) / 100;
             }
 
-           
-
-          }
-          
+          }          
 
         }
 
+        this.redondeo();
 
       });
-      console.log('Termino calculo!!!')
+      console.log('Termino calculo!!!');
+      //await this.ngOnDestroy();
+  }
+
+  redondeo(){
+    //edad entre 6 y 14 anos
+    this.A.pet = Math.round(((this.A.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.A.pead = Math.round(((this.A.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.A.pebd = Math.round(((this.A.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.A.carton = Math.round(((this.A.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.A.aluminio = Math.round(((this.A.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.A.total = Math.round(((this.A.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 15 y 24 anos
+    this.B.pet = Math.round(((this.B.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.B.pead = Math.round(((this.B.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.B.pebd = Math.round(((this.B.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.B.carton = Math.round(((this.B.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.B.aluminio = Math.round(((this.B.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.B.total = Math.round(((this.B.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 25 y 34 anos
+    this.C.pet = Math.round(((this.C.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.C.pead = Math.round(((this.C.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.C.pebd = Math.round(((this.C.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.C.carton = Math.round(((this.C.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.C.aluminio = Math.round(((this.C.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.C.total = Math.round(((this.C.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 35 y 44 anos 
+    this.D.pet = Math.round(((this.D.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.D.pead = Math.round(((this.D.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.D.pebd = Math.round(((this.D.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.D.carton = Math.round(((this.D.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.D.aluminio = Math.round(((this.D.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.D.total = Math.round(((this.D.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 45 y 54
+    this.E.pet = Math.round(((this.E.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.E.pead = Math.round(((this.E.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.E.pebd = Math.round(((this.E.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.E.carton = Math.round(((this.E.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.E.aluminio = Math.round(((this.E.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.E.total = Math.round(((this.E.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 55 y 64 anos
+    this.F.pet = Math.round(((this.F.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.F.pead = Math.round(((this.F.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.F.pebd = Math.round(((this.F.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.F.carton = Math.round(((this.F.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.F.aluminio = Math.round(((this.F.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.F.total = Math.round(((this.F.total/1000) + Number.EPSILON) * 1000) / 1000;
+
+    //edad entre 65 o mayor
+    this.G.pet = Math.round(((this.G.pet/1000) + Number.EPSILON) * 1000) / 1000;
+    this.G.pead = Math.round(((this.G.pead/1000) + Number.EPSILON) * 1000) / 1000;
+    this.G.pebd = Math.round(((this.G.pebd/1000) + Number.EPSILON) * 1000) / 1000;
+    this.G.carton = Math.round(((this.G.carton/1000)  + Number.EPSILON) * 1000) / 1000;
+    this.G.aluminio = Math.round(((this.G.aluminio/1000) + Number.EPSILON) * 1000) / 1000;
+    this.G.total = Math.round(((this.G.total/1000) + Number.EPSILON) * 1000) / 1000;
   }
 
 

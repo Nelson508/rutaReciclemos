@@ -12,6 +12,7 @@ import { ChartPuntoLimpioComponent } from './chart-punto-limpio/chart-punto-limp
 import { InformacionesComponent } from './informaciones/informaciones.component';
 import { QuillModule } from 'ngx-quill';
 import { FormsModule } from '@angular/forms';
+import { TarjetasPreciosComponent } from './tarjetas-precios/tarjetas-precios.component';
 
 //import QuillModule from 'quill';
 
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     ChartPersonasComponent,
     ResumenComponent,
     ChartPuntoLimpioComponent,
-    InformacionesComponent
+    InformacionesComponent,
+    TarjetasPreciosComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     MenuAdminComponent,
+    TarjetasPreciosComponent
   ]
 })
 export class ComponentsModule { }
