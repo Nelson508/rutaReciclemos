@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sellprod',
@@ -12,58 +13,44 @@ export class SellprodComponent implements OnInit {
   pet = {
     id: 0,
     cantidad: 0,
-    nuevaCantidad: 0,
-    precio:0
+    precio:0,
+    nuevaCantidad: null,
+    nuevoPrecio:null
   }
 
   pead = {
     id: 1,
     cantidad: 0,
-    precio:0
+    precio:0,
+    nuevaCantidad: null,
+    nuevoPrecio:null
   }
 
   pebd = {
     id: 2,
     cantidad: 0,
-    precio:0
+    precio:0,
+    nuevaCantidad: null,
+    nuevoPrecio: null
   }
 
   carton = {
     id: 3,
     cantidad: 0,
-    precio:0
+    precio:0,
+    nuevaCantidad: null,
+    nuevoPrecio:null
   }
 
   aluminio = {
     id: 4,
     cantidad: 0,
-    precio:0
+    precio:0,
+    nuevaCantidad: null,
+    nuevoPrecio:null
   }
 
-  Editpet = {
-    cantidad: 0,
-    precio:0
-  }
-
-  Editpead = {
-    cantidad: 0,
-    precio:0
-  }
-
-  Editpebd = {
-    cantidad: 0,
-    precio:0
-  }
-
-  Editcarton = {
-    cantidad: 0,
-    precio:0
-  }
-
-  Editaluminio = {
-    cantidad: 0,
-    precio:0
-  }
+  
 
   constructor(private firebaseSer: FirebaseService) { }
 
@@ -103,9 +90,77 @@ export class SellprodComponent implements OnInit {
 
   async actualizar(material:any)
   {
-    console.log(material);
-    await this.firebaseSer.updateProducto(material);
 
+    //validaciones
+    if(material.nuevoPrecio < 0)
+    {
+      Swal.fire({
+        title: 'Operación no permitida',
+        icon: 'error',
+        text:'El precio no puede ser menor a 0',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+      return;
+
+    }
+    if(material.nuevaCantidad == null || material.nuevaCantidad == NaN)
+    {
+      //se mantiene la cantidad
+    }else{
+      let aux = material.cantidad + material.nuevaCantidad;
+      if(aux <= 0)
+    {
+
+      Swal.fire({
+        title: 'Operación no permitida',
+        icon: 'error',
+        text:'La cantidad no puede ser menor o igual a 0',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      });
+
+      return;
+
+    }else{
+      material.cantidad += material.nuevaCantidad;
+    }
+    }
+
+    if(material.nuevoPrecio == null ||  material.nuevoPrecio == NaN)
+    {
+      //se mantiene el precio actual
+    }else{
+      material.precio = material.nuevoPrecio
+
+    }
+    let boolie = await this.firebaseSer.updateProducto(material);
+    this.getProductosData();
+    this.pet.nuevaCantidad = null;
+    this.pet.nuevoPrecio = null;
+
+    this.pead.nuevaCantidad = null;
+    this.pead.nuevoPrecio = null;
+
+    this.pebd.nuevaCantidad = null;
+    this.pebd.nuevoPrecio = null;
+
+    this.carton.nuevaCantidad = null;
+    this.carton.nuevoPrecio = null;
+
+    this.aluminio.nuevaCantidad = null;
+    this.aluminio.nuevoPrecio = null;
+    
+    
+
+  }
+
+  removeZero(value:number)
+  {
+    
   }
 
 }

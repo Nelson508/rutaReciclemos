@@ -341,7 +341,7 @@ eliminarInformacion(id:number): Promise<any>{
    
     
     return this.databaseRef.child('productos/' +  material.id).update({
-      cantidad: material.nuevaCantidad,
+      cantidad: material.cantidad,
       precio: material.precio
     }, (error) => {
       if (error) {
@@ -353,6 +353,8 @@ eliminarInformacion(id:number): Promise<any>{
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'OK',
         });
+
+        return false;
   
       } else {
   
@@ -361,6 +363,8 @@ eliminarInformacion(id:number): Promise<any>{
           'Los valores del material se han actualizado exitosamente.',
           'success'
         )
+
+        return true;
   
       }
     });
