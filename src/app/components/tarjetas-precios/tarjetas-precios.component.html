@@ -1,17 +1,39 @@
-<div class="container-fluid">
-	<div class="d-flex justify-content-around contenedor">
+<div class="container-fluid contenedor">
+    <div class="titulo">
+        <h1 class="text-center">Productos</h1>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
+    </div>
+    <div class="d-flex"> 
+        <!-- <div class="titulo">
+            <h3 class="text-center text-white"></h3>
+        </div> -->
+        <div class="titulo">
+            <h3 class="text-center">Plasticos</h3>
+        </div>
+        <!-- <div class="titulo">
+            <h3 class="text-center text-white"></h3>
+        </div> -->
+        <div class="titulo">
+            <h3 class="text-center">Carton y papel</h3>
+        </div>
+        <div class="titulo flex-shrink-1">
+            <h3 class="text-center">Aluminio</h3>
+        </div>
+    </div>
+	<div class="d-flex justify-content-xxl-around">
         <div class="pricing-table pricing-table-color">
             <div class="card" style="background-color: #FFEA00;">
                 <div class="card-body text-center">
                     <div class="price-title">Botellas PET</div>
                     <img src="assets/images/img/PET.png">
-                    <!-- <h2 class="price text-white"><small class="currency">$</small>199</h2> -->
+                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pet.precio}}<small class="currency">CLP/kg</small></h2>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><h2 class="price" style="color: #223150;"><small class="currency">$</small>10.000</h2></li>
-                        <li class="list-group-item" style="color: #223150;">Cantidad <b>8 Tons</b></li>
-            <!-- 		<li class="list-group-item">Monthly Backups</li>
-                        <li class="list-group-item">Email Support</li>
-                        <li class="list-group-item">24X7 Support</li> -->
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item" style="color: #223150;">Cantidad <b>{{pet.cantidad}} Tons</b></li>
                     </ul> <a class="btn btn-link text-primary bg-white my-3 btn-round"><p class="botonText">View More</p></a>
                 </div>
             </div>
@@ -19,16 +41,12 @@
         <div class="pricing-table pricing-table-color">
             <div class="card" style="background-color: #FDDA0D;">
                 <div class="card-body text-center">
-                    <div class="price-title text-white">Envases PEAD</div>
+                    <div class="price-title">Envases PEAD</div>
                     <img src="assets/images/img/PEAD.png">
-                    <h2 class="price text-white"><small class="currency">$</small>20.000</h2>
+                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pead.precio}}<small class="currency">CLP/kg</small></h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item">Cantidad <b>0.2 Tons</b></li>
-                        <!-- <li class="list-group-item"><b>80 GB</b> Disk Space</li>
-                        <li class="list-group-item">Monthly Backups</li>
-                        <li class="list-group-item">Email Support</li>
-                        <li class="list-group-item">24X7 Support</li> -->
+                        <li class="list-group-item" style="color: #223150;">Cantidad <b>{{pead.cantidad}} Tons</b></li>
                     </ul> <a class="btn btn-link text-danger bg-white my-3 btn-round">View More</a>
                 </div>
             </div>
@@ -36,17 +54,12 @@
         <div class="pricing-table pricing-table-color">
             <div class="card" style="background-color: #DFFF00;">
                 <div class="card-body text-center">
-                    <div class="price-title text-white">Envases PEBD</div>
+                    <div class="price-title">Envases PEBD</div>
                     <img src="assets/images/img/PEBD.png">
-                    <h2 class="price text-white"><small class="currency">$</small>40.000</h2>
+                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pebd.precio}}<small class="currency">CLP/kg</small></h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item">Cantidad <b>0.2 Tons</b></li>
-                        <!-- <li class="list-group-item"><b>4 GB</b> Ram</li>
-                        <li class="list-group-item"><b>80 GB</b> Disk Space</li>
-                        <li class="list-group-item">Monthly Backups</li>
-                        <li class="list-group-item">Email Support</li>
-                        <li class="list-group-item">24X7 Support</li> -->
+                        <li class="list-group-item" style="color: #223150;">Cantidad <b>{{pebd.cantidad}} Tons</b></li>
                     </ul> <a class="btn btn-link text-success bg-white my-3 btn-round">View More</a>
                 </div>
             </div>
@@ -54,17 +67,12 @@
         <div class="pricing-table pricing-table-color">
             <div class="card" style="background-color: #0096FF;">
                 <div class="card-body text-center">
-                    <div class="price-title text-white">Cartón y Papel</div>
+                    <div class="price-title">Cartón y Papel</div>
                     <img src="assets/images/img/PAPELES CARTONES.png">
-                    <!-- <h2 class="price text-white"><small class="currency">$</small>399</h2> -->
+                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{carton.precio}}<small class="currency">CLP/kg</small></h2>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Precio <b> $10.000</b></li>
-                        <li class="list-group-item">Cantidad <b>0.2 Tons</b></li>
-                        <!-- <li class="list-group-item"><b>4 GB</b> Ram</li>
-                        <li class="list-group-item"><b>80 GB</b> Disk Space</li>
-                        <li class="list-group-item">Monthly Backups</li>
-                        <li class="list-group-item">Email Support</li>
-                        <li class="list-group-item">24X7 Support</li> -->
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item" style="color: #223150;">Cantidad <b>{{carton.cantidad}} Tons</b></li>
                     </ul> <a class="btn btn-link text-success bg-white my-3 btn-round">View More</a>
                 </div>
             </div>
@@ -72,17 +80,12 @@
         <div class="pricing-table pricing-table-color">
             <div class="card" style="background-color: #888888;">
                 <div class="card-body text-center">
-                    <div class="price-title text-white">Latas de aluminio</div>
+                    <div class="price-title">Latas de aluminio</div>
                     <img src="assets/images/img/LATAS.png">
-                    <h2 class="price text-white"><small class="currency">$</small>100.000</h2>
+                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{latas.precio}}<small class="currency">CLP/kg</small></h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item">Cantidad <b>0.2 Tons</b></li>
-                        <!-- <li class="list-group-item"><b>4 GB</b> Ram</li>
-                        <li class="list-group-item"><b>80 GB</b> Disk Space</li>
-                        <li class="list-group-item">Monthly Backups</li>
-                        <li class="list-group-item">Email Support</li>
-                        <li class="list-group-item">24X7 Support</li> -->
+                        <li class="list-group-item" style="color: #223150;">Cantidad <b>{{latas.cantidad}} Tons</b></li>
                     </ul> <a href="javascript:;" class="btn btn-link text-success bg-white my-3 btn-round">View More</a>
                 </div>
             </div>

@@ -255,9 +255,15 @@ a{
     align-items: center;
 }
 
-.prop{
-    margin-top: 1rem;
-   /*  margin-bottom: 1rem; */
+.text-center{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.prop .texto2{
+   /*  font-size: 1.25rem; */
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
 }
 
 .textoDesafio{
