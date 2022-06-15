@@ -20,21 +20,20 @@
           
                 <tbody id="waw" style="text-align: center;">
                     <tr>
-                        <td>Cantidad</td>
+                        <td>Cantidad (kg)</td>
                         <td>{{pet.cantidad}}</td>
                     </tr>
                     <tr>
-                        <td>Precio</td>
-                        <td><input  type="number" placeholder="0" [(ngModel)]="pet.precio" style="text-align: center;width: 95%"></td>
-                    </tr>
+                        <td>Precio $</td>
+                        <td>{{pet.precio}} clp</td>
                     <tr>
-                        <td>Agregar cantidad </td>
+                        <td>Agregar cantidad (kg) </td>
                         <td> <input  type="number" placeholder="0" [(ngModel)]="pet.nuevaCantidad" style="text-align: center;width: 95%"> </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                         <td>Nuevo precio </td>
-                        <td> <input  type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
-                    </tr> -->
+                        <td> <input  type="number" placeholder="0" [(ngModel)]="pet.nuevoPrecio"  style="text-align: center;width: 95%"> </td>
+                    </tr>
                     <tr>
                        <td colspan="2"> 
                            <button 
@@ -63,23 +62,27 @@
            
                  <tbody  style="text-align: center;">
                      <tr>
-                         <td>Cantidad</td>
+                         <td>Cantidad (kg)</td>
                          <td >{{pead.cantidad}}</td>
                      </tr>
                      <tr>
-                         <td>Precio</td>
-                         <td >{{pead.precio}}</td>
+                         <td>Precio $</td>
+                         <td >{{pead.precio}} clp</td>
                      </tr>
                      <tr>
-                         <td>Agregar cantidad </td>
-                         <td> <input  type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td>Agregar cantidad (kg) </td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="pead.nuevaCantidad"  style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
                          <td>Nuevo precio </td>
-                         <td> <input  type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="pead.nuevoPrecio" style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
-                        <td colspan="2"> <button type="button" class="btn btn-outline-dark actualizar" >Actualizar</button>
+                        <td colspan="2"> <button 
+                            type="button" 
+                            class="btn btn-outline-dark actualizar"
+                            (click)="actualizar(pead)" 
+                            >Actualizar</button>
                         </td>
                      </tr>
                  </tbody>
@@ -102,24 +105,29 @@
                  </thead>
            
                  <tbody id="waw" style="text-align: center;">
-                     <!-- <tr>
-                         <td>Cantidad</td>
+                     <tr>
+                         <td>Cantidad (kg)</td>
                          <td>{{pebd.cantidad}}</td>
                      </tr>
                      <tr>
-                         <td>Precio</td>
-                         <td>{{pebd.precio}}</td>
-                     </tr> -->
-                     <tr>
-                         <td>Cantidad </td>
-                         <td> <input  type="number" placeholder="0" [(ngModel)]="pebd.cantidad" style="text-align: center;width: 95%"> </td>
+                         <td>Precio $</td>
+                         <td>{{pebd.precio}} clp</td>
                      </tr>
                      <tr>
-                         <td>Precio </td>
-                         <td> <input  type="number" placeholder="0" [(ngModel)]="pebd.precio" style="text-align: center;width: 95%"> </td>
+                         <td>Agregar cantidad (kg)</td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="pebd.nuevaCantidad" style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
-                        <td colspan="2"> <button type="button" class="btn btn-outline-dark actualizar">Actualizar</button>
+                         <td>Nuevo precio</td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="pebd.nuevoPrecio" style="text-align: center;width: 95%"> </td>
+                     </tr>
+                     <tr>
+                        <td colspan="2"> 
+                            <button 
+                            type="button" 
+                            class="btn btn-outline-dark actualizar"
+                            (click)="actualizar(pebd)" 
+                            >Actualizar</button>
                         </td>
                      </tr>
                  </tbody>
@@ -143,25 +151,28 @@
            
                  <tbody id="waw" style="text-align: center;">
                      <tr>
-                         <td>Cantidad</td>
+                         <td>Cantidad (kg)</td>
                          <td >{{carton.cantidad}}</td>
                      </tr>
                      <tr>
-                         <td>Precio</td>
-                         <td>{{carton.precio}}</td>
+                         <td>Precio $</td>
+                         <td>{{carton.precio}} clp</td>
                      </tr>
                      <tr>
-                         <td>Agregar cantidad </td>
-                         <td> <input  type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td>Agregar cantidad (kg)</td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="carton.nuevaCantidad" style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
                          <td>Nuevo precio </td>
-                         <td> <input  type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td> <input  type="number" placeholder="0" [(ngModel)]="carton.nuevoPrecio" style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
                         <td colspan="2"> 
                             <button 
-                            type="button" class="btn btn-outline-dark actualizar">Actualizar</button>
+                            type="button" 
+                            class="btn btn-outline-dark actualizar"
+                            (click)="actualizar(carton)" 
+                            >Actualizar</button>
                         </td>
                      </tr>
                  </tbody>
@@ -185,23 +196,28 @@
            
                  <tbody id="waw" style="text-align: center;">
                      <tr>
-                         <td>Cantidad</td>
+                         <td>Cantidad (kg)</td>
                          <td >{{aluminio.cantidad}}</td>
                      </tr>
                      <tr>
-                         <td>Precio</td>
-                         <td >{{aluminio.precio}}</td>
+                         <td>Precio $</td>
+                         <td >{{aluminio.precio}} clp</td>
                      </tr>
                      <tr>
-                         <td>Agregar cantidad </td>
-                         <td> <input id="nuevoVolumenP840" type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td>Agregar cantidad (kg) </td>
+                         <td> <input id="nuevoVolumenP840" type="number" placeholder="0" [(ngModel)]="aluminio.nuevaCantidad"  style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
                          <td>Nuevo precio </td>
-                         <td> <input id="nuevoVolumenP840" type="number" placeholder="0" value="0" style="text-align: center;width: 95%"> </td>
+                         <td> <input id="nuevoVolumenP840" type="number" placeholder="0" [(ngModel)]="aluminio.nuevoPrecio" style="text-align: center;width: 95%"> </td>
                      </tr>
                      <tr>
-                        <td colspan="2"> <button type="button" class="btn btn-outline-dark actualizar">Actualizar</button>
+                        <td colspan="2"> 
+                            <button 
+                            type="button" 
+                            class="btn btn-outline-dark actualizar"
+                            (click)="actualizar(aluminio)" 
+                            >Actualizar</button>
                         </td>
                      </tr>
                  </tbody>
