@@ -16,6 +16,7 @@ import { TarjetasPreciosComponent } from './tarjetas-precios/tarjetas-precios.co
 import { VentasComponent } from './ventas/ventas.component';
 import { ContadorComponent } from './contador/contador.component';
 import { MaterialesComponent } from './materiales/materiales.component';
+import { FormularioClientesComponent } from './formulario-clientes/formulario-clientes.component';
 
 //import QuillModule from 'quill';
 
@@ -36,7 +37,8 @@ import { MaterialesComponent } from './materiales/materiales.component';
     TarjetasPreciosComponent,
     VentasComponent,
     ContadorComponent,
-    MaterialesComponent
+    MaterialesComponent,
+    FormularioClientesComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { MaterialesComponent } from './materiales/materiales.component';
   exports: [
     MenuAdminComponent,
     TarjetasPreciosComponent,
-    VentasComponent
+    VentasComponent,
+    FormularioClientesComponent
   ]
 })
 export class ComponentsModule { }

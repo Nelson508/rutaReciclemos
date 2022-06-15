@@ -22,6 +22,11 @@ h2 {
     margin-bottom: 5rem;
 }
 
+.titulo{
+    font-size: 3.25rem;
+    margin-bottom: 2rem;
+}
+
 
 .pricing-table{
     margin-left: 0.5rem;
@@ -45,7 +50,7 @@ h2 {
 }
 .pricing-table.pricing-table-color .card .card-body .list-group .list-group-item {
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: #223150;
     color: #fff;
 }
 .price-title {
@@ -63,7 +68,7 @@ h2 {
 }
 
 .currency {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 small{
