@@ -20,6 +20,7 @@ export class FirebaseService {
   dataRutasCompletas: any;
   puntosFijos: any = [];
   publicacion: any = [];
+  cliente: any = [];
   dataproductos:any;
 
   
@@ -367,6 +368,39 @@ eliminarInformacion(id:number): Promise<any>{
         return true;
   
       }
+    });
+  }
+
+  getCliente(): Promise<any> {
+
+    return this.databaseRef.child('infoCliente').once('value').then((snapshot) => {
+      if (snapshot.exists()) {
+        // I don't think you need to keep the data in this.data anymore
+        this.cliente = [];
+
+        snapshot.forEach(childrenSnapshot =>{
+          this.cliente.push(childrenSnapshot.val());
+        });
+        //console.log('Clientes: ' + this.cliente);
+        return this.cliente;
+      } else {
+        console.log('No data available');
+        return null; // or return another default value, like [] or {} or "";
+      }
+    });
+  }
+
+  setPedido( data:any){
+    
+    this.databaseRef.child('infoCliente/' + data._id).set({
+      _id:data._id,
+      nombre:data.nombre,
+      rut:data.rut,
+      giro:data.giro,
+      direccion:data.direccion,
+      email:data.email,
+      telefono: data.telefono,
+      eliminado: false
     });
   }
 }

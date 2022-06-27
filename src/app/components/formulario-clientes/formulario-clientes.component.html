@@ -1,45 +1,64 @@
-<div class="card">
-	<div class="card-header text-uppercase">Input Group With Buttons</div>
-	<div class="card-body">
+<div class="card margenes">
+	<!-- <div class="card-header text-uppercase">Input Group With Buttons</div> -->
+	<!-- <div class="card-body"> -->
+		<div class="titulo">
+			<h1 class="text-center">Ingrese los datos de la empresa</h1>
+		</div>
 		<div class="row inputsForm">
-			<div class="col-12 col-lg-6 col-xl-6 body-box">
-				<div class="inputBox">
-					<input type="text" required="required">
-					<span class="">Nombre de la Empresa</span>
+			<div class="col-12 col-lg-6 col-xl-6">
+				<div class="inputBox mt-4">
+					<input type="text" minlength="1" maxlength="50" [(ngModel)]="datos.nombre" required="required">
+					<span>Nombre de la Empresa</span>
 				</div>
 				<div class="inputBox mt-4">
-					<input type="text" required="required">
+					<input type="text" minlength="1" maxlength="50" [(ngModel)]="datos.giro" required="required">
 					<span class="">Giro</span>
 				</div>
 				<div class="inputBox mt-4">
-					<input type="text" required="required">
-					<span>Correo Electrónico</span>
-				</div>
-				<!-- <div class="input-group mb-3">
-					<span class="input-group-text inputsForm">Nombre de la Empresa</span>
-					<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-				</div> -->
-			</div>
-			<div class="col-12 col-lg-6 col-xl-6 body-box">
-				<div class="inputBox">
-					<input type="text" required="required">
-					<span class="">Rut de la Empresa</span>
+					<input type="text" [(ngModel)]="datos.email" required="required">
+					<span>Calle</span>
 				</div>
 				<div class="inputBox mt-4">
-					<input type="text" required="required">
-					<span class="">Dirección</span>
+					<input type="text" [(ngModel)]="datos.email" required="required">
+					<span>Correo Electrónico</span>
 				</div>
-				<div class="inputBox  mt-4">
-					<input type="text" required="required">
-					<span class="">Teléfono</span>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6">
+				<div class="inputBox mt-4">
+					<input type="text" minlength="1" maxlength="12" [(ngModel)]="datos.rut" required="required">
+					<span>Rut de la Empresa</span>
 				</div>
-				
-				<!-- <div class="input-group mb-3">
-					<span class="input-group-text inputsForm">Rut de la Empresa</span>
-					<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-				</div> -->
+				<div class="inputBox mt-4">
+					<select [(ngModel)]="datos.comunas" required="required">
+						<option *ngFor="let comuna of comunas">
+						{{comuna.name}}
+						</option>
+					</select>
+					<span class="">Comuna</span>
+				</div>
+				<div class="inputBox mt-4">
+					<input type="text" [(ngModel)]="datos.email" required="required">
+					<span>Núm. calle</span>
+				</div>
+				<div class="input-group row mt-4 m-0">
+					<div class="input-group-prepend col-1 p-0">
+						<span class="input-group-text" style="padding: 10px;">+56</span>
+					  </div>
+					  <div class="col-11 p-0">
+						  <div class="inputBox">
+							  <input type="text" [(ngModel)]="datos.telefono" maxlength="9" required="required">
+							  <span>Teléfono</span>
+						  </div>
+					  </div>
+				</div>
 			</div>
 		</div>
+
+		<div class="col-lg-4" style="margin-top: 3%">
+            <div class="row continuar ">
+                <button type="button" class="btn boton" (click)="enviarPedido()">CONTINUAR</button>
+            </div>
+        </div>
 		<!--end row-->
-	</div>
+	<!-- </div> -->
 </div>
