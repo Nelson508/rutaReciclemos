@@ -17,15 +17,15 @@ export class ResumenComponent implements OnInit {
   @Input() desactivado:boolean = false;
   dathax:any;
   ciudad:string = '';
-  //graficos
-  // optionsComuna:any = {};
+  //variable par mostrar current year en resument.html
+  year = new Date().getFullYear();
+  upload = false;
 
   /* Variables Puntos Limpios Fijos */
   nombrePuntoFijo: string[] = [];
   plasticos: number[] = [];
   latasAluminio: number[] = [];
   cartonPapel: number[] = [];
-
 
   comunaArray = [
     {
@@ -234,27 +234,23 @@ export class ResumenComponent implements OnInit {
   G = {
     total: 0
   }
-
-  
-
  
-  
   // // Grafico Por Comuna
   public optionsComuna = {
     chart: {
-        height: 500,
-        type: 'donut',
+        height: 480,
+        type: 'pie',
         foreColor: '#4e4e4e',
     },
     dataLabels: {
         enabled: true,
         style:{
           colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
-          fontSize: '10px',
+          fontSize: '15px',
           fontFamily: 'Helvetica',
           fontWeight:'0px'
         },
-        textAnchor: 'start' 
+        
     },
     series: [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6],
     colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
@@ -266,17 +262,17 @@ export class ResumenComponent implements OnInit {
           return abc + " - " + opts.w.globals.series[opts.seriesIndex]
       }
     },
-    responsive: [{
-        breakpoint: 480,
-        options: {
-            chart: {
-                height: 330
-            },
-            legend: {
-                position: 'bottom'
-            }
-        }
-    }]
+    // responsive: [{
+    //     breakpoint: 480,
+    //     options: {
+    //         chart: {
+    //             height: 500
+    //         },
+    //         legend: {
+    //             position: 'bottom'
+    //         }
+    //     }
+    // }]
 
   }
 
@@ -392,18 +388,6 @@ export class ResumenComponent implements OnInit {
       },
       position: 'bottom',
     },
-    // responsive: [{
-    //     breakpoint: 480,
-    //     options: {
-    //         chart: {
-    //             height: 330
-    //         },
-    //         legend: {
-    //             position: 'bottom'
-    //         }
-    //     }
-    // }]
-
   }
 
   // Grafico puntos limpios
@@ -483,7 +467,7 @@ export class ResumenComponent implements OnInit {
    
    this.infoPuntosFijos(); 
 
-   await this.obtenerRutasCompletadas();
+  //  await this.obtenerRutasCompletadas();
     
   }
 
@@ -497,376 +481,49 @@ export class ResumenComponent implements OnInit {
   }
 
   async ngOnDestroy(){
-
+   
     
-    // INICIO cosas de Comuna
-
-    this.optionsComuna = {
-      chart: {
-          height: 500,
-          type: 'pie',
-          foreColor: '#4e4e4e',
-      },
-      dataLabels: {
-          enabled: true,
-          style:{
-            colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
-            fontSize: '15px',
-            fontFamily: 'Helvetica',
-            fontWeight:'0px'
-          },
-          textAnchor: 'start' 
-      },
-      series: [Math.round(((this.top1 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top2 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top3 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top4 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top5 /1000) + Number.EPSILON)*100)/100,Math.round(((this.top6 /1000) + Number.EPSILON)*100)/100],
-      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
-      labels: [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
-      legend: {
-        customLegendItems:[this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
-        
-        formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
-        }
-      },
-      responsive: [{
-          breakpoint: 480,
-          options: {
-              chart: {
-                  height: 330
-              },
-              legend: {
-                  position: 'bottom'
-              }
-          }
-      }]
-  
-    }
-
-    //fin cosas de comuna
-
-    //inicio cositas de genero
-    this.optionsGenero = {
-      chart: {
-          height: 480,
-          type: 'donut',
-          foreColor: '#4e4e4e',
-      },
-      dataLabels: {
-          enabled: true,
-          style:{
-            colors: ["#000000", "#000000", "#000000"],
-            fontSize: '15px',
-            fontFamily: 'Helvetica',
-            fontWeight:'0px'
-          },
-         
-      },
-      series: [ Math.round(((this.Masculino /1000) + Number.EPSILON)*100)/100,  Math.round(((this.Femenino /1000) + Number.EPSILON)*100)/100, Math.round(((this.No_especifica /1000) + Number.EPSILON)*100)/100],
-      colors: ["#7934f3", "#f43643", "#04b962"],
-      labels: ["Masculino", "Femenino", "No especifica"],
-      legend: {
-        customLegendItems:["Masculino", "Femenino", "No especifica"],
-        
-        formatter: function(abc:any, opts:any) {
-            // return opts.w.globals.series[opts.seriesIndex]
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
-        },
-        position: 'bottom',
-      },
-      // responsive: [{
-      //     breakpoint: 480,
-      //     options: {
-      //         chart: {
-      //             height: 330
-      //         },
-      //         legend: {
-      //             position: 'bottom'
-      //         }
-      //     }
-      // }]
-  
-    }
-
-    //fin cositas de genero
-
-    //inicio opciones de mamteriales
-    this.optionsMateriales = {
-      chart: {
-          height: 480,
-          type: 'donut',
-          foreColor: '#4e4e4e',
-      },
-      dataLabels: {
-          enabled: true,
-          style:{
-            colors: ["#000000", "#000000", "#000000", "#000000", "#000000"],
-            fontSize: '15px',
-            fontFamily: 'Helvetica',
-            fontWeight:'0px'
-          },
-          textAnchor: 'start' 
-      },
-      series: [Math.round(((this.pet/1000) + Number.EPSILON)*100)/100, Math.round(((this.pead/1000) + Number.EPSILON)*100)/100, Math.round(((this.pebd/1000) + Number.EPSILON)*100)/100, Math.round(((this.carton/1000) + Number.EPSILON)*100)/100, Math.round(((this.latas/1000) + Number.EPSILON)*100)/100],
-      colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
-      labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
-      legend: {
-        customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
-        
-        formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
-        },
-        position: 'bottom',
-      },
-      responsive: [{
-          breakpoint: 480,
-          options: {
-              chart: {
-                  height: 330
-              },
-              legend: {
-                  position: 'bottom'
-              }
-          }
-      }]
-  
-    }
-
-    //fin opciones de mamteriales
-    
-    //inicio opciones rango etario
-    this.optionsEdad = {
-      chart: {
-          height: 480,
-          type: 'pie',
-          foreColor: '#4e4e4e',
-      },
-      dataLabels: {
-          enabled: true,
-          style:{
-            colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
-            fontSize: '15px',
-            fontFamily: 'Helvetica',
-            fontWeight:'0px'
-          },
-          textAnchor: 'start' 
-      },
-      series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
-      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
-      labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
-      legend: {
-        customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
-        
-        formatter: function(abc:any, opts:any) {
-            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
-        },
-        position: 'bottom',
-      },
-      responsive: [{
-          breakpoint: 480,
-          options: {
-              chart: {
-                  height: 330
-              },
-              legend: {
-                  position: 'bottom'
-              }
-          }
-      }]
-  
-    }
-
-    //fin opciones rango etario
-    
-    //genero
-    this.chart2?.destroy();
-    this.chart2 = new ApexCharts(
-      document.querySelector("#chart-genero-resumen"),
-      this.optionsGenero
-    );
-    await this.chart2?.render();
-
-    
-    //comuna
-    this.chart?.destroy();
-    this.chart = new ApexCharts(
-      document.querySelector("#chart-comuna-resumen"),
-      this.optionsComuna
-    );
-   await this.chart?.render();
-
-
-   //material
-    this.chartMaterial?.destroy();
-    this.chartMaterial = new ApexCharts(
-      document.querySelector("#chart-material-resumen"),
-      this.optionsMateriales
-    );
-    await this.chartMaterial?.render();
-
-    //edad
-    this.chartEdad?.destroy();
-
-    this.chartEdad = new ApexCharts(
-      document.querySelector("#chart-edad-resumen"),
-      this.optionsEdad
-    );
-
-    this.chartEdad?.render();
-     
-
-
-    // this.comunaChartData = [this.top1, this.top2, this.top3, this.top4, this.top5, this.top6];
-    // this.comunaChartLabels = [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"];
-    
-    // this.comunaChartOptions = {
-    //   responsive: true,
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     position :"right",	
-    //     display: true,
-    //       labels: {
-    //       fontColor: '#585757',  
-    //       boxWidth:15
-    //       }
-    //   },
-    //   animation: {
-    //     animateScale: false,
-    //     animateRotate: true,
-    //     duration: 500,
-    //     easing: 'linear'
-    //   }
-      
-    // }
-    // // FIN cosas de Comuna
-
-    // this.personaChartData = [this.PersonasPet, this.PersonasPead, this.PersonasPebd, this.PersonasCarton, this.PersonasLatas];
-    // this.personaChartOptions = {
-    //   responsive: true,
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     position :"right",	
-    //     display: true,
-    //       labels: {
-    //       fontColor: '#585757',  
-    //       boxWidth:15
-    //       }
-    //   },
-    //   animation: {
-    //     animateScale: false,
-    //     animateRotate: true,
-    //     duration: 500,
-    //     easing: 'linear'
-    //   }
-      
-    // }
-
-    // this.edadChartOptions = {
-    //   responsive: true,
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     position :"right",	
-    //     display: true,
-    //       labels: {
-    //       fontColor: '#585757',  
-    //       boxWidth:15
-    //       }
-    //   },
-    //   animation: {
-    //     animateScale: false,
-    //     animateRotate: true,
-    //     duration: 500,
-    //     easing: 'linear'
-    //   }
-      
-    // }
-
-    // this.generoChartOptions = {
-    //   responsive: true,
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     position :"right",	
-    //     display: true,
-    //       labels: {
-    //       fontColor: '#585757',  
-    //       boxWidth:15
-    //       }
-    //   },
-    //   animation: {
-    //     animateScale: false,
-    //     animateRotate: true,
-    //     duration: 500,
-    //     easing: 'linear'
-    //   }
-      
-    // }
-
-    this.puntoLimpioChartOptions = {
-      scaleShowVerticalLines: false,
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        display: true,
-        labels: {
-        fontColor: '#585757',  
-        boxWidth:40
-        }
-      },
-      scales: {
-        xAxes: [{
-          
-        ticks: {
-          beginAtZero:true,
-          fontColor: '#585757'
-        },
-        gridLines: {
-          display: true ,
-          color: "rgba(0, 0, 0, 0.07)"
-        },
-        
-        }],
-        
-        yAxes: [{
-          ticks: {
-            beginAtZero:true,
-            fontColor: '#585757'
-          },
-          gridLines: {
-            display: true ,
-            color: "rgba(0, 0, 0, 0.07)"
-          },
-          }]
-         
-      },
-      animation: {
-        animateScale: true,
-        animateRotate: false,
-        duration: 500,
-        easing: 'linear'
-      }
-    
-    };
-    
-    // this.chart?.update();
   }
 
 
   async getComunas()
   {
+    //insertamos un loader spinner en HTML a traves de innerHTML;
 
+    let loader = '<div id="loader" style="border: 16px solid #f3f3f3; border-radius: 50%; border-top: 16px solid blue; border-bottom: 16px solid blue; width: 120px; height: 120px; -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; margin-left: 32%;"></div> <p class="text-center pt-2">Cargando información...</p>';
+    let loaderCol4 = '<div id="loader" style="border: 16px solid #f3f3f3; border-radius: 50%; border-top: 16px solid blue; border-bottom: 16px solid blue; width: 120px; height: 120px; -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; margin-left: 25%;"></div> <p class="text-center pt-2">Cargando información...</p>';
+    const comuna = document.getElementById('comuna-render');
+    const material = document.getElementById('material-render');
+    const edad = document.getElementById('edad-render');
+    const gender = document.getElementById('genero-render');
+    const cleanPoints = document.getElementById('puntosLimpios-render');
+
+    //debe ir dentro de if porque Sr typeScript no quiere nada indefinido
+    if(comuna) comuna.innerHTML = loader;
+    if(cleanPoints) cleanPoints.innerHTML = loader;
+    if(material) material.innerHTML = loaderCol4;
+    if(edad) edad.innerHTML = loaderCol4;
+    if(gender) gender.innerHTML = loaderCol4;
+    
+    
     await this.firebaseSer.getRutasCompletadas().then(
       async data =>
        {
          this.dathax = data;
-  
          let largo = Object.keys(this.dathax).length;
-
-         
-
           for (let i = 1; i < largo; i++) 
           {
            let date = new Date().getFullYear();
          
            if(date == this.dathax[i].timestamp.slice(0,4) )
            {
+             //sumamos la info para materiales
+            this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
+            this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+            this.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+            this.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+            this.latas += parseFloat(this.dathax[i].kilosreciclaje5);
+
              //sumamos las cantidades totales para TIpo De material reciclado
             this.PersonasPet +=  parseFloat(this.dathax[i].kilosreciclaje1);
             this.PersonasPead += parseFloat(this.dathax[i].kilosreciclaje2);
@@ -994,38 +651,293 @@ export class ResumenComponent implements OnInit {
          
          for(let i=5; i < 33; i++ )
          {
-          // console.log(this.top6 +'+'+ this.comunaArray[i].peso);
            this.top6 += this.comunaArray[i].peso;
          }
 
  
        }
      )
-     
+    //INICIO Graficosd
+    //instanciamos la id que recibira la info del grafico
+    let ChargedComuna = '<div id="chart-comuna-resumen"></div>';
+    let ChargedMaterial = '<div id="chart-material-resumen"></div>';
+    let ChargedEdad = '<div id="chart-edad-resumen"></div>';
+    let ChargedGender = '<div id="chart-genero-resumen"></div>';
+
+
     
-    this.ngOnDestroy();
+
+    //cargamos ahora esa info
+    if(comuna) comuna.innerHTML = ChargedComuna;
+    if(material) material.innerHTML = ChargedMaterial;
+    if(edad) edad.innerHTML = ChargedEdad;
+    if(gender) gender.innerHTML = ChargedGender;
+
+
+     // INICIO cosas de Comuna
+
+     this.optionsComuna = {
+      chart: {
+          height: 480,
+          type: 'pie',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000","#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+           
+      },
+      series: [Math.round(((this.top1 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top2 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top3 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top4 /1000) + Number.EPSILON)*100)/100, Math.round(((this.top5 /1000) + Number.EPSILON)*100)/100,Math.round(((this.top6 /1000) + Number.EPSILON)*100)/100],
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#505050"],
+      labels: [this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
+      legend: {
+        customLegendItems:[this.topName1, this.topName2, this.topName3, this.topName4, this.topName5, "Otras comunas"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
+        }
+      },
+      // responsive: [{
+      //     breakpoint: 480,
+      //     options: {
+      //         chart: {
+      //             height: 330
+      //         },
+      //         legend: {
+      //             position: 'bottom'
+      //         }
+      //     }
+      // }]
+  
+    }
+
+    //fin cosas de comuna
+
+    //inicio cositas de genero
+    this.optionsGenero = {
+      chart: {
+          height: 480,
+          type: 'donut',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+         
+      },
+      series: [ Math.round(((this.Masculino /1000) + Number.EPSILON)*100)/100,  Math.round(((this.Femenino /1000) + Number.EPSILON)*100)/100, Math.round(((this.No_especifica /1000) + Number.EPSILON)*100)/100],
+      colors: ["#7934f3", "#f43643", "#04b962"],
+      labels: ["Masculino", "Femenino", "No especifica"],
+      legend: {
+        customLegendItems:["Masculino", "Femenino", "No especifica"],
+        
+        formatter: function(abc:any, opts:any) {
+            // return opts.w.globals.series[opts.seriesIndex]
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
+        },
+        position: 'bottom',
+      },
+    }
+
+    //fin cositas de genero
+
+    //inicio opciones de mamteriales
+    this.optionsMateriales = {
+      chart: {
+          height: 480,
+          type: 'donut',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [Math.round(((this.pet/1000) + Number.EPSILON)*100)/100, Math.round(((this.pead/1000) + Number.EPSILON)*100)/100, Math.round(((this.pebd/1000) + Number.EPSILON)*100)/100, Math.round(((this.carton/1000) + Number.EPSILON)*100)/100, Math.round(((this.latas/1000) + Number.EPSILON)*100)/100],
+      colors: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"],
+      labels: ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+      legend: {
+        customLegendItems:["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
+        },
+        position: 'bottom',
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+
+    //fin opciones de mamteriales
+    
+    //inicio opciones rango etario
+    this.optionsEdad = {
+      chart: {
+          height: 480,
+          type: 'pie',
+          foreColor: '#4e4e4e',
+      },
+      dataLabels: {
+          enabled: true,
+          style:{
+            colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+            fontSize: '15px',
+            fontFamily: 'Helvetica',
+            fontWeight:'0px'
+          },
+          textAnchor: 'start' 
+      },
+      series: [Math.round(((this.A.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.B.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.C.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.D.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.E.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.F.total/1000) + Number.EPSILON) * 100) / 100, Math.round(((this.G.total/1000) + Number.EPSILON) * 100) / 100],
+      colors: ["#04b962", "#ff8800", "#14b6ff", "#94614f", "#7934f3", "#4A235A", "#2874A6"],
+      labels: ["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+      legend: {
+        customLegendItems:["De 6 a 14", "15 a 24", "25 a 34", "35 a 44", "45 a 54", "55 a 64", "65 ó más"],
+        
+        formatter: function(abc:any, opts:any) {
+            return abc + " - " + opts.w.globals.series[opts.seriesIndex] + " Tons"
+        },
+        position: 'bottom',
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+              chart: {
+                  height: 330
+              },
+              legend: {
+                  position: 'bottom'
+              }
+          }
+      }]
+  
+    }
+
+    //fin opciones rango etario
+    
+    
+    //genero
+    this.chart2?.destroy();
+    this.chart2 = new ApexCharts(
+      document.querySelector("#chart-genero-resumen"),
+      this.optionsGenero
+    );
+    await this.chart2?.render();
+
+    //comuna
+    this.chart?.destroy();
+    this.chart = new ApexCharts(
+      document.querySelector("#chart-comuna-resumen"),
+      this.optionsComuna
+    );
+   await this.chart?.render();
+
+   //material
+    this.chartMaterial?.destroy();
+    this.chartMaterial = new ApexCharts(
+      document.querySelector("#chart-material-resumen"),
+      this.optionsMateriales
+    );
+    await this.chartMaterial?.render();
+
+    //edad
+    this.chartEdad?.destroy();
+
+    this.chartEdad = new ApexCharts(
+      document.querySelector("#chart-edad-resumen"),
+      this.optionsEdad
+    );
+
+    this.chartEdad?.render();
+     
+    this.puntoLimpioChartOptions = {
+      scaleShowVerticalLines: false,
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: true,
+        labels: {
+        fontColor: '#585757',  
+        boxWidth:40
+        }
+      },
+      scales: {
+        xAxes: [{
+          
+        ticks: {
+          beginAtZero:true,
+          fontColor: '#585757'
+        },
+        gridLines: {
+          display: true ,
+          color: "rgba(0, 0, 0, 0.07)"
+        },
+        
+        }],
+        
+        yAxes: [{
+          ticks: {
+            beginAtZero:true,
+            fontColor: '#585757'
+          },
+          gridLines: {
+            display: true ,
+            color: "rgba(0, 0, 0, 0.07)"
+          },
+          }]
+         
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: false,
+        duration: 500,
+        easing: 'linear'
+      }
+    
+    };
+
+    //FIn graficos
   }
 
   async getAdress(lng:any,lat:any, total:number): Promise<any>
   {
     //en la consulta primero va lng, lat
     //de la bd vienen lat,lng
-    // let lng = '-73.023'
-    // let lat = '-36.813'
 
     let api_key = 'pk.eyJ1IjoibHVpc20taXQiLCJhIjoiY2wzMHNjcHNuMXNnbzNicDJxZjJnMDgyNSJ9.977eW4ZB5TbbKJFgicE7Mg'
     return this.http.get<IGeocoderResult>(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?country=cl&limit=1&types=place%2Cpostcode%2Caddress&language=es&access_token=${api_key}`)
       .toPromise()  
       .then((resp:any) => {
-        // console.log(resp.features[0].place_name)
         let adress = resp.features[0].place_name;
         let city = adress.split(",");
         //this.ciudad almacena el nombre de la comuna claudio gay 1, Talcahuano
         this.ciudad = city[1];
         //le quitamos el primer caracter a this.ciudad porque es un espacio
         this.ciudad = this.ciudad.substring(1);
-
-   
         total = Math.round((total));
 
         //comienza el ciclo de ifs
@@ -1128,8 +1040,6 @@ export class ResumenComponent implements OnInit {
         if (this.ciudad == 'San Pedro De La Paz' || this.ciudad == 'San Pedro de la Paz') {
           this.comunaArray[24].peso += total;
         }
-
-
         if (this.ciudad == 'San Rosendo') {
           this.comunaArray[25].peso += total;
         }
@@ -1168,64 +1078,23 @@ export class ResumenComponent implements OnInit {
   async infoPuntosFijos(){
     await this.firebaseSer.getPuntosFijos().then( async data =>
       {
-
-        let largo = Object.keys(data).length;
-
-        console.log(largo)
-        
+        // const cleanPoints = document.getElementById('puntosLimpios-render');
+        // const ChargedCleanPoins = '<canvas baseChart [datasets]="puntoLimpioChartData" [labels]="puntoLimpioChartLabels" [options]="puntoLimpioChartOptions" [colors]="puntoLimpioChartColors" [legend]="puntoLimpioChartLegend" [chartType]="puntoLimpioChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>';
+        // if(cleanPoints) cleanPoints.innerHTML = ChargedCleanPoins;
+        let largo = Object.keys(data).length;    
         for (let i = 0; i < largo; i++) {
 
           this.nombrePuntoFijo.push(data[i].nombre);
           this.plasticos.push(data[i].fijo_punto_plasticos);
           this.latasAluminio.push(data[i].fijo_punto_latas);
           this.cartonPapel.push(data[i].fijo_punto_carton);
-
-          console.log(data[i]);
-        }
-
-        console.log(this.nombrePuntoFijo);
-        console.log(this.plasticos);
-        console.log(this.latasAluminio);
-        console.log(this.cartonPapel);
-        
+        } 
       });
+
   }
 
   infoGenero(id:any) {
     return this.firebaseSer.getGenero(id);
-  }
-
-  
-  async obtenerRutasCompletadas()
-  {
-   await this.firebaseSer.getRutasCompletadas().then(
-     data =>
-      {
-        this.dathax = data;
-        // console.log(data);
-        let largo = Object.keys(this.dathax).length;
-        // console.log('Largo:' + largo);
-        let date = new Date().getFullYear();
-         for (let i = 1; i < largo; i++) 
-         {
-
-          if(date == this.dathax[i].timestamp.slice(0,4) )
-          {
-          
-          this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
-          this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-          this.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-          this.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-          this.latas += parseFloat(this.dathax[i].kilosreciclaje5);
-          
-          }
-
-        }
-      }
-    )
-
-    this.ngOnDestroy();
-    
   }
 
   infoFechaNacimiento(id:any)

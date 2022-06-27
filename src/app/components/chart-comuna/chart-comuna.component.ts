@@ -1689,7 +1689,6 @@ Toplabel1 = '';
 
   generateExcel()
   {
-    console.log('hello');
     //le pasamos la id de la tabla al excel guy, imma right?
     let element = document.getElementById('comuna-table');
     const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);

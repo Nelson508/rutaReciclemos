@@ -4,10 +4,11 @@
 		<!-- Grafico Por Comuna -->
 		<div class="col-lg-6 col-xl-6">
 			<div class="card">
-				<div class="card-header text-uppercase">Reciclaje por Comuna</div>
+				<div class="card-header text-uppercase">Reciclaje por Comuna en {{year}}</div>
 				<div class="card-body">
 					<div class="height-240">
-						<div id="chart-comuna-resumen"></div>
+						<div id="comuna-render">
+						</div>
 						<!-- <canvas baseChart [data]="comunaChartData" [labels]="comunaChartLabels" [options]="comunaChartOptions" [chartType]="comunaChartType" (chartHover)="chartHovered($event)" [colors]="comunaChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
@@ -17,9 +18,10 @@
 		<!-- Bar chart-->
 		<div class="col-lg-6 col-xl-6">
 			<div class="card">
-				<div class="card-header text-uppercase">Reciclaje por Puntos Limpios</div>
+				<div class="card-header text-uppercase">Reciclaje por Puntos Limpios en {{year}}</div>
 				<div class="card-body">
 					<div class="height-240">
+						<!-- <div id="puntosLimpios-render"></div> -->
 						<canvas baseChart [datasets]="puntoLimpioChartData" [labels]="puntoLimpioChartLabels" [options]="puntoLimpioChartOptions" [colors]="puntoLimpioChartColors" [legend]="puntoLimpioChartLegend" [chartType]="puntoLimpioChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 					</div>
 				</div>
@@ -32,10 +34,11 @@
 		<!-- Grafico por Personas -->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Reciclaje por material</div>
+				<div class="card-header text-uppercase">Reciclaje por material en {{year}}</div>
 				<div class="card-body">
 					<div class="height-240">
-						<div id="chart-material-resumen"></div>
+						<div id="material-render"></div>
+						<!-- <div id="chart-material-resumen"></div> -->
 						<!-- <canvas baseChart [data]="personaChartData" [labels]="personaChartLabels" [options]="personaChartOptions" [chartType]="personaChartType" (chartHover)="chartHovered($event)" [colors]="personaChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
@@ -45,10 +48,11 @@
 		<!-- Grafico por Rango Etario -->
 		<div class="col-lg-6 col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Reciclaje por rango etario</div>
+				<div class="card-header text-uppercase">Reciclaje por rango etario en {{year}}</div>
 				<div class="card-body">
 					<div class="height-240">
-						<div id="chart-edad-resumen"></div>
+						<div id="edad-render"></div>
+						<!-- <div id="chart-edad-resumen"></div> -->
 						<!-- <canvas baseChart [data]="edadChartData" [labels]="edadChartLabels" [options]="edadChartOptions" [chartType]="edadChartType" (chartHover)="chartHovered($event)" [colors]="edadChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
@@ -58,10 +62,11 @@
 		<!-- Doughnut chart-->
 		<div class="col-lg- col-xl-4">
 			<div class="card">
-				<div class="card-header text-uppercase">Reciclaje por género</div>
+				<div class="card-header text-uppercase">Reciclaje por género en {{year}}</div>
 				<div class="card-body">
 					<div class="height-240">
-						<div id="chart-genero-resumen"></div>
+						<div id="genero-render"></div>
+						<!-- <div id="chart-genero-resumen"></div> -->
 						<!-- <canvas baseChart [data]="generoChartData" [labels]="generoChartLabels" [options]="generoChartOptions" [chartType]="generoChartType" (chartHover)="chartHovered($event)" [colors]="generoChartColors" (chartClick)="chartClicked($event)"></canvas> -->
 					</div>
 				</div>
