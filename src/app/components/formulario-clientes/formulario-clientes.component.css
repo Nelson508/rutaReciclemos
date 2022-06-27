@@ -28,7 +28,23 @@
   flex-direction: column;
   gap: 30px;
 } */
+.margenes{
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+}
 
+.titulo{
+  font-size: 3.25rem;
+  margin-bottom: 2rem;
+}
+
+.inputsForm{
+  margin: 0;
+  padding: 1rem;
+}
 
 .inputBox{
   position: relative;
@@ -91,8 +107,86 @@
   border: 1px solid #5C0099;
 }
 
+.inputBox span:valid,
+.inputBox span:focus {
+  border: 1px solid #5C0099;
+}
+
 
 .inputBox:nth-child(3) input:valid,
 .inputBox:nth-child(3) input:focus {
   border: 1px solid #8CC63F;
 }
+
+.inputBox select{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+/*   background: #1d2b3a; */
+  border-radius: 5px;
+  outline: none;
+  color: #5e6576;
+  font-size: 1em;
+  transition: 0.5s;
+}
+
+.inputBox select:valid ~ span,
+.inputBox select:focus ~ span {
+  color: #5C0099;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #FFF;
+  border-left: 1px solid #5C0099;
+  border-right: 1px solid #5C0099;
+  letter-spacing: 0.2em;
+}
+
+.inputBox select:valid,
+.inputBox select:focus {
+  border: 1px solid #5C0099;
+}
+
+/* .inputBox .span-text:valid,
+.inputBox .span-text:focus {
+  border: 1px solid #5C0099;
+}
+ */
+.continuar{
+    
+  position: absolute;
+  /* padding-top: 5%;
+  padding-left: 20%;
+  padding-right: 20%; */
+  right: 2.5rem;
+  bottom: 2rem;
+}
+
+.boton{
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  font-family: sans-serif;
+  color: white;
+  background-color: #8cc63f;
+  border: #8cc63f;
+  transition: all .5s linear;
+}
+
+.boton:hover{
+  background: linear-gradient(0.25turn,#8cc63f, #63ad03 ); 
+}
+/* 
+.span-text{
+  display: flex;
+  align-items: center;
+
+  font-weight: 400;
+  line-height: 1.5;
+
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+
+  border-radius: 0.25rem;
+} */
