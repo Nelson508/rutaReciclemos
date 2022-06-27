@@ -12,35 +12,40 @@ export class MaterialesComponent implements OnInit {
     precio:0,
     cantidad: 0,
     disponible:0,
-    nombre: 'Botellas PET'
+    nombre: 'Botellas PET',
+    estado: false
   }
 
   pead = {
     precio:0,
     cantidad:0,
     disponible:0,
-    nombre: 'Envases PEAD'
+    nombre: 'Envases PEAD',
+    estado: false
   }
 
   pebd = {
     precio:0,
     cantidad:0,
     disponible:0,
-    nombre: 'Envases PEBD'
+    nombre: 'Envases PEBD',
+    estado: false
   }
 
   carton = {
     precio:0,
     cantidad:0,
     disponible:0,
-    nombre: 'Cartón y papel'
+    nombre: 'Cartón y papel',
+    estado: false
   }
 
   aluminio = {
     precio:0,
     cantidad:0,
     disponible:0,
-    nombre: 'Latas de aluminio'
+    nombre: 'Latas de aluminio',
+    estado: false
   }
 
   constructor(private firebaseSer: FirebaseService) { }
@@ -49,14 +54,12 @@ export class MaterialesComponent implements OnInit {
     this.getProductosData();
   }
 
-  addToShopCart(cantidad:number, precio:number, disponible:number, nombre:string)
+  addToShopCart(cantidad:number, precio:number, disponible:number, nombre:string, estado: boolean)
   {
-    if(cantidad == 0)
-    {
-      return;
-      //validar que si es menor a 0 que se vaya pa la casa
-    }
-
+    //si la cantidad es igual a 0, no se ingresa ningun valor
+    if(cantidad == 0) return;
+ 
+    //si la cantidad es menor a 0 se le retorna un msj indicando que no es permitido
     if(cantidad < 0)
     {
       
@@ -70,6 +73,7 @@ export class MaterialesComponent implements OnInit {
       });
     }
 
+    //si la cantidad ingresada es mayor a la cantidad disponible se retorna msj con operacion no permitida
     if(cantidad > disponible)
     {
       return Swal.fire({
@@ -81,6 +85,29 @@ export class MaterialesComponent implements OnInit {
         confirmButtonText: 'Aceptar',
       });
     }
+
+      if(estado)
+      {
+        return Swal.fire({
+          title: 'La cantidad ya se ha registrado',
+          icon: 'info',
+          html: `Para ingresar una nueva cantidad, primero elimine sus kilos ingresados con el boton <br> 
+          <i class="fa-solid fa-trash-can" style="color:red"></i>`,
+          
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+   
+
+    if(nombre == 'Botellas PET') this.pet.estado = true;
+    if(nombre == 'Envases PEAD') this.pet.estado = true;
+    if(nombre == 'Envases PEBD') this.pet.estado = true;
+    if(nombre == 'Cartón y papel') this.pet.estado = true;
+    if(nombre == 'Latas de aluminio') this.pet.estado = true;
+
+
 
     let suma = cantidad*precio;
     this.total = this.total + suma;
@@ -105,15 +132,20 @@ export class MaterialesComponent implements OnInit {
 
     this.total = this.total - (cantidad*precio);
 
-    if(name == 'Botellas PET') this.pet.cantidad = 0;
+    if(name == 'Botellas PET')
+    {this.pet.cantidad = 0;  this.pet.estado = false;}
    
-    if(name == 'Envases PEAD') this.pead.cantidad = 0;
+    if(name == 'Envases PEAD')
+    {this.pead.cantidad = 0;  this.pead.estado = false;}
     
-    if(name == 'Envases PEBD')this.pebd.cantidad = 0;
+    if(name == 'Envases PEBD')
+    {this.pebd.cantidad = 0;  this.pebd.estado = false;}
   
-    if(name == 'Cartón y papel') this.carton.cantidad = 0;
+    if(name == 'Cartón y papel')
+    {this.carton.cantidad = 0;  this.carton.estado = false;}
 
-    if(name == 'Latas de aluminio') this.aluminio.cantidad = 0;
+    if(name == 'Latas de aluminio')
+    {this.aluminio.cantidad = 0;  this.aluminio.estado = false;}
 
     Swal.fire({
       title: 'Se han removido sus kilos del total',
