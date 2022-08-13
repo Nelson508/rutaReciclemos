@@ -1,4 +1,6 @@
-
+.animate__fadeOutUp{
+    --animate-duration: 2s;
+  }
 .fondoRuraReciclemos{
     padding-top: 0rem;
     padding-bottom: 5rem;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { FirebaseService } from '../../services/firebase.service';
   styleUrls: ['./tarjetas-precios.component.css']
 })
 export class TarjetasPreciosComponent implements OnInit {
+
+  @Output() activarVentas = new EventEmitter<boolean>();
 
   info: any;
   pet = {
@@ -111,5 +113,9 @@ export class TarjetasPreciosComponent implements OnInit {
       });
 
   }
-
+  
+  ventas(){
+    this.activarVentas.emit(true);
+  }
+  
 }

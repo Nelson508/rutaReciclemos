@@ -50,7 +50,8 @@ import { FormularioClientesComponent } from './formulario-clientes/formulario-cl
     MenuAdminComponent,
     TarjetasPreciosComponent,
     VentasComponent,
-    FormularioClientesComponent
+    FormularioClientesComponent,
+    MaterialesComponent
   ]
 })
 export class ComponentsModule { }

@@ -15,30 +15,17 @@
 					<span class="">Giro</span>
 				</div>
 				<div class="inputBox mt-4">
-					<input type="text" [(ngModel)]="datos.email" required="required">
-					<span>Calle</span>
-				</div>
-				<div class="inputBox mt-4">
-					<input type="text" [(ngModel)]="datos.email" required="required">
-					<span>Correo Electrónico</span>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 col-xl-6">
-				<div class="inputBox mt-4">
-					<input type="text" minlength="1" maxlength="12" [(ngModel)]="datos.rut" required="required">
-					<span>Rut de la Empresa</span>
-				</div>
-				<div class="inputBox mt-4">
-					<select [(ngModel)]="datos.comunas" required="required">
-						<option *ngFor="let comuna of comunas">
-						{{comuna.name}}
+					<select #region (change)="cambioRegion(region.value)" [(ngModel)]="datos.regiones" required="required">
+						<!-- <option disabled selected> Selecciona una opcion</option> -->
+						<option *ngFor="let region of regiones" [value]='toStr(region.comunas)'>
+						{{region.region}}
 						</option>
 					</select>
-					<span class="">Comuna</span>
+					<span class="">Region</span>
 				</div>
 				<div class="inputBox mt-4">
-					<input type="text" [(ngModel)]="datos.email" required="required">
-					<span>Núm. calle</span>
+					<input type="text" [(ngModel)]="datos.calle" required="required">
+					<span>Calle</span>
 				</div>
 				<div class="input-group row mt-4 m-0">
 					<div class="input-group-prepend col-1 p-0">
@@ -50,10 +37,32 @@
 							  <span>Teléfono</span>
 						  </div>
 					  </div>
+				</div>				
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6">
+				<div class="inputBox mt-4">
+					<input type="text" minlength="1" maxlength="12" [(ngModel)]="datos.rut" required="required">
+					<span>Rut de la Empresa</span>
+				</div>
+				<div class="inputBox mt-4">
+					<input type="text" [(ngModel)]="datos.email" required="required">
+					<span>Correo Electrónico</span>
+				</div>
+				<div class="inputBox mt-4">
+					<select [(ngModel)]="datos.comunas" required="required">
+						<!-- <option disabled selected> Selecciona una opcion</option> -->
+						<option *ngFor="let comuna of comunas;">
+						{{comuna['comuna']}}
+						</option>
+					</select>
+					<span class="">Comuna</span>
+				</div>
+				<div class="inputBox mt-4">
+					<input type="text" [(ngModel)]="datos.numCalle" required="required">
+					<span>Núm. calle</span>
 				</div>
 			</div>
 		</div>
-
 		<div class="col-lg-4" style="margin-top: 3%">
             <div class="row continuar ">
                 <button type="button" class="btn boton" (click)="enviarPedido()">CONTINUAR</button>

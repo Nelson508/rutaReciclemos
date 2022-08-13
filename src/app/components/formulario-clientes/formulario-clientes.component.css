@@ -86,7 +86,7 @@
   letter-spacing: 0.2em;
 }
 
-.inputBox:nth-child(2) input:valid ~ span,
+/* .inputBox:nth-child(2) input:valid ~ span,
 .inputBox:nth-child(2) input:focus ~ span {
   color: #FFF;
   background: #5C0099;
@@ -100,7 +100,7 @@
   border-radius: 2px;
   border-left: 1px solid #8CC63F;
   border-right: 1px solid #8CC63F;
-}
+} */
 
 .inputBox input:valid,
 .inputBox input:focus {
@@ -113,10 +113,10 @@
 }
 
 
-.inputBox:nth-child(3) input:valid,
+/* .inputBox:nth-child(3) input:valid,
 .inputBox:nth-child(3) input:focus {
   border: 1px solid #8CC63F;
-}
+} */
 
 .inputBox select{
   width: 100%;

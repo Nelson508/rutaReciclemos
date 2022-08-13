@@ -1,16 +1,21 @@
 <app-menu [Productos]="Productos"></app-menu>
 
-<app-tarjetas-precios></app-tarjetas-precios>
+<app-tarjetas-precios (activarVentas)="activar($event)"></app-tarjetas-precios>
 
 
 <!--INICIO COMPONENTEN VENTAS-->
-<app-ventas></app-ventas>
+<div id="Ventas" *ngIf="mostrarVentas">
+  <!-- <app-ventas></app-ventas> -->
+  <app-materiales (materialesData)="activarFormulario($event)"></app-materiales>
+</div>
 
 
 <!--FIN COMPONENTEN VENTAS-->
 
 <!--INICIO COMPONENTEN FORMULARIO CLIENTES-->
-<app-formulario-clientes></app-formulario-clientes>
+<div class="formulario" *ngIf="mostrarFormulario">
+  <app-formulario-clientes (formData)="addItem($event)"></app-formulario-clientes>
+</div>
 
 
 <!--FIN COMPONENTEN FORMULARIO CLIENTES-->
