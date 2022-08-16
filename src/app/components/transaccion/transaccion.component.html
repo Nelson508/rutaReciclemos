@@ -1,0 +1,69 @@
+<div class="card margenes">
+	<!-- <div class="card-header text-uppercase">Input Group With Buttons</div> -->
+	<!-- <div class="card-body"> -->
+		<div class="titulo">
+			<h1 class="text-center">Ingrese los datos de la empresa</h1>
+		</div>
+		<div class="row inputsForm">
+			<div class="col-12 col-lg-6 col-xl-6">
+                <table class="container">
+                    <thead class="text-center">
+                      <tr>
+                        <th colspan="2" ><h1>Datos de transferencia</h1></th>
+                        <!-- <th><h1>Views</h1></th> -->
+            
+                   
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Razón social:</td>
+                        <td>Ruta Reciclemos SPA</td>
+                      </tr>
+                      <tr>
+                        <td>Rut:</td>
+                        <td>77.513.225-8</td>
+                      </tr>
+                      <tr>
+                        <td>Banco:</td>
+                        <td>Estado</td>
+                      </tr>
+                      <tr>
+                        <td>Tipo de cuenta:</td>
+                        <td>Vista o Chequera electrónica</td>
+                      </tr>
+                      <tr>
+                        <td>N° de cuenta:</td>
+                        <td>90270928381</td>
+                      </tr>
+                      <tr>
+                        <td>Correo:</td>
+                        <td>pagos@rutareciclemos.cl</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="row continuar ">
+                    <button
+                      [disabled]="!flagFinalizar" 
+                      type="button" 
+                      class="btn btn-primary boton"
+                      >FINALIZAR COMPRA</button>
+                </div>
+				
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6">
+        <div class="mx-5">
+          <label for="input-1" style="color: #000; margin-bottom: 1%;">Comprobante de transferencia</label>
+          <input type="file" class="form-control" (change)="capturarFile($event)"  accept=".png, .jpg, .jpeg, .pdf"> 
+        </div>
+
+        <div class="d-flex justify-content-xxl-around flex-lg-row flex-column mt-3 px-3">
+          <img [src]="(previsualizacion) ? previsualizacion : compra.imagen" class="img-fluid w-50">
+        </div>
+				
+			</div>
+		</div>
+
+	
+</div>
