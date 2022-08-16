@@ -17,7 +17,7 @@ import { VentasComponent } from './ventas/ventas.component';
 import { ContadorComponent } from './contador/contador.component';
 import { MaterialesComponent } from './materiales/materiales.component';
 import { FormularioClientesComponent } from './formulario-clientes/formulario-clientes.component';
-
+import { TransaccionComponent } from './transaccion/transaccion.component';
 //import QuillModule from 'quill';
 
 
@@ -38,7 +38,8 @@ import { FormularioClientesComponent } from './formulario-clientes/formulario-cl
     VentasComponent,
     ContadorComponent,
     MaterialesComponent,
-    FormularioClientesComponent
+    FormularioClientesComponent,
+    TransaccionComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +52,8 @@ import { FormularioClientesComponent } from './formulario-clientes/formulario-cl
     TarjetasPreciosComponent,
     VentasComponent,
     FormularioClientesComponent,
-    MaterialesComponent
+    MaterialesComponent,
+    TransaccionComponent
   ]
 })
 export class ComponentsModule { }
