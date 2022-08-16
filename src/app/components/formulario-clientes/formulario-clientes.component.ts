@@ -629,7 +629,7 @@ export class FormularioClientesComponent implements OnInit {
     // }
     
     //Validación comuna
-    if(dates.comunas == ''){
+    if(dates.comunas == 'asdda'){
       return 'Seleccione una comuna';
     }
 

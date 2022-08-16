@@ -4,17 +4,21 @@
 
 
 <!--INICIO COMPONENTEN VENTAS-->
-<div id="Ventas" *ngIf="mostrarVentas">
-  <!-- <app-ventas></app-ventas> -->
-  <app-materiales (materialesData)="activarFormulario($event)"></app-materiales>
+<div *ngIf="mostrarVentas">
+  <div id="Ventas">
+    <!-- <app-ventas></app-ventas> -->
+    <app-materiales (materialesData)="activarFormulario($event)"></app-materiales>
+  </div>
 </div>
 
 
 <!--FIN COMPONENTEN VENTAS-->
 
 <!--INICIO COMPONENTEN FORMULARIO CLIENTES-->
-<div class="formulario" *ngIf="mostrarFormulario">
-  <app-formulario-clientes (formData)="addItem($event)"></app-formulario-clientes>
+<div class="formulario">
+  <div  *ngIf="mostrarFormulario">
+    <app-formulario-clientes (formData)="addItem($event)"></app-formulario-clientes>
+  </div>
 </div>
 
 
