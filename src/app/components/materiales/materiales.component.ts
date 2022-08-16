@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Swal from 'sweetalert2';
 import {FirebaseService} from '../../services/firebase.service';
 @Component({
@@ -7,6 +7,9 @@ import {FirebaseService} from '../../services/firebase.service';
   styleUrls: ['./materiales.component.css']
 })
 export class MaterialesComponent implements OnInit {
+
+  @Output() materialesData = new EventEmitter<any>();
+
   total:number = 0;
   pet = {
     precio:0,
@@ -189,6 +192,17 @@ export class MaterialesComponent implements OnInit {
 
       }
     )
+  }
+
+  enviarMateriales(){
+
+    this.datosFormulario(0);
+    console.log(0);
+  }
+
+  datosFormulario(value: any) {
+    this.materialesData.emit(value);
+    console.log(0);
   }
 
 }
