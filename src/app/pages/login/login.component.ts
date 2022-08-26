@@ -14,8 +14,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   accesso = {
-    usuario: 'Admin',
-    pass: 'Trans-1x7/Z1',
+  /*   usuario: 'Admin',
+    pass: 'Trans-1x7/Z1', */
+    usuario: '',
+    pass: '', 
   }
   //variables de login
   dathax: any;

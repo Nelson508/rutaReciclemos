@@ -2,69 +2,76 @@
     <div class="titulo">
         <h1 class="text-center">Productos</h1>
     </div>
-    <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quidem optio quia incidunt. Fuga architecto amet magni aperiam cum id neque fugit ipsa natus ipsum, pariatur deleniti, facere illum impedit.
+    <div class="texto_productos">
+        <span>
+            En Ruta Reciclemos ofrecemos a los sistemas de gestión individuales o colectivos de la Ley de Responsabilidad Extendida al Productor (Ley REP) la posibilidad de dar cumplimiento de sus metas mediante nuestra estrategia de recolección de residuos reciclables. 
+        </span>
+        <br>
+        <br>
+        <span>
+            A continuación podrá revisar la disponibilidad de los residuos recolectados a través de nuestra aplicación Ruta Reciclemos, seleccione la(s) cantidad(es) que necesite, complete la información solicitada y se emitirá su facturación con certificado de valorización de los residuos seleccionados para dar cumplimiento a sus metas. 
+        </span>
     </div>
 	<div class="d-flex justify-content-xxl-around flex-lg-row flex-column">
-        <div class="pricing-table pricing-table-color">
-            <div class="titulo">
-                <h3 class="text-center">&nbsp;</h3>
-               <!--  <h3 class="text-center">&nbsp;	&micro; 	&para;</h3> -->
-                <!-- <h3 class="text-center">Coca Cola</h3> -->
+        <div class="d-flex justify-content-xxl-around flex-lg-row flex-column enmarcado">
+            <div class="pricing-table pricing-table-color">
+                <div class="titulo">
+                    <h3 class="text-center">&nbsp;</h3>
+                   <!--  <h3 class="text-center">&nbsp;	&micro; 	&para;</h3> -->
+                    <!-- <h3 class="text-center">Coca Cola</h3> -->
+                </div>
+                <div class="card" style="background-color: #FFEA00;">
+                    <div class="card-body text-center">
+                        <div class="price-title">Botellas PET</div>
+                        <img src="assets/images/img/PET.png">
+                        <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pet.precio}}<small class="currency">CLP/kg</small></h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item" style="color: #223150;">Disponible <b>{{pet.cantidad}} {{pet.tipo}}</b></li>
+                        </ul>
+                        <a class="btn btn-link text-primary bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()"><p class="botonText">Comprar</p></a>
+                    </div>
+                </div>
             </div>
-            <div class="card" style="background-color: #FFEA00;">
-                <div class="card-body text-center">
-                    <div class="price-title">Botellas PET</div>
-                    <img src="assets/images/img/PET.png">
-                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pet.precio}}<small class="currency">CLP/kg</small></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item" style="color: #223150;">Disponible <b>{{pet.cantidad}} {{pet.tipo}}</b></li>
-                    </ul>
-                    <a class="btn btn-link text-primary bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()"><p class="botonText">Comprar</p></a>
+            <div class="pricing-table pricing-table-color">
+                <div class="titulo">
+                    <h3 class="text-center">Plásticos</h3>
+                </div>
+                <div class="card" style="background-color: #FDDA0D;">
+                    <div class="card-body text-center">
+                        <div class="price-title">Envases PEAD</div>
+                        <img src="assets/images/img/PEAD.png">
+                        <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pead.precio}}<small class="currency">CLP/kg</small></h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item" style="color: #223150;">Disponible <b>{{pead.cantidad}} {{pead.tipo}}</b></li>
+                        </ul>
+                        <a class="btn btn-link text-danger bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-table pricing-table-color">
+                <div class="titulo">
+                    <h3 class="text-center">&nbsp;</h3>
+                    <!-- <h3 class="text-center">Coca&nbsp;Cola</h3> -->
+                </div>
+                <div class="card" style="background-color: #DFFF00;">
+                    <div class="card-body text-center">
+                        <div class="price-title">Envases PEBD</div>
+                        <img src="assets/images/img/PEBD.png">
+                        <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pebd.precio}}<small class="currency">CLP/kg</small></h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item" style="color: #223150;">Disponible <b>{{pebd.cantidad}} {{pebd.tipo}}</b></li>
+                        </ul>
+                        <a class="btn btn-link text-success bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()">Comprar</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="pricing-table pricing-table-color">
+        <div class="pricing-table pricing-table-color enmarcado">
             <div class="titulo">
-                <h3 class="text-center">Plasticos</h3>
-            </div>
-            <div class="card" style="background-color: #FDDA0D;">
-                <div class="card-body text-center">
-                    <div class="price-title">Envases PEAD</div>
-                    <img src="assets/images/img/PEAD.png">
-                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pead.precio}}<small class="currency">CLP/kg</small></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item" style="color: #223150;">Disponible <b>{{pead.cantidad}} {{pead.tipo}}</b></li>
-                    </ul>
-                    <a class="btn btn-link text-danger bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()">Comprar</a>
-                </div>
-            </div>
-        </div>
-        <div class="pricing-table pricing-table-color">
-            <div class="titulo">
-                <h3 class="text-center">&nbsp;</h3>
-                <!-- <h3 class="text-center">Coca&nbsp;Cola</h3> -->
-            </div>
-            <div class="card" style="background-color: #DFFF00;">
-                <div class="card-body text-center">
-                    <div class="price-title">Envases PEBD</div>
-                    <img src="assets/images/img/PEBD.png">
-                    <h2 class="price" style="color: #223150;"><small class="currency">$</small>{{pebd.precio}}<small class="currency">CLP/kg</small></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item" style="color: #223150;">Disponible <b>{{pebd.cantidad}} {{pebd.tipo}}</b></li>
-                    </ul>
-                    <a class="btn btn-link text-success bg-white my-3 btn-round" href="/productos#Ventas" (click)="ventas()">Comprar</a>
-                </div>
-            </div>
-        </div>
-        <div class="pricing-table pricing-table-color">
-            <div class="titulo">
-                <h3 class="text-center">Carton y papel</h3>
+                <h3 class="text-center">Cartón y papel</h3>
             </div>
             <div class="card" style="background-color: #0096FF;">
                 <div class="card-body text-center">
@@ -79,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="pricing-table pricing-table-color">
+        <div class="pricing-table pricing-table-color enmarcado">
             <div class="titulo flex-shrink-1">
                 <h3 class="text-center">Aluminio</h3>
             </div>

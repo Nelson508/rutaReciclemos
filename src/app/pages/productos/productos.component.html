@@ -6,7 +6,6 @@
 <!--INICIO COMPONENTEN VENTAS-->
 <div *ngIf="mostrarVentas">
   <div id="Ventas">
-    <!-- <app-ventas></app-ventas> -->
     <app-materiales (materialesData)="activarFormulario($event)"></app-materiales>
   </div>
 </div>
@@ -16,8 +15,8 @@
 
 <!--INICIO COMPONENTEN FORMULARIO CLIENTES-->
 <div class="formulario">
-  <div  *ngIf="mostrarFormulario">
-    <app-formulario-clientes (formData)="addItem($event)"></app-formulario-clientes>
+  <div *ngIf="mostrarFormulario">
+    <app-formulario-clientes (formData)="atcivarTransaccion($event)"></app-formulario-clientes>
   </div>
 </div>
 
@@ -25,7 +24,11 @@
 <!--FIN COMPONENTEN FORMULARIO CLIENTES-->
 
 <!--INICIO COMPONENTE TRANSACCION-->
-<app-transaccion></app-transaccion>
+<div class="transaccion">
+  <div *ngIf="mostrarTransaccion">
+    <app-transaccion></app-transaccion>
+  </div>
+</div>
  
 <!--FIN COMPONENTE TRANSACCION-->
 

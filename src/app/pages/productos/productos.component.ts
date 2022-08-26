@@ -13,6 +13,7 @@ export class ProductosComponent implements OnInit {
 
   mostrarVentas = false;
   mostrarFormulario = false;
+  mostrarTransaccion = false;
 
   datos = 
   {
@@ -38,6 +39,9 @@ export class ProductosComponent implements OnInit {
     //this.ocultar = false;
    
     this.mostrarVentas = activar;
+    this.mostrarFormulario = false;
+    this.mostrarTransaccion = false;
+
    
   }
 
@@ -53,6 +57,8 @@ export class ProductosComponent implements OnInit {
     setTimeout(() => {
       this.mostrarVentas = false;
       this.mostrarFormulario = true;
+      this.mostrarTransaccion = false;
+
     }, 2000);
 
     //this.mostrarVentas = false;
@@ -60,16 +66,24 @@ export class ProductosComponent implements OnInit {
 
   }
 
-  async addItem(newItem: any) {
+  async atcivarTransaccion(newItem: any) {
     //let aux = 0;
     const element = document.querySelector('.formulario');
-    await element!.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__delay-4s');
+    await element!.classList.remove('animate__fadeInUp', 'animate__delay-2s');
+    await element!.classList.add('animate__fadeOutUp', 'animate__delay-1s');
+    const elementoFrmulario = document.querySelector('.transaccion');
+    await elementoFrmulario!.classList.add('animate__animated', 'animate__fadeInUp', 'animate__delay-2s');
     //this.ocultar = false;
     console.log(newItem);
 
-    this.mostrarVentas = false;
-    this.mostrarFormulario = false;
+    setTimeout(() => {
+      this.mostrarVentas = false;
+      this.mostrarFormulario = false;
+      this.mostrarTransaccion = true;
+    }, 2000);
 
   }
+
+
 
 }
