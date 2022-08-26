@@ -14,6 +14,7 @@ export class FormularioClientesComponent implements OnInit {
   @Output() formData = new EventEmitter<string>();
 
   toStr = JSON.stringify;
+  optionSelect = true;
 
   datos = 
   {
@@ -588,7 +589,8 @@ export class FormularioClientesComponent implements OnInit {
    
     this.comunas = JSON.parse(region);
    console.log(JSON.parse(region)); 
-   console.log(this.comunas[0].comuna); 
+   console.log(this.comunas[0].comuna);
+   this.optionSelect=false;
 
   //  console.log(region.toString());
   //  console.log(JSON.parse(region)); 

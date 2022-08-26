@@ -21,7 +21,7 @@
 						{{region.region}}
 						</option>
 					</select>
-					<span class="">Region</span>
+					<span class="">Región</span>
 				</div>
 				<div class="inputBox mt-4">
 					<input type="text" [(ngModel)]="datos.calle" required="required">
@@ -50,7 +50,8 @@
 				</div>
 				<div class="inputBox mt-4">
 					<select [(ngModel)]="datos.comunas" required="required">
-						<!-- <option disabled selected> Selecciona una opcion</option> -->
+						<option disabled *ngIf="optionSelect">Seleccione una región</option>
+						<option disabled selected *ngIf="!optionSelect">Seleccione una comuna</option>
 						<option *ngFor="let comuna of comunas;">
 						{{comuna['comuna']}}
 						</option>

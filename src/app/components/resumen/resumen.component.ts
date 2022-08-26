@@ -552,7 +552,8 @@ export class ResumenComponent implements OnInit {
              await this.getAdress(lat,lng, total);
 
              //Comienzo de trabajo para chart-genero
-             let element = this.dathax[i].uid;
+             let element = this.dathax[i].id;
+             console.log( this.dathax[i]);
              let genero = await this.infoGenero(element);
 
              if(genero == 'Masculino')

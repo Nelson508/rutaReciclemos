@@ -283,3 +283,20 @@ img {
     border-top-left-radius: 60px !important;
     border-bottom-right-radius: 60px !important;
 } */
+
+.texto_productos{
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.texto_productos span {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    text-align: justify;
+    font-family:  sans-serif; 
+}
+
+.enmarcado{
+    border: 5px solid #CFCFCF;
+}
