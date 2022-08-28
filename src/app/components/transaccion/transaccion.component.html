@@ -1,9 +1,8 @@
 <div class="card margenes">
-	<!-- <div class="card-header text-uppercase">Input Group With Buttons</div> -->
-	<!-- <div class="card-body"> -->
-		<div class="titulo">
+
+		<!-- <div class="titulo">
 			<h1 class="text-center">Ingrese los datos de la empresa</h1>
-		</div>
+		</div> -->
 		<div class="row inputsForm">
 			<div class="col-12 col-lg-6 col-xl-6">
                 <table class="container">
@@ -48,19 +47,24 @@
                       [disabled]="!flagFinalizar" 
                       type="button" 
                       class="btn btn-primary boton"
+                      (click)="compraFinalizada()"
                       >FINALIZAR COMPRA</button>
                 </div>
 				
 			</div>
 			<div class="col-12 col-lg-6 col-xl-6">
         <div class="mx-5">
-          <label for="input-1" style="color: #000; margin-bottom: 1%;">Comprobante de transferencia</label>
+          <label for="input-1" style="color: #000; margin-bottom: 1%;">Adjunte su comprobante de transferencia porfavor</label>
           <input type="file" class="form-control" (change)="capturarFile($event)"  accept=".png, .jpg, .jpeg, .pdf"> 
         </div>
 
         <div class="d-flex justify-content-xxl-around flex-lg-row flex-column mt-3 px-3">
           <img [src]="(previsualizacion) ? previsualizacion : compra.imagen" class="img-fluid w-50">
         </div>
+
+        <!-- <input id="inputFileToLoad" type="file" (change)="encodeImageFileAsURL($event)" />
+        <div id="imgTest"></div> -->
+
 				
 			</div>
 		</div>
