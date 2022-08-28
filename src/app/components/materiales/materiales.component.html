@@ -1,9 +1,9 @@
 <div class="materiales">
     <div class="row py-5">
         <!------------------------INICIO PET--------------------->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-xs-12">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-xs-6">
                     <!-- <img class="imagen" src="assets/images/img/PET.png"> -->
                     <img class="img-fluid rounded-circle" src="../../../assets/images/img/PET.png" alt="..."  style="box-shadow: 0 0 2em rgba(30, 30, 31, 0.932);"/>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="col-lg-8">
                             <div class="row">
                                 <div class="col-lg-10">
-                                    <label for="input-1">Cantidada llevar:</label>
+                                    <label for="input-1">Cantidad a llevar:</label>
                                     <input  type="number" placeholder="0" [(ngModel)]="pet.cantidad" style="text-align: center;width: 95%">
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
 
 
         <!------------------------INICIO PEAD--------------------->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-12">
             <div class="row">
                 <div class="col-lg-3">
                     <!-- <img class="imagen" src="assets/images/img/PET.png"> -->
@@ -111,7 +111,7 @@
 
 
         <!------------------------INICIO PEBD--------------------->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-12">
             <div class="row">
                 <div class="col-lg-3">
                     <!-- <img class="imagen" src="assets/images/img/PET.png"> -->
@@ -274,12 +274,12 @@
 
         <!------------------------INICIO TOTAL Y CONTINUAR ... TOTAL... A LAS FINALES NO NOS QUEDA NADA MAS QUE CONTINUAR------->
         <div class="col-lg-4" style="margin-top: 3%">
-            <div class="row">
-                <h4 class="text-center">Total: ${{total}} CLP</h4>
+            <div class="row totalPrice">
+                <h3 class="text-center">Total: ${{total}} CLP</h3>
             </div>
             
             <div class="row continuar ">
-                <button type="button" class="btn btn-primary boton" (click)="enviarMateriales()">CONTINUAR</button>
+                <button type="button" [disabled]="total <=0" class="btn btn-primary boton" (click)="enviarMateriales()">CONTINUAR</button>
             </div>
         </div>
         <!-----------FIN TOTAL Y CONTINUAR.... -->

@@ -15,14 +15,34 @@ export class TransaccionComponent implements OnInit {
     _id:0,
     titulo: '',
     descripcion: null,
-    imagen:null
+    imagen: ''
   }
+
+  datosInsercion:any = {
+    materiales: {},
+    datosCliente: {},
+    comprobante: ''
+  };
 
   flagFinalizar = false;
 
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+  }
+
+
+  compraFinalizada()
+  {
+    this.datosInsercion.comprobante = this.compra.imagen;
+    Swal.fire({
+      title: 'Su compra se ha efectuado exitosamente',
+      icon: 'success',
+      text: `Gracias por gestionar sus reciclos a través de Ruta Reciclemos. Su transferencia será revisada a través del sistema y posteriormente se le enviará la "Factura de su compra" al correo que nos indicó.`,
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Aceptar',
+    });
   }
 
   capturarFile(e:any){
@@ -50,8 +70,11 @@ export class TransaccionComponent implements OnInit {
     }else{
 
       
+
+      
   
       this.extraerBase64(archivoCapturado).then( (imagen:any) =>{
+        console.log(imagen);
         this.previsualizacion = imagen.base;
         this.compra.imagen = imagen.base;
       })
@@ -67,8 +90,9 @@ export class TransaccionComponent implements OnInit {
 
   extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
     try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      console.log($event);
+      // const unsafeImg = window.URL.createObjectURL($event);
+      // const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
       const reader = new FileReader();
       reader.readAsDataURL($event);
       reader.onload = () => {
@@ -87,4 +111,30 @@ export class TransaccionComponent implements OnInit {
     }
   })
 
+  encodeImageFileAsURL(e:any) {
+
+    const archivoCapturado = e.target.files[0];
+    console.log(archivoCapturado)
+    if (archivoCapturado.length > 0) {
+      var fileToLoad = archivoCapturado;
+
+      var fileReader = new FileReader();
+
+      fileReader.onload = function(fileLoadedEvent:any) {
+        var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+        var newImage = document.createElement('img');
+        newImage.src = srcData;
+        console.log(srcData);
+
+        
+      }
+      fileReader.readAsDataURL(fileToLoad);
+    }else{
+      console.log('no entro')
+    }
+  }
+
+  
+ 
 }

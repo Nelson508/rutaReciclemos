@@ -1,6 +1,6 @@
 .materiales{
     /* background-color: rgba(84, 3, 150, 0.096); */
-    background-color: #0ba7731c;
+    /* background-color: #0ba7731c; */
     color: black;
     padding-left: 2%;
     padding-right: 2%;
@@ -43,4 +43,12 @@
   
   .boton:hover{
     background: linear-gradient(0.25turn,#8cc63f, #63ad03 ); 
+  }
+
+  .totalPrice{
+      border: #000 3px solid;
+      margin-left: 15%;
+      margin-right: 15%;
+      border-radius: 1rem;
+      background-color: #0ba7731c;
   }
