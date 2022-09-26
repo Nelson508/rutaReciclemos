@@ -271,6 +271,7 @@ export class MaterialesComponent implements OnInit {
       if (result.isConfirmed) {
         //continuar a formulario ;)
         this.materialesData.emit(this.objetoMateriales);
+        console.log(this.objetoMateriales);
         
       }
     })

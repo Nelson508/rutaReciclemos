@@ -582,6 +582,8 @@ export class FormularioClientesComponent implements OnInit {
   }
 
   datosFormulario(value: any) {
+    console.log(value);
+    value.regiones = this.comunas[0].comuna;
     this.formData.emit(value);
   }
 
@@ -607,42 +609,41 @@ export class FormularioClientesComponent implements OnInit {
   validacion(dates:any){
 
     //Validación caracteres en el campo nombre de la empresa
-    // var caracteresNombre = /(^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9\-., ]{3,50})+$/g;
+    var caracteresNombre = /(^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9\-., ]{3,50})+$/g;
 
-    // if(caracteresNombre.test(dates.nombre ) == false){
+    if(caracteresNombre.test(dates.nombre ) == false){
       
-    //   return 'El campo nombre de la empresa no permite tener los caracteres ingresados. Con un mínimo de 3 caracteres.';
-    // }
+      return 'El campo "nombre de la empresa" de la empresa no permite tener los caracteres ingresados. Con un mínimo de 3 caracteres.';
+    }
 
     //Validación caracteres en el campo rut de la empresa
-    // var caracteresRut = /(^[kK0-9\-.]{10,12})+$/g;
+    var caracteresRut = /(^[kK0-9\-.]{10,12})+$/g;
 
-    // if(caracteresRut.test(dates.rut ) == false){
+    if(caracteresRut.test(dates.rut ) == false){
       
-    //   return 'El campo rut de la empresa no permite tener los caracteres ingresados.';
-    // }
+      return 'El campo "RUT de la empresa" no permite tener los caracteres ingresados.';
+    }
 
     //Validación caracteres en el campo giro
-    // var caracteresGiro = /(^[A-Za-zÁÉÍÓÚáéíóúñÑ\-., ]{3,50})+$/g;
+    var caracteresGiro = /(^[A-Za-zÁÉÍÓÚáéíóúñÑ\-., ]{3,50})+$/g;
 
-    // if(caracteresGiro.test(dates.giro ) == false){
+    if(caracteresGiro.test(dates.giro ) == false){
       
-    //   return 'El campo giro de la empresa no permite tener los caracteres ingresados. Con un mínimo de 3 caracteres.';
-    // }
+      return 'El campo "giro" no permite tener los caracteres ingresados. Con un mínimo de 3 caracteres.';
+    }
+    
+    //Validación de correo
+    var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    
+    if(correo.test(dates.email) == false){
+      
+      return 'Debe ingresar un correo válido.';
+    }
     
     //Validación comuna
     if(dates.comunas == 'asdda'){
-      return 'Seleccione una comuna';
+      return 'Seleccione una comuna.';
     }
-
-    //Validación de correo
-    // var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    // if(correo.test(dates.email) == false){
-
-    //   return 'Debe ingresar un correo valido.';
-    // }
-
 
 
     // if(dates.direccion == ''){

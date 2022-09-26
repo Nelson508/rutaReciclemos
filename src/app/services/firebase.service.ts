@@ -394,12 +394,9 @@ eliminarInformacion(id:number): Promise<any>{
     
     this.databaseRef.child('infoCliente/' + data._id).set({
       _id:data._id,
-      nombre:data.nombre,
-      rut:data.rut,
-      giro:data.giro,
-      direccion:data.direccion,
-      email:data.email,
-      telefono: data.telefono,
+      datosCliente : data.datosCliente,
+      materiales : data.materiales,
+      comprobante: data.comprobante,
       eliminado: false
     });
   }

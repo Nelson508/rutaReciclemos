@@ -2,9 +2,10 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-6"><h3> <b>&#9312;</b> Seleccione sus productos</h3></div>
+                <div class="col-lg-6" [hidden]='pasos'><h3> <b>&#9313;</b> Ingrese los datos de la empresa</h3></div>
+                <div class="col-lg-6"  [hidden]='!pasos'><h3> <b>&#9314;</b> Ingrese comprobante</h3></div>
 
-                <div class="col-lg-6 timer" > <h3><i class="fa-solid fa-clock"></i> 05:00</h3></div>
+                <div class="col-lg-6 timer"> <h3><i class="fa-solid fa-clock"></i> <b>{{minutesToDday | number:'2.0'}}:{{secondsToDday | number:'2.0'}} | Tiempo restante</b></h3></div>
             </div>
         </div>
     </div>
