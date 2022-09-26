@@ -126,8 +126,15 @@
   border-radius: 5px;
   outline: none;
   color: #5e6576;
+  background-color: white;
   font-size: 1em;
   transition: 0.5s;
+}
+
+
+.inputBox select option{
+  --moz-font-family: 'gilroy-extrabold' !important;
+  font-weight: bold;
 }
 
 .inputBox select:valid ~ span,

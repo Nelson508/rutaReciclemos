@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class TarjetasPreciosComponent implements OnInit {
   @Output() activarVentas = new EventEmitter<boolean>();
 
   info: any;
+  titulo= true;
   pet = {
     cantidad: 0,
     nombre: '',
@@ -46,11 +47,18 @@ export class TarjetasPreciosComponent implements OnInit {
     tipo:''
   }
   
-  constructor(private firebaseSer: FirebaseService) { }
+  constructor(private firebaseSer: FirebaseService,
+              private el:ElementRef) { }
 
   ngOnInit(): void {
 
     this.datosMateriales();
+
+    if(this.el.nativeElement.offsetWidth < 992){
+
+      this.titulo= false;
+
+    }
   }
 
   async datosMateriales(){
@@ -58,7 +66,6 @@ export class TarjetasPreciosComponent implements OnInit {
     await this.firebaseSer.getProductos().then( (data:any) => 
       {
         this.info = data;
-        console.log(data);
 
         this.pet =  this.info[0];
         this.pead =  this.info[1];

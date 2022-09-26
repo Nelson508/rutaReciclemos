@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
+import {FirebaseService} from '../../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaccion',
@@ -8,6 +10,30 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./transaccion.component.css']
 })
 export class TransaccionComponent implements OnInit {
+
+  @Input() datosInsercion: any = {
+    
+    _id: 0,
+    datosCliente : {
+      nombre:'',
+      rut:'',
+      giro:'',
+      direccion:'',
+      email:'',
+      telefono: '',
+      regiones: '',
+      comunas: '',
+    },
+    materiales : {
+      pet: {},
+      pead: {},
+      pebd: {},
+      carton: {},
+      aluminio: {},
+      total: 0,
+    },
+    comprobante: ''
+  };
 
   public previsualizacion: string = '';
   public archivos: any = [];
@@ -18,15 +44,17 @@ export class TransaccionComponent implements OnInit {
     imagen: ''
   }
 
-  datosInsercion:any = {
+ /*  datosInsercion:any = {
     materiales: {},
     datosCliente: {},
     comprobante: ''
   };
-
+ */
   flagFinalizar = false;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer,
+              private firebaseSer: FirebaseService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +63,8 @@ export class TransaccionComponent implements OnInit {
   compraFinalizada()
   {
     this.datosInsercion.comprobante = this.compra.imagen;
+    console.log(this.datosInsercion);
+    this.firebaseSer.setPedido(this.datosInsercion);
     Swal.fire({
       title: 'Su compra se ha efectuado exitosamente',
       icon: 'success',
@@ -42,6 +72,11 @@ export class TransaccionComponent implements OnInit {
       showCancelButton: false,
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'Aceptar',
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+       /*  this.router.navigate(['/', 'productos']); */
+      }
     });
   }
 

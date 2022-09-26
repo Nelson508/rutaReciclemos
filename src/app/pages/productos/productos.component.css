@@ -1,6 +1,7 @@
 .animate__fadeOutUp{
     --animate-duration: 2s;
   }
+
 .fondoRuraReciclemos{
     padding-top: 0rem;
     padding-bottom: 5rem;
@@ -11,13 +12,29 @@
 }
   
 @media (min-width: 576px) {
-.fondoRuraReciclemos{
-    padding-top: 0rem;
-    padding-bottom: 15rem;
-    background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
-    background-size: cover;
-    /*  background-color: #7842a51c; */
-    text-align: center;
+    .fondoRuraReciclemos{
+        padding-top: 0rem;
+        padding-bottom: 15rem;
+        background: url("../../../assets/images/Fondo_Ciudad.png") center center no-repeat;
+        background-size: cover;
+        /*  background-color: #7842a51c; */
+        text-align: center;
+    }
+
 }
 
+.contador{
+    background-color: rgb(117, 115, 119);
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.timer{
+    color: white;
+    text-align: end;
+}
+
+.contenedorVentas{
+    padding-top: 5%;
 }

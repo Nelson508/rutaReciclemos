@@ -53,7 +53,8 @@ import { TransaccionComponent } from './transaccion/transaccion.component';
     VentasComponent,
     FormularioClientesComponent,
     MaterialesComponent,
-    TransaccionComponent
+    TransaccionComponent,
+    ContadorComponent
   ]
 })
 export class ComponentsModule { }
