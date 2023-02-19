@@ -553,7 +553,7 @@ export class ResumenComponent implements OnInit {
 
              //Comienzo de trabajo para chart-genero
              let element = this.dathax[i].id;
-             console.log( this.dathax[i]);
+            /*  console.log( this.dathax[i]); */
              let genero = await this.infoGenero(element);
 
              if(genero == 'Masculino')
@@ -575,6 +575,10 @@ export class ResumenComponent implements OnInit {
             /**** Comienzo de trabajo para chart-edad ***/
              //se consulta la edad desde la BD
              let dateBorn = await this.infoFechaNacimiento(element);
+            /*  console.log(dateBorn); */
+             /* if (dateBorn.length) { 
+             
+             } */
              let age = date - dateBorn.slice(6,10);
 
              if( age >=6 && age <=14)

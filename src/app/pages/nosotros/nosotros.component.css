@@ -229,7 +229,7 @@
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
     text-align: justify;
-    font-family:  sans-serif;
+    font-family: 'gilroy-light'; 
 }
 
 .texto4{
@@ -237,7 +237,7 @@
     margin-bottom: 1.25rem;
     text-align: justify;
     color: white;
-    font-family:  sans-serif;
+    font-family: 'gilroy-light'; 
     font-weight: bold;
 
 }
@@ -282,7 +282,7 @@ a{
     font-size: 1rem;
     text-align: justify;
     color: #5e6576; 
-    font-family:  sans-serif;
+    font-family: sans-serif;
 }
 
 .contenedor{
@@ -402,7 +402,7 @@ a{
       padding-top: 1em;
       padding-left: 6%;
       padding-right: 6%;
-      font-family:  sans-serif;
+      font-family: 'gilroy-light'; 
   }
 
   .muchoTexto2{
@@ -410,7 +410,7 @@ a{
     padding-left: 6%;
     padding-right: 6%;
     padding-bottom: 3%;
-    font-family:  sans-serif;
+    font-family: 'gilroy-light'; 
 }
 
 .itemsREP{
@@ -474,7 +474,7 @@ a{
     /* padding-top: 1em; */
     padding-left: 6%;
     padding-right: 6%;
-    font-family:  sans-serif;
+    font-family: 'gilroy-light'; 
 }
 
 .escasez{

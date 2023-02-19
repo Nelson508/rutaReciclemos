@@ -200,7 +200,7 @@ export class ChartEdadComponent implements OnInit {
           let date = new Date().getFullYear();
           if(date == this.info[i].timestamp.slice(0,4) )
           {
-            let element = this.info[i].uid;
+            let element = this.info[i].id;
             let PET = parseFloat(this.info[i].kilosreciclaje1);
             let PEAD = parseFloat(this.info[i].kilosreciclaje2);
             let PEBD = parseFloat(this.info[i].kilosreciclaje3);

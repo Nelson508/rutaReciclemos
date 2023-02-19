@@ -105,8 +105,23 @@ getRutasCompletadas(): Promise<any> {
     if (snapshot.exists()) {
       // I don't think you need to keep the data in this.data anymore
       this.dataRutasCompletas = snapshot.val();
-      //console.log(this.dataRutasCompletas);
+      /* console.log(this.dataRutasCompletas); */
+      this.dataRutasCompletas = [];
+
+      snapshot.forEach(childrenSnapshot =>{
+       
+        if(childrenSnapshot.val().g == 'Solicitud desde telefono'){
+        /* if(childrenSnapshot.val().g != 'punto_limpio_lleno'){ */
+          this.dataRutasCompletas.push(childrenSnapshot.val());
+        }
+      })
+
+     /*  console.log(this.dataRutasCompletas); */
+
       return this.dataRutasCompletas;
+
+      
+
     } else {
       console.log('No data available');
       return null; // or return another default value, like [] or {} or "";
@@ -123,7 +138,7 @@ getGenero(id:any): Promise<any> {
       //console.log(this.dataGenero);
       return this.dataGenero;
     } else {
-      console.log('No data available');
+      /* console.log('No data available'); */
       return null; // or return another default value, like [] or {} or "";
     }
   });
@@ -136,7 +151,7 @@ getPuntosFijos(): Promise<any> {
       this.puntosFijos = [];
       snapshot.forEach(childrenSnapshot =>{
         this.puntosFijos.push(childrenSnapshot.val());
-        console.log(this.puntosFijos);
+     /*    console.log(this.puntosFijos); */
       });
       return this.puntosFijos;
     } else {
@@ -309,10 +324,10 @@ eliminarInformacion(id:number): Promise<any>{
         // I don't think you need to keep the data in this.data anymore
         this.dataGenero = snapshot.val();
        
-        //console.log(this.dataGenero);
+     /*    console.log(id,this.dataGenero); */
         return this.dataGenero;
       } else {
-        console.log('No data available');
+       /*  console.log('No data available'); */
         return null; // or return another default value, like [] or {} or "";
       }
     });
@@ -371,9 +386,44 @@ eliminarInformacion(id:number): Promise<any>{
     });
   }
 
+  reservarProducto(material:any): Promise<any> {
+
+ 
+    return this.databaseRef.child('productos/').update({
+      0:{
+        cantidad: material.pet.cantidad,
+        nombre:'PET',
+        precio: material.pet.precio
+      },
+      1:{
+        cantidad: material.pead.cantidad,
+        nombre:'PEAD',
+        precio: material.pead.precio
+      },
+      2:{
+        cantidad: material.pebd.cantidad,
+        nombre:'PEBD',
+        precio: material.pebd.precio
+      },
+      3:{
+        cantidad: material.carton.cantidad,
+        nombre:'Cartón y papel',
+        precio: material.carton.precio
+      },
+      4:{
+        cantidad: material.aluminio.cantidad,
+        nombre:'Latas de aluminio',
+        precio: material.aluminio.precio
+      }
+    
+    });
+
+  }
+
   getCliente(): Promise<any> {
 
-    return this.databaseRef.child('infoCliente').once('value').then((snapshot) => {
+    /* return this.databaseRef.child('infoCliente').orderByChild('estado').equalTo('pendiente').once('value').then((snapshot) => { */
+    return this.databaseRef.child('infoCliente').orderByChild('estado').once('value').then((snapshot) => {
       if (snapshot.exists()) {
         // I don't think you need to keep the data in this.data anymore
         this.cliente = [];
@@ -397,7 +447,33 @@ eliminarInformacion(id:number): Promise<any>{
       datosCliente : data.datosCliente,
       materiales : data.materiales,
       comprobante: data.comprobante,
-      eliminado: false
+      fechaCompra: data.fechaCompra,
+      horaCompra: data.horaCompra,
+      estado: 'pendiente'
+    });
+  }
+
+  aprobarPedido( data:any){
+    
+    this.databaseRef.child('infoCliente/' + data._id).set({
+      _id:data._id,
+      datosCliente : data.datosCliente,
+      materiales : data.materiales,
+      comprobante: data.comprobante,
+      fechaCompra: data.fechaCompra,
+      horaCompra: data.horaCompra,
+      estado: 'aprobado'
+    });
+  }
+
+  rechazarPedido( data:any){
+    
+    this.databaseRef.child('infoCliente/' + data._id).set({
+      _id:data._id,
+      datosCliente : data.datosCliente,
+      materiales : data.materiales,
+      comprobante: data.comprobante,
+      estado: 'rechazado'
     });
   }
 }

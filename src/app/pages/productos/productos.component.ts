@@ -24,11 +24,13 @@ export class ProductosComponent implements OnInit {
       nombre:'',
       rut:'',
       giro:'',
-      direccion:'',
+      /* direccion:'', */
       email:'',
       telefono: '',
       regiones: '',
       comunas: '',
+      calle: '',
+      numCalle: ''
     },
     materiales : {
       pet: {},
@@ -104,11 +106,13 @@ export class ProductosComponent implements OnInit {
     this.datos.datosCliente.nombre = newItem.nombre;
     this.datos.datosCliente.rut = newItem.rut;
     this.datos.datosCliente.giro = newItem.giro;
-    this.datos.datosCliente.direccion = newItem.direccion;
+    /* this.datos.datosCliente.direccion = newItem.direccion; */
     this.datos.datosCliente.email = newItem.email;
     this.datos.datosCliente.telefono = newItem.telefono;
     this.datos.datosCliente.regiones = newItem.regiones;
     this.datos.datosCliente.comunas = newItem.comunas;
+    this.datos.datosCliente.calle = newItem.calle;
+    this.datos.datosCliente.numCalle = newItem.numCalle;
     console.log(this.datos, 'datos pro');
 
     setTimeout(() => {

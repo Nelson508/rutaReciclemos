@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {FirebaseService} from '../../services/firebase.service';
+
 
 @Component({
   selector: 'app-contador',
@@ -8,15 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ContadorComponent implements OnInit {
 
   @Input() pasos: boolean = false;
+  @Input() materiales: any;
  
   public secondsToDday = '0';
   public minutesToDday = '5';
 
 
-  constructor() { }
+  constructor(private firebaseSer: FirebaseService) { }
 
   ngOnInit(): void {
     this.cuentaRegresiva();
+    console.log(this.materiales);
   }
 
   cuentaRegresiva(){
@@ -44,10 +48,43 @@ export class ContadorComponent implements OnInit {
       // Si llega a 2:45, eliminar el intervalo
       if( minutes == '00' && seconds == '00' ) {
         clearInterval(interval);
+        this.devolverMateriales();
         window.location.reload();
+
       }
       
     }, 1000);
+  }
+
+  devolverMateriales(){
+
+
+    let material = {
+      pet:{
+        cantidad:(this.materiales.pet.disponible),
+        precio: this.materiales.pet.precio
+      },
+      pead:{
+        cantidad:(this.materiales.pead.disponible),
+        precio: this.materiales.pead.precio
+      },
+      pebd:{
+        cantidad:(this.materiales.pebd.disponible),
+        precio:this.materiales.pebd.precio,
+      },
+      carton:{
+        cantidad:(this.materiales.carton.disponible),
+        precio:this.materiales.carton.precio
+      },
+      aluminio:{
+        cantidad:(this.materiales.aluminio.disponible),
+        precio:this.materiales.aluminio.precio
+      }
+
+    }
+
+    this.firebaseSer.reservarProducto(material);
+    
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
 import Swal from 'sweetalert2';
@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class FormularioClientesComponent implements OnInit {
 
   @Output() formData = new EventEmitter<string>();
+  @Input() materiales: any;
 
   toStr = JSON.stringify;
   optionSelect = true;
@@ -22,7 +23,7 @@ export class FormularioClientesComponent implements OnInit {
     nombre:'',
     rut:'',
     giro:'',
-    direccion:'',
+   /*  direccion:'', */
     email:'',
     telefono: '',
     regiones:'',
@@ -30,6 +31,32 @@ export class FormularioClientesComponent implements OnInit {
     calle: '',
     numCalle: ''
   };
+
+  
+  pet = {
+    precio:0,
+    cantidad: 0
+  }
+
+  pead = {
+    precio:0,
+    cantidad:0
+  }
+
+  pebd = {
+    precio:0,
+    cantidad:0
+  }
+
+  carton = {
+    precio:0,
+    cantidad:0
+  }
+
+  aluminio = {
+    precio:0,
+    cantidad:0
+  }
 
   comunas: any;
 
@@ -542,6 +569,7 @@ export class FormularioClientesComponent implements OnInit {
 
   ngOnInit(): void {
     //this.traerCliente();
+   // this.getProductosData();
   }
 
   async traerCliente(){
@@ -639,23 +667,124 @@ export class FormularioClientesComponent implements OnInit {
       
       return 'Debe ingresar un correo válido.';
     }
+
+    //Validación region
+    if(dates.regiones == ''){
+      return 'Seleccione una región.';
+    }
     
     //Validación comuna
-    if(dates.comunas == 'asdda'){
+    if(dates.comunas == ''){
       return 'Seleccione una comuna.';
     }
 
+    //Validación caracteres en el campo calle
+    var caracteresCalle = /(^[A-Za-zÁÉÍÓÚáéíóúñÑ., ]{3,50})+$/g;
 
-    // if(dates.direccion == ''){
-    //   return 'Ingrese un título para la publicación';
-    // }
+    if(caracteresCalle.test(dates.calle ) == false){
+      
+      return 'El campo "Calle" no permite tener los caracteres ingresados. Con un mínimo de 3 caracteres.';
+    }
 
-    // if(dates.direccion.length > 80){
-    //   return 'El título no debe tener mas de 80 caracteres';
-    // }
+    //Validación caracteres en el campo nuemro de calle
+    var caracteresNumCalle = /(^[0-9]{1,7})+$/g;
+
+    if(caracteresNumCalle.test(dates.numCalle ) == false){
+      
+      return 'El campo "Número de Calle" no permite tener los caracteres ingresados.';
+    }
+
+    //Validación caracteres en el campo telefono
+    var caracteresTelefono = /(^[0-9]{9,9})+$/g;
+
+    if(caracteresTelefono.test(dates.telefono ) == false){
+      
+      return 'El campo "Teléfono" no permite tener los caracteres ingresados.';
+    }
     
-    
-  
   }
 
+  @HostListener("window:beforeunload", ["$event"]) async unloadHandler(event: Event) {
+    console.log("Processing beforeunload...");
+    console.log(this.materiales);
+    // Do more processing...
+    event.returnValue = false;
+
+    await this.getProductosData();
+
+    let cantidadPet = (this.materiales.pet.cantidad == undefined) ? 0 : this.materiales.pet.cantidad;
+    let cantidadPead = (this.materiales.pead.cantidad == undefined) ? 0 : this.materiales.pead.cantidad;
+    let cantidadPebd = (this.materiales.pebd.cantidad == undefined) ? 0 : this.materiales.pebd.cantidad;
+    let cantidadCarton = (this.materiales.carton.cantidad == undefined) ? 0 : this.materiales.carton.cantidad;
+    let cantidadAluminio = (this.materiales.aluminio.cantidad == undefined) ? 0 : this.materiales.aluminio.cantidad;
+
+    console.log(cantidadPet);
+    console.log(cantidadPead);
+    console.log(cantidadPebd);
+    console.log(cantidadCarton);
+    console.log(cantidadAluminio);
+    
+    let material = {
+      pet:{
+        cantidad:( this.pet.cantidad + cantidadPet ),
+        precio: this.pet.precio
+      },
+      pead:{
+        cantidad:(this.pead.cantidad + cantidadPead ),
+        precio: this.pead.precio
+      },
+      pebd:{
+        cantidad:(this.pebd.cantidad + cantidadPebd ),
+        precio:this.pebd.precio,
+      },
+      carton:{
+        cantidad:(this.carton.cantidad + cantidadCarton ),
+        precio:this.carton.precio
+      },
+      aluminio:{
+        cantidad:(this.aluminio.cantidad + cantidadAluminio ),
+        precio:this.aluminio.precio
+      }
+    }
+
+    console.log(material);
+    this.firebaseSer.reservarProducto(material);
+
+    
+  }
+
+  /* @HostListener('window:beforeunload', ['$event'])
+  onBeforeUnload(): void {
+   navigator.sendBeacon('logout');
+  } */
+
+  async getProductosData()  
+  {
+    await this.firebaseSer.getProductos().then(
+      data => 
+      {
+        //pet
+        this.pet.cantidad = data[0].cantidad
+        this.pet.precio = data[0].precio
+
+        //pead
+        this.pead.cantidad = data[1].cantidad
+        this.pead.precio = data[1].precio
+        //pebd
+        this.pebd.cantidad = data[2].cantidad
+        this.pebd.precio = data[2].precio
+
+        //carton
+        this.carton.cantidad = data[3].cantidad
+        this.carton.precio = data[3].precio
+
+        //aluminio
+        this.aluminio.cantidad = data[4].cantidad
+        this.aluminio.precio = data[4].precio
+
+      }
+    )
+
+    console.log(this.pet.cantidad);
+  }
 }

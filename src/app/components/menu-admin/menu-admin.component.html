@@ -34,6 +34,11 @@
             <span>Puntos Limpios</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
+        <div class="sidebar-item" (click)="ventasProductos()">
+            <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
+            <span>Productos</span>
+            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
+        </div>
         <div class="sidebar-item {{ventas}}" (click)="menuClick(7)">
             <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
             <span>Ventas</span>
@@ -42,11 +47,6 @@
         <div class="sidebar-item {{informaciones}}" (click)="menuClick(8)">
             <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
             <span>Informaciones</span>
-            <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
-        </div>
-        <div class="sidebar-item {{informaciones}}" (click)="ventasProductos()">
-            <i class="fa fa-bar-chart" style="color: blue;" aria-hidden="true"></i>
-            <span>Productos</span>
             <i class="fa fa-angle-right" style="float:right;" aria-hidden="true"></i>
         </div>
         <div class="sidebar-item" (click)="cerrarSesion()">
