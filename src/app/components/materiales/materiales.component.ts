@@ -251,7 +251,34 @@ export class MaterialesComponent implements OnInit {
 
   enviarMateriales(){
 
+
+    let material = {
+      pet:{
+        cantidad:(this.pet.disponible - this.pet.cantidad),
+        precio: this.pet.precio
+      },
+      pead:{
+        cantidad:(this.pead.disponible - this.pead.cantidad),
+        precio: this.pead.precio
+      },
+      pebd:{
+        cantidad:(this.pebd.disponible - this.pebd.cantidad),
+        precio:this.pebd.precio,
+      },
+      carton:{
+        cantidad:(this.carton.disponible - this.carton.cantidad),
+        precio:this.carton.precio
+      },
+      aluminio:{
+        cantidad:(this.aluminio.disponible - this.aluminio.cantidad),
+        precio:this.aluminio.precio
+      }
+
+    }
+
+
     this.datosFormulario();
+    this.firebaseSer.reservarProducto(material);
     
   }
 

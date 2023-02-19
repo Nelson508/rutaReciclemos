@@ -3,8 +3,158 @@
    <!---INICIO REGISTROS DE VENTAS-->
     <div class="card">
         <div class="card-header text-uppercase">Registros de ventas Pendientes por aprobar</div>
-        <div class="card-body">
-            
+        <div class="row" style="margin: 0rem 0rem 1rem 0rem;">
+            <div *ngFor="let cliente of pedidoPendiente" class="col-12 col-lg-4 col-xl-4" [hidden]="cliente.ocultar"><!--  [hidden]="cliente.ocultar" -->
+                <div class="card" style="margin-top: 1rem;">  <!-- style="border: none;" -->
+                    <div class="card-body">
+                     <!--    <input type="number" class="form-control" id="_id" name="_id" [ngModel]="cliente._id" required>  -->
+
+                        <p class="mb-0"><span class="float-right">{{cliente.datosCliente.nombre}}</span>
+                        </p>
+                        <!-- <p class="mb-0"><span class="float-right" [hidden]="cliente.ocultar">id: {{cliente._id}}</span>
+                        </p> -->
+                        <div class="">
+                            <h4 class="mb-0 py-3" style="color: #5e6576;"><span class="float-right">{{cliente.materiales.total}} CLP</span></h4>
+                        </div>
+                        <div>
+                            <button class="btn btn-success btn-aceptar m-1" (click)="aceptar(cliente)">Aceptar</button>
+                            <button class="btn btn-danger m-1" (click)="rechazar(cliente)">Rechazar</button>
+                            <button class="btn btn-success m-1" (click)="open(mymodal2)"> <i class="fa fa-eye"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+
+                    <!---COMIENZO MODAL-->
+                    <ng-template #mymodal2 let-modal>
+                    <!--   <form (ngSubmit)="guardarCambios(modalForm.value)" #modalForm="ngForm"> -->
+                        <!--     <pre>{{modalForm.value | json}}</pre> -->
+                        <div class="modal-header">
+                            <!--  <input type="number" class="form-control" id="_id" name="_id" [ngModel]="item._id" ngModel required hidden> -->
+                                <!-- Título -->
+                            <div class="form-group col-12 col-lg-12 col-xl-12">
+                                <label for="input-1">Título</label>
+                            <!--  <input type="text" class="form-control" maxlength="80" id="titulo" name="titulo" [ngModel]="item.titulo" ngModel required> -->
+                                <!-- <span class="caracteres">{{ 80 - modalForm.value.titulo?.length }} caracteres restantes</span> -->
+                            </div>
+                        </div>
+                        <div class="modal-body row">
+                            <!---INICIO PET-->
+                            <div class="item col-6 col-lg-6 col-xl-6">
+                                <table id="tbl" class="table table-striped table-bordered tablita" style="text-align: center;">
+                                    <thead>  <!-- <thead style="background-color:#FFEA00"> -->
+                                        <tr>
+                                            <td colspan="2">Datos empresa</td>
+                                            
+                                        </tr>
+                            
+                                    </thead>
+                            
+                                    <tbody id="waw" style="text-align: center;">
+                                        <tr>
+                                            <td>Nombre de la empresa</td>
+                                            <td>{{cliente.datosCliente.nombre}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rut de la empresa</td>
+                                            <td >{{cliente.datosCliente.rut}}</td>
+                                        <tr>
+                                            <td>Giro</td>
+                                            <td>{{cliente.datosCliente.giro}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Correo electronico</td>
+                                            <td>{{cliente.datosCliente.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Región</td>
+                                            <td>{{cliente.datosCliente.regiones}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comuna</td>
+                                            <td>{{cliente.datosCliente.comunas}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Calle</td>
+                                            <td>{{cliente.datosCliente.calle}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Núm. calle</td>
+                                            <td>{{cliente.datosCliente.numCalle}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teléfono</td>
+                                            <td>{{cliente.datosCliente.telefono}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <thead> 
+                                        <tr>
+                                            <td colspan="2">Datos pedido</td>
+                                        </tr>
+                            
+                                    </thead>
+                                    <tbody id="waw" style="text-align: center;">
+                                        <tr *ngIf="cliente.materiales.pet !== undefined">
+                                            <td>Botellas PET</td>
+                                            <td>{{cliente.materiales.pet.cantidad}} KG</td>
+                                        </tr>
+                                        <tr *ngIf="cliente.materiales.pead !== undefined">
+                                            <td>Envases PEAD</td>
+                                            <td>{{cliente.materiales.pead.cantidad}} KG</td>
+                                        </tr>
+                                        <tr *ngIf="cliente.materiales.pebd !== undefined">
+                                            <td>Envases PEBD</td>
+                                            <td>{{cliente.materiales.pebd.cantidad}} KG</td>
+                                        </tr>
+                                        <tr *ngIf="cliente.materiales.aluminio !== undefined">
+                                            <td>Latas y metales</td>
+                                            <td>{{cliente.materiales.aluminio.cantidad}} KG</td>
+                                        </tr>
+                                        <tr *ngIf="cliente.materiales.carton !== undefined">
+                                            <td>Cartón y papel</td>
+                                            <td>{{cliente.materiales.carton.cantidad}} KG</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                            
+                                </table>
+                            </div>
+                            <!---FIN PET-->
+                            <!-- Imagen -->
+                            
+                            <div class="bg-white rounded shadow-sm col-6 col-lg-6 col-xl-6">
+                                <img src="{{cliente.comprobante}}" alt="" class="img-fluid card-img-top">
+                                
+                              </div>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
+                        
+                        </div>
+                 
+                    </ng-template>
+              <!---FIN MODAL-->
+                </div>
+                
+            <!-- </div> -->
+
+            <div *ngIf="infoClientes == undefined" class="col-12 col-lg-4 col-xl-4">
+                <div class="card" style="border: none;">
+                    <div class="card-body">
+                        <!-- <p class="mb-0"><span class="float-right">{{cliente.datosCliente.nombre}}</span>
+                        </p> -->
+                        <div class="">
+                            <h4 class="mb-0 py-3" style="color: #5e6576;"><span class="float-right">No hay ventas pendientes</span></h4>
+                        </div>
+                       
+
+                    </div>
+                </div>
+
+                
+            </div>
+
             
         </div>
     </div>

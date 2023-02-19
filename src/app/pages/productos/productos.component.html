@@ -34,14 +34,14 @@
 
 <div class="cuentaRegresiva contenedorVentas">
   <div *ngIf="mostrarContador">
-    <app-contador [pasos] = "pasos"></app-contador>
+    <app-contador [pasos] = "pasos" [materiales]="datos.materiales"></app-contador>
   </div>
 </div>
 
 <!--INICIO COMPONENTEN FORMULARIO CLIENTES-->
 <div class="formulario">
   <div *ngIf="mostrarFormulario">
-    <app-formulario-clientes (formData)="atcivarTransaccion($event)"></app-formulario-clientes>
+    <app-formulario-clientes (formData)="atcivarTransaccion($event)" [materiales]="datos.materiales"></app-formulario-clientes>
   </div>
 </div>
 

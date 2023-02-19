@@ -18,11 +18,13 @@ export class TransaccionComponent implements OnInit {
       nombre:'',
       rut:'',
       giro:'',
-      direccion:'',
+     /*  direccion:'', */
       email:'',
       telefono: '',
       regiones: '',
       comunas: '',
+      calle: '',
+      numCalle: ''
     },
     materiales : {
       pet: {},
@@ -32,7 +34,9 @@ export class TransaccionComponent implements OnInit {
       aluminio: {},
       total: 0,
     },
-    comprobante: ''
+    comprobante: '',
+    fechaCompra:'',
+    horaCompra:'' 
   };
 
   public previsualizacion: string = '';
@@ -64,7 +68,22 @@ export class TransaccionComponent implements OnInit {
   {
     this.datosInsercion.comprobante = this.compra.imagen;
     console.log(this.datosInsercion);
+    /* El método getTimezoneOffset() devuelve la diferencia, 
+    en minutos, entre una fecha evaluada en la zona horaria UTC y 
+    la misma fecha evaluada en la zona horaria local. 
+    Luego se multiplican los minutos por 60000 obteniedo la diferencia horaria en milisegundos */
+    let diferenciaZonaHorariaLocal = (new Date()).getTimezoneOffset() * 60000;
+    let localTime = (new Date(Date.now() - diferenciaZonaHorariaLocal)).toISOString();
+    let fechaCompra = localTime.slice(0, 10);
+    let horaCompra = localTime.slice(11, 19);
+
+
+    console.log(fechaCompra);
+    console.log(horaCompra);
+    this.datosInsercion.fechaCompra = fechaCompra;
+    this.datosInsercion.horaCompra = horaCompra;
     this.firebaseSer.setPedido(this.datosInsercion);
+
     Swal.fire({
       title: 'Su compra se ha efectuado exitosamente',
       icon: 'success',

@@ -206,7 +206,7 @@ h1{
 
   .TrazabilidadTexto{
     padding-top: 4%;
-    font-family:  sans-serif;
+    font-family:  'gilroy-light'; 
     /* color: #000; */
     text-align: justify;
   }
@@ -229,7 +229,7 @@ h1{
     /* font-size: 1rem; */
     text-align: justify;
     /* color: #5e6576;  */
-    font-family: sans-serif;
+   /*  font-family:  'gilroy-light';  */
   }
 
   .contIMG {
