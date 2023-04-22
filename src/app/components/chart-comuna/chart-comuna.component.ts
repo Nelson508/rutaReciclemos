@@ -1,6 +1,4 @@
 import { Component,Input, OnInit, ViewChild} from '@angular/core';
-import { ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
 import {FirebaseService} from '../../services/firebase.service';
 import {HttpClient} from '@angular/common/http'
 import { IGeocoderResult } from 'src/app/interfaces/interfaces';
@@ -666,18 +664,6 @@ Toplabel1 = '';
             return abc + " - " + opts.w.globals.series[opts.seriesIndex] + ' Tons'
         }
       },
-      // responsive: [{
-        
-      //     breakpoint: 480,
-      //     options: {
-      //         chart: {
-      //             height: 330
-      //         },
-      //         legend: {
-      //             position: 'bottom'
-      //         }
-      //     }
-      // }]
   
     }
 
@@ -785,53 +771,43 @@ Toplabel1 = '';
    await this.firebaseSer.getRutasCompletadas().then(
      async data =>
       {
+
+        console.log(data);
         this.dathax = data;
         // 2020/04/27
         // 27/04/2020
         // 2020-04-27
         // 27-04-2020
-        // console.log(data);
         let largo = Object.keys(this.dathax).length;
-        // console.log('Largo:' + largo);
          for (let i = 1; i < largo; i++) {
           let date = new Date().getFullYear();
-          // console.log(date)
-          // console.log(this.dathax[i].timestamp.slice(0,4))
+          //validacion por año
+          console.log(this.dathax[i].timestamp.slice(0,4))
           if(date == this.dathax[i].timestamp.slice(0,4) )
           {
-            this.harray.push(this.dathax[i])
-            let pet =  parseFloat(this.dathax[i].kilosreciclaje1);
-            let pead = parseFloat(this.dathax[i].kilosreciclaje2);
-            let pebd = parseFloat(this.dathax[i].kilosreciclaje3);
-            let carton = parseFloat(this.dathax[i].kilosreciclaje4);
-            let latas = parseFloat(this.dathax[i].kilosreciclaje5);
-          
-            //se suman las cantidades para asignarselas a su comuna correspondiente
-            let total = pet + pead + pebd + carton + latas;
-            //traspasamos lng y lat desde BD
-            let lng = this.dathax[i].l[0];
-            let lat = this.dathax[i].l[1];
-          
-            // console.log(` lng: ${lng} | lat: ${lat}`);
-            await this.getAdress(lat,lng, total, pet, pead, pebd, carton, latas);
+            try {
+              this.harray.push(this.dathax[i])
+              let pet =  parseFloat(this.dathax[i].kilosreciclaje1);
+              let pead = parseFloat(this.dathax[i].kilosreciclaje2);
+              let pebd = parseFloat(this.dathax[i].kilosreciclaje3);
+              let carton = parseFloat(this.dathax[i].kilosreciclaje4);
+              let latas = parseFloat(this.dathax[i].kilosreciclaje5);
+            
+              //se suman las cantidades para asignarselas a su comuna correspondiente
+              let total = pet + pead + pebd + carton + latas;
+              //traspasamos lng y lat desde BD
+              let lng = this.dathax[i].l[0];
+              let lat = this.dathax[i].l[1];
+              await this.getAdress(lat,lng, total, pet, pead, pebd, carton, latas);  
+            } catch (error) {
+              console.log(error);
+            }
+            
 
             }else{
-            // console.log('Nel perro' +this.dathax[i].timestamp)
+    
             }          
-          
-          
-          
-          //console.log(total);
-          //npm install mapbox-gl --save
-          //npm i --save-dev @types/mapbox-gl
-          //https://www.youtube.com/watch?v=3p7YyVwUli8&ab_channel=exelfer
-          //https://www.youtube.com/watch?v=Vs5TfSMy3uA&list=PLCKuOXG0bPi0RHirEQB7GJgpfW-Q5m-Xu&index=9&ab_channel=FernandoHerrera
-          //https://www.youtube.com/watch?v=EwZUQuPjakg&ab_channel=SteveGriffith-Prof3ssorSt3v3
-          //https://www.youtube.com/watch?v=H7gZ2hEjwuI&ab_channel=SteveGriffith-Prof3ssorSt3v3
-          // console.log('Lat:' + lat + ' '+ 'Lng:' + lng);
-          //https://docs.mapbox.com/playground/geocoding/?search_text=-73.16250608333128,-36.998693016330655&country=cl&limit=1&types=place%2Cpostcode%2Caddress&language=es
-          
-         
+        
        
 
         }
@@ -1343,9 +1319,6 @@ Toplabel1 = '';
       this.ciudad= city[1];
       //le quitamos el primer caracter a this.ciudad porque es un espacio
       this.ciudad = this.ciudad.substring(1);
-      // console.log(this.ciudad + ' '+ this.ciudad.length)
-      // console.log(total);
-      // total = Math.round((total + Number.EPSILON) * 100) / 100;
 
       //comienza el ciclo de ifs
       if(this.ciudad == 'Alto Biobío')
@@ -1689,12 +1662,9 @@ Toplabel1 = '';
 
   generateExcel()
   {
-    //le pasamos la id de la tabla al excel guy, imma right?
+    //le pasamos la id de la tabla al excel
     let element = document.getElementById('comuna-table');
     const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
-
-    //yenereit workbuk an ad de workshit (worksheet)
-
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'sheet1');
 

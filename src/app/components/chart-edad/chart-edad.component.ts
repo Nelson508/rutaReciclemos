@@ -96,24 +96,6 @@ export class ChartEdadComponent implements OnInit {
     total: 0
   }
 
-  // Pie
-  /* public pieChartLabels: string[] = ["Menores de 18", "18 - 26", "27 - 59", "Mayores de 60"];
-  public pieChartData: number[] = [13, 120, 11, 20];
-  public pieChartType: ChartType = 'pie';
-  public pieChartColors: any[] = [{ backgroundColor: ["#04b962", "#ff8800", "#14b6ff", "#94614f"], borderWidth: [0, 0, 0, 0] }];
-  public pieChartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position :"right",	
-      display: true,
-         labels: {
-         fontColor: '#585757',  
-         boxWidth:15
-        }
-     }
-  
-  }; */
 
   @ViewChild(ApexCharts) chart?: ApexCharts;
 
@@ -191,15 +173,13 @@ export class ChartEdadComponent implements OnInit {
     await this.firebaseSer.getRutasCompletadas().then( async data =>
       {
         this.info = data;
-        /* console.log(this.info['1'].uid); */
-        //var largo =  Object.keys(this.graficoVotacion.opciones).length;
         let largo = Object.keys(this.info).length;
-        //console.log(largo);
 
         for (let i = 1; i < largo; i++) {
           let date = new Date().getFullYear();
           if(date == this.info[i].timestamp.slice(0,4) )
           {
+            try {
             let element = this.info[i].id;
             let PET = parseFloat(this.info[i].kilosreciclaje1);
             let PEAD = parseFloat(this.info[i].kilosreciclaje2);
@@ -208,20 +188,9 @@ export class ChartEdadComponent implements OnInit {
             let latas = parseFloat(this.info[i].kilosreciclaje5);
             //se consulta la edad desde la BD
             let dateBorn = await this.infoFechaNacimiento(element);
-            // console.log('yearBorn: '+ dateBorn.slice(6,10));
-            let age = date - dateBorn.slice(6,10);
-           /*  console.log('edad'+ age); */
-            
-
-            
+            let age = date - dateBorn.slice(6,10);         
             let total = PET + PEAD + PEBD + carton + latas;
-            /* total = Math.round((total + Number.EPSILON) * 100) / 100;
-            PET = Math.round((PET + Number.EPSILON) * 100) / 100;
-            PEAD = Math.round((PEAD + Number.EPSILON) * 100) / 100;
-            PEBD = Math.round((PEBD + Number.EPSILON) * 100) / 100;
-            carton = Math.round((carton + Number.EPSILON) * 100) / 100;
-            latas = Math.round((latas + Number.EPSILON) * 100) / 100;
- */
+
             //edad entre 6 y 14 anos
             if( age >=6 && age <=14)
             {
@@ -298,6 +267,11 @@ export class ChartEdadComponent implements OnInit {
               this.G.aluminio += latas;
               this.G.total += total;
             }
+              
+            } catch (error) {
+              
+            }
+            
 
           }          
 
@@ -306,8 +280,7 @@ export class ChartEdadComponent implements OnInit {
         this.redondeo();
 
       });
-      console.log('Termino calculo!!!');
-      //await this.ngOnDestroy();
+
   }
 
   redondeo(){

@@ -143,32 +143,6 @@ export class ChartPersonasComponent implements OnInit {
     aluminio: 0,
     total:0
   }
-  
-
-  
-
-
-   // Doughnut
-   /* public doughnutChartLabels: string[] = ["Botellas PET", "Envases PEAD", "Envases PEBD", "Cartón y Papel", "Latas de aluminio"];
-   public doughnutChartData: number[] = [this.pet, this.pead, this.pebd, this.carton, this.latas];
-   public doughnutChartColors: any[] = [{ backgroundColor: ["#FFEA00", "#FDDA0D", "#DFFF00", "#0096FF", "#888888"] ,
-                                               borderWidth: [1,1,1,1,1]}];
-   public doughnutChartType: ChartType = 'doughnut';
-   public doughnutChartOptions: any = {
-     responsive: true,
-     maintainAspectRatio: false,
-     legend: {
-       position :"right",	
-       display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-         }
-      },
-      
-   };
- */
-   
 
 
   @ViewChild(ApexCharts) chart?: ApexCharts;
@@ -232,26 +206,6 @@ export class ChartPersonasComponent implements OnInit {
   
     }
    
-    /* this.doughnutChartData = [this.pet, this.pead, this.pebd, this.carton, this.latas];
-    this.doughnutChartOptions = {
-      responsive: true,
-      maintainAspectRatio: true,
-      legend: {
-        position :"right",	
-        display: true,
-          labels: {
-          fontColor: '#585757',  
-          boxWidth:15
-          }
-      },
-      animation: {
-        animateScale: false,
-        animateRotate: true,
-        duration: 500,
-        easing: 'linear'
-      }
-      
-    } */
 
     await this.chart?.destroy();
 
@@ -270,150 +224,146 @@ export class ChartPersonasComponent implements OnInit {
      data =>
       {
         this.dathax = data;
-        // console.log(data);
         let largo = Object.keys(this.dathax).length;
-        // console.log('Largo:' + largo);
         let date = new Date().getFullYear();
          for (let i = 1; i < largo; i++) 
          {
 
           if(date == this.dathax[i].timestamp.slice(0,4) )
           {
-          
-          this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
-          this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-          this.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-          this.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-          this.latas += parseFloat(this.dathax[i].kilosreciclaje5);
-          
-          
-          //enero
-          if(this.dathax[i].timestamp.slice(5,7) == '01')
-          {
-            this.enero.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.enero.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.enero.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.enero.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.enero.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+          try {
+            
+            this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
+            this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+            this.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+            this.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+            this.latas += parseFloat(this.dathax[i].kilosreciclaje5);
+            
+            
+            //enero
+            if(this.dathax[i].timestamp.slice(5,7) == '01')
+            {
+              this.enero.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.enero.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.enero.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.enero.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.enero.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //febrero
+            if(this.dathax[i].timestamp.slice(5,7) == '02')
+            {
+              this.febrero.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.febrero.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.febrero.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.febrero.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.febrero.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //marzo
+            if(this.dathax[i].timestamp.slice(5,7) == '03')
+            {
+              this.marzo.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.marzo.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.marzo.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.marzo.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.marzo.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //abril
+            if(this.dathax[i].timestamp.slice(5,7) == '04')
+            {
+              this.abril.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.abril.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.abril.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.abril.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.abril.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //mayo
+            if(this.dathax[i].timestamp.slice(5,7) == '05')
+            {
+              this.mayo.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.mayo.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.mayo.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.mayo.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.mayo.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //junio
+            if(this.dathax[i].timestamp.slice(5,7) == '06')
+            {
+              this.junio.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.junio.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.junio.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.junio.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.junio.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //julio
+            if(this.dathax[i].timestamp.slice(5,7) == '07')
+            {
+              this.julio.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.julio.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.julio.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.julio.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.julio.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //agosto
+            if(this.dathax[i].timestamp.slice(5,7) == '08')
+            {
+              this.agosto.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.agosto.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.agosto.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.agosto.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.agosto.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //septiembre
+            if(this.dathax[i].timestamp.slice(5,7) == '09')
+            {
+              this.septiembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.septiembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.septiembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.septiembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.septiembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //octubre
+            if(this.dathax[i].timestamp.slice(5,7) == '10')
+            {
+              this.octubre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.octubre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.octubre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.octubre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.octubre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //noviembre
+            if(this.dathax[i].timestamp.slice(5,7) == '11')
+            {
+              this.noviembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.noviembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.noviembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.noviembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.noviembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+
+            //diciembre
+            if(this.dathax[i].timestamp.slice(5,7) == '12')
+            {
+              this.diciembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
+              this.diciembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
+              this.diciembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
+              this.diciembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
+              this.diciembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
+            }
+          } catch (error) {
+            
           }
 
-          //febrero
-          if(this.dathax[i].timestamp.slice(5,7) == '02')
-          {
-            this.febrero.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.febrero.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.febrero.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.febrero.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.febrero.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //marzo
-          if(this.dathax[i].timestamp.slice(5,7) == '03')
-          {
-            this.marzo.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.marzo.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.marzo.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.marzo.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.marzo.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //abril
-          if(this.dathax[i].timestamp.slice(5,7) == '04')
-          {
-            this.abril.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.abril.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.abril.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.abril.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.abril.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //mayo
-          if(this.dathax[i].timestamp.slice(5,7) == '05')
-          {
-            this.mayo.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.mayo.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.mayo.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.mayo.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.mayo.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //junio
-          if(this.dathax[i].timestamp.slice(5,7) == '06')
-          {
-            this.junio.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.junio.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.junio.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.junio.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.junio.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //julio
-          if(this.dathax[i].timestamp.slice(5,7) == '07')
-          {
-            this.julio.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.julio.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.julio.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.julio.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.julio.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //agosto
-          if(this.dathax[i].timestamp.slice(5,7) == '08')
-          {
-            this.agosto.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.agosto.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.agosto.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.agosto.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.agosto.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //septiembre
-          if(this.dathax[i].timestamp.slice(5,7) == '09')
-          {
-            this.septiembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.septiembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.septiembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.septiembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.septiembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //octubre
-          if(this.dathax[i].timestamp.slice(5,7) == '10')
-          {
-            this.octubre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.octubre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.octubre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.octubre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.octubre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //noviembre
-          if(this.dathax[i].timestamp.slice(5,7) == '11')
-          {
-            this.noviembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.noviembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.noviembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.noviembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.noviembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          //diciembre
-          if(this.dathax[i].timestamp.slice(5,7) == '12')
-          {
-            this.diciembre.pet += parseFloat(this.dathax[i].kilosreciclaje1);
-            this.diciembre.pead += parseFloat(this.dathax[i].kilosreciclaje2);
-            this.diciembre.pebd += parseFloat(this.dathax[i].kilosreciclaje3);
-            this.diciembre.carton += parseFloat(this.dathax[i].kilosreciclaje4);
-            this.diciembre.aluminio += parseFloat(this.dathax[i].kilosreciclaje5);
-          }
-
-          // let total = this.pet + this.pead + this.pebd + this.carton + this.latas;
-          //console.log(PET,PEAD,PEBD,carton,latas);
-          
-          //console.log(total);
-          // console.log('i:' + i);
          
-          // console.log('PET:' +this.pet + 'PEAD: ' + this.pead + 'PEBD: ' +this.pebd + 'Carton: ' + this.carton + 'Latas:' + this.latas)
           }
 
         }

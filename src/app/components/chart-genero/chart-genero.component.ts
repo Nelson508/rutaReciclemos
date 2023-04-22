@@ -85,8 +85,6 @@ export class ChartGeneroComponent implements OnInit {
     await this.firebaseSer.getRutasCompletadas().then( async data =>
       {
         this.info = data;
-        /* console.log(this.info['1'].uid); */
-        //var largo =  Object.keys(this.graficoVotacion.opciones).length;
         let largo = Object.keys(this.info).length;
         //console.log(largo);
 
@@ -94,7 +92,8 @@ export class ChartGeneroComponent implements OnInit {
           let date = new Date().getFullYear();
           if(date == this.info[i].timestamp.slice(0,4) )
           {
-            let element = this.info[i].uid;
+            try {
+              let element = this.info[i].uid;
             let PET = parseFloat(this.info[i].kilosreciclaje1);
             let PEAD = parseFloat(this.info[i].kilosreciclaje2);
             let PEBD = parseFloat(this.info[i].kilosreciclaje3);
@@ -102,12 +101,6 @@ export class ChartGeneroComponent implements OnInit {
             let latas = parseFloat(this.info[i].kilosreciclaje5);
             let genero = await this.infoGenero(element);
             let total = PET + PEAD + PEBD + carton + latas;
-            // total = Math.round((total + Number.EPSILON) * 100) / 100;
-            // PET = Math.round((PET + Number.EPSILON) * 100) / 100;
-            // PEAD = Math.round((PEAD + Number.EPSILON) * 100) / 100;
-            // PEBD = Math.round((PEBD + Number.EPSILON) * 100) / 100;
-            // carton = Math.round((carton + Number.EPSILON) * 100) / 100;
-            // latas = Math.round((latas + Number.EPSILON) * 100) / 100;
             if(genero == 'Masculino')
             {
               this.Masculino += total;
@@ -140,6 +133,11 @@ export class ChartGeneroComponent implements OnInit {
 
               
             }
+              
+            } catch (error) {
+              
+            }
+            
 
           }
           
@@ -185,15 +183,6 @@ export class ChartGeneroComponent implements OnInit {
   }
 
   
-  // async infoGenero(id:any): Promise<any> {
-  //   return this.firebaseSer.getGenero(id).then( data =>
-  //     {
-  //       let genero = data;
-  //       console.log(genero);
-  //       return data;
-        
-  //     });
-  // }
 
 
   async ngOnDestroy(){

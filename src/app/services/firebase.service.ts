@@ -110,10 +110,11 @@ getRutasCompletadas(): Promise<any> {
 
       snapshot.forEach(childrenSnapshot =>{
        
-        if(childrenSnapshot.val().g == 'Solicitud desde telefono'){
-        /* if(childrenSnapshot.val().g != 'punto_limpio_lleno'){ */
-          this.dataRutasCompletas.push(childrenSnapshot.val());
-        }
+        // if(childrenSnapshot.val().g == 'Solicitud desde telefono'){
+        // /* if(childrenSnapshot.val().g != 'punto_limpio_lleno'){ */
+        //   this.dataRutasCompletas.push(childrenSnapshot.val());
+        // }
+        this.dataRutasCompletas.push(childrenSnapshot.val());
       })
 
      /*  console.log(this.dataRutasCompletas); */

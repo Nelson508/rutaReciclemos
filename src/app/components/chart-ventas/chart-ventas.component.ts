@@ -316,10 +316,13 @@ export class ChartVentasComponent implements OnInit {
 
       if(pedido.estado == 'aprobado'){
         this.ventasMes(pedido);
-        /* this.pedidoAprobado.push(clientes); */
+        this.pedidoAprobado.push(pedido); 
       }
 
+      
+
     });
+    console.log(this.pedidoAprobado);
 
 
 

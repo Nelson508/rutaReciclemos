@@ -465,7 +465,7 @@ export class ResumenComponent implements OnInit {
   async ngOnInit() {
     this.getComunas();
    
-   this.infoPuntosFijos(); 
+  //  this.infoPuntosFijos(); 
 
   //  await this.obtenerRutasCompletadas();
     
@@ -517,6 +517,38 @@ export class ResumenComponent implements OnInit {
          
            if(date == this.dathax[i].timestamp.slice(0,4) )
            {
+            if(this.dathax[i].g == 'punto_limpio_lleno' )
+            {
+            try {
+              let nombrePunto = this.dathax[i].nombre;
+              let indexNombreInArray = this.nombrePuntoFijo.indexOf(nombrePunto);
+              
+
+              // Es -1 cuando aún no se añade el nombre
+              if (indexNombreInArray == -1) {
+                console.log("no se añade");
+                this.nombrePuntoFijo.push(this.dathax[i].nombre);
+
+                //ASIGNAMOS LOS KILOS A LOS SUBAGRUPÁDORES
+                this.plasticos.push(this.dathax[i].kilosreciclaje1);
+                this.latasAluminio.push(this.dathax[i].kilosreciclaje2);
+                this.cartonPapel.push(this.dathax[i].kilosreciclaje3);
+              }else{
+                //ya se añadio previamente
+              //ya se añadio previamente
+              this.plasticos[indexNombreInArray] = this.plasticos[indexNombreInArray] + this.dathax[i].kilosreciclaje1;
+              this.latasAluminio[indexNombreInArray] = this.latasAluminio[indexNombreInArray] + this.dathax[i].kilosreciclaje2;
+              this.cartonPapel[indexNombreInArray] =this.cartonPapel[indexNombreInArray] + this.dathax[i].kilosreciclaje3;
+
+              }
+                        
+            } catch (error) {
+              
+            }
+
+          
+            }
+ 
              //sumamos la info para materiales
             this.pet +=  parseFloat(this.dathax[i].kilosreciclaje1);
             this.pead += parseFloat(this.dathax[i].kilosreciclaje2);
